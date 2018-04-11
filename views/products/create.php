@@ -2,7 +2,7 @@
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     
     <h2>Add New Item</h2>
-</div>
+
     <p>
         <input class="w3-input" type="text" name="name" required autofocus>
         <label>Name</label>

@@ -13,7 +13,9 @@
         $action     = $_GET['action'];
   } else {
         $controller = 'product';
-        $action     = 'readAll';
+        $action     = 'readArticle';
+        $_GET['id'] = 4;
+        
   }
 
     require_once('views/layout.php');
