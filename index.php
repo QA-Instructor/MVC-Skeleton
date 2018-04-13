@@ -14,7 +14,7 @@
   } else {
         $controller = 'product';
         $action     = 'readArticle';
-        $_GET['id'] = 4;
+        $_GET['id'] = 7;
         
   }
 

@@ -26,6 +26,7 @@ class ProductController {
     
     public function readArticle() {
         require_once('models/comment.php');
+        require_once('models/map.php');
       // we expect a url of form ?controller=posts&action=show&id=x
       // without an id we just redirect to the error page as we need the post id to find it in the database
       if (!isset($_GET['id']))
@@ -34,8 +35,9 @@ class ProductController {
       try{
       // we use the given id to get the correct post
       $product = Product::findArticle($_GET['id']);
-      $comments = Comment::allComments($_GET['id']);
-      require_once('views/products/article.php');
+      $comments = Comment::articleComments($_GET['id']);
+      $map = Map::coordinates($_GET['id']);
+      require_once('views/products/readArticle.php');
       }
  catch (Exception $ex){
      return call('pages','error');
