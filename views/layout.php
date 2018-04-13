@@ -60,19 +60,16 @@
             </div>
         </nav>
         <div class='container'>
-            <h1> this is the main body of the page with nice margins</h1>
             <?php require_once('routes.php'); ?>
         </div>
-        <footer class='footer'>
+        <footer class="footer navbar-fixed-bottom">
             <div class='container'>
                 <div class="col-md-5">
                     <div class="row">
                         <div class="footer-contact">
-                            <p><a href='?controller=product&action=create'>About us</a></p>
+                        <p><a href='?controller=product&action=create'>About us</a></p>
                             <p><a href=?controller=product&action=create'>Contact us</a></p>
-                            <form action="action_page.php">
-                                <input type="submit" value="Member login">
-                            </form> 
+                            <p><a href='?controller=blogger&action=login'>Blogger login</a></p> 
                         </div>
 
                     </div>
@@ -83,7 +80,7 @@
                         <div class="pull-right">
                             <form action="action_page.php">
                                 <div class="footer-newsletter">
-                                    <p>Sign up to our news</p>
+                                  <p>Sign up to our news</p>
                                 </div>
                                 <input type="text" placeholder="Email address" name="mail" required>
                                 <input type="submit" value="Subscribe">
@@ -102,6 +99,7 @@
                         </div>
                     </div>
                 </div>
+                </div
             </div>
         </footer>
     </body>

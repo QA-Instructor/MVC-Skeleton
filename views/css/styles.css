@@ -1,3 +1,7 @@
+html,body{
+    height: 100%
+}
+
 .footer {
     font-family: 'Quicksand', cursive;
     left: 0;
@@ -7,10 +11,22 @@
     padding: 5px;
 }
 
-.footer .footer-contact {
+.footer.footer-contact {
     padding: 20px;
-     display: inline-block;
+    display: inline-block; 
 }           
+
+a.footer.footer-contact {
+    a:link {
+        color: whitesmoke;
+    }
+    a:visited {
+        color: whitesmoke;
+    }
+    a:hover {
+        color: #ff3300;
+    }
+}
 
 .footer .footer-newsletter {
     padding: 20px 0px 5px;
@@ -134,4 +150,9 @@ a.socialIcon:hover, .socialHoverClass {
 
 a {
     background-color: #D3D3D3;   
+}
+
+.padding50px {
+
+    padding: 50px;
 }
