@@ -11,9 +11,9 @@
   </head>
   <body>
     <header class="w3-container w3-gray">
-      <a href='/MVC_Skeleton'>Home</a>
-      <a href='?controller=product&action=readAll'>Products</a>
-      <a href='?controller=product&action=create'>Add Product</a>
+      <a href='/MVC-Skeleton'>Home</a>
+      <a href='?controller=article&action=readAll'>Article</a>
+      <a href='?controller=article&action=create'>Add Article</a>
     </header>
 <div class="w3-container w3-pink">
     <?php require_once('routes.php'); ?>

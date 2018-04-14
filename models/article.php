@@ -10,17 +10,17 @@
     public function __construct($id, $title, $content,$date) {
       $this->id    = $id;
       $this->name  = $title;
-      $this->price = $content;
+      $this->content = $content;
       $this->date = $date;
     }
 
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM article');
+      $req = $db->query('SELECT * FROM article'); //SELECT * FROM `article` 
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $article) {
-        $list[] = new Article($article['id'], $article['$title'], $article['$content'], $article['$date']);
+        $list[] = new Article($article['$id'], $article['$title'], $article['$content'], $article['$date']);
       }
       return $list;
     }
@@ -34,7 +34,7 @@
       $req->execute(array('id' => $id));
       $article = $req->fetch();
 if($article){
-      return new Article($article['id'], $article['$title'], $article['$content'], $article['$date']);
+      return new Article($article['$id'], $article['$title'], $article['$content'], $article['$date']);
     }
     else
     {
@@ -117,7 +117,7 @@ public static function uploadFile(string $title) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_title'];
-        $path = "C:/xampp/htdocs/MVC_Blog/views/images/";
+        $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/";
 	$destinationFile = $path . $name . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
