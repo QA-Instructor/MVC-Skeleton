@@ -1,10 +1,10 @@
 <?php
 
-class ProductController {
+class ArticleController {
     public function readAll() {
       // we store all the posts in a variable
-      $products = Product::all();
-      require_once('views/products/readAll.php');
+      $article = Article::all();
+      require_once('views/articles/readAll.php');
     }
 
     public function read() {
@@ -15,8 +15,8 @@ class ProductController {
 
       try{
       // we use the given id to get the correct post
-      $product = Product::find($_GET['id']);
-      require_once('views/products/read.php');
+      $article = Article::find($_GET['id']);
+      require_once('views/articles/read.php');
       }
  catch (Exception $ex){
      return call('pages','error');
@@ -27,13 +27,13 @@ class ProductController {
       // if it's a GET request display a blank form for creating a new product
       // else it's a POST so add to the database and redirect to readAll action
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
-          require_once('views/products/create.php');
+          require_once('views/articles/create.php');
       }
       else { 
-            Product::add();
+            Article::add();
              
-            $products = Product::all(); //$products is used within the view
-            require_once('views/products/readAll.php');
+            $article = Article::all(); //$products is used within the view
+            require_once('views/articles/readAll.php');
       }
       
     }
@@ -44,25 +44,25 @@ class ProductController {
         return call('pages', 'error');
 
         // we use the given id to get the correct product
-        $product = Product::find($_GET['id']);
+        $article = Article::find($_GET['id']);
       
-        require_once('views/products/update.php');
+        require_once('views/articles/update.php');
         }
       else
           { 
             $id = $_GET['id'];
-            Product::update($id);
+            Article::update($id);
                         
-            $products = Product::all();
-            require_once('views/products/readAll.php');
+            $articles = Article::all();
+            require_once('views/articles/readAll.php');
       }
       
     }
     public function delete() {
-            Product::remove($_GET['id']);
+            Article::remove($_GET['id']);
             
-            $products = Product::all();
-            require_once('views/products/readAll.php');
+            $articles = Article::all();
+            require_once('views/articles/readAll.php');
       }
       
     }
