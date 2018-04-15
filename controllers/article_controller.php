@@ -3,13 +3,13 @@
 class ArticleController {
     public function readAll() {
       // we store all the posts in a variable
-      $article = Article::all();
+      $articles = Article::all();
       require_once('views/articles/readAll.php');
     }
 
     public function read() {
       // we expect a url of form ?controller=posts&action=show&id=x
-      // without an id we just redirect to the error page as we need the post id to find it in the database
+      // without an id we just  redirect to the error page as we need the post id to find it in the database
       if (!isset($_GET['id']))
         return call('pages', 'error');
 
@@ -32,7 +32,7 @@ class ArticleController {
       else { 
             Article::add();
              
-            $article = Article::all(); //$products is used within the view
+            $articles = Article::all(); //$products is used within the view
             require_once('views/articles/readAll.php');
       }
       

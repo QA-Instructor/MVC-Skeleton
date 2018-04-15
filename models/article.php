@@ -8,8 +8,8 @@
     public $date;
 
     public function __construct($id, $title, $content,$date) {
-      $this->id    = $id;
-      $this->name  = $title;
+      $this->article_id    = $id;
+      $this->title  = $title;
       $this->content = $content;
       $this->date = $date;
     }
@@ -20,7 +20,7 @@
       $req = $db->query('SELECT * FROM article'); //SELECT * FROM `article` 
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $article) {
-        $list[] = new Article($article['$id'], $article['$title'], $article['$content'], $article['$date']);
+        $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
       }
       return $list;
     }
@@ -34,7 +34,7 @@
       $req->execute(array('id' => $id));
       $article = $req->fetch();
 if($article){
-      return new Article($article['$id'], $article['$title'], $article['$content'], $article['$date']);
+      return new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
     }
     else
     {
@@ -45,7 +45,7 @@ if($article){
 
 public static function update($id) {
     $db = Db::getInstance();
-    $req = $db->prepare("Update article set title=:title, content=:content, date=:date where id=:id");
+    $req = $db->prepare("Update article set title=:title, content=:content, date=:date where article_id=:article_id");
     $req->bindParam(':id', $id);
     $req->bindParam(':title', $title);
     $req->bindParam(':content', $content);
@@ -100,6 +100,7 @@ const InputKey = 'myUploader';
 
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
+/*
 public static function uploadFile(string $title) {
 
 	if (empty($_FILES[self::InputKey])) {
@@ -118,9 +119,10 @@ public static function uploadFile(string $title) {
 
 	$tempFile = $_FILES[self::InputKey]['tmp_title'];
         $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/";
-	$destinationFile = $path . $name . '.jpeg';
-
-	if (!move_uploaded_file($tempFile, $destinationFile)) {
+	//$destinationFile = $path . $name . '.jpeg';
+        $destinationFile = $path . 'test.jpeg';
+	
+        if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("Handle Error");
 	}
 		
@@ -129,6 +131,8 @@ public static function uploadFile(string $title) {
 		unlink($tempFile); 
 	}
 }
+ * 
+ */
 public static function remove($id) {
       $db = Db::getInstance();
       //make sure $id is an integer

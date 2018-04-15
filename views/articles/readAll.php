@@ -1,10 +1,10 @@
-<p>Here is a list of all products:</p>
+<p>Here is a list of all articles</p>
 
-<?php foreach($products as $product) { ?>
+<?php foreach($articles as $article) { ?>
   <p>
-    <?php echo $product->name; ?> &nbsp; &nbsp;
-    <a href='?controller=product&action=read&id=<?php echo $product->id; ?>'>See product information</a> &nbsp; &nbsp;
-    <a href='?controller=product&action=delete&id=<?php echo $product->id; ?>'>Delete Product</a> &nbsp; &nbsp;
-    <a href='?controller=product&action=update&id=<?php echo $product->id; ?>'>Update Product</a> &nbsp;
+    <?php echo $article->title; ?> &nbsp; &nbsp;
+    <a href='?controller=article&action=read&article_id=<?php echo $article->id; ?>'>See article information</a> &nbsp; &nbsp;
+    <a href='?controller=article&action=delete&article_id=<?php echo $article->id; ?>'>Delete article</a> &nbsp; &nbsp;
+    <a href='?controller=article&action=update&article_id=<?php echo $article->id; ?>'>Update article</a> &nbsp;
   </p>
 <?php } ?>
