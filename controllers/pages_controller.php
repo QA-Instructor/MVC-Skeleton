@@ -1,16 +1,22 @@
 <?php
 
+include __DIR__ . '/../models/blogger.php';
+
 class PagesController {
-   
+
     public function home() {
-      //example data to use in the home page
-      $first_name = 'Lisa';
-      $last_name  = 'Simpson';
-      require_once('views/pages/home.php');
+        session_start();
+        if (isset($_SESSION['blogger_id'])) {
+            $blogger = blogger::getBloggerById($_SESSION['blogger_id']);
+            $name = $blogger->getFname() . " " . $blogger->getLname();
+        } else {
+            $name = "Guest";
+        }
+        require_once('views/pages/home.php');
     }
 
     public function error() {
-      require_once('views/pages/error.php');
+        require_once('views/pages/error.php');
     }
-    
+
 }
