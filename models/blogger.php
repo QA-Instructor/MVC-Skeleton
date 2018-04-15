@@ -60,13 +60,3 @@ class Blogger {
     }
 
 }
-
-//
-// if ($count_row == 1) {
-//////            $_SESSION['login'] = true;
-//////            $_SESSION['f_name'] = $user_data['f_name'];
-////            return true;
-////        } else {
-////            return false;
-
-        

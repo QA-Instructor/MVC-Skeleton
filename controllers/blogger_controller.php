@@ -24,4 +24,10 @@ class bloggerController {
         require_once(__DIR__ . '/../views/pages/error.php');
     }
 
+    public function logout() {
+        session_start();
+        session_destroy();
+        require_once(__DIR__ . '/../views/blogger/logout.php');
+    }
+
 }

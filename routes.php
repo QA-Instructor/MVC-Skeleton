@@ -28,7 +28,7 @@ function call($controller, $action) {
 // Add an entry for each new controller and its actions
 $controllers = array('pages' => ['home', 'error'],
     'product' => ['readAll', 'read', 'create', 'update', 'delete'],
-    'blogger' => ['login'],
+    'blogger' => ['login', 'logout'],
 );
 
 // check that the requested controller and action are both allowed
