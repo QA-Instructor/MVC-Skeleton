@@ -34,10 +34,9 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
 </form>
 <br/>
 <p>
-    --- Pending Comments --
+    --- Comments Awaiting Approval ---
     
 </p>
-<?php if ($comment != 0){ ?>
 <table style="width:70%">
   <tr>
     <th>Title</th>
@@ -53,7 +52,7 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
     <td> <a href="">Approve</a> &nbsp;</td>
     <td><a href="">Reject</a> &nbsp; &nbsp;</td>
   </tr>
-<?php } }?>
+<?php }?>
 </table>
 <br/>
 <br/>

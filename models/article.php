@@ -137,10 +137,19 @@ public static function remove($id) {
       $db = Db::getInstance();
       //make sure $id is an integer
       $id = intval($id);
-      $req = $db->prepare('delete FROM article WHERE article_id = :id');
+      $req = $db->prepare('delete FROM article WHERE article_id = :article_id');
       // the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id));
+      $req->execute(array('article_id' => $id));
   }
-  
+  /*  
+   * public static function update($id) {
+    $db = Db::getInstance();
+    $req = $db->prepare("Update article set title=:title, content=:content where article_id=:article_id");
+    $req->bindParam(':article_id', $id);
+    $req->bindParam(':title', $title);
+    $req->bindParam(':content', $content);
+    //$req->bindParam(':date', $date);
+   * 
+   */
 }
 ?>
