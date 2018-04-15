@@ -14,7 +14,7 @@ class bloggerController {
             $blogger = blogger::getBloggerIfValid($_POST['username'], $_POST['password']);
             if ($blogger !== NULL) {
                 $_SESSION['blogger_id'] = $blogger->getBloggerId();
-                header('Location: ?controller=product&action=create');
+                header('Location: ?controller=article&action=readAll');
             }
         }
         require_once(__DIR__ . '/../views/blogger/login.php');
