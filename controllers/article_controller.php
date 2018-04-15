@@ -46,7 +46,8 @@ class ArticleController {
         // we use the given id to get the correct product
        require_once('models/comment.php');
         $article = Article::find($_GET['article_id']);
-        $comment = Comment::allArticleComments($_GET['article_id']);
+        //$comment = Comment::allArticleComments($_GET['article_id']); - this method if form all status of comments Approved, rej and Pending
+        $comment = Comment::pendingArticleComments($_GET['article_id']);
       
         require_once('views/articles/update.php');
         }

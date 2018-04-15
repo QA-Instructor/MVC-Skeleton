@@ -32,7 +32,12 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
     <input class="w3-btn w3-gray" type="submit" value="Update Article">
     </p>
 </form>
-
+<br/>
+<p>
+    --- Pending Comments --
+    
+</p>
+<?php if ($comment != 0){ ?>
 <table style="width:70%">
   <tr>
     <th>Title</th>
@@ -41,13 +46,14 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
     <th></th>
     <th></th>
   </tr>
-<?php foreach($comment as $comm) { ?>
+<?php   foreach($comment as $comm) { ?>
   <tr>
     <td><?php echo $comm->comment; ?> &nbsp; &nbsp; </td>
     <td><?php echo $comm->comment_status; ?> &nbsp; &nbsp;</td>
     <td> <a href="">Approve</a> &nbsp;</td>
     <td><a href="">Reject</a> &nbsp; &nbsp;</td>
   </tr>
-  <?php } ?>
+<?php } }?>
 </table>
-
+<br/>
+<br/>
