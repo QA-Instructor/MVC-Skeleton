@@ -1,15 +1,15 @@
 <p>This is the article page</p>
 
 <?php
-$file = 'views/images/' . $product->id. '.jpg';
+$file = 'views/images/' . $article->id. '.jpg';
 if (file_exists($file)) {
     $img = "<img src='$file' width='100%' />";
     echo $img;
 } 
 ?>
-<h2><?php echo $product->title; ?></h2>
-<p><?php echo $product->content; ?></p>
-<p><?php echo $product->date; ?></p>
+<h2><?php echo $article->title; ?></h2>
+<p><?php echo $article->content; ?></p>
+<p><?php echo $article->date; ?></p>
 
 <!-- map will be inserted here if exists -->
 <div id="map"></div> 
@@ -22,6 +22,32 @@ if (file_exists($file)) {
     <p><?php echo $commentObj->comment; ?></p>
     <p><?php echo $commentObj->date; ?></p>
 <?php } ?>
+    
+<p>Would you like to comment?</p>
+<form action="" method="POST" class="w3-container" enctype="multipart/form-data">
+    <p>
+        <input class="w3-input" type="text" name="comment" autofocus>
+    </p>
+    <p>
+        <input class="w3-input" type="text" name="name" required >
+        <label>Name</label>
+    </p>
+        <p>
+            <input class="w3-input" type="email" name="email" required>
+        <label>email</label>
+    </p>
+            
+  <input type="hidden" 
+	   name="MAX_FILE_SIZE" 
+         value="10000000"
+         />
+
+  <p>
+    <input class="w3-btn w3-pink" type="submit" value="Submit">
+  </p>
+</form>    
+    
+    
 
 
 <?php 

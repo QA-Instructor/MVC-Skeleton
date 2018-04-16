@@ -1,6 +1,6 @@
 <?php
 
-class Product {
+class Article {
 
     // we define 3 attributes
     public $id;
@@ -14,7 +14,26 @@ class Product {
         $this->content = $content;
         $this->date = $date;
     }
+    
+    public static function findArticle($id) {
+        $db = Db::getInstance();
+        //use intval to make sure $id is an integer
+        $id = intval($id);
+        $req = $db->prepare('SELECT * FROM article WHERE article_id = :id');
+        //the query was prepared, now replace :id with the actual $id value
+        $req->execute(array('id' => $id));
+        $article = $req->fetch();
+        if ($article) {
+            return new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
+        } else {
+            //replace with a more meaningful exception
+            throw new Exception('A real exception should go here');
+        }
+    }
 
+    
+    
+    
     public static function all() {
         $list = [];
         $db = Db::getInstance();
@@ -30,22 +49,6 @@ class Product {
         $db = Db::getInstance();
         //use intval to make sure $id is an integer
         $id = intval($id);
-        $req = $db->prepare('SELECT * FROM product WHERE id = :id');
-        //the query was prepared, now replace :id with the actual $id value
-        $req->execute(array('id' => $id));
-        $product = $req->fetch();
-        if ($product) {
-            return new Product($product['article_id'], $product['title'], $product['content'], $product['date']);
-        } else {
-            //replace with a more meaningful exception
-            throw new Exception('A real exception should go here');
-        }
-    }
-
-    public static function findArticle($id) {
-        $db = Db::getInstance();
-        //use intval to make sure $id is an integer
-        $id = intval($id);
         $req = $db->prepare('SELECT * FROM article WHERE article_id = :id');
         //the query was prepared, now replace :id with the actual $id value
         $req->execute(array('id' => $id));
@@ -57,6 +60,7 @@ class Product {
             throw new Exception('A real exception should go here');
         }
     }
+
 
     public static function update($id) {
         $db = Db::getInstance();

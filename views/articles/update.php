@@ -2,11 +2,11 @@
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     <h2>Update Item</h2>
     <p>
-        <input class="w3-input" type="text" name="name" value="<?= $product->name; ?>">
+        <input class="w3-input" type="text" name="name" value="<?= $product->title; ?>">
         <label>Name</label>
     </p>
     <p>
-        <input class="w3-input" type="text" name="price" value="<?= $product->price; ?>" >
+        <input class="w3-input" type="text" name="price" value="<?= $product->content; ?>" >
         <label>Price</label>
     </p>
             
