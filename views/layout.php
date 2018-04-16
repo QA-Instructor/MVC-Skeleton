@@ -49,11 +49,16 @@
                     <li><a href="#">Sight Seeing</a></li>
                     <li><a href="#">Hotels</a></li>
                 </ul>
-                <form class="navbar-form navbar-right">
+                <form action=?controller=article&action=searchAll?search=" <?php echo $_GET['search'];?> method="GET" role="form"  id="searchform" class="navbar-form navbar-right">
+                   
+                                       
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" name="search" class="form-control" placeholder="Search">
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                            <button type="submit" name="searchButton" id="searchButton" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search">
+                                </span>
+                            </button>
                         </span>
                     </div>
                 </form>
@@ -67,7 +72,7 @@
                 <div class="col-md-5">
                     <div class="row">
                         <div class="footer-contact">
-                        <p><a href='?controller=product&action=create'>About us</a></p>
+                            <p><a href='?controller=product&action=create'>About us</a></p>
                             <p><a href='?controller=product&action=create'>Contact us</a></p>
                             <p><a href='?controller=blogger&action=login'>Blogger login</a></p> 
                             <p><a href='?controller=blogger&action=logout'>Blogger logout</p><a/>
@@ -81,7 +86,7 @@
                         <div class="pull-right">
                             <form action="action_page.php">
                                 <div class="footer-newsletter">
-                                  <p>Sign up to our news</p>
+                                    <p>Sign up to our news</p>
                                 </div>
                                 <input type="text" placeholder="Email address" name="mail" required>
                                 <input type="submit" value="Subscribe">
@@ -100,9 +105,9 @@
                         </div>
                     </div>
                 </div>
-                </div
-            </div>
-        </footer>
-    </body>
+            </div
+        </div>
+    </footer>
+</body>
 </html>                            
 
