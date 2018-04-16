@@ -1,5 +1,7 @@
 <?php
+
   class Article {
+
 
     // we define 3 attributes
     public $id;
@@ -7,12 +9,31 @@
     public $content;
     public $date;
 
-    public function __construct($id, $title, $content,$date) {
-      $this->article_id    = $id;
-      $this->title  = $title;
-      $this->content = $content;
-      $this->date = $date;
+
+    public function __construct($id, $title, $content, $date) {
+        $this->id = $id;
+        $this->title = $title;
+        $this->content = $content;
+        $this->date = $date;
     }
+    
+    
+    public static function findArticle($id) {
+        $db = Db::getInstance();
+        //use intval to make sure $id is an integer
+        $id = intval($id);
+        $req = $db->prepare('SELECT * FROM article WHERE article_id = :id');
+        //the query was prepared, now replace :id with the actual $id value
+        $req->execute(array('id' => $id));
+        $article = $req->fetch();
+        if ($article) {
+            return new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
+        } else {
+            //replace with a more meaningful exception
+            throw new Exception('A real exception should go here');
+        }
+    }
+
 
     public static function all() {
       $list = [];
@@ -152,4 +173,5 @@ public static function remove($id) {
    * 
    */
 }
+
 ?>

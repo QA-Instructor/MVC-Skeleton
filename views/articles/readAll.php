@@ -1,3 +1,4 @@
+
 <p>Here is a list of all articles</p>
 
 
@@ -19,3 +20,4 @@
   </tr>
   <?php } ?>
 </table>
+

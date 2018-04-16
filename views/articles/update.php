@@ -1,3 +1,4 @@
+
 <p>Fill in the following form to update an existing article:</p>
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     <h2>Update Item</h2>
@@ -29,6 +30,7 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
   <br/>
   <input type="file" name="myUploader" class="w3-btn w3-pink" />
   <p>
+
     <input class="w3-btn w3-gray" type="submit" value="Update Article">
     </p>
 </form>
@@ -56,3 +58,4 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
 </table>
 <br/>
 <br/>
+
