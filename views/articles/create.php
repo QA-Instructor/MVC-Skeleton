@@ -3,6 +3,7 @@
     
     <h2>Add New Item</h2>
 
+</div>
     <p>
         <input class="w3-input" type="text" name="name" required autofocus>
         <label>Name</label>
