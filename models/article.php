@@ -151,14 +151,15 @@ class Article {
      */
 
     public static function searchAll($keyword) {
+//        $list = [];
         $db = Db::getInstance();
         $result = $db->query("SELECT * FROM article AS a JOIN blogger as b ON a.blogger_id = b.blogger_id WHERE title LIKE '%$keyword%' OR content LIKE '%$keyword%'");
-        $rows = $result->fetchAll();
+        $rows=$result->fetchAll();
         $num_rows = count($rows);
         if ($num_rows > 0) {
             echo "<h2> Your search result for <i> $keyword</i> </h2>";
             foreach ($rows as $row) {
-                echo '<h3><tr><td>' . $row['title'] . '</h3></td>';
+                echo '<tr><td>' . $row['title'] . " " . '</h3></td></tr></br>';
                 echo '<td>' . "By " . '<i>' . $row['f_name'] . " " . $row['l_name'] . '</i>'. " " . '</td>';
                 echo '<td>' . "published on " . $row['date'] . '</td><br>';
             }
@@ -168,6 +169,13 @@ class Article {
         }
     }
 
-
-
-?>
+//        
+//        }
+//    }
+////
+////
+////foreach ($result->fetchAll() as $article) {
+//            $list[] = new Article($article['id'], $article['title'], $article['content'], $article['date']);
+//            return $list;
+//
+//

@@ -49,9 +49,8 @@
                     <li><a href="#">Sight Seeing</a></li>
                     <li><a href="#">Hotels</a></li>
                 </ul>
-                <form action=?controller=article&action=searchAll?search=" <?php echo $_GET['search'];?> method="GET" role="form"  id="searchform" class="navbar-form navbar-right">
-                   
-                                       
+                <form action="?controller=article&action=searchAll?search=" method="GET" role="form"  id="searchform" class="navbar-form navbar-right">
+                   //<?php // echo $_GET['search'];?> 
                     <div class="input-group">
                         <input type="text" name="search" class="form-control" placeholder="Search">
                         <span class="input-group-btn">
@@ -67,7 +66,7 @@
         <div class='container'>
             <?php require_once('routes.php'); ?>
         </div>
-        <footer class="footer navbar-fixed-bottom">
+        <footer class="footer">
             <div class='container'>
                 <div class="col-md-5">
                     <div class="row">
