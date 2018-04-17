@@ -17,15 +17,15 @@
 
       <!-- Slide 1 : Active -->
       <div class="item active">
-        <img src="views/images/slideshow/London at Night.jpg" alt="" >
+        <img src="views/images/slideshow/London at Night.jpg" alt="" style="width:1000px;height: 300px">
         <div class="carousel-caption">
           <p>London @Night</p>
         </div><!-- /.carousel-caption -->
       </div><!-- /Slide1 -->
 
       <!-- Slide 2 -->
-      <div class="item ">
-        <img src="views/images/slideshow/Tea Time.png" alt="">
+      <div class="item " style="">
+          <img src="views/images/slideshow/Tea Time.png" alt="" style="width:1000px;height: 300px">
         <div class="carousel-caption">
           <p>Tea Break</p>
         </div><!-- /.carousel-caption -->
@@ -33,7 +33,7 @@
 
       <!-- Slide 3 -->
       <div class="item ">
-        <img src="views/images/slideshow/The Queen.jpg" alt="">
+        <img src="views/images/slideshow/The Queen.jpg" alt=""style="width:1000px;height: 300px">
         <div class="carousel-caption">
           <p>The Queen</p>
         </div><!-- /.carousel-caption -->
@@ -41,7 +41,7 @@
 
       <!-- Slide 4 -->
       <div class="item ">
-        <img src="views/images/slideshow/The Savoy Hotel.jpg" alt="">
+        <img src="views/images/slideshow/The Savoy Hotel.jpg" alt=""style="width:1000px;height: 300px">
         <div class="carousel-caption">
           <p>The Savoy Hotel</p>
         </div><!-- /.carousel-caption -->
@@ -68,7 +68,6 @@
 </section><!-- /.main-slider -->
 
 
-
 <?php
 //Columns must be a factor of 12 (1,2,3,4,6,12)
 $numOfCols = 3;
@@ -80,15 +79,15 @@ $bootstrapColWidth = 12 / $numOfCols;
 foreach ($articles as $article){
    $file = 'views/images/' . $article->id. '.jpg';
 ?>  
-        <div class="col-md-<?php echo $bootstrapColWidth; ?>">
-            <div class="card" style="margin-top: 10px;padding-left: 20px;padding-bottom: 10px">
-                <img class="card-img-top" style="width: 250px;height:150px" src="<?php echo $file?>" alt="Card image cap">
-                <div class="card-body">
-                <h6><?php echo $article->date; ?></h6>
-                <h5 class="card-title"><?php echo $article->title; ?></h5>
-                <button class="btn">Read more</button>   
-             </div>
-            </div>
+  <div class="col-md-<?php echo $bootstrapColWidth; ?>">
+            <div class="w3-card-4" style="margin-top: 10px;padding-left: 10px" >
+  <img src="<?php echo $file?>" alt="Norway" style="width: 250px;height:150px;margin-left: 13px;margin-right: 5px;margin-top: 5px">
+  <div class="w3-container w3-center">
+      <h6><?php echo $article->title; ?></h6>
+    <p class="blogtext w3-small"><?php echo $article->content; ?></p>
+    <button class="btn" style="margin-bottom:5px">Read more</button>
+  </div>
+</div>
         </div>
 <?php
     $rowCount++;
@@ -96,3 +95,5 @@ foreach ($articles as $article){
 }
 ?>
 </div>
+</body>
+</html>

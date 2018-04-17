@@ -38,7 +38,18 @@
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('Select * from article ORDER by date DESC limit 6'); //SELECT * FROM `article` 
+      $req = $db->query('Select * from article ORDER by date ASC limit 6'); //SELECT * FROM `article` 
+      // we create a list of Product objects from the database results
+      foreach($req->fetchAll() as $article) {
+        $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
+      }
+      return $list;
+    }
+    
+    public static function allcategory() {
+      $list = [];
+      $db = Db::getInstance();
+      $req = $db->query('select * from article join article_category on article.article_id=article_category.article_id where category_id=1 order by Date desc limit 6'); //SELECT * FROM `article` 
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $article) {
         $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
