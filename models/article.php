@@ -38,7 +38,7 @@
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM article'); //SELECT * FROM `article` 
+      $req = $db->query('Select * from article ORDER by date DESC limit 6'); //SELECT * FROM `article` 
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $article) {
         $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
