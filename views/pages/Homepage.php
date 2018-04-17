@@ -83,7 +83,8 @@ foreach ($articles as $article){
             <div class="w3-card-4" style="margin-top: 10px;padding-left: 10px" >
   <img src="<?php echo $file?>" alt="Norway" style="width: 250px;height:150px;margin-left: 13px;margin-right: 5px;margin-top: 5px">
   <div class="w3-container w3-center">
-    <p><?php echo $article->title; ?></p>
+      <h6><?php echo $article->title; ?></h6>
+    <p class="blogtext w3-small"><?php echo $article->content; ?></p>
     <button class="btn" style="margin-bottom:5px">Read more</button>
   </div>
 </div>

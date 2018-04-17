@@ -19,6 +19,7 @@
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head> 
     <body>
         <style type="text/css">
@@ -45,7 +46,7 @@
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href='index.php'>Home</a></li>
-                    <li><a href='?controller=product&action=readAll'>What's on</a></li>
+                    <li><a href='?controller=article&action=readcategory'>What's on</a></li>
                     <li><a href='?controller=product&action=create'>Food & Drink</a></li>
                     <li><a href="#">Social</a></li>
                     <li><a href="#">Sight Seeing</a></li>
@@ -64,8 +65,8 @@
         <div class='container'>
             <?php require_once('routes.php'); ?>
         </div>
-        <footer class="footer navbar-fixed-bottom">
-            <div class='container'>
+        <footer class="footer navbar-fixed-bottom collapse">
+            <div class='container-fluid'>
                 <div class="col-md-5">
                     <div class="row">
                         <div class="footer-contact">

@@ -267,7 +267,16 @@ a {
   to {opacity: 1}
 } 
 
+p.blogtext
+{
+  
+    white-space: nowrap; 
+    width: 200px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
 
+}
  
  
 

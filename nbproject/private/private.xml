@@ -4,8 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/MVC-Skeleton/views/layout.php</file>
+            <file>file:/C:/xampp/htdocs/MVC-Skeleton/views/css/styles.css</file>
             <file>file:/C:/xampp/htdocs/MVC-Skeleton/views/pages/Homepage.php</file>
-            <file>file:/C:/xampp/htdocs/MVC-Skeleton/controllers/article_controller.php</file>
+            <file>file:/C:/xampp/htdocs/MVC-Skeleton/controllers/pages_controller.php</file>
             <file>file:/C:/xampp/htdocs/MVC-Skeleton/index.php</file>
         </group>
     </open-files>
