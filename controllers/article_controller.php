@@ -31,11 +31,11 @@ class ArticleController {
 // if it's a GET request display a blank form for creating a new product
 // else it's a POST so add to the database and redirect to readAll action
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            require_once('views/articles/create.php');
+            require_once('views/articles/createArticle.php');
         } else {
-            Article::add();
+            Article::addArticle();
 
-            $products = Article::all(); //$products is used within the view
+            $articles = Article::all(); //$products is used within the view
             require_once('views/articles/readAll.php');
         }
     }
