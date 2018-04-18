@@ -65,7 +65,7 @@
         <div class='container'>
             <?php require_once('routes.php'); ?>
         </div>
-        <footer class="footer navbar-fixed-bottom collapse">
+        <footer class="footer">
             <div class='container-fluid'>
                 <div class="col-md-5">
                     <div class="row">
