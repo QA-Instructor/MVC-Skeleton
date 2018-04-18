@@ -42,7 +42,7 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href='http://localhost:8080/MVC-Skeleton-2/index.php'>Home</a></li>
+                    <li class="active"><a href='index.php'>Home</a></li>
                     <li><a href='?controller=product&action=readAll'>What's on</a></li>
                     <li><a href='?controller=product&action=create'>Food & Drink</a></li>
                     <li><a href="#">Social</a></li>
@@ -62,7 +62,7 @@
         <div class='container'>
             <?php require_once('routes.php'); ?>
         </div>
-        <footer class="footer navbar-fixed-bottom">
+      <footer class="footer">
             <div class='container'>
                 <div class="col-md-5">
                     <div class="row">
