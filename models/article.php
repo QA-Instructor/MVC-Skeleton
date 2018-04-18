@@ -2,7 +2,6 @@
 
 class Article {
 
-    // we define 3 attributes
     public $id;
     public $title;
     public $content;
@@ -19,7 +18,7 @@ class Article {
         $list = [];
         $db = Db::getInstance();
         $req = $db->query('SELECT * FROM article'); //SELECT * FROM `article` 
-        // we create a list of Product objects from the database results
+// we create a list of Product objects from the database results
         foreach ($req->fetchAll() as $article) {
             $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
         }
@@ -28,16 +27,16 @@ class Article {
 
     public static function find($id) {
         $db = Db::getInstance();
-        //use intval to make sure $id is an integer
+//use intval to make sure $id is an integer
         $id = intval($id);
         $req = $db->prepare('SELECT * FROM article WHERE article_id = :id');
-        //the query was prepared, now replace :id with the actual $id value
+//the query was prepared, now replace :id with the actual $id value
         $req->execute(array('id' => $id));
         $article = $req->fetch();
         if ($article) {
             return new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
         } else {
-            //replace with a more meaningful exception
+//replace with a more meaningful exception
             throw new Exception('A real exception should go here');
         }
     }
@@ -48,7 +47,7 @@ class Article {
         $req->bindParam(':article_id', $id);
         $req->bindParam(':title', $title);
         $req->bindParam(':content', $content);
-        //$req->bindParam(':date', $date);
+//$req->bindParam(':date', $date);
 // set name and price parameters and execute
         if (isset($_POST['title']) && $_POST['title'] != "") {
             $filteredTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -132,10 +131,10 @@ class Article {
      */
     public static function remove($id) {
         $db = Db::getInstance();
-        //make sure $id is an integer
+//make sure $id is an integer
         $id = intval($id);
         $req = $db->prepare('delete FROM article WHERE article_id = :article_id');
-        // the query was prepared, now replace :id with the actual $id value
+// the query was prepared, now replace :id with the actual $id value
         $req->execute(array('article_id' => $id));
     }
 
@@ -151,31 +150,15 @@ class Article {
      */
 
     public static function searchAll($keyword) {
-//        $list = [];
+        $list = [];
         $db = Db::getInstance();
-        $result = $db->query("SELECT * FROM article AS a JOIN blogger as b ON a.blogger_id = b.blogger_id WHERE title LIKE '%$keyword%' OR content LIKE '%$keyword%'");
-        $rows=$result->fetchAll();
-        $num_rows = count($rows);
-        if ($num_rows > 0) {
-            echo "<h2> Your search result for <i> $keyword</i> </h2>";
-            foreach ($rows as $row) {
-                echo '<tr><td>' . $row['title'] . " " . '</h3></td></tr></br>';
-                echo '<td>' . "By " . '<i>' . $row['f_name'] . " " . $row['l_name'] . '</i>'. " " . '</td>';
-                echo '<td>' . "published on " . $row['date'] . '</td><br>';
-            }
-        } else {
-                echo "Your search returned no results";
-            }
+        $result = $db->query("SELECT * FROM article AS a JOIN blogger as b ON a.blogger_id = b.blogger_id WHERE title LIKE '%$keyword%' OR content LIKE '%$keyword%' ORDER BY date DESC");
+        foreach ($result->fetchAll() as $article) {
+            $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);  
         }
+        return $list;
     }
 
-//        
-//        }
-//    }
-////
-////
-////foreach ($result->fetchAll() as $article) {
-//            $list[] = new Article($article['id'], $article['title'], $article['content'], $article['date']);
-//            return $list;
-//
-//
+}
+
+

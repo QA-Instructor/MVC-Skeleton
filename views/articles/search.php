@@ -1,18 +1,15 @@
-<!--<p>Results of your search <?php echo $list[1] ?>; </p>
+<h2>Your search for <i> <?php echo $keyword ?> </i></h2>
 
-<table style="width:70%">
-  <tr>
-    <th>Title</th>
-    <th>Date created</th> 
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-//<?php foreach($result as $article) { ?>
-  <tr>
-    <td>//<?php echo $article->title; ?> &nbsp; &nbsp; </td>
-    <td>//<?php echo $article->date; ?> &nbsp; &nbsp;</td>
-    <td><a href='?controller=article&action=read&article_id=//<?php echo $article->article_id; ?>'>See all comments on this article</a> &nbsp; &nbsp;</td>
-  </tr>
-  //<?php } ?>
-</table>-->
+<?php
+$num_rows = count($list);
+if ($num_rows > 0) { 
+    foreach ($list as $article) { ?>
+<tr>
+    <td> <a href='?controller=article&action=read&article_id= <?php echo $article->article_id;?>'>
+        <?php echo $article->title . " ";?> </a>published on <?php echo $article->date; ?> </br> </td>    
+</tr> 
+  <?php }
+} else {
+    echo "Your search returned no results";
+}
+?>

@@ -49,12 +49,13 @@
                     <li><a href="#">Sight Seeing</a></li>
                     <li><a href="#">Hotels</a></li>
                 </ul>
-                <form action="?controller=article&action=searchAll?search=" method="GET" role="form"  id="searchform" class="navbar-form navbar-right">
-                   //<?php // echo $_GET['search'];?> 
+                <form action="index.php" method="GET" role="form" id="searchform" class="navbar-form navbar-right">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search">
+                        <input type="text" name="search" id="search" class="form-control" placeholder="Search">
+                        <input type="hidden" name="controller" value="article">
+                        <input type="hidden" name="action" value="searchAll">
                         <span class="input-group-btn">
-                            <button type="submit" name="searchButton" id="searchButton" class="btn btn-default">
+                            <button type="submit" id="search" class="btn btn-default">
                                 <span class="glyphicon glyphicon-search">
                                 </span>
                             </button>

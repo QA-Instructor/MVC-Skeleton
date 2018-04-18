@@ -68,8 +68,9 @@ class ArticleController {
     }
 
     public function searchAll() {
+        $list = Article::searchAll($_GET['search']);
+        $keyword = ($_GET['search']);
         require_once __DIR__ . '/../views/articles/search.php';
-        Article::searchAll($_GET['search']);
     }
 
 }
