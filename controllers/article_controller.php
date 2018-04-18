@@ -107,7 +107,12 @@ class ArticleController {
             require_once('views/articles/readAll.php');
       }
       
-    }
+   
   
-
+public function readcategory() {
+      // we store all the posts in a variable
+      $articles = Article::allcategory();
+      require_once('views/articles/readcategory.php');
+    }
+}
 ?>

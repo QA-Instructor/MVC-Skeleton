@@ -40,7 +40,7 @@ class Article {
         $req->bindParam(':title', $title);
         $req->bindParam(':content', $content);
         $req->bindParam(':blogger_id', $blogger);
-
+      
 // set parameters and execute
         if (isset($_POST['title']) && $_POST['title'] != "") {
             $filteredTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -66,13 +66,34 @@ class Article {
             $req2->bindParam(':article_id', $article_id);
             $req2->execute();            
         }
-
         //upload product image
         
         if (!empty($_FILES[self::InputKey])){
             Article::uploadFile($article_id);
         }
         
+    }
+
+    public static function all() {
+      $list = [];
+      $db = Db::getInstance();
+      $req = $db->query('Select * from article ORDER by date ASC limit 6'); //SELECT * FROM `article` 
+      // we create a list of Product objects from the database results
+      foreach($req->fetchAll() as $article) {
+        $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
+      }
+      return $list;
+    }
+    
+    public static function allcategory() {
+      $list = [];
+      $db = Db::getInstance();
+      $req = $db->query('select * from article join article_category on article.article_id=article_category.article_id where category_id=1 order by Date desc limit 6'); //SELECT * FROM `article` 
+      // we create a list of Product objects from the database results
+      foreach($req->fetchAll() as $article) {
+        $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
+      }
+      return $list;
     }
     
     public static function addMap() {
@@ -87,18 +108,7 @@ class Article {
         return $db->lastInsertId();
         
     }
-    
-
-    public static function all() {
-        $list = [];
-        $db = Db::getInstance();
-        $req = $db->query('SELECT * FROM article'); //SELECT * FROM `article` 
-        // we create a list of Product objects from the database results
-        foreach ($req->fetchAll() as $article) {
-            $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
-        }
-        return $list;
-    }
+   
 
     public static function find($id) {
         $db = Db::getInstance();
@@ -211,14 +221,14 @@ class Article {
     }
 
     
-//
-//    public static function update($id) {
-//        $db = Db::getInstance();
-//        $req = $db->prepare("Update article set title=:title, content=:content where article_id=:article_id");
-//        $req->bindParam(':article_id', $id);
-//        $req->bindParam(':title', $title);
-//        $req->bindParam(':content', $content);
-//        //$req->bindParam(':date', $date);
-//    }
+
+    public static function update($id) {
+        $db = Db::getInstance();
+        $req = $db->prepare("Update article set title=:title, content=:content where article_id=:article_id");
+        $req->bindParam(':article_id', $id);
+        $req->bindParam(':title', $title);
+        $req->bindParam(':content', $content);
+        //$req->bindParam(':date', $date);
+    }
 }
 

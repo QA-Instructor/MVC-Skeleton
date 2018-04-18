@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NetBeansProjects/MVC-Skeleton/views/articles/readArticle.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NetBeansProjects/MVC-Skeleton/routes.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NetBeansProjects/MVC-Skeleton/models/article.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NetBeansProjects/MVC-Skeleton/views/pages/home.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NetBeansProjects/MVC-Skeleton/controllers/article_controller.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NetBeansProjects/MVC-Skeleton/connection.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NetBeansProjects/MVC-Skeleton/views/layout.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/NetBeansProjects/MVC-Skeleton/index.php</file>
+            <file>file:/C:/xampp/htdocs/MVC-Skeleton/views/layout.php</file>
+            <file>file:/C:/xampp/htdocs/MVC-Skeleton/views/css/styles.css</file>
+            <file>file:/C:/xampp/htdocs/MVC-Skeleton/views/pages/Homepage.php</file>
+            <file>file:/C:/xampp/htdocs/MVC-Skeleton/controllers/pages_controller.php</file>
+            <file>file:/C:/xampp/htdocs/MVC-Skeleton/index.php</file>
+
         </group>
     </open-files>
 </project-private>
