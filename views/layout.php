@@ -72,8 +72,7 @@
                         <div class="footer-contact">
                         <p><a href='?controller=product&action=create'>About us</a></p>
                             <p><a href='?controller=product&action=create'>Contact us</a></p>
-                            <p><a href='?controller=blogger&action=login'>Blogger login</a></p> 
-                            <p><a href='?controller=blogger&action=logout'>Blogger logout</p><a/>
+                            <p><a href='?controller=blogger&action=login'>Blogger login</a></p>
                         </div>
 
                     </div>
