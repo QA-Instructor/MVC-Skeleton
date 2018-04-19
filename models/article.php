@@ -222,13 +222,13 @@ class Article {
 
     
 
-    public static function update($id) {
-        $db = Db::getInstance();
-        $req = $db->prepare("Update article set title=:title, content=:content where article_id=:article_id");
-        $req->bindParam(':article_id', $id);
-        $req->bindParam(':title', $title);
-        $req->bindParam(':content', $content);
-        //$req->bindParam(':date', $date);
-    }
+//     public static function update($id) {
+//         $db = Db::getInstance();
+//         $req = $db->prepare("Update article set title=:title, content=:content where article_id=:article_id");
+//         $req->bindParam(':article_id', $id);
+//         $req->bindParam(':title', $title);
+//         $req->bindParam(':content', $content);
+//         //$req->bindParam(':date', $date);
+//     }
 }
 
