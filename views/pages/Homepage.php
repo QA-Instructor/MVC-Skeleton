@@ -85,7 +85,7 @@ foreach ($articles as $article){
   <div class="w3-container w3-center">
       <h6><?php echo $article->title; ?></h6>
     <p class="blogtext w3-small"><?php echo $article->content; ?></p>
-    <button class="btn" style="margin-bottom:5px">Read more</button>
+    <a href="?controller=article&action=readArticle&article_id=<?php echo $article->id; ?>" class="btn" style="margin-bottom:5px">Read more</a>
   </div>
 </div>
         </div>
