@@ -17,11 +17,14 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
-     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-     <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <!--alert boxes-->
+        <script src="alert/dist/sweetalert-dev.js"></script>
+        <link rel="stylesheet" href="alert/dist/sweetalert.css">
     </head> 
-    <body>
+    <body>    
         <style type="text/css">
             .navbar-inverse{
                 border-radius: 0px;
@@ -70,7 +73,7 @@
                 <div class="col-md-5">
                     <div class="row">
                         <div class="footer-contact">
-                        <p><a href='?controller=product&action=create'>About us</a></p>
+                            <p><a href='?controller=product&action=create'>About us</a></p>
                             <p><a href='?controller=product&action=create'>Contact us</a></p>
                             <p><a href='?controller=blogger&action=login'>Blogger login</a></p>
                         </div>
@@ -81,12 +84,13 @@
 
                     <div class="row">
                         <div class="pull-right">
-                            <form action="action_page.php">
+                            <form method="POST" action='?controller=subscriber&action=addSubscriber'>
                                 <div class="footer-newsletter">
-                                  <p>Sign up to our news</p>
+                                    <p>Sign up to our news</p>
                                 </div>
-                                <input type="text" placeholder="Email address" name="mail" required>
-                                <input type="submit" value="Subscribe">
+                                <input type="text" placeholder="Name" name="subscriber_name" required>
+                                <input type="text" placeholder="Email address" name="subscriber_email" required>
+                                <input onlick= "JSalert()" type="submit" name="subscribe">
                             </form>  
                         </div>
                     </div>
@@ -102,9 +106,9 @@
                         </div>
                     </div>
                 </div>
-                </div
-            </div>
-        </footer>
-    </body>
+            </div
+        </div>
+    </footer>
+</body>
 </html>                            
 

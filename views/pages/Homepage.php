@@ -73,6 +73,7 @@
 $numOfCols = 3;
 $rowCount = 0;
 $bootstrapColWidth = 12 / $numOfCols;
+
 ?>
 <div class="row">
 <?php
