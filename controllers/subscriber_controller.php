@@ -13,15 +13,3 @@ class subscriberController {
     }
 }
 ?>
-
-<html>
-<script>
-function subscriberAlert() {
-    alert ("Whoop! You're on our list!")
-}
-
-function subscriberExists() {
-    alert ("You're already on our list!")
-}
-</script>
-</html>
