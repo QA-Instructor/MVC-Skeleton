@@ -188,12 +188,10 @@ class Article {
         return $list;
     }
 
-}
 
 
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
-
 
     public static function uploadFile($id) {
 
@@ -245,3 +243,4 @@ class Article {
 //         //$req->bindParam(':date', $date);
 //     }
 }
+
