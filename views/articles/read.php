@@ -5,6 +5,7 @@
 <p>Product Price: £<?php echo $product->price; ?></p>
 <?php 
 $file = 'views/images/' . $product->name . '.jpeg';
+
 if(file_exists($file)){
     $img = "<img src='$file' width='150' />";
     echo $img;

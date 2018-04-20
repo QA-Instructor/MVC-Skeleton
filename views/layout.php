@@ -17,6 +17,9 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head> 
     <body>
         <style type="text/css">
@@ -42,8 +45,8 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href='http://localhost:8080/MVC-Skeleton-2/index.php'>Home</a></li>
-                    <li><a href='?controller=product&action=readAll'>What's on</a></li>
+                  <li class="active"><a href='index.php'>Home</a></li>
+                    <li><a href='?controller=article&action=readcategory'>What's on</a></li>
                     <li><a href='?controller=product&action=create'>Food & Drink</a></li>
                     <li><a href="#">Social</a></li>
                     <li><a href="#">Sight Seeing</a></li>
@@ -74,8 +77,7 @@
                         <div class="footer-contact">
                             <p><a href='?controller=product&action=create'>About us</a></p>
                             <p><a href='?controller=product&action=create'>Contact us</a></p>
-                            <p><a href='?controller=blogger&action=login'>Blogger login</a></p> 
-                            <p><a href='?controller=blogger&action=logout'>Blogger logout</p><a/>
+                            <p><a href='?controller=blogger&action=login'>Blogger login</a></p>
                         </div>
 
                     </div>
