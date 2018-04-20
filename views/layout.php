@@ -48,18 +48,23 @@
             <!-- Collection of nav links, forms, and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href='index.php'>Home</a></li>
+                  <li class="active"><a href='index.php'>Home</a></li>
                     <li><a href='?controller=article&action=readcategory'>What's on</a></li>
                     <li><a href='?controller=product&action=create'>Food & Drink</a></li>
                     <li><a href="#">Social</a></li>
                     <li><a href="#">Sight Seeing</a></li>
                     <li><a href="#">Hotels</a></li>
                 </ul>
-                <form class="navbar-form navbar-right">
+                <form action="index.php" method="GET" role="form" id="searchform" class="navbar-form navbar-right">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" name="search" id="search" class="form-control" placeholder="Search">
+                        <input type="hidden" name="controller" value="article">
+                        <input type="hidden" name="action" value="searchAll">
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                            <button type="submit" id="search" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search">
+                                </span>
+                            </button>
                         </span>
                     </div>
                 </form>
@@ -69,7 +74,7 @@
             <?php require_once('routes.php'); ?>
         </div>
         <footer class="footer">
-            <div class='container-fluid'>
+            <div class='container'>
                 <div class="col-md-5">
                     <div class="row">
                         <div class="footer-contact">

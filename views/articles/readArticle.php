@@ -1,5 +1,4 @@
-<p>This is the article page</p>
-
+<h2><?php echo $article->title; ?></h2>
 <?php
 $file = 'views/images/' . $article->id. '.jpg';
 if (file_exists($file)) {
@@ -7,7 +6,6 @@ if (file_exists($file)) {
     echo $img;
 } 
 ?>
-<h2><?php echo $article->title; ?></h2>
 <p><?php echo $article->content; ?></p>
 <p><?php echo $article->date; ?></p>
 

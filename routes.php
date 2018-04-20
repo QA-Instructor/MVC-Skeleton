@@ -26,19 +26,18 @@ function call($controller, $action) {
 
 // for validation we list the allowed controllers and their actions
 // Add an entry for each new controller and its actions
-$controllers = array('pages' => ['home', 'error', 'Homepage'],
-    'article' => ['readAll', 'read', 'readArticle', 'createArticle', 'create', 'update', 'delete', 'readcategory'],
-    'blogger' => ['login', 'logout'],
-    'subscriber' => ['addSubscriber'],
-);
 
+$controllers = array('pages' => ['home', 'error','Homepage'],
+                    'article' => ['readAll','read','readArticle', 'createArticle', 'create','update','delete','readcategory','searchAll'],
+                     'blogger' => ['login', 'logout'],
+                     'subscriber' => ['addSubscriber'],
+                    );
 
 // check that the requested controller and action are both allowed
 // if someone tries to access something else they will be redirected 
 // to the error action of the pages controller
 if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
-
         call($controller, $action);
     } else {
         call('pages', 'error');

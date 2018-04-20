@@ -6,7 +6,6 @@ require_once('models/article.php');
 class PagesController {
 
     public function home() {
-        session_start();
         if (isset($_SESSION['blogger_id'])) {
             $blogger = blogger::getBloggerById($_SESSION['blogger_id']);
             $name = $blogger->getFname() . " " . $blogger->getLname();

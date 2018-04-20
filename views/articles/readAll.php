@@ -1,4 +1,6 @@
 
+<a href='?controller=article&action=createArticle'>Create New Article</a>
+
 <p>Here is a list of all articles</p>
 <div class="row">
     <div class="pull-right">
