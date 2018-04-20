@@ -2,7 +2,6 @@
 
 function subscriberExistsAlert() {
     echo '<script type="text/javascript">alert("Whoop, you are already on the list!");document.location="index.php"</script>';
-
 }
 
 function subscriberAddedAlert() {
@@ -29,7 +28,6 @@ class Subscriber {
             $add = $db->prepare("INSERT INTO subscriber (name, email) VALUES ('$name', '$email')");
             $add->execute();
             return subscriberAddedAlert();
-           
         } else {
             return subscriberExistsAlert();
         }
