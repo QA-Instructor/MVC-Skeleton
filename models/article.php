@@ -132,7 +132,9 @@ class Article {
         $req->bindParam(':article_id', $id);
         $req->bindParam(':title', $title);
         $req->bindParam(':content', $content);
-        //$req->bindParam(':date', $date);
+
+      //$req->bindParam(':date', $date);
+
 // set name and price parameters and execute
         if (isset($_POST['title']) && $_POST['title'] != "") {
             $filteredTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -175,6 +177,18 @@ class Article {
 //upload product image
         Article::uploadFile($title);
     }
+
+    public static function searchAll($keyword) {
+        $list = [];
+        $db = Db::getInstance();
+        $result = $db->query("SELECT * FROM article AS a JOIN blogger as b ON a.blogger_id = b.blogger_id WHERE title LIKE '%$keyword%' OR content LIKE '%$keyword%' ORDER BY date DESC");
+        foreach ($result->fetchAll() as $article) {
+            $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);  
+        }
+        return $list;
+    }
+
+}
 
 
 //die() function calls replaced with trigger_error() calls
@@ -231,4 +245,3 @@ class Article {
 //         //$req->bindParam(':date', $date);
 //     }
 }
-
