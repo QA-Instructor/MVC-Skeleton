@@ -14,6 +14,8 @@ class ArticleController {
             }
         } else {
             Comment::newComment($_GET['article_id']);
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
         }
         try {
             // we use article_id to get the correct article and comments to it
