@@ -26,11 +26,12 @@ function call($controller, $action) {
 
 // for validation we list the allowed controllers and their actions
 // Add an entry for each new controller and its actions
+
 $controllers = array('pages' => ['home', 'error','Homepage'],
                     'article' => ['readAll','read','readArticle', 'createArticle', 'create','update','delete','readcategory','searchAll'],
                      'blogger' => ['login', 'logout'],
+                     'subscriber' => ['addSubscriber'],
                     );
-
 
 // check that the requested controller and action are both allowed
 // if someone tries to access something else they will be redirected 
