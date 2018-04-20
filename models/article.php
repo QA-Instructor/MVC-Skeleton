@@ -232,8 +232,7 @@ class Article {
         $req->execute(array('article_id' => $id));
     }
 
-    
-
+   
 //     public static function update($id) {
 //         $db = Db::getInstance();
 //         $req = $db->prepare("Update article set title=:title, content=:content where article_id=:article_id");
