@@ -49,8 +49,8 @@
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                   <li class="active"><a href='index.php'>Home</a></li>
-                    <li><a href='?controller=article&action=readcategory'>What's on</a></li>
-                    <li><a href='?controller=product&action=create'>Food & Drink</a></li>
+                    <li><a href='?controller=article&action=readcategory'>Category</a></li>
+                    <li><a href='?controller=article&action=readAll'>All Articles</a></li>
                     <li><a href="#">Social</a></li>
                     <li><a href="#">Sight Seeing</a></li>
                     <li><a href="#">Hotels</a></li>

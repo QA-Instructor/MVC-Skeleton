@@ -29,7 +29,7 @@ class Article {
             return new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
         } else {
             //replace with a more meaningful exception
-            throw new Exception('A real exception should go here');
+            throw new Exception('No article found');
         }
     }
 
@@ -77,8 +77,10 @@ class Article {
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('Select * from article ORDER by date DESC limit 6'); //SELECT * FROM `article` 
-      // we create a list of Product objects from the database results
+      //$req = $db->query('Select * from article ORDER by date DESC limit 6'); //SELECT * FROM `article` 
+      $req = $db->query('Select * from article ORDER by date DESC'); 
+      
+    /// we create a list of Product objects from the database results
       foreach($req->fetchAll() as $article) {
         $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
       }
@@ -88,7 +90,8 @@ class Article {
     public static function allcategory() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('select * from article join article_category on article.article_id=article_category.article_id where category_id=1 order by Date desc limit 6'); //SELECT * FROM `article` 
+//      $req = $db->query('select * from article join article_category on article.article_id=article_category.article_id where category_id=1 order by Date desc limit 6'); //SELECT * FROM `article` 
+      $req = $db->query('select * from article join article_category on article.article_id=article_category.article_id where category_id=1 order by Date desc'); //SELECT * FROM `article` 
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $article) {
         $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
@@ -189,7 +192,6 @@ class Article {
     }
 
 
-
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
 
@@ -232,14 +234,14 @@ class Article {
         $req->execute(array('article_id' => $id));
     }
 
-   
-//     public static function update($id) {
-//         $db = Db::getInstance();
-//         $req = $db->prepare("Update article set title=:title, content=:content where article_id=:article_id");
-//         $req->bindParam(':article_id', $id);
-//         $req->bindParam(':title', $title);
-//         $req->bindParam(':content', $content);
-//         //$req->bindParam(':date', $date);
-//     }
+    public static function removeComment($id) {
+        $db = Db::getInstance();
+        //make sure $id is an integer
+        $id = intval($id);
+        $req = $db->prepare('delete FROM comment WHERE comment_id = :comment_id');
+        // the query was prepared, now replace :id with the actual $id value
+        $req->execute(array('comment_id' => $id));
+    }
+
 }
 

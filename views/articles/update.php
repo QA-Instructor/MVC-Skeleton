@@ -16,9 +16,9 @@
     </p>
     <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
     <?php
-//$file = 'views/images/' . $product->name . '.jpeg';
 
-$file = 'views/images/' . 'test.jpeg';
+$file = 'views/images/' . $article->id . '.jpg';
+
 if(file_exists($file)){
     $img = "<img src='$file' width='150' />";
     echo $img;
@@ -44,17 +44,14 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
 <table style="width:70%">
     <tr>
         <th>Title</th>
-        <th>Date created</th> 
-        <th></th>
-        <th></th>
+        <th>Added on</th> 
         <th></th>
     </tr>
 <?php foreach ($comment as $comm) { ?>
         <tr>
             <td><?php echo $comm->comment; ?> &nbsp; &nbsp; </td>
-            <td><?php echo $comm->comment_status; ?> &nbsp; &nbsp;</td>
-            <td> <a href="">Approve</a> &nbsp;</td>
-            <td><a href="">Reject</a> &nbsp; &nbsp;</td>
+            <td><?php echo $comm->date; ?> &nbsp; &nbsp;</td>
+            <td> <a href='?controller=article&action=deleteComment&comment_id=<?php echo $comm->id;?>&article_id=<?php echo $article->id;?>'>Delete Comment</a> &nbsp;</td>
         </tr>
 <?php } ?>
 </table>

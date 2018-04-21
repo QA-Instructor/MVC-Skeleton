@@ -24,7 +24,7 @@
             <td><?php echo $article->date; ?> &nbsp; &nbsp;</td>
             <td> <a href='?controller=article&action=update&article_id=<?php echo $article->id; ?>'>Edit article</a> &nbsp;</td>
             <td><a href='?controller=article&action=delete&article_id=<?php echo $article->id; ?>'>Delete article</a> &nbsp; &nbsp;</td>
-            <td><a href='?controller=article&action=read&article_id=<?php echo $article->id; ?>'>See all comments on this article</a> &nbsp; &nbsp;</td>
+            <!--td><a href='?controller=article&action=read&article_id=<?php echo $article->id; ?>'>See all comments on this article</a> &nbsp; &nbsp;</td-->
         </tr>
     <?php } ?>
 </table>
