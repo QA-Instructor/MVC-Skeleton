@@ -1,39 +1,62 @@
-<h2><?php echo $article->title; ?></h2>
+
+<div class="page-header text-center">
+    <h2><?php echo $article->title; ?></h2>
+<small style="color:graytext"> <i>Posted on <?php echo $article->date; ?></i></small>
+</div>
+    <div style="background-color:gold" class="">
+        
 <?php
 $file = 'views/images/' . $article->id. '.jpg';
 if (file_exists($file)) {
-    $img = "<img src='$file' width='100%' />";
+    $img = "<img src='$file' width='100% heght= 30%' />";
     echo $img;
 } 
 ?>
-<p><?php echo $article->content; ?></p>
-<p><?php echo $article->date; ?></p>
+    </div>
+
+
+<p class="text-justify" style="margin-top: 30px; margin-bottom: 40px"><?php echo $article->content; ?></p>
+
+
 
 <!-- map will be inserted here if exists -->
 <div id="map"></div> 
 
 
-<p>------ Comments ------</p>
+
+<p class="page-header"></p>
 
 <?php foreach ($comments as $commentObj) { ?>
-    <p><?php echo $commentObj->subscriber; ?> says:</p>
-    <p><?php echo $commentObj->comment; ?></p>
-    <p><?php echo $commentObj->date; ?></p>
+<div class="media">
+    <div class="media-body">
+        <h5 class="media-heading"><?php echo $commentObj->subscriber; ?><br> <small><i>Posted on <?php echo $commentObj->date; ?></i></small></h5>
+    <p ><?php echo $commentObj->comment; ?></p>
+    </div>
+    </div>   
+
 <?php } ?>
+ 
+<form action="" method="POST"  enctype="multipart/form-data">
+   
+    <div class="form-group row">
+       <div class="col-xs-12">
+       <label >Leave your comment:</label>
+    <textarea class="form-control well well-md"  name="comment" required autofocus></textarea>
+       </div>
+   </div>  
     
-<p>Would you like to comment?</p>
-<form action="" method="POST" class="w3-container" enctype="multipart/form-data">
-    <p>
-        <input class="w3-input" type="text" name="comment" autofocus>
-    </p>
-    <p>
-        <input class="w3-input" type="text" name="name" required >
+    <div class="form-group row">
+        <div class="col-sm-4 col-xs-6">
         <label>Name</label>
-    </p>
-        <p>
-            <input class="w3-input" type="email" name="email" required>
-        <label>email</label>
-    </p>
+        <input class="form-control" type="text" name="name" required > 
+        </div>
+    </div>
+        <div class="form-group row">
+            <div class="col-xs-6 col-sm-4">
+            <label>Email</label>
+            <input class="form-control" type="email" name="email" required>
+            </div>            
+        </div>
             
   <input type="hidden" 
 	   name="MAX_FILE_SIZE" 
@@ -41,9 +64,10 @@ if (file_exists($file)) {
          />
 
   <p>
-    <input class="w3-btn w3-pink" type="submit" value="Submit">
+      <button class="btn btn-info btn-lg"  type="submit">Submit</button>
   </p>
-</form>    
+</form>  
+
     
     
 

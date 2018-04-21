@@ -6,9 +6,9 @@ class Article {
     public $title;
     public $content;
     public $date;
-    
     const AllowedTypes = ['image/jpeg', 'image/jpg'];
     const InputKey = 'myUploader';
+    
 
     public function __construct($id, $title, $content, $date) {
         $this->id = $id;
@@ -68,7 +68,7 @@ class Article {
         }
         //upload product image
         
-        if (!empty($_FILES[self::InputKey])){
+        if (isset($_FILES['myUploader']) && $_FILES['myUploader']['error'] == 0){
             Article::uploadFile($article_id);
         }
         
@@ -77,7 +77,7 @@ class Article {
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('Select * from article ORDER by date ASC limit 6'); //SELECT * FROM `article` 
+      $req = $db->query('Select * from article ORDER by date DESC limit 6'); //SELECT * FROM `article` 
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $article) {
         $list[] = new Article($article['article_id'], $article['title'], $article['content'], $article['date']);
@@ -195,21 +195,21 @@ class Article {
 
     public static function uploadFile($id) {
 
-        if (empty($_FILES[self::InputKey])) {
+        if (empty($_FILES['myUploader'])) {
             //die("File Missing!");
             trigger_error("File Missing!");
         }
 
-        if ($_FILES[self::InputKey]['error'] > 0) {
-            trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
+        if ($_FILES['myUploader']['error'] > 0) {
+            trigger_error("Handle the error! " . $_FILES[self::InputKey]['error']);
         }
 
 
-        if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
-            trigger_error("File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
+        if (!in_array($_FILES['myUploader']['type'], self::AllowedTypes)) {
+            trigger_error("File Type Not Allowed: " . $_FILES['myUploader']['type']);
         }
 
-        $tempFile = $_FILES[self::InputKey]['tmp_name'];
+        $tempFile = $_FILES['myUploader']['tmp_name'];
         $path = "views/images/";
         $destinationFile = $path . $id . '.jpg';
 

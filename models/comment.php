@@ -49,7 +49,7 @@ class Comment {
         $id = intval($id);
         $req1 = $db->prepare("INSERT INTO subscriber(name, email) SELECT :name, :email FROM subscriber WHERE NOT EXISTS (SELECT * FROM subscriber WHERE email= :email ) LIMIT 1");
         $req2 = $db->prepare("INSERT INTO comment(comment, date, article_id, comment_status_id, subscriber_id) "
-                . "values (:comment, CURDATE(), :id, '3', (SELECT subscriber_id FROM subscriber WHERE email = :email))");
+                . "values (:comment, CURDATE(), :id, '1', (SELECT subscriber_id FROM subscriber WHERE email = :email))");
         $req1->bindParam(':name', $name);
         $req1->bindParam(':email', $email);
         $req2->bindParam(':comment', $comment);
@@ -65,7 +65,10 @@ class Comment {
         }
         if (isset($_POST['comment']) && $_POST['comment'] != "") {
             $filteredComment = filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_SPECIAL_CHARS);
+        } else {
+            trigger_error(" Please fill in all required fields !");
         }
+        
         
         $name = $filteredName;
         $email= $filteredEmail;

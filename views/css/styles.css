@@ -156,6 +156,14 @@ a {
 
     padding: 50px;
 }
+.padding-top-bottom-20px {
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
+.margin-top-btm{
+    margin-bottom: 30%;
+    margin-top: 10%;
+}
 
 .btn{
   background-color: #a8aec1;
@@ -277,6 +285,7 @@ p.blogtext
     
 
 }
+
  
  
 

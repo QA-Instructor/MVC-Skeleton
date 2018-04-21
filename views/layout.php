@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="views/css/styles.css">
         <!--navbar bootstrap-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!--google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -70,7 +70,7 @@
                 </form>
             </div>
         </nav>
-        <div class='container'>
+        <div class='container' >
             <?php require_once('routes.php'); ?>
         </div>
         <footer class="footer">
