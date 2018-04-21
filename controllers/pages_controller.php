@@ -13,7 +13,7 @@ class PagesController {
         } else {
             $name = "Guest";
         }
-        require_once('views/pages/home.php');
+        require_once('views/pages/Homepage.php');
     }
 
     public function error() {
@@ -22,7 +22,7 @@ class PagesController {
     public function Homepage() {
       // we store all the posts in a variable
       $articles = Article::all();
-      require_once('views/pages/homepage.php');
+      require_once('views/pages/Homepage.php');
     }
 
 }

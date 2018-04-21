@@ -36,6 +36,8 @@ class ArticleController {
             require_once('views/articles/createArticle.php');
         } else {
             Article::addArticle();
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
 
             $articles = Article::all(); //$products is used within the view
             require_once('views/articles/readAll.php');
