@@ -150,14 +150,15 @@ class Article {
           } */
         $title = $filteredTitle;
         $content = $filteredContent;
-//$date = $filteredDate;
+        //$date = $filteredDate;
         $req->execute();
 
-//upload product image if it exists
-        if (!empty($_FILES[self::InputKey]['title'])) {
-            Article::uploadFile($title);
+        //upload artice image if it exists
+        if (isset($_FILES['myUploader']) && $_FILES['myUploader']['error'] == 0){
+            Article::uploadFile($id);
         }
     }
+
 
     public static function add() {
         $db = Db::getInstance();

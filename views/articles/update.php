@@ -29,16 +29,17 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
 }
 ?>
   <br/>
-  <input type="file" name="myUploader" class="w3-btn w3-pink" />
-  <p>
-
-    <input class="w3-btn w3-gray" type="submit" value="Update Article">
-
+  <input type="file" name="myUploader" class="btn btn-primary btn-md" />
+  
+  <br/>
+    <p>
+      <input class="w3-button w3-block w3-teal" type="submit" name='submit' value="Update Article">
     </p>
+    
 </form>
 <br/>
 <p>
-    --- Comments Awaiting Approval ---
+    --- Comments  ---
 
 </p>
 <table style="width:70%">

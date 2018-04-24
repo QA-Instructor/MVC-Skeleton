@@ -17,6 +17,7 @@
 
       <!-- Slide 1 : Active -->
       <div class="item active">
+        <!--img src="views/images/slideshow/London at Night.jpg" alt="" style="width:1000px;height: 300px"-->
         <img src="views/images/slideshow/London at Night.jpg" alt="" style="width:1000px;height: 300px">
         <div class="carousel-caption">
           <p>London @Night</p>
