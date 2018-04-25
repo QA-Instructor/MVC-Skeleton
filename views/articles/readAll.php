@@ -1,20 +1,18 @@
 
-<a href='?controller=article&action=createArticle'>Create New Article</a>
-
-<p>Here is a list of all articles</p>
+<p>Hello &nbsp;<?php echo $_SESSION['blogger_f_name'];?>  &nbsp; <?php echo $_SESSION['blogger_l_name'];?></p>
 <div class="row">
     <div class="pull-right">
-       
             <a href='?controller=blogger&action=logout' class="btn btn-info" role="button">Logout</a>
-        
     </div>
 </div>
 
+<a href='?controller=article&action=createArticle'>Create New Article</a>
+
+<p>Here is a list of all articles</p>
 <table style="width:70%">
     <tr>
         <th>Title</th>
         <th>Date created</th> 
-        <th></th>
         <th></th>
         <th></th>
     </tr>
@@ -38,4 +36,3 @@
         </tr>
     <?php } ?>
 </table>
-

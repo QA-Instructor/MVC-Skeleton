@@ -58,5 +58,6 @@ class Blogger {
     public function getBloggerId() {
         return $this->blogger_id;
     }
+    
 
 }

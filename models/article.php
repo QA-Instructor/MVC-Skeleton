@@ -154,7 +154,7 @@ class Article {
         $req->execute();
 
         //upload artice image if it exists
-        if (isset($_FILES['myUploader']) && $_FILES['myUploader']['error'] == 0){
+        if (isset($_FILES['myUploader'])){
             Article::uploadFile($id);
         }
     }
@@ -191,15 +191,15 @@ class Article {
         }
         return $list;
     }
-
-
+  
+    
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
 
     public static function uploadFile($id) {
 
         if (empty($_FILES['myUploader'])) {
-            //die("File Missing!");
+            //die("File Missing!"); // what should happen if image file is trying to update but there is no image to update to
             trigger_error("File Missing!");
         }
 
@@ -214,7 +214,7 @@ class Article {
 
         $tempFile = $_FILES['myUploader']['tmp_name'];
         $path = "views/images/";
-        $destinationFile = $path . $id . '.jpg';
+        $destinationFile = $path . $id . '.jpg'; //re-name the new file being uploaded
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
             trigger_error("File didn't load to destination");

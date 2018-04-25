@@ -1,6 +1,6 @@
 
 <p>Fill in the following form to update an existing article:</p>
-<form action="" method="POST" class="w3-container" enctype="multipart/form-data">
+
     <h2>Update Item</h2>
     <p>
         <input class="w3-input" type="text" name="title" value="<?= $article->title; ?>">
@@ -36,7 +36,7 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
       <input class="w3-button w3-block w3-teal" type="submit" name='submit' value="Update Article">
     </p>
     
-</form>
+
 <br/>
 <p>
     --- Comments  ---
