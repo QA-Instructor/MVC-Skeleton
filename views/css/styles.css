@@ -1,10 +1,292 @@
-html, body, h1, h2, h3, h4, h5, h6 {
- font-family: 'Pangolin', cursive;
+html,body{
+    height: 100%
 }
-.w3-tangerine {
-  font-family: 'Tangerine', serif;
+
+.footer {
+    font-family: 'Quicksand', cursive;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#D3D3D3;
+    padding: 5px;
 }
-.w3-pacifico {
-    font-family: 'Pacifico', cursive;
+
+.footer.footer-contact {
+    padding: 20px;
+    display: inline-block; 
+}           
+
+a.footer.footer-contact {
+    a:link {
+        color: whitesmoke;
+    }
+    a:visited {
+        color: whitesmoke;
+    }
+    a:hover {
+        color: #ff3300;
+    }
 }
+
+.footer .footer-newsletter {
+    padding: 20px 0px 5px;
+}
+/*newsletter sign up*/
+
+/* Style the form element with a border around it */
+.newsletter-form {
+    border: 3px solid #f1f1f1;
+}
+
+/* Add some padding and a grey background color to containers */
+.newsletter-container {
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    display: inline-block; 
+    float: right;
+}
+
+/* Style the input elements and the submit button */
+.newsletter-input[type=text], input[type=submit] {
+    width: 90px;
+    padding: 5px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 0px solid #ccc;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+/* Style the submit button */
+.newsletter-input[type=submit] {
+    color: white;
+    border: none;
+    font-size: 10px;
+}
+
+.newsletter-input[type=submit]:hover {
+    opacity: 0.8;
+}
+
+
+/* footer social icons */
+ul.social-network {
+    list-style: none;
+    display: inline-block;
+    margin-left:0 !important;
+    padding: 0px;
+    float: right;
+}
+ul.social-network li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* footer social icons */
+.social-network a.icoRss:hover {
+    background-color: #F56505;
+}
+.social-network a.icoFacebook:hover {
+    background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+    background-color:#33ccff;
+}
+.social-network a.icoGoogle:hover {
+    background-color:#BD3518;
+}
+.social-network a.icoVimeo:hover {
+    background-color:#0590B8;
+}
+.social-network a.icoLinkedin:hover {
+    background-color:#007bb7;
+}
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+    color:#808080;
+}
+a.socialIcon:hover, .socialHoverClass {
+    color:#44BCDD;
+}
+
+.social-circle li a {
+    display:inline-block;
+    position:relative;
+    margin:0 auto 0 auto;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    border-radius:50%;
+    text-align:center;
+    width: 50px;
+    height: 50px;
+    font-size:20px;
+}
+.social-circle li i {
+    margin:0;
+    line-height:50px;
+    text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -ms--transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.social-circle i {
+    color: #fff;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+a {
+    background-color: #D3D3D3;   
+}
+
+.padding50px {
+
+    padding: 50px;
+}
+.padding-top-bottom-20px {
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
+.margin-top-btm{
+    margin-bottom: 30%;
+    margin-top: 10%;
+}
+
+.btn{
+  background-color: #a8aec1;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: rgb(158, 66, 244);
+  color: white
+}
+
+
+*{box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+ .prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: #9e42f4;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+ .active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+} 
+
+p.blogtext
+{
+  
+    white-space: nowrap; 
+    width: 200px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
+
+}
+
+ 
+ 
+
 
