@@ -131,7 +131,42 @@ class Article {
 
     public static function update($id) {
         $db = Db::getInstance();
-        $req = $db->prepare("Update article set title=:title, content=:content where article_id=:article_id");
+        $req = $db->prepare("Update article set title=:title, content=:content where article_id=:article_id"); // should this be article ID or $id
+        $req->bindParam(':article_id', $id);
+        $req->bindParam(':title', $title);
+        $req->bindParam(':content', $content);
+
+      //$req->bindParam(':date', $date);
+
+// set name and price parameters and execute
+        if (isset($_POST['title']) && $_POST['title'] != "") {
+            $filteredTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        if (isset($_POST['content']) && $_POST['content'] != "") {
+            $filteredContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        
+        $title = $filteredTitle;
+        $content = $filteredContent;
+        $req->execute();
+
+        //upload artice image if it exists
+        /**if (isset($_FILES[self::InputKey]['title'])){ //if (!empty($_FILES[self::InputKey]['name']))
+            Article::uploadFile($id); // Victoria's code says Product::uploadFile($name);
+        }**/
+        
+        //upload artice image if it exists
+        if (isset($_FILES['myUploader']) && $_FILES['myUploader']['error'] == 0){
+            Article::uploadFile($id);
+        }
+        
+    }
+    
+
+/**Before edit 26/04/2018
+    public static function update($id) {
+        $db = Db::getInstance();
+        $req = $db->prepare("Update article set title=:title, content=:content where article_id=:article_id"); // should this be article ID or $id
         $req->bindParam(':article_id', $id);
         $req->bindParam(':title', $title);
         $req->bindParam(':content', $content);
@@ -147,17 +182,21 @@ class Article {
         }
         /* if(isset($_POST['date'])&& $_POST['date']!=""){
           $filteredDate = filter_input(INPUT_POST,'date', FILTER_SANITIZE_SPECIAL_CHARS);
-          } */
+          } 
         $title = $filteredTitle;
         $content = $filteredContent;
         //$date = $filteredDate;
         $req->execute();
 
         //upload artice image if it exists
-        if (isset($_FILES['myUploader'])){
+        if (isset($_FILES['myUploader'])){ //if (!empty($_FILES[self::InputKey]['name']))
             Article::uploadFile($id);
         }
+ 
     }
+
+ * 
+ */    
 
 
     public static function add() {
@@ -196,7 +235,7 @@ class Article {
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
 
-    public static function uploadFile($id) {
+    public static function uploadFile($id) { //need to look at the function
 
         if (empty($_FILES['myUploader'])) {
             //die("File Missing!"); // what should happen if image file is trying to update but there is no image to update to
@@ -213,7 +252,7 @@ class Article {
         }
 
         $tempFile = $_FILES['myUploader']['tmp_name'];
-        $path = "views/images/";
+        $path = "views/images"; //$path = "C:/xampp/htdocs/MVC-Skeleton-2/views/images";
         $destinationFile = $path . $id . '.jpg'; //re-name the new file being uploaded
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {

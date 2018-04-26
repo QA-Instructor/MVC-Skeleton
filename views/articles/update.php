@@ -1,5 +1,6 @@
 
 <p>Fill in the following form to update an existing article:</p>
+<form action="" method="POST" class="w3-container" enctype="multipart/form-data">
 
     <h2>Update Item</h2>
     <p>
@@ -17,7 +18,7 @@
     <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
     <?php
 
-$file = 'views/images/' . $article->id . '.jpg';
+$file = 'views/images/' . $article->id . '.jpeg';
 
 if(file_exists($file)){
     $img = "<img src='$file' width='150' />";
@@ -30,15 +31,13 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
 ?>
   <br/>
   <input type="file" name="myUploader" class="btn btn-primary btn-md" />
-  
   <br/>
     <p>
-      <input class="w3-button w3-block w3-teal" type="submit" name='submit' value="Update Article">
+      <input class="w3-button w3-block w3-teal" type="submit" value="Update Article">
     </p>
-    
-
 <br/>
 <p>
+</form>
     --- Comments  ---
 
 </p>

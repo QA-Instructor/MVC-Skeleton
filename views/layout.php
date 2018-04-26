@@ -21,8 +21,8 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <!--alert boxes-->
-        <script src="alert/dist/sweetalert-dev.js"></script>
-        <link rel="stylesheet" href="alert/dist/sweetalert.css">
+        <!--script src="alert/dist/sweetalert-dev.js"></script-->
+        <!--link rel="stylesheet" href="alert/dist/sweetalert.css"-->
     </head> 
     <body>    
         <style type="text/css">
