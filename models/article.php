@@ -6,7 +6,7 @@ class Article {
     public $title;
     public $content;
     public $date;
-    const AllowedTypes = ['image/jpeg', 'image/jpg'];
+    const AllowedTypes = ['image/jpeg', 'image/jpg']; //image or images?
     const InputKey = 'myUploader';
     
 
@@ -241,16 +241,12 @@ class Article {
             //die("File Missing!"); // what should happen if image file is trying to update but there is no image to update to
             trigger_error("File Missing!");
         }
-
         if ($_FILES['myUploader']['error'] > 0) {
             trigger_error("Handle the error! " . $_FILES[self::InputKey]['error']);
         }
-
-
         if (!in_array($_FILES['myUploader']['type'], self::AllowedTypes)) {
             trigger_error("File Type Not Allowed: " . $_FILES['myUploader']['type']);
         }
-
         $tempFile = $_FILES['myUploader']['tmp_name'];
         $path = "views/images"; //$path = "C:/xampp/htdocs/MVC-Skeleton-2/views/images";
         $destinationFile = $path . $id . '.jpg'; //re-name the new file being uploaded
