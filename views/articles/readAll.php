@@ -1,6 +1,6 @@
-
-<p>Hello &nbsp;<?php echo $_SESSION['blogger_f_name'];?>  &nbsp; <?php echo $_SESSION['blogger_l_name'];?></p>
-<div class="row">
+<?php if (isset($_SESSION['blogger_id'])){?>
+    <p>Hello &nbsp;<?php echo $_SESSION['blogger_f_name'];?>  &nbsp; <?php echo $_SESSION['blogger_l_name'];?></p>
+        <div class="row">
     <div class="pull-right">
             <a href='?controller=blogger&action=logout' class="btn btn-info" role="button">Logout</a>
     </div>
@@ -36,3 +36,7 @@
         </tr>
     <?php } ?>
 </table>
+<?php }else{ 
+    call('pages', 'error');
+}
+?>
