@@ -11,6 +11,7 @@
         <br>
     </p>
     <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+    
     <?php
         $file = 'views/images/' . $article->id . '.jpg';
         if(file_exists($file)){

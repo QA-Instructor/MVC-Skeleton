@@ -157,6 +157,7 @@ class Article {
         
         //upload artice image if it exists
         if (isset($_FILES['myUploader']) && $_FILES['myUploader']['error'] == 0){
+            echo 'in update image';
             Article::uploadFile($id);
         }
         
@@ -236,7 +237,7 @@ class Article {
 //replace with structured exception handling
 
     public static function uploadFile($id) { //need to look at the function
-
+        echo 'in uploadfile';
         if (empty($_FILES['myUploader'])) {
             //die("File Missing!"); // what should happen if image file is trying to update but there is no image to update to
             trigger_error("File Missing!");
@@ -248,7 +249,8 @@ class Article {
             trigger_error("File Type Not Allowed: " . $_FILES['myUploader']['type']);
         }
         $tempFile = $_FILES['myUploader']['tmp_name'];
-        $path = "views/images"; //$path = "C:/xampp/htdocs/MVC-Skeleton-2/views/images";
+        echo 'past all errors';
+        $path = "views/images/"; //$path = "C:/xampp/htdocs/MVC-Skeleton-2/views/images";
         $destinationFile = $path . $id . '.jpg'; //re-name the new file being uploaded
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {

@@ -81,8 +81,8 @@ class ArticleController {
     public function update() {
 
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            if (!isset($_GET['article_id']))
-                return call('pages', 'error');
+            if (!isset($_GET['article_id'])){
+            return call('pages', 'error');}
 
             // we use the given id to get the correct product
             require_once('models/comment.php');

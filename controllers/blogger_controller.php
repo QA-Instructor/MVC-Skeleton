@@ -8,6 +8,7 @@ class bloggerController {
         if (isset($_POST['submit'])) {
             $blogger = blogger::getBloggerIfValid($_POST['username'], $_POST['password']);
             if ($blogger !== NULL) {
+                echo 'not null';
                 $_SESSION['blogger_id'] = $blogger->getBloggerId();
                 $_SESSION['blogger_f_name'] = $blogger->getFname();
                 $_SESSION['blogger_l_name'] = $blogger->getLname();
