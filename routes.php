@@ -1,4 +1,11 @@
 <?php
+namespace MVCSkeleton{
+    spl_autoload_register(function($Name) {
+    $filePath = "$Name.php";
+    $macFilePath = str_replace('\\', '/', $filePath);
+    require_once '../' . $macFilePath;   
+    });
+    
   function call($controller, $action) {
     // require the file that matches the controller name
     require_once('controllers/' . $controller . '_controller.php');
@@ -41,4 +48,5 @@ $controllers = array('pages' => ['home', 'error'],
   } else {
     call('pages', 'error');
   }
+}
   ?>

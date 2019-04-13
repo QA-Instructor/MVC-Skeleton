@@ -1,5 +1,7 @@
 <?php
 
+namespace MVCSkeleton{
+//AMEND to include username and passwords - users and privileges in SQL
 class DB {
     
     private static $instance = NULL;
@@ -12,4 +14,5 @@ class DB {
       }
       return self::$instance;
     }
+}
 }
