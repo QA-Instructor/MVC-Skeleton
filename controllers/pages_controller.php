@@ -1,5 +1,15 @@
 <?php
 
+namespace controllers{
+
+    spl_autoload_register(function($Name) {
+        $filePath = "$Name.php";
+        $macFilePath = str_replace('\\', '/', $filePath);
+        require_once '../' . $macFilePath;   
+    });
+    
+   
+    
 class PagesController {
    
     public function home() {
@@ -13,4 +23,5 @@ class PagesController {
       require_once('views/pages/error.php');
     }
     
+}
 }
