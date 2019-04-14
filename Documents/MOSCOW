@@ -1,15 +1,15 @@
 | Requirement                      | Priority (according to MoSCoW principles) |
 | -------------------------------- | ----------------------------------------- |
-| Customer account area            | Should                                    |
-| Sign-in option                   | Should                                    |
-| Search                           | Must                                      |
-| Reserve option                   | Could                                     |
-| Search user accounts option      | Could                                     |
-| Delete reserved book option      | Must                                      |
-| Control number of items borrowed | Must                                      |
-| Overdue book alerts              | Could                                     |
-| Create user access levels        | Must                                      |
-| Library Staff / HR Table         | Could
-| Add / delete books               | Must
-| Add library users                | Must
-| Check in / check out books       | Must
+| Set account privileges      	   | Must                                      |
+| Sign-in option                   | Must                                      |
+| Search and view posts            | Must                                      | 
+| Upload images			   | Must				       |
+| Add, amend, delete posts         | Must                                      |
+| Registration of users            | Must                                      |
+| Viewers.                         | Should                                    |
+| Able to tag multiple authors     | Must                                      |
+| Subscribers                      | Could                                     |
+| Blogger profile(public interface | Could                                     |
+| Social Media links               | Could				       |
+| Able to share posts              | Must				       |
+| Add comments                     | Must                                      |
