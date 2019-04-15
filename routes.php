@@ -1,10 +1,14 @@
 <?php
 namespace MVCSkeleton{
-    spl_autoload_register(function($Name) {
-    $filePath = "$Name.php";
-    $macFilePath = str_replace('\\', '/', $filePath);
-    require_once '../' . $macFilePath;   
-    });
+    
+//    include "autoload.php";
+    
+//    spl_autoload_register(function($Name) {
+//    $filePath = "$Name.php";
+//    $macFilePath = str_replace('\\', '/', $filePath);
+//    require_once '../' . $macFilePath;   
+//    });
+//    use controllers\pages_controller;
     
   function call($controller, $action) {
     // require the file that matches the controller name
@@ -32,8 +36,9 @@ namespace MVCSkeleton{
 // for validation we list the allowed controllers and their actions
 // Add an entry for each new controller and its actions
 $controllers = array('pages' => ['home', 'error'],
-                    'product' => ['readAll','read','create','update','delete'],
+                    'post' => ['readAll','read','create','update','delete'],
                     'user' => ['login'],
+                    'user' => ['registration'],
                     'controllerXXX' => ['actionYYY', 'actionZZZ'],
                     );
 

@@ -8,7 +8,7 @@
         <label>User Name</label>
     </p>
         <p>
-        <input class="w3-input" type="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$" title="Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one number." required>
+        <input class="w3-input" type="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,20}$" title="Password must be at least 4 characters and must include at least one upper case letter, one lower case letter, and one number." required>
         <label>Password</label>
     </p>
     
