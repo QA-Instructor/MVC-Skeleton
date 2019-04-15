@@ -1,0 +1,15 @@
+| Requirement                      | Priority (according to MoSCoW principles) |
+| -------------------------------- | ----------------------------------------- |
+| Set account privileges      	   | Must                                      |
+| Sign-in option                   | Must                                      |
+| Search and view posts            | Must                                      | 
+| Upload images			   | Must				       |
+| Add, amend, delete posts         | Must                                      |
+| Registration of users            | Must                                      |
+| Viewers.                         | Should                                    |
+| Able to tag multiple authors     | Must                                      |
+| Subscribers                      | Could                                     |
+| Blogger profile(public interface | Could                                     |
+| Social Media links               | Could				       |
+| Able to share posts              | Must				       |
+| Add comments                     | Must                                      |
