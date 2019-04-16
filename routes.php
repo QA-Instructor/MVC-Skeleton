@@ -1,5 +1,5 @@
 <?php
-namespace MVCSkeleton{
+//namespace MVCSkeleton{
     
 //    include "autoload.php";
     
@@ -8,12 +8,11 @@ namespace MVCSkeleton{
 //    $macFilePath = str_replace('\\', '/', $filePath);
 //    require_once '../' . $macFilePath;   
 //    });
-//    use controllers\pages_controller;
-    
+   
   function call($controller, $action) {
     // require the file that matches the controller name
     require_once('controllers/' . $controller . '_controller.php');
-
+    
     // create a new instance of the needed controller
     switch($controller) {
         //for non-data-driven pages use the PagesController class
@@ -37,8 +36,7 @@ namespace MVCSkeleton{
 // Add an entry for each new controller and its actions
 $controllers = array('pages' => ['home', 'error'],
                     'post' => ['readAll','read','create','update','delete'],
-                    'user' => ['login'],
-                    'user' => ['registration'],
+                    'user' => ['login', 'registration'],
                     'controllerXXX' => ['actionYYY', 'actionZZZ'],
                     );
 
@@ -54,5 +52,5 @@ $controllers = array('pages' => ['home', 'error'],
   } else {
     call('pages', 'error');
   }
-}
+//}
   ?>

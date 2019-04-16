@@ -1,7 +1,7 @@
 <?php
 
-namespace controller{
-    include "..\autoload.php";
+//namespace controller{
+//    include "..\autoload.php";
     
 //    spl_autoload_register(function($Name) {
 //    $filePath = "$Name.php";
@@ -9,12 +9,12 @@ namespace controller{
 //    require_once '../' . $macFilePath;   
 //    });
     
-    use models\post;
+//    use models\post;
 
-class BlogPostController {
+class PostController {
     public function readAll() {
       // we store all the posts in a variable
-      $blogPosts = BlogPost::all(); //relates in Line 15 in model/product - therefore instantiates new product class
+      $posts = Post::all(); //relates in Line 15 in model/product - therefore instantiates new product class
       require_once('views/posts/readAll.php'); //includes view file to display the readAll
     }
 
@@ -26,13 +26,14 @@ class BlogPostController {
 
       try{
       // we use the given id to get the correct post
-      $blogPosts = BlogPost::find($_GET['id']); // similar to readAll - get ID and display in viewer
+      $post = Post::find($_GET['id']); // similar to readAll - get ID and display in viewer
       require_once('views/posts/read.php');
       }
  catch (Exception $ex){ //AMEND - to return getMessage, getLine for the back end
      return call('pages','error');
  }
     }
+    
     public function create() {
       // we expect a url of form ?controller=products&action=create
       // if it's a GET request display a blank form for creating a new product
@@ -41,9 +42,9 @@ class BlogPostController {
           require_once('views/posts/create.php');
       }
       else { 
-          BlogPost::add(); //otherwise it's an add function and therefore create new entry
+          Post::add(); //otherwise it's an add function and therefore create new entry
              
-            $blogPosts = BlogPost::all(); //$products is used within the view
+            $posts = Post::all(); //$products is used within the view
             require_once('views/posts/readAll.php');
       }
       
@@ -55,27 +56,26 @@ class BlogPostController {
         return call('pages', 'error');
 
         // we use the given id to get the correct product
-        $blogPosts = BlogPost::find($_GET['id']);
+        $post = Post::find($_GET['id']);
       
         require_once('views/posts/update.php');
         }
       else
           { 
             $id = $_GET['id'];
-            BlogPost::update($id);
+            Post::update($id);
                         
-            $blogPosts = BlogPost::all();
+            $posts = Post::all();
             require_once('views/posts/readAll.php');
       }
       
     }
     public function delete() {
-            BlogPost::remove($_GET['id']);
+            Post::remove($_GET['id']);
             
-            $blogPosts = BlogPost::all();
+            $posts = Post::all();
             require_once('views/posts/readAll.php'); 
       }
       
-    }
 }
 ?>

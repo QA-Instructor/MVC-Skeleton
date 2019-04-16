@@ -1,8 +1,8 @@
 <?php
 
-namespace controllers{
+//namespace controllers;
 
-include "autoload.php";
+//include "autoload.php";
     
 //    spl_autoload_register(function($Name) {
 //        $filePath = "$Name.php";
@@ -11,7 +11,6 @@ include "autoload.php";
 //    });
     
    
-    
 class PagesController {
    
     public function home() {
@@ -26,4 +25,4 @@ class PagesController {
     }
     
 }
-}
+//}

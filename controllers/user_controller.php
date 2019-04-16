@@ -6,8 +6,10 @@ class UserController {
      require_once('views/users/login.php'); //draws posts/ includes vew file to desplay readAll
     }
     
+    public function register() {
+        
+    }
+    
 }
-
-
 
 ?>
