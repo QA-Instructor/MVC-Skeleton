@@ -1,20 +1,21 @@
 <?php
 
 namespace controller{
+    include "..\autoload.php";
     
-    spl_autoload_register(function($Name) {
-    $filePath = "$Name.php";
-    $macFilePath = str_replace('\\', '/', $filePath);
-    require_once '../' . $macFilePath;   
-    });
+//    spl_autoload_register(function($Name) {
+//    $filePath = "$Name.php";
+//    $macFilePath = str_replace('\\', '/', $filePath);
+//    require_once '../' . $macFilePath;   
+//    });
     
-    use models\product;
+    use models\post;
 
-class ProductController {
+class BlogPostController {
     public function readAll() {
       // we store all the posts in a variable
-      $products = Product::all(); //relates in Line 15 in model/product - therefore instantiates new product class
-      require_once('views/products/readAll.php'); //includes view file to display the readAll
+      $blogPosts = BlogPost::all(); //relates in Line 15 in model/product - therefore instantiates new product class
+      require_once('views/posts/readAll.php'); //includes view file to display the readAll
     }
 
     public function read() {
@@ -25,8 +26,8 @@ class ProductController {
 
       try{
       // we use the given id to get the correct post
-      $product = Product::find($_GET['id']); // similar to readAll - get ID and display in viewer
-      require_once('views/products/read.php');
+      $blogPosts = BlogPost::find($_GET['id']); // similar to readAll - get ID and display in viewer
+      require_once('views/posts/read.php');
       }
  catch (Exception $ex){ //AMEND - to return getMessage, getLine for the back end
      return call('pages','error');
@@ -37,13 +38,13 @@ class ProductController {
       // if it's a GET request display a blank form for creating a new product
       // else it's a POST so add to the database and redirect to readAll action
       if($_SERVER['REQUEST_METHOD'] == 'GET'){ //if server method is GET, then allowed to create
-          require_once('views/products/create.php');
+          require_once('views/posts/create.php');
       }
       else { 
-            Product::add(); //otherwise it's an add function and therefore create new entry
+          BlogPost::add(); //otherwise it's an add function and therefore create new entry
              
-            $products = Product::all(); //$products is used within the view
-            require_once('views/products/readAll.php');
+            $blogPosts = BlogPost::all(); //$products is used within the view
+            require_once('views/posts/readAll.php');
       }
       
     }
@@ -54,25 +55,25 @@ class ProductController {
         return call('pages', 'error');
 
         // we use the given id to get the correct product
-        $product = Product::find($_GET['id']);
+        $blogPosts = BlogPost::find($_GET['id']);
       
-        require_once('views/products/update.php');
+        require_once('views/posts/update.php');
         }
       else
           { 
             $id = $_GET['id'];
-            Product::update($id);
+            BlogPost::update($id);
                         
-            $products = Product::all();
-            require_once('views/products/readAll.php');
+            $blogPosts = BlogPost::all();
+            require_once('views/posts/readAll.php');
       }
       
     }
     public function delete() {
-            Product::remove($_GET['id']);
+            BlogPost::remove($_GET['id']);
             
-            $products = Product::all();
-            require_once('views/products/readAll.php'); 
+            $blogPosts = BlogPost::all();
+            require_once('views/posts/readAll.php'); 
       }
       
     }
