@@ -1,8 +1,8 @@
 <?php
   
-namespace models{
+//namespace models{
 
-include "..\autoload.php";    
+//include "..\autoload.php";    
 
 //    spl_autoload_register(function($Name) {
 //    $filePath = "$Name.php";
@@ -10,7 +10,7 @@ include "..\autoload.php";
 //    require_once '../' . $macFilePath;   
 //    });
 
-class BlogPost {
+class Post {
 
     // we define 3 attributes
     public $id;
@@ -35,7 +35,7 @@ class BlogPost {
       $req = $db->query('SELECT * FROM post');
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $blogPost) { //NEED TO CHANGE FETCH ALL
-        $list[] = new BlogPost($blogPost['id'], $blogPost['title'], $blogPost['tag'], $blogPost['content'], $blogPost['date'], $blogPost['postImage']);
+        $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['text'], $blogPost['date'], $blogPost['postImage']);
       }
       return $list;
     }
@@ -49,7 +49,7 @@ class BlogPost {
       $req->execute(array('id' => $id)); //array of results
       $blogPost = $req->fetch(); //assigns results to product
 if($blogPost){ //if Product exists create new class
-      return new BlogPost($blogPost['id'], $blogPost['title'], $blogPost['tag'], $blogPost['content'], $blogPost['date'], $blogPost['postImage']); //AMEND as not testing for anything useful 
+      return new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['text'], $blogPost['date'], $blogPost['postImage']); //AMEND as not testing for anything useful 
     }
     else
     {
@@ -180,5 +180,5 @@ public static function remove($id) {
   }
   
 }
-}
+//}
 ?>
