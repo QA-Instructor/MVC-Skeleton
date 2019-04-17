@@ -2,4 +2,6 @@
 <p>Oops, this is the error page.</p>
 <img src="views/images/standard/_errorimage.jpg" width="150" />
 <p>It looks like something went wrong :(</p>
+<h2> hahahaha </h2>
+
 </div>
