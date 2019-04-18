@@ -48,7 +48,11 @@ class Post {
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('id' => $id)); //array of results
       $blogPost = $req->fetch(); //assigns results to product
+<<<<<<< HEAD
 if($blogPost){ //if Product exists create new class
+=======
+if($blogPost){ //if Post exists create new class
+>>>>>>> 36e161687f1c664729ea154a59c511785cbd6571
       return new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage']); //AMEND as not testing for anything useful 
     }
     else
@@ -60,7 +64,7 @@ if($blogPost){ //if Product exists create new class
 
 public static function update($id) { 
     $db = Db::getInstance(); 
-    $req = $db->prepare("Update product set title=:title, tag=:tag, content=:content, date=:date, postImage=:postImage where id=:id"); //prepare statement 
+    $req = $db->prepare("Update post set title=:title, tag=:tag, content=:content, date=:date, postImage=:postImage where id=:id"); //prepare statement 
     $req->bindParam(':id', $id); //binds $ID to ID column
     $req->bindParam(':title', $title); //binds $name to name column
     $req->bindParam(':content', $content); //binds $price to price column
@@ -101,7 +105,7 @@ $req->execute();
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Update product set title=:title, tag=:tag, content=:content, date=:date, postImage=:postImage where id=:id"); //prepare statement 
+    $req = $db->prepare("Update post set title=:title, tag=:tag, content=:content, date=:date, postImage=:postImage where id=:id"); //prepare statement 
     $req->bindParam(':id', $id); //binds $ID to ID column
     $req->bindParam(':title', $title); //binds $name to name column
     $req->bindParam(':content', $content); //binds $price to price column
