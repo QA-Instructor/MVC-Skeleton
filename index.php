@@ -15,7 +15,6 @@
         $controller = 'pages';
         $action     = 'home';
   }
-
     require_once('views/layout.php');
         ?>
     </body>
