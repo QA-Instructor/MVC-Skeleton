@@ -35,7 +35,7 @@ class Post {
       $req = $db->query('SELECT * FROM post');
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $blogPost) { //NEED TO CHANGE FETCH ALL
-        $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['text'], $blogPost['date'], $blogPost['postImage']);
+        $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage']);
       }
       return $list;
     }
@@ -44,12 +44,12 @@ class Post {
       $db = Db::getInstance(); //Connects to database through already established connection
       //use intval to make sure $id is an integer
       $id = intval($id); //validates that ID is actually an integer - returns integer value of the variable
-      $req = $db->prepare('SELECT * FROM post WHERE id = :id'); //where ID matches - returns all values
+      $req = $db->prepare('SELECT * FROM post WHERE postID = :id'); //where ID matches - returns all values
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('id' => $id)); //array of results
       $blogPost = $req->fetch(); //assigns results to product
 if($blogPost){ //if Product exists create new class
-      return new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['text'], $blogPost['date'], $blogPost['postImage']); //AMEND as not testing for anything useful 
+      return new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage']); //AMEND as not testing for anything useful 
     }
     else
     {
