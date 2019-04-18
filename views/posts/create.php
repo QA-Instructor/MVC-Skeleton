@@ -6,12 +6,12 @@
     <h2>Add New Item</h2>
 </div>
     <p>
-        <input class="w3-input" type="text" name="name" required autofocus>
-        <label>Name</label>
+        <input class="w3-input" type="text" name="title" required autofocus>
+        <label>Title</label>
     </p>
         <p>
-        <input class="w3-input" type="text" name="price" required>
-        <label>Price</label>
+        <input class="w3-input" type="text" name="content" required>
+        <label>Content</label>
     </p>
             
   <input type="hidden" 
@@ -21,6 +21,6 @@
 
   <input type="file" name="myUploader" class="w3-btn w3-pink" required />
   <p>
-    <input class="w3-btn w3-pink" type="submit" value="Add Product">
+    <input class="w3-btn w3-pink" type="submit" value="Add Post">
   </p>
 </form>
