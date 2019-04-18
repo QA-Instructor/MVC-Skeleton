@@ -19,23 +19,35 @@ class Post {
     public $content;
     public $date;
     public $postImage;
+    public $username;
+   
 
-    public function __construct($id, $title, $tag, $content, $date, $postImage) {
+    public function __construct($id, $title, $tag, $content, $date, $postImage, $username) {
       $this->id    = $id;
       $this->title  = $title;
       $this->tag = $tag;
       $this->content = $content;
       $this->date = $date;
       $this->postImage = $postImage;
+      $this->username = $username;
     }
 
     public static function all() { //All function set into the array
       $list = [];
       $db = Db::getInstance(); //Instantiates database connection - once 'item' is loaded then starts the connection
-      $req = $db->query('SELECT * FROM post');
+      $req = $db->query('SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user
+as u
+inner JOIN
+user_post
+as UP
+on u.userID=up.userID
+inner JOIN
+post
+as p
+on up.postID=p.postID');
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $blogPost) { //NEED TO CHANGE FETCH ALL
-        $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['text'], $blogPost['date'], $blogPost['postImage']);
+        $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']);
       }
       return $list;
     }
@@ -44,12 +56,20 @@ class Post {
       $db = Db::getInstance(); //Connects to database through already established connection
       //use intval to make sure $id is an integer
       $id = intval($id); //validates that ID is actually an integer - returns integer value of the variable
-      $req = $db->prepare('SELECT * FROM post WHERE id = :id'); //where ID matches - returns all values
+      $req = $db->prepare('SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user as u
+inner JOIN
+user_post
+as UP
+on u.userID=up.userID
+inner JOIN
+post
+as p
+on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns all values WHERE postID = :postID
       //the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id)); //array of results
+      $req->execute(array('postID' => $id)); //array of results
       $blogPost = $req->fetch(); //assigns results to product
-if($blogPost){ //if Product exists create new class
-      return new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['text'], $blogPost['date'], $blogPost['postImage']); //AMEND as not testing for anything useful 
+if($blogPost){ //if Post exists create new class
+      return new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']); //AMEND as not testing for anything useful 
     }
     else
     {
@@ -60,7 +80,7 @@ if($blogPost){ //if Product exists create new class
 
 public static function update($id) { 
     $db = Db::getInstance(); 
-    $req = $db->prepare("Update product set title=:title, tag=:tag, content=:content, date=:date, postImage=:postImage where id=:id"); //prepare statement 
+    $req = $db->prepare("Update post set title=:title, tag=:tag, content=:content, date=:date, postImage=:postImage where id=:id"); //prepare statement 
     $req->bindParam(':id', $id); //binds $ID to ID column
     $req->bindParam(':title', $title); //binds $name to name column
     $req->bindParam(':content', $content); //binds $price to price column
@@ -101,7 +121,7 @@ $req->execute();
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Update product set title=:title, tag=:tag, content=:content, date=:date, postImage=:postImage where id=:id"); //prepare statement 
+    $req = $db->prepare("Update post set title=:title, tag=:tag, content=:content, date=:date, postImage=:postImage where id=:id"); //prepare statement 
     $req->bindParam(':id', $id); //binds $ID to ID column
     $req->bindParam(':title', $title); //binds $name to name column
     $req->bindParam(':content', $content); //binds $price to price column
