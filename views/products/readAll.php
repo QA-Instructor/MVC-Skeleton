@@ -1,4 +1,4 @@
-<p>Here is a list of all posts:</p>
+<p>Here is a list of all products:</p>
 
 <?php foreach($posts as $post) { ?>
   <p>
