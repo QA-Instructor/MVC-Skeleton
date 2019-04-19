@@ -151,14 +151,14 @@ $req->execute();
 
 $title = $filteredTitle;
 $content = $filteredContent;
-$postImage; //= $filteredPostImage;
+//$postImage; //= $filteredPostImage;
 $tag = $filteredTag;
 $date;
 
 $req->execute();
 
 //upload product image
-Post::uploadFile($title);
+//Post::uploadFile($title);
     }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
@@ -183,7 +183,7 @@ public static function uploadFile(string $title) {//DELETE string to remove erro
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C://Applications/XAMPP/xamppfiles/htdocs/MVC-Skeleton/views/images/posts"; //AMEND to folder structure
+        $path = "C:\xampp\htdocs\FinalProject\MVC-Skeleton\views\images\posts"; //AMEND to folder structure
 	$destinationFile = $path . $title . '.jpeg'; // CHECK FILE PATH - POTENTIALLY INCORRECT
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) { //FIX THIS, NOT WORKING

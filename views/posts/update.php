@@ -3,13 +3,6 @@
     <h2>Update Item</h2>
     <p>
         <input class="w3-input" type="text" name="title" value="<?= $post->title; ?>">
-<<<<<<< HEAD
-        <label>Name</label>
-    </p>
-    <p>
-        <input class="w3-input" type="text" name="content" value="<?= $post->content; ?>" >
-        <label>Price</label>
-=======
         <label>Title</label>
     </p>
     <p>
@@ -19,18 +12,14 @@
     <p>
         <input class="w3-input" type="text" name="tag" value="<?= $post->tag; ?>" >
         <label>Tag</label>
->>>>>>> 0731314bd50297f30dcb287febb2721a07283d3e
+
     </p>
             
   <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
 <?php 
-<<<<<<< HEAD
-$file = 'views/images/posts' . $post->postImage;
-if(file_exists($file)){
-=======
+
 $file = 'views/images/posts/' . $post->postImage;
 if(file_exists($file)){ 
->>>>>>> 0731314bd50297f30dcb287febb2721a07283d3e
     $img = "<img src='$file' width='150' />";
     echo $img;
 }

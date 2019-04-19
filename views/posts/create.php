@@ -12,8 +12,7 @@
         <p>
         <input class="w3-input" type="text" name="content" required>
         <label>Content</label>
-<<<<<<< HEAD
-=======
+
     </p>
     <p>
         <input class="w3-input" type="text" name="tag" required>
@@ -22,7 +21,6 @@
     <p>
         <input class="w3-input" type="text" name="date" required>
         <label>Date</label>
->>>>>>> 0731314bd50297f30dcb287febb2721a07283d3e
     </p>
             
   <input type="hidden" 
@@ -30,7 +28,7 @@
          value="10000000"
          />
 
-  <input type="file" name="myUploader" class="w3-btn w3-pink" required />
+  <input type="file" name="myUploader" class="w3-btn w3-pink" />
   <p>
     <input class="w3-btn w3-pink" type="submit" value="Add Post">
   </p>
