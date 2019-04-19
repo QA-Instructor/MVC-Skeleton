@@ -39,7 +39,7 @@ class Post {
 as u
 inner JOIN
 user_post
-as UP
+as up
 on u.userID=up.userID
 inner JOIN
 post
@@ -85,14 +85,14 @@ if($blogPost){ //if Post exists create new class
 
 public static function update($id) { 
     $db = Db::getInstance(); 
-    $req = $db->prepare("Update post set title=:title, tag=:tag, content=:content, date=:date, postImage=:postImage where id=:id"); //prepare statement 
+    $req = $db->prepare("Update post set title=:title, tagID=:tag, content=:content, date=:date, postImage=:postImage where postID=:id"); //prepare statement 
     $req->bindParam(':id', $id); //binds $ID to ID column
     $req->bindParam(':title', $title); //binds $name to name column
     $req->bindParam(':content', $content); //binds $price to price column
     $req->bindParam(':date', $date);
     $req->bindParam(':postImage', $postImage);
     $req->bindParam(':tag', $tag);
-    //binding allows the variable to be used rathr than retyping prepare statement each time
+    //binding allows the variable to be used rather than retyping prepare statement each time
 
 // set name and price parameters and execute
     if(isset($_POST['title'])&& $_POST['title']!=""){ //{!= 'not' i.e. is not equal to something}. Therefore post cannot be empty.
@@ -126,7 +126,7 @@ $req->execute();
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Update post set title=:title, tag=:tag, content=:content, date=:date, postImage=:postImage where id=:id"); //prepare statement 
+    $req = $db->prepare("Update post set title=:title, tagID=:tag, content=:content, date=:date, postImage=:postImage where postID=:id"); //prepare statement 
     $req->bindParam(':id', $id); //binds $ID to ID column
     $req->bindParam(':title', $title); //binds $name to name column
     $req->bindParam(':content', $content); //binds $price to price column
@@ -141,9 +141,9 @@ $req->execute();
     if(isset($_POST['content'])&& $_POST['content']!=""){
         $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-        if(isset($_POST['postImage'])&& $_POST['postImage']!=""){
-        $filteredPostImage = filter_input(INPUT_POST,'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
+    //    if(isset($_POST['postImage'])&& $_POST['postImage']!=""){
+    //    $filteredPostImage = filter_input(INPUT_POST,'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
+    //}
         if(isset($_POST['tag'])&& $_POST['tag']!=""){
         $filteredTag = filter_input(INPUT_POST,'tag', FILTER_SANITIZE_SPECIAL_CHARS);
     }
@@ -151,14 +151,14 @@ $req->execute();
 
 $title = $filteredTitle;
 $content = $filteredContent;
-$postImage = $filteredPostImage;
+$postImage; //= $filteredPostImage;
 $tag = $filteredTag;
 $date;
 
 $req->execute();
 
 //upload product image
-Product::uploadFile($title);
+Post::uploadFile($title);
     }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
@@ -183,10 +183,10 @@ public static function uploadFile(string $title) {//DELETE string to remove erro
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/"; //AMEND to folder structure
-	$destinationFile = $path . $name . '.jpeg'; // CHECK FILE PATH - POTENTIALLY INCORRECT
+        $path = "C://Applications/XAMPP/xamppfiles/htdocs/MVC-Skeleton/views/images/posts"; //AMEND to folder structure
+	$destinationFile = $path . $title . '.jpeg'; // CHECK FILE PATH - POTENTIALLY INCORRECT
 
-	if (!move_uploaded_file($tempFile, $destinationFile)) {
+	if (!move_uploaded_file($tempFile, $destinationFile)) { //FIX THIS, NOT WORKING
 		trigger_error("Handle Error");
 	}
 		
@@ -195,11 +195,12 @@ public static function uploadFile(string $title) {//DELETE string to remove erro
 		unlink($tempFile); 
 	}
 }
+
 public static function remove($id) {
       $db = Db::getInstance();
       //make sure $id is an integer
       $id = intval($id);
-      $req = $db->prepare('delete FROM post WHERE id = :id');
+      $req = $db->prepare('delete FROM post WHERE postID = :id');
       // the query was prepared, now replace :id with the actual $id value
       $req->execute(array('id' => $id));
   }

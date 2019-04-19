@@ -12,7 +12,7 @@ if(file_exists($file)){
 }
 else
 {
-echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
+echo "<img src='views/images/posts/' width='150' />";
 }
 
 ?>

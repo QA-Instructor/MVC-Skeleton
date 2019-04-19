@@ -37,7 +37,7 @@
 $controllers = array('pages' => ['home', 'error'],
                     'post' => ['readAll','read','create','update','delete'],
                     'user' => ['login', 'registration'],
-                    'controllerXXX' => ['actionYYY', 'actionZZZ'],
+                    'controllerXXX' => ['actionYYY', 'actionZZZ'], //this needs to be amended to reflect controllers
                     );
 
   // check that the requested controller and action are both allowed
