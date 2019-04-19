@@ -11,7 +11,7 @@
   </head>
   <body>
     <header class="w3-container w3-gray">
-      <a href='/MVC_Skeleton'>Home</a>
+      <a href='/MVC-Skeleton'>Home</a>
       <a href='?controller=post&action=readAll'>Posts</a>
       <a href='?controller=post&action=create'>Add Post</a>
     </header>
