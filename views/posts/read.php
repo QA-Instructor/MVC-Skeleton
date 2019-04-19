@@ -2,6 +2,7 @@
 
 <p>Blog ID: <?php echo $post->id; ?></p>
 <p>Title: <?php echo $post->title; ?></p>
+<p>Image: <img src="<?php echo $post->postImage; ?>" style="width: 100px; height: 100px;" /></p>
 <p>Written by:<?php echo $post->username; ?></p>
 <?php 
 $file = 'views/images/' . $post->username . '.jpeg';

@@ -42,8 +42,7 @@ class PostController {
           require_once('views/posts/create.php');
       }
       else { 
-          Post::add(); //otherwise it's an add function and therefore create new entry
-             
+          Post::add($_POST['title'],$_POST['content'], $_POST['tag']); //otherwise it's an add function and therefore create new entry
             $posts = Post::all(); //$products is used within the view
             require_once('views/posts/readAll.php');
       }
