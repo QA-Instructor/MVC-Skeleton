@@ -85,11 +85,11 @@ if($blogPost){ //if Post exists create new class
 
 public static function update($id) { 
     $db = Db::getInstance(); 
-    $req = $db->prepare("Update post set title=:title, tagID=:tag, content=:content, date=:date, postImage=:postImage where postID=:id"); //prepare statement 
+    $req = $db->prepare("Update post set title=:title, tagID=:tag, content=:content, postImage=:postImage where postID=:id"); //prepare statement 
     $req->bindParam(':id', $id); //binds $ID to ID column
     $req->bindParam(':title', $title); //binds $name to name column
     $req->bindParam(':content', $content); //binds $price to price column
-    $req->bindParam(':date', $date);
+//    $req->bindParam(':date', $date);
     $req->bindParam(':postImage', $postImage);
     $req->bindParam(':tag', $tag);
     //binding allows the variable to be used rather than retyping prepare statement each time
@@ -101,9 +101,9 @@ public static function update($id) {
     if(isset($_POST['content'])&& $_POST['content']!=""){
         $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-        if(isset($_POST['postImage'])&& $_POST['postImage']!=""){
-        $filteredPostImage = filter_input(INPUT_POST,'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
+//        if(isset($_POST['postImage'])&& $_POST['postImage']!=""){
+//        $filteredPostImage = filter_input(INPUT_POST,'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
+//    }
         if(isset($_POST['tag'])&& $_POST['tag']!=""){
         $filteredTag = filter_input(INPUT_POST,'tag', FILTER_SANITIZE_SPECIAL_CHARS);
     }
@@ -111,9 +111,9 @@ public static function update($id) {
 
 $title = $filteredTitle;
 $content = $filteredContent;
-$postImage = $filteredPostImage;
+//$postImage = $filteredPostImage;
 $tag = $filteredTag;
-$date;
+//$date;
 
 $req->execute();
 
@@ -126,11 +126,10 @@ $req->execute();
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Update post set title=:title, tagID=:tag, content=:content, date=:date, postImage=:postImage where postID=:id"); //prepare statement 
-    $req->bindParam(':id', $id); //binds $ID to ID column
+    $req = $db->prepare("Insert into post (title, content, postImage, tagID) values (:title, :content, :postImage, :tag)"); //prepare statement 
+//    $req->bindParam(':id', $id); //binds $ID to ID column
     $req->bindParam(':title', $title); //binds $name to name column
     $req->bindParam(':content', $content); //binds $price to price column
-    $req->bindParam(':date', $date);
     $req->bindParam(':postImage', $postImage);
     $req->bindParam(':tag', $tag);
 
@@ -141,19 +140,22 @@ $req->execute();
     if(isset($_POST['content'])&& $_POST['content']!=""){
         $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    //    if(isset($_POST['postImage'])&& $_POST['postImage']!=""){
-    //    $filteredPostImage = filter_input(INPUT_POST,'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
-    //}
+//        if(isset($_POST['postImage'])&& $_POST['postImage']!=""){
+//        $filteredPostImage = filter_input(INPUT_POST,'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
+//    }
         if(isset($_POST['tag'])&& $_POST['tag']!=""){
         $filteredTag = filter_input(INPUT_POST,'tag', FILTER_SANITIZE_SPECIAL_CHARS);
     }
     
-
+//
 $title = $filteredTitle;
 $content = $filteredContent;
-//$postImage; //= $filteredPostImage;
 $tag = $filteredTag;
-$date;
+//$postImage= $filteredPostImage;
+//$tag = $filteredTag;
+//$date;
+//   $title = $_POST['title'];
+//   $content = $_POST['content'];
 
 $req->execute();
 

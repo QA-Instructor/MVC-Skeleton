@@ -15,13 +15,13 @@
 
     </p>
     <p>
-        <input class="w3-input" type="text" name="tag" required>
+        <input class="w3-input" type="number" name="tag" required>
         <label>Tags</label>
     </p>
-    <p>
+<!--    <p>
         <input class="w3-input" type="text" name="date" required>
         <label>Date</label>
-    </p>
+    </p>-->
             
   <input type="hidden" 
 	   name="MAX_FILE_SIZE" 
