@@ -1,4 +1,4 @@
-<p>This is the requested product:</p>
+<p>This is the requested post:</p>
 
 <p>Blog ID: <?php echo $post->id; ?></p>
 <p>Title: <?php echo $post->title; ?></p>
