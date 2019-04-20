@@ -41,3 +41,62 @@ BEGIN
     WHERE user.username = thisusername;                           
 END$$
 DELIMITER ;
+
+#createPost
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createPost`(in title varchar(50), in tagID int(2), in content longtext, in postImage varchar(1000))
+insert into post (title, tagID, content, postImage)
+values (title, tagID, content, postImage)$$
+DELIMITER ;
+
+#createUser
+
+#DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createUser`(in firstName varchar(50), in lastName varchar(50), in email varchar(50), in username varchar(20), in password varchar(20), in phoneNumber int(11), in userTypeID int(2))
+insert into user(firstName, lastName, email, username, password, phoneNumber, userTypeID)
+values (firstName, lastName, email, password, phoneNumber, userTypeID)$$
+DELIMITER ;
+
+#deletePost 
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deletePost`(in postID int(5))
+delete from post
+WHERE post.postID = postID$$
+DELIMITER ;
+
+#deleteUser
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deleteUser`(in userID int(5))
+delete from user
+WHERE user.userID = userID$$
+DELIMITER ;
+
+#updatePassword
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updatePassword`(IN `password` VARCHAR(20), IN `username` VARCHAR(20))
+UPDATE user
+SET user.password=password 
+WHERE user.username = username$$
+DELIMITER ;
+
+#updatePost 
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updatePost`(in postID int(5), in title varchar(50), in content longtext, in tagID int(2), postImage varchar(1000))
+UPDATE post
+SET post.title=title, post.content=content, post.tagID=tagID, post.postImage=postImage
+WHERE post.postID = postID$$
+DELIMITER ;
+
+# updateUser
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updateUser`(in userID int(5), in firstName varchar(50), in lastName varchar(50), in username varchar(20), in email varchar(50), in phoneNumber int(11))
+UPDATE user
+SET user.firstName=firstName, user.lastName=lastName, user.username=username, user.email=email, user.phoneNumber=phoneNumber
+WHERE user.userID = userID$$
+DELIMITER ;
