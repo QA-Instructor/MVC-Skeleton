@@ -18,10 +18,6 @@
         <input class="w3-input" type="number" name="tag" required>
         <label>Tags</label>
     </p>
-<!--    <p>
-        <input class="w3-input" type="text" name="date" required>
-        <label>Date</label>
-    </p>-->
             
   <input type="hidden" 
 	   name="MAX_FILE_SIZE" 
