@@ -9,8 +9,14 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body>      
-    <form id="loginForm" name="loginForm" action=" " onsubmit="return checkPassword()" method="post">
+    <body> 
+        <?php
+        if (isset($ex)) {
+            echo "<p>" . $ex->getMessage() . "</p>";
+        }
+        ?>
+    
+    <form id="loginForm" name="loginForm" action="?controller=user&action=login" onsubmit="return checkPassword()" method="post">
         <input type="text" name="username" placeholder="Username" autofocus required> <br>
         <input type="text" name="password" placeholder="Password" required> <br>
         <button type="submit">Login</button> <br>

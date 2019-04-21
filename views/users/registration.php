@@ -2,7 +2,7 @@
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     
     <h2>Register</h2>
-</div>
+<div>
     <p>
         <input class="w3-input" type="text" name="firstName" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{3,20}$ title="First Name" required autofocus>
         <label>First Name</label>
@@ -12,7 +12,7 @@
         <label>Last Name</label>
     </p>
     <p>
-        <input class="w3-input" type="text" name="userName" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{3,20}$ title="Your username must be at least 3 characters, begin with a letter, and may not contain special characters" required>
+        <input class="w3-input" type="text" name="username" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{3,20}$ title="Your username must be at least 3 characters, begin with a letter, and may not contain special characters" required>
         <label>Username</label>
     </p>
     <p>
@@ -31,10 +31,10 @@
     </p>
     
             <p> Would you like to be a:
-        <input class="w3-input" type="radio" name="userType" value="blogger">
+        <input class="w3-input" type="radio" name="userTypeID" value="blogger">
         <label>Blogger</label><br>
         Or
-        <input class="w3-input" type="radio" name="userType" value="subscriber" checked>
+        <input class="w3-input" type="radio" name="userTypeID" value="subscriber" checked>
         <label>Subscriber</label>
     </p>
             
@@ -43,8 +43,9 @@
          value="10000000"
          />
 
-  <input type="file" name="myUploader" class="w3-btn w3-pink" />
+  <input type="file" name="myUploader"/>
   <p>
-    <input class="w3-btn w3-pink" type="submit" value="Add User">
+    <input type="submit" value="Add User">
   </p>
+</div>
 </form>

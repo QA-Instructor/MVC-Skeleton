@@ -6,6 +6,7 @@
     </head>
     <body>
         <?php
+        session_start(); 
     require_once('connection.php');
         
     if (isset($_GET['controller']) && isset($_GET['action'])) { //determines what controller to use
@@ -13,7 +14,7 @@
         $action     = $_GET['action'];
   } else {
         $controller = 'pages';
-        $action     = 'home';
+        $action     = 'landing';
   }
     require_once('views/layout.php');
         ?>
