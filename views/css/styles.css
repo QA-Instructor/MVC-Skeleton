@@ -1,7 +1,14 @@
-html, body, h1, h2, h3, h4, h5, h6 {
+body {
     font-family: Cabin;
     background-color: #91CBCA;
-    color: #F0F4F8;
+    position: relative;
+  min-height: 100vh;
+}
+
+h2 {
+    font-family: Cabin;
+    font-weight: normal;
+    color: #495057;
 }
 
 .navbar {
@@ -14,7 +21,7 @@ footer {
     color: #F0F4F8;
     bottom: 0;
     width: 100%;
-
+    position: absolute;
 }
 
 .footer-columns {
@@ -32,4 +39,62 @@ p, a {
 
 .list-unstyled {
     color: #91CBCA;
+}
+
+.login-container {
+    margin-top: 50px;
+    text-align: center; 
+}
+
+
+button {
+    font-family: Cabin;
+    font-style: Bold;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    background-color: #495057;
+    color: #F0F4F8;
+    padding-top: 8px;
+    padding-right: 30px;
+    padding-bottom: 8px;
+    padding-left: 30px;
+}
+
+#login-input {
+    border-radius: 5px;
+    width: 250px;
+    margin: 0 auto;
+    background-color: #F0F4F8;
+}
+
+.login-text-username {
+    margin-right: 178px;
+    color: #495057;
+}
+
+.login-text-password {
+    margin-right: 90px;
+    color: #495057;
+    display:inline-block;
+}
+
+.forgot-password {
+    font-size: 12px;
+    color: #495057;   
+    display:inline-block;
+}
+
+.remember-me {
+    color: #495057;
+    font-size: 14px;
+    margin-right: 140px;
+    margin-bottom: 8px;
+}
+
+.dont-have-account-register {
+    color: #495057;
+    font-size: 12px;
+   
 }

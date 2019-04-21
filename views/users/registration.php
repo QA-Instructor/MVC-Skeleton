@@ -1,7 +1,6 @@
 
+<h2>Register</h2>
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
-    
-    <h2>Register</h2>
 <div>
     <p>
         <input class="w3-input" type="text" name="firstName" pattern=^[a-zA-Z][a-zA-Z0-9-_\.]{3,20}$ title="First Name" required autofocus>
