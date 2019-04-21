@@ -19,3 +19,20 @@ footer {
     background-color: #495057;
     color: #F0F4F8;
 }
+
+.footer-columns {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.footer-headings {
+      background-color: #495057;  
+}
+
+p, a {
+   color: #F0F4F8; 
+}
+
+.list-unstyled {
+     color: #91CBCA;
+}
