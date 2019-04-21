@@ -69,7 +69,7 @@
         <!--                <div class="w3-container">-->
         <footer>
             <div class="navbar fixed-bottom">
-                <div class="container text-center">
+                <div class="container text-align-left">
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4 footer-columns">
 
