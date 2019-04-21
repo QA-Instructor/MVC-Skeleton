@@ -1,10 +1,20 @@
-html, body, h1, h2, h3, h4, h5, h6 {
- font-family: 'Pangolin', cursive;
- background-color: #91CBCA;
- color: #F0F4F8;
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+html, body, h2, h4, h5, h6 {
+    font-family: 'Cabin', sans-serif;
+    background-color: #91CBCA;
+    color: #F0F4F8;
+    font-weight: bold;
 }
+
+h1, h3 {
+    font-family: 'Cabin', sans-serif;
+    color: #495057;
+    font-weight: bold;
+}
+
 .w3-tangerine {
-  font-family: 'Tangerine', serif;
+    font-family: 'Tangerine', serif;
 }
 .w3-pacifico {
     font-family: 'Pacifico', cursive;
@@ -12,7 +22,14 @@ html, body, h1, h2, h3, h4, h5, h6 {
 
 .navbar {
     background-color: #495057;
+}
+
+.nav-right {
     color: #91CBCA;
+}
+
+.navbar-toggler {
+    border-color: #91CBCA;
 }
 
 footer {
@@ -23,16 +40,64 @@ footer {
 .footer-columns {
     padding-left: 100px;
     padding-right: 100px;
+    width: 400px;
 }
 
 .footer-headings {
-      background-color: #495057;  
+    background-color: #495057;  
 }
 
-p, a {
-   color: #F0F4F8; 
+.footer-writing {
+    color: #91CBCA;
 }
 
-.list-unstyled {
-     color: #91CBCA;
+a {
+    color: #F0F4F8; 
+}
+
+.fa {
+    color: #F0F4F8;   
+}
+
+#home-page-top-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#search-bar-container {
+     padding-bottom: 70px;
+}
+
+#cards-container {
+    padding-bottom: 45px;
+}
+
+.search-box {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #F0F4F8;
+}
+
+.btn {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    background-color: #495057;
+    color: #F0F4F8; 
+    border: 1px solid #495057;
+}
+
+.btn:hover {
+    background-color: #495057;
+    color: #F0F4F8; 
+    border: 1px solid #495057;
+}
+
+.card {
+   color: #495057;
+   text-align: center;
+   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
