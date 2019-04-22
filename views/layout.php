@@ -4,8 +4,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Pangolin" >
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="views/css/styles.css">
@@ -28,9 +26,29 @@
                     </button>
                 </div>
             </div>
+            
+            <?php
+        
+            if(isset ($_SESSION['userID'])) { 
+            ?>
             <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
                 <ul class="navbar-nav ml-auto flex-nowrap">
                     <li class="nav-item">
+                        <a href="?controller=user&action=home" class="nav-link m-2 menu-item nav-active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="?controller=user&action=logout" class="nav-link m-2 menu-item">Logout</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <?php
+            } else {       
+            ?>           
+            <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+                <ul class="navbar-nav ml-auto flex-nowrap">
+                    <li class="nav-item">
+
                         <a href="../MVC-Skeleton/index.php#" class="nav-link m-2 menu-item nav-active nav-right">Home</a>
                     </li>
                     <li class="nav-item">
@@ -38,9 +56,22 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link m-2 menu-item nav-right">Register</a>
+
+                        <a href="?controller=pages&action=landing" class="nav-link m-2 menu-item nav-active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="?controller=user&action=login" class="nav-link m-2 menu-item">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="?controller=user&action=registration" class="nav-link m-2 menu-item">Register</a>
+
                     </li>
                 </ul>
             </div>
+            <?php
+            }
+            ?>
+            
         </nav>
 <!--end of navigation bar-->
 
@@ -53,7 +84,11 @@
 
 <!--footer-->
         <footer>
+
             <div class="navbar sticky-bottom"> <!-- use 'sticky/fixed' to move it with scrolling-->
+
+            <div>
+
                 <div class="container text-align-left">
                     <div class="row">
                         <div class="col-sm-4 col-sm-offset-4 footer-columns">
@@ -71,9 +106,11 @@
                             <h5 class="footer-headings">Connect</h5>
 
                             <ul class="list-unstyled">
-                                <li><a href="#" class="footer-writing">Become a Blogger</a></li>
+
+                                <li><a href="?controller=user&action=registration" class="footer-writing">Become a Blogger</a></li>
                                 <li><a href="#" class="footer-writing">About us</a></li>
                                 <li><a href="#" class="footer-writing">Contact us</a></li>
+
                             </ul>
                         </div>
 
