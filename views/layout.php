@@ -13,10 +13,7 @@
 <!--        navigation bar-->
         <nav class="navbar navbar-expand-lg sticky-top">
             <div class="d-flex flex-grow-1">
-                <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-                <a class="navbar-brand d-none d-lg-inline-block" href="#">
-                    Name and Logo
-                </a>
+                <span class="w-100 d-lg-none d-block"></span>
                 <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
                     Name and <img src="" alt="logo">
                 </a>
@@ -30,11 +27,17 @@
             <?php
         
             if(isset ($_SESSION['userID'])) { 
-            ?>
+//            ?>
             <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
                 <ul class="navbar-nav ml-auto flex-nowrap">
                     <li class="nav-item">
-                        <a href="?controller=user&action=home" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="?controller=pages&action=home" class="nav-link m-2 menu-item nav-active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link m-2 menu-item nav-active">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link m-2 menu-item nav-active">My Posts</a>
                     </li>
                     <li class="nav-item">
                         <a href="?controller=user&action=logout" class="nav-link m-2 menu-item">Logout</a>
@@ -44,28 +47,19 @@
             </div>
             <?php
             } else {       
-            ?>           
+//            ?>           
             <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
                 <ul class="navbar-nav ml-auto flex-nowrap">
                     <li class="nav-item">
-
-                        <a href="../MVC-Skeleton/index.php#" class="nav-link m-2 menu-item nav-active nav-right">Home</a>
+                        <a href="?controller=pages&action=home" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link m-2 menu-item nav-right">Login</a>
+                        <a href="?controller=user&action=login" class="nav-link m-2 menu-item nav-active">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link m-2 menu-item nav-right">Register</a>
-
-                        <a href="?controller=pages&action=landing" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="?controller=user&action=registration" class="nav-link m-2 menu-item nav-active">Register</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="?controller=user&action=login" class="nav-link m-2 menu-item">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="?controller=user&action=registration" class="nav-link m-2 menu-item">Register</a>
-
-                    </li>
+                    
                 </ul>
             </div>
             <?php

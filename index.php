@@ -14,7 +14,7 @@
         $action     = $_GET['action'];
   } else {
         $controller = 'pages';
-        $action     = 'landing';
+        $action     = 'home';
   }
     require_once('views/layout.php');
         ?>

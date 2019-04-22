@@ -22,10 +22,10 @@ class PagesController {
 
     }
     
-    public function landing() {
-      require_once('views/pages/landing.php');
-
-    }
+//    public function landing() {
+//      require_once('views/pages/landing.php');
+//
+//    }
 
     public function error() {
       require_once('views/pages/error.php');

@@ -14,12 +14,6 @@ h1, h3 {
     font-weight: bold;
 }
 
-.w3-tangerine {
-    font-family: 'Tangerine', serif;
-}
-.w3-pacifico {
-    font-family: 'Pacifico', cursive;
-
 body {
     font-family: Cabin;
     background-color: #91CBCA;
@@ -48,9 +42,6 @@ h2 {
 footer {
     background-color: #495057;
     color: #F0F4F8;
-    bottom: 0;
-    width: 100%;
-    position: absolute;
 }
 
 .footer-columns {
@@ -182,5 +173,4 @@ button {
 .dont-have-account-register {
     color: #495057;
     font-size: 12px;
-   
 }
