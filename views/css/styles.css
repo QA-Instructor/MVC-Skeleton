@@ -16,8 +16,8 @@ h1, h3, h2 {
 body {
     font-family: 'Cabin';
     background-color: #91CBCA;
-    position: relative;
-    min-height: 100vh;
+/*    position: relative;
+    min-height: 100vh;*/
 }
 
 .navbar {
@@ -104,13 +104,11 @@ a {
    color: #495057;
    text-align: center;
    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-<<<<<<< HEAD
-=======
+
 }
 
 .card-text {
     color: #495057;
->>>>>>> 52e68e155ddb0a6571bc0a2f7847b2638aa63cdf
 }
 
 p, a {
@@ -174,3 +172,6 @@ p, a {
     inline-box-align: center;
 }
 
+#searchResults-cards-container {
+    padding-top: 40px;
+}

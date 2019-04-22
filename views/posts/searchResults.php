@@ -1,4 +1,4 @@
-<div class="container" id="cards-container"> <!--cards container -->
+<div class="container" id="searchResults-cards-container"> <!--cards container -->
     <div class="row">
         <div class="col">
             <h3>Your search results:</h3>
@@ -6,7 +6,7 @@
     </div>
     <?php 
     if (!isset($posts)) {
-        echo "item not found";
+        echo "<p>Item not found.</p>";
     }
     else {
     

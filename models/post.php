@@ -216,11 +216,13 @@ on up.postID=p.postID WHERE p.title = :title'));
     foreach ($req->fetchAll() as $blogPost) { //NEED TO CHANGE FETCH ALL
             $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']);
         }
-//        return $list;
-    
-    if (!isset($list)) {
+        
+        if (!isset($list)) {
 //       return "No results for $title.";
+   } else {
+        return $list;
    }
+    
    }
 }
 
