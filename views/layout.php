@@ -124,8 +124,8 @@
                      </div>   
                 <div class="container">
                     <div class="row">
-                       <div class="col-xs">
-                       Copyright &COPY; Women In Tech <?= date('Y'); ?> . All rights reserved.
+                       <div class="col-xs">                   
+                             Copyright &COPY; Women In Tech <?= date('Y'); ?>. All rights reserved.
                        </div>
                     </div>
                 </div>

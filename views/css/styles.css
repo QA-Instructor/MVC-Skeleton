@@ -14,7 +14,7 @@ h1, h3, h2 {
 }
 
 body {
-    font-family: Cabin;
+    font-family: 'Cabin';
     background-color: #91CBCA;
     position: relative;
     min-height: 100vh;
@@ -164,3 +164,10 @@ p, a {
 .w3-container {
     min-height: 70vh;
 }
+
+#dinosaur{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    inline-box-align: center;
+}
+
