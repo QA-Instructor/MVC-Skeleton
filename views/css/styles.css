@@ -1,14 +1,13 @@
 
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 
-html, body, h2, h4, h5, h6 {
+html, body, h4, h5, h6 {
     font-family: 'Cabin', sans-serif;
     background-color: #91CBCA;
     color: #F0F4F8;
-    font-weight: bold;
 }
 
-h1, h3 {
+h1, h3, h2 {
     font-family: 'Cabin', sans-serif;
     color: #495057;
     font-weight: bold;
@@ -18,13 +17,7 @@ body {
     font-family: Cabin;
     background-color: #91CBCA;
     position: relative;
-  min-height: 100vh;
-}
-
-h2 {
-    font-family: Cabin;
-    font-weight: normal;
-    color: #495057;
+    min-height: 100vh;
 }
 
 .navbar {
@@ -32,6 +25,10 @@ h2 {
 }
 
 .nav-right {
+    color: #91CBCA;
+}
+
+.nav-right:hover {
     color: #91CBCA;
 }
 
@@ -107,7 +104,10 @@ a {
    color: #495057;
    text-align: center;
    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
 
+.card-text {
+    color: #495057;
 }
 
 p, a {
@@ -123,27 +123,13 @@ p, a {
     text-align: center; 
 }
 
-
-button {
-    font-family: Cabin;
-    font-style: Bold;
-    font-size: 15px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    background-color: #495057;
-    color: #F0F4F8;
-    padding-top: 8px;
-    padding-right: 30px;
-    padding-bottom: 8px;
-    padding-left: 30px;
-}
-
 #login-input {
     border-radius: 5px;
     width: 250px;
     margin: 0 auto;
     background-color: #F0F4F8;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 .login-text-username {
@@ -173,4 +159,8 @@ button {
 .dont-have-account-register {
     color: #495057;
     font-size: 12px;
+}
+
+.w3-container {
+    min-height: 70vh;
 }
