@@ -107,7 +107,7 @@
                             <h3 class="footer-headings">Connect</h3>
 
                             <ul class="list-unstyled">
-                                <li><a href="#">Become a Blogger</a></li>
+                                <li><a href="?controller=user&action=registration">Become a Blogger</a></li>
                                 <li><a href="#">About us</a></li>
                                 <li><a href="#">Contact us</a></li>
                             </ul>

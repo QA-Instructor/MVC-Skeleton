@@ -1,5 +1,6 @@
-<div class="w3-container w3-red">
-<p>Oops, this is the error page.</p>
-<img src="views/images/standard/_errorimage.jpg" width="150" />
-<p>It looks like something went wrong :(</p>
+<center><div class="w3-container">
+<img src="../images/dinosaur-error.png" alt="Error" width="150" />
+<p>There is an eRAWRRRRRR...</p>
+<p>Please bear with us whilst we try to fix it!</p>
 </div>
+</center>
