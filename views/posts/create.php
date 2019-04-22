@@ -1,12 +1,12 @@
 <div>
-<p>Fill in the following form to create a new post:</p>
+    <h3>Add new post</h3>
 
 </div>
 <center>
 <div class="paddedBlock">
     <form>
     <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
-    <h3>Add new post</h3>
+    <P>Fill in the following form to create a new post:</p>
     <div class="form-group">
         <label class="control-label">Title of your post: </label>
         <input class="form-control" type="text" name="title" autofocus/>
@@ -25,9 +25,9 @@
              value="10000000"
              />
 
-      <input type="file" name="myUploader" class="w3-btn w3-pink" />
+      <input type="file" name="myUploader" class="btn btn-primary" />
       <p>
-        <input class="w3-btn w3-pink" type="submit" value="Add Post">
+      <input class="btn btn-primary" type="submit" value="Add Post">
       </p>
     </div>
     </form>

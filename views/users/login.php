@@ -21,7 +21,7 @@
         <input class="w3-input" id="login-input" type="text" name="password" required>
         <div class="remember-me">
         <input type="checkbox" checked="checked" name="remember"> Remember me</div>
-        <button type="submit">SUBMIT</button> <br>
+        <button type="submit" class="btn btn-primary">Submit</button> <br>
         <a href="?controller=user&action=registration" class='dont-have-account-register'> Don't have an account?<br>Register</a>
  
         </form>

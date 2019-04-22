@@ -1,9 +1,9 @@
 <center>
-    <p>Update your blog below:</p>
+    <h3>Add new post</h3>
         <div class="paddedBlock">
             <form>
             <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
-            <h3>Add new post</h3>
+            <p>Update your blog below:</p>
             <div class="form-group">
                 <label class="control-label">Title:</label>
                 <input class="form-control" type="text" name="title" autofocus value="<?= $post->title; ?>"/>
@@ -33,7 +33,7 @@
           <br/>
           <input type="file" name="myUploader" class="w3-btn w3-pink" />
           <p>
-            <input class="w3-btn w3-gray" type="submit" value="Update Post">
+            <input class="btn btn-primary" type="submit" value="Update Post">
             </p>
         </form>
     </div>
