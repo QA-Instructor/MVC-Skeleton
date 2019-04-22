@@ -9,13 +9,13 @@
 </div>
 
 <div class="container" id="search-bar-container"> <!-- search bar-->
-    <form action="" method="POST" enctype="multipart/form-data">   
+    <form action="?controller=post&action=searchResults" method="POST" enctype="multipart/form-data">   
         <div class="form-row">
             <div class="col-10">
                 <input class="w3-input search-box" type="text" name="title" placeholder="search here..." required autofocus>
             </div>
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary" value="search">Search</button>
             </div>
         </div>
     </form>   
