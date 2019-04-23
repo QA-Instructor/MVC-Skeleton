@@ -198,7 +198,32 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         // the query was prepared, now replace :id with the actual $id value
         $req->execute(array('id' => $id));
     }
+    
+    public function search($title) {
+        $db = Db::getInstance();
 
+    $req = $db->prepare(('SELECT p.postID, p.title, p.tagID, p.content, p.date, p.postImage, u.username FROM user as u
+inner JOIN
+user_post
+as UP
+on u.userID=up.userID
+inner JOIN
+post
+as p
+on up.postID=p.postID WHERE p.title = :title'));
+    $req ->execute(array('title' => $title));
+    $result = $req->setFetchMode(PDO::FETCH_ASSOC); 
+    foreach ($req->fetchAll() as $blogPost) { //NEED TO CHANGE FETCH ALL
+            $list[] = new Post($blogPost['postID'], $blogPost['title'], $blogPost['tagID'], $blogPost['content'], $blogPost['date'], $blogPost['postImage'], $blogPost['username']);
+        }
+        
+        if (!isset($list)) {
+//       return "No results for $title.";
+   } else {
+        return $list;
+   }
+    
+   }
 }
 
 //}

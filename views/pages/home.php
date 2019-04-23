@@ -9,13 +9,13 @@
 </div>
 
 <div class="container" id="search-bar-container"> <!-- search bar-->
-    <form action="" method="POST" enctype="multipart/form-data">   
+    <form action="?controller=post&action=searchResults" method="POST" enctype="multipart/form-data">   
         <div class="form-row">
             <div class="col-10">
                 <input class="w3-input search-box" type="text" name="title" placeholder="search here..." required autofocus>
             </div>
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary" value="search">Search</button>
             </div>
         </div>
     </form>   
@@ -31,7 +31,7 @@
         <div class="col-md-3">
             <a href='?controller=post&action=read&id=2'>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..\MVC-Skeleton\views\images\posts\Greenwich.jpg" alt="Photo of Greenwich ship">
+                <img class="card-img-top" src="views\images\posts\Greenwich.jpg" alt="Photo of Greenwich ship">
                 <div class="card-body">
                     <p class="card-text">Greenwich</p>
                 </div>
@@ -40,7 +40,7 @@
         <div class="col-md-3">
              <a href='?controller=post&action=read&id=3'>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..\MVC-Skeleton\views\images\posts\ThePostalMuseum.jpg" alt="Photo of the Postal Museum">
+                <img class="card-img-top" src="views\images\posts\ThePostalMuseum.jpg" alt="Photo of the Postal Museum">
                 <div class="card-body">
                     <p class="card-text">The Postal Museum</p>
                 </div>
@@ -50,7 +50,7 @@
         <div class="col-md-3">
              <a href='?controller=post&action=read&id=1'>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..\MVC-Skeleton\views\images\posts\TheO2.jpg" alt="Photo of the O2">
+                <img class="card-img-top" src="views\images\posts\TheO2.jpg" alt="Photo of the O2">
                 <div class="card-body">
                     <p class="card-text">Up at the O2</p>
                 </div>
@@ -58,7 +58,8 @@
              </a>
         </div>
         <div class="col-md-3 align-self-end">
-            <a href= '?controller=post&action=readAll'> <button type="submit" class="btn btn-primary" id="homepage-view-btn" >View all</button> </a>    
+            <a href='?controller=post&action=readAll'>
+       <button type="submit" class="btn btn-primary" id="homepage-view-btn">View all</button>     
         </div>
     </div>
 </div>
