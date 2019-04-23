@@ -1,7 +1,7 @@
 <center>
     <h3>Add new post</h3>
         <div class="paddedBlock">
-            <form>
+<!--            <form>-->
             <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
                 <p><h5>Update your blog below:<h5></p>
             <div class="form-group">

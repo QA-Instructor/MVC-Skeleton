@@ -94,7 +94,7 @@ on up.postID=p.postID WHERE p.postID = :postID'); //where ID matches - returns a
         }
         if (isset($_POST['postImage']) && $_POST['postImage'] != "") {
             $filteredPostImage = filter_input(INPUT_POST, 'postImage', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
+        } // else? not update? DECIDE
         if (isset($_POST['tag']) && $_POST['tag'] != "") {
             $filteredTag = filter_input(INPUT_POST, 'tag', FILTER_SANITIZE_SPECIAL_CHARS);
         }

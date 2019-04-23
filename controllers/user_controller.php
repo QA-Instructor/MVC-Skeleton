@@ -48,17 +48,8 @@ class UserController {
                 
       require_once('views/pages/home.php');
     }
-
-   
-public function viewposts() {
-   $loggedInUser = User::findUserById($_SESSION['userID']); 
-
-             require_once('views/users/myposts.php');
-        
-    }
+}
 
 
 
 
-
-?>
