@@ -196,3 +196,14 @@ p, a {
 #lastName {
     
 }
+
+#contentid{
+    height:250px;
+    word-wrap: break-word;
+    word-break: break-all; 
+}
+
+.control-label{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}

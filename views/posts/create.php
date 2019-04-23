@@ -6,9 +6,9 @@
 <div class="paddedBlock">
     <form>
     <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
-    <P>Fill in the following form to create a new post:</p>
+    <p>Fill in the following form to create a new post:</p>
     <div class="form-group">
-        <label class="control-label">Title of your post: </label>
+        <label class="control-label"><p>Title of your post: </p></label>
         <input class="form-control" type="text" name="title" autofocus/>
     </div>
     <div class="form-group">
