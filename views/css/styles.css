@@ -16,8 +16,8 @@ h1, h3, h2 {
 body {
     font-family: 'Cabin';
     background-color: #91CBCA;
-/*    position: relative;
-    min-height: 100vh;*/
+    /*    position: relative;
+        min-height: 100vh;*/
 }
 
 .navbar {
@@ -46,9 +46,12 @@ footer {
 }
 
 .footer-columns {
-    padding-left: 100px;
-    padding-right: 100px;
+/*        padding-left: 100px;
+        padding-right: 100px;*/
     width: 400px;
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .footer-headings {
@@ -58,6 +61,7 @@ footer {
 .footer-writing {
     color: #91CBCA;
 }
+
 
 a {
     color: #F0F4F8; 
@@ -73,7 +77,7 @@ a {
 }
 
 #search-bar-container {
-     padding-bottom: 70px;
+    padding-bottom: 70px;
 }
 
 #cards-container {
@@ -105,9 +109,9 @@ a {
 }
 
 .card {
-   color: #495057;
-   text-align: center;
-   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    color: #495057;
+    text-align: center;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -183,5 +187,12 @@ p, a {
 
 #radio-text {
     color: #495057;
+}
+
+#firstName {
+    
+}
+
+#lastName {
     
 }

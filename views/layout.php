@@ -10,7 +10,7 @@
         <title>Events Blog</title>
     </head>
     <body>
-<!--        navigation bar-->
+        <!--        navigation bar-->
         <nav class="navbar navbar-expand-lg sticky-top">
             <div class="d-flex flex-grow-1">
                 <span class="w-100 d-lg-none d-block"></span>
@@ -23,115 +23,117 @@
                     </button>
                 </div>
             </div>
-            
+
             <?php
-        
-            if(isset ($_SESSION['userID'])) { 
-//            ?>
-            <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
-                <ul class="navbar-nav ml-auto flex-nowrap">
-                    <li class="nav-item">
-                        <a href="?controller=pages&action=home" class="nav-link m-2 menu-item nav-active">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link m-2 menu-item nav-active">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link m-2 menu-item nav-active">My Posts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="?controller=user&action=logout" class="nav-link m-2 menu-item">Logout</a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <?php
-            } else {       
-//            ?>           
-            <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
-                <ul class="navbar-nav ml-auto flex-nowrap">
-                    <li class="nav-item">
-                        <a href="?controller=pages&action=home" class="nav-link m-2 menu-item nav-active">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="?controller=user&action=login" class="nav-link m-2 menu-item nav-active">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="?controller=user&action=registration" class="nav-link m-2 menu-item nav-active">Register</a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <?php
+            if (isset($_SESSION['userID'])) {
+//            
+                ?>
+                <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+                    <ul class="navbar-nav ml-auto flex-nowrap">
+                        <li class="nav-item">
+                            <a href="?controller=pages&action=home" class="nav-link m-2 menu-item nav-active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link m-2 menu-item nav-active">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link m-2 menu-item nav-active">My Posts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?controller=user&action=logout" class="nav-link m-2 menu-item">Logout</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <?php
+            } else {
+//            
+                ?>           
+                <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+                    <ul class="navbar-nav ml-auto flex-nowrap">
+                        <li class="nav-item">
+                            <a href="?controller=pages&action=home" class="nav-link m-2 menu-item nav-active">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?controller=user&action=login" class="nav-link m-2 menu-item nav-active">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?controller=user&action=registration" class="nav-link m-2 menu-item nav-active">Register</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <?php
             }
             ?>
-            
-        </nav>
-<!--end of navigation bar-->
 
-<!--pages as per controller-->
+        </nav>
+        <!--end of navigation bar-->
+
+        <!--pages as per controller-->
         <div class="w3-container">
-            <?php require_once('routes.php'); ?>
+<?php require_once('routes.php'); ?>
         </div>
 
-<!--end of controller page-->
+        <!--end of controller page-->
 
-<!--footer-->
+        <!--footer-->
         <footer>
 
             <div class="navbar sticky-bottom"> <!-- use 'sticky/fixed' to move it with scrolling-->
 
-            <div>
+                <div>
 
-                <div class="container text-align-left">
-                    <div class="row">
-                        <div class="col-sm-4 col-sm-offset-4 footer-columns">
+                    <div class="container text-align-left">
+                        <div class="row">
+                            <div class="col-sm-4 col-sm-offset-4 footer-columns">
 
-                            <h5 class="footer-headings">Blog</h5>
+                                <h5 class="footer-headings">Blog</h5>
 
-                            <ul class="list-unstyled">
-                                <li><a href="../MVC-Skeleton/index.php#" class="footer-writing">Homepage</a></li>
-                                <li><a href="#" class="footer-writing">Top Stories This Week</a></li>
-                                <li><a href="#" class="footer-writing">Legal Terms</a></li>
-                            </ul>
+                                <ul class="list-unstyled">
+                                    <li><a href="../MVC-Skeleton/index.php#" class="footer-writing">Homepage</a></li>
+                                    <li><a href="#" class="footer-writing">Top Stories This Week</a></li>
+                                    <li><a href="#" class="footer-writing">Legal Terms</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-4 footer-columns">
+
+                                <h5 class="footer-headings">Connect</h5>
+
+                                <ul class="list-unstyled">
+
+                                    <li><a href="?controller=user&action=registration" class="footer-writing">Become a Blogger</a></li>
+                                    <li><a href="#" class="footer-writing">About us</a></li>
+                                    <li><a href="#" class="footer-writing">Contact us</a></li>
+
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-4 footer-columns">
+
+                                <h5 class="footer-headings">Social Media</h5>
+
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="footer-writing"><i class="fa fa-facebook-official"></i> Facebook</a></li>
+                                    <li><a href="#" class="footer-writing"><i class="fa fa-twitter"></i> Twitter</a></li>
+                                    <li><a href="#" class="footer-writing"><i class="fa fa-instagram"></i> Instagram</a></li>
+                                </ul>
+
+                            </div>
+
                         </div>
-                        <div class="col-sm-4 footer-columns">
-
-                            <h5 class="footer-headings">Connect</h5>
-
-                            <ul class="list-unstyled">
-
-                                <li><a href="?controller=user&action=registration" class="footer-writing">Become a Blogger</a></li>
-                                <li><a href="#" class="footer-writing">About us</a></li>
-                                <li><a href="#" class="footer-writing">Contact us</a></li>
-
-                            </ul>
+                    </div>   
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs">                   
+                                Copyright &COPY; Women In Tech <?= date('Y'); ?>. All rights reserved.
+                            </div>
                         </div>
-
-                        <div class="col-sm-4 footer-columns">
-
-                            <h5 class="footer-headings">Social Media</h5>
-
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="footer-writing"><i class="fa fa-facebook-official"></i> Facebook</a></li>
-                                <li><a href="#" class="footer-writing"><i class="fa fa-twitter"></i> Twitter</a></li>
-                                <li><a href="#" class="footer-writing"><i class="fa fa-instagram"></i> Instagram</a></li>
-                            </ul>
-
-                        </div>
-
-                    </div>
-                     </div>   
-                <div class="container">
-                    <div class="row">
-                       <div class="col-xs">                   
-                             Copyright &COPY; Women In Tech <?= date('Y'); ?>. All rights reserved.
-                       </div>
                     </div>
                 </div>
             </div>
         </footer>
-<!--end of footer-->
+        <!--end of footer-->
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
