@@ -31,9 +31,9 @@
 
         ?>
           <br/>
-          <input type="file" name="myUploader" class="w3-btn w3-pink" />
+          <input type="file" name="myUploader" class="btn btn-primary" />
           <p>
-            <input class="btn btn-primary" type="submit" value="Update Post">
+            <input class="btn btn-primary" type="submit" value="Save all changes">
             </p>
         </form>
     </div>
