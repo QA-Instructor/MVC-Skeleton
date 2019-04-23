@@ -24,6 +24,10 @@ body {
     background-color: #495057;
 }
 
+.navbar a:hover{
+    color:#91CBCA; 
+}
+
 .nav-right {
     color: #91CBCA;
 }
