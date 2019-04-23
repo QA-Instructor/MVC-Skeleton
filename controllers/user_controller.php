@@ -50,6 +50,15 @@ class UserController {
     }
 
    
-}
+public function viewposts() {
+   $loggedInUser = User::findUserById($_SESSION['userID']); 
+
+             require_once('views/users/myposts.php');
+        
+    }
+
+
+
+
 
 ?>
