@@ -37,7 +37,7 @@
                         <a href="#" class="nav-link m-2 menu-item nav-active">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link m-2 menu-item nav-active">My Posts</a>
+                        <a href="'?controller=post&action=readall" class="nav-link m-2 menu-item nav-active">My Posts</a>
                     </li>
                     <li class="nav-item">
                         <a href="?controller=user&action=logout" class="nav-link m-2 menu-item">Logout</a>

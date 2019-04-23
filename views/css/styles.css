@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin');
 
 html, body, h2, h4, h5, h6 {
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Cabin';
     background-color: #91CBCA;
     color: #F0F4F8;
     font-weight: bold;
 }
 
 h1, h3 {
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Cabin';
     color: #495057;
     font-weight: bold;
 }

@@ -58,7 +58,7 @@
              </a>
         </div>
         <div class="col-md-3 align-self-end">
-       <button type="submit" class="btn btn-primary" id="homepage-view-btn">View all</button>     
+            <a href= '?controller=post&action=readAll'> <button type="submit" class="btn btn-primary" id="homepage-view-btn" >View all</button> </a>    
         </div>
     </div>
 </div>

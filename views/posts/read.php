@@ -1,24 +1,36 @@
-<p>This is the requested post:</p>
+<div id="home">
+    <div class="landing-text">
+        <h2><?php echo $post->title; ?></h2>
+        <h4><?php echo $post->username; ?></h4>
+    </div>
+</div>
+<div class="padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm6">
+                <p><?php echo $post->content; ?></p>
+                <a class="btn btn-default btn-lg"><?php echo $post->tag; ?></a>
 
-<p>Blog ID: <?php echo $post->id; ?></p>
-<p>Title: <?php echo $post->title; ?></p>
+            </div>
 
-<!--<p>Written by:<?php echo $post->username; ?></p>-->
+            <div <div class="col-sm-4"> align="right">
 
-<p>Image: <img src="<?php echo $post->postImage; ?>" style="width: 100px; height: 100px;" /></p>
-<p>Written by:<?php echo $post->username; ?></p>
+                <?php
+                $file = 'views/images/posts/' . $post->postImage;
 
-<?php 
-$file = 'views/images/posts/' . $post->postImage;
+                if(file_exists($file)){
+                $img = "<img src='$file' width='150' />";
+                echo $img;
+                }
+                else
+                {
+                echo "<img src='views/images/posts/' width='150' />";
+                }
+  ?>
 
-if(file_exists($file)){
-    $img = "<img src='$file' width='150' />";
-    echo $img;
-}
-else
-{
-echo "<img src='views/images/posts/' width='150' />";
-}
+                </div>
 
-?>
-	
+                </div>
+                </div>
+                </div>
+              
