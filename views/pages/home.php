@@ -31,7 +31,7 @@
         <div class="col-md-3">
             <a href='?controller=post&action=read&id=2'>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..\MVC-Skeleton\views\images\posts\Greenwich.jpg" alt="Photo of Greenwich ship">
+                <img class="card-img-top" src="views\images\posts\Greenwich.jpg" alt="Photo of Greenwich ship">
                 <div class="card-body">
                     <p class="card-text">Greenwich</p>
                 </div>
@@ -40,7 +40,7 @@
         <div class="col-md-3">
              <a href='?controller=post&action=read&id=3'>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..\MVC-Skeleton\views\images\posts\ThePostalMuseum.jpg" alt="Photo of the Postal Museum">
+                <img class="card-img-top" src="views\images\posts\ThePostalMuseum.jpg" alt="Photo of the Postal Museum">
                 <div class="card-body">
                     <p class="card-text">The Postal Museum</p>
                 </div>
@@ -50,7 +50,7 @@
         <div class="col-md-3">
              <a href='?controller=post&action=read&id=1'>
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..\MVC-Skeleton\views\images\posts\TheO2.jpg" alt="Photo of the O2">
+                <img class="card-img-top" src="views\images\posts\TheO2.jpg" alt="Photo of the O2">
                 <div class="card-body">
                     <p class="card-text">Up at the O2</p>
                 </div>
