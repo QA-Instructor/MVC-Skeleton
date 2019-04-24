@@ -11,7 +11,8 @@
     </head>
     <body>
         <!--        navigation bar-->
-        <nav class="navbar navbar-expand-lg sticky-top">
+        
+        <nav class="navbar navbar-expand-lg sticky-top" id="nav1">
             <div class="d-flex flex-grow-1">
                 <span class="w-100 d-lg-none d-block"></span>
                 <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
@@ -23,8 +24,10 @@
                     </button>
                 </div>
             </div>
-
+     
             <?php
+        
+             
             if (isset($_SESSION['userID'])) {
 //            
                 ?>
@@ -65,6 +68,7 @@
                 </div>
                 <?php
             }
+            
             ?>
 
         </nav>
@@ -138,6 +142,24 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!--<script>    
+function login(){
+        
+        var xmlhttp = new XMLHttpRequest(); // new HTTP request
+        xmlhttp.onreadystatechange = function() {  // annonymous function for processing once the request is returned
+            if (this.readyState == 4 && this.status == 200) {
+                
+                document.getElementById("nav1").innerHTML = document.getElementById("myNavbar").innerHTML;
 
+            }
+            
+        };
+        xmlhttp.open('GET', 'layout.php'); // making the HTTP request - function is asigned a key value pair of choice - read by _REQUEST superglobal - and added the strChoice argument
+        xmlhttp.send();   // sending the HTTP request
+            
+        };
+
+</script>-->
+        
     </body>
 </html>

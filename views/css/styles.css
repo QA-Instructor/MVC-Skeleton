@@ -134,7 +134,7 @@ p, a {
     text-align: center; 
 }
 
-#login-input {
+.login-input {
     border-radius: 5px;
     width: 250px;
     margin: 0 auto;
@@ -144,7 +144,7 @@ p, a {
 }
 
 .login-text-username {
-    margin-right: 178px;
+/*    margin-right: 178px;*/
     color: #495057;
 }
 
@@ -208,4 +208,14 @@ p, a {
 .control-label{
     padding-top: 12px;
     padding-bottom: 12px;
+}
+
+.register-long-input {
+    width: 535px;
+}
+
+@media only screen and (max-width: 600px) {
+.register-long-input {
+    width: 250px;
+}
 }
