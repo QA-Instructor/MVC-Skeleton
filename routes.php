@@ -25,8 +25,9 @@
 // for validation we list the allowed controllers and their actions
 // Add an entry for each new controller and its actions
 $controllers = array('pages' => ['home', 'error'],
-                    'product' => ['readAll','read','create','update','delete'],
-                    'controllerXXX' => ['actionYYY', 'actionZZZ'],
+                    'product' => ['readAll','read','create','update','delete'],//add the functions into this array each time you make a new model
+                    'blogpost' => ['readAll','read','create','update','delete'],
+                    'controllerXXX' => ['actionYYY', 'actionZZZ'],//this is an example 
                     );
 
   // check that the requested controller and action are both allowed
