@@ -2,16 +2,18 @@
   class Post {
 
     // we define 3 attributes
-    private $postID;
-    private $title;
-    private $category;
-    private $datePosted;
-    private $dateUpdated;
-    private $excerpt;
-    private $content;
+    public $postID;
+    public $memberID;    
+    public $title;
+    public $category;
+    public $datePosted;
+    public $dateUpdated;
+    public $excerpt;
+    public $content;
 
-    public function __construct($postID, $title, $category, $datePosted, $dateUpdated, $excerpt, $content) {
+    public function __construct($postID, $memberID, $title, $category, $datePosted, $dateUpdated, $excerpt, $content) {
       $this->postID    = $postID;
+      $this->memberID    = $memberID;
       $this->title  = $title;
       $this->category = $category;
       $this->datePosted = $datePosted;
@@ -26,8 +28,8 @@
       $req = $db->query('SELECT * FROM post');
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $post) {
-        $list[] = new Post($post['id'], $post['name'], $post['price']);
-      }
+        $list[] = new Post($post['postID'], $post['memberID'],$post['title'], $post['category'], $post['datePosted'], $post['dateUpdated'], $post['excerpt'], $post['content']);
+          }
       return $list;
     }
 
@@ -40,7 +42,7 @@
       $req->execute(array('id' => $id));
       $post = $req->fetch();
 if($post){
-      return new Post($post['postID'], $post['title'], $post['category'], $post['datePosted'], $post['dateUpdated'], $post['excerpt'], $post['content']);
+      return new Post($post['postID'], $post['memberID'],$post['title'], $post['category'], $post['datePosted'], $post['dateUpdated'], $post['excerpt'], $post['content']);
     }
     else
     {
@@ -82,7 +84,7 @@ $req->execute([$title, $category, $excerpt, $content, $id]);
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into post(title, category, datePosted, excerpt, content) values (?, ?, CURDATE(), ?, ?)");
+    $req = $db->prepare("Insert into post(memberID, title, category, datePosted, excerpt, content) values (?, ?, ?, CURDATE(), ?, ?)");
     
 // set parameters and execute
     if(isset($_POST['title'])&& $_POST['title']!=""){
@@ -97,11 +99,12 @@ $req->execute([$title, $category, $excerpt, $content, $id]);
     if(isset($_POST['content'])&& $_POST['content']!=""){
         $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_STRING);
     }    
+$memberID = 1;
 $title = $filteredTitle;
 $category = $filteredCategory;
 $excerpt = $filteredExcerpt;
 $content = $filteredContent;
-$req->execute([$title, $category, $excerpt, $content]);
+$req->execute([$memberID, $title, $category, $excerpt, $content]);
 
 //upload product image
 Post::uploadFile($title);
@@ -112,7 +115,7 @@ const InputKey = 'myUploader';
 
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
-public static function uploadFile(string $name) {
+public static function uploadFile(string $title) {
 
 	if (empty($_FILES[self::InputKey])) {
 		//die("File Missing!");
@@ -129,7 +132,7 @@ public static function uploadFile(string $name) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/MVC/MVC_Skeleton/views/images/";
+        $path = "C:/xampp/htdocs/MVC/MVC-Skeleton/views/images/";
 	$destinationFile = $path . $title . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {

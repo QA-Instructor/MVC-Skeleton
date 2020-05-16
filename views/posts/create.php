@@ -8,10 +8,6 @@
     <input class="w3-input" type="text" name="title" required autofocus>
 </p>
 <p>
-    <label>Author</label>
-    <input class="w3-input" type="text" name="author" required>  
-</p>
-<p>
     <label>Category</label>
     <input class="w3-input" type="text" name="category" required>  
 </p>
@@ -21,7 +17,7 @@
 </p>
 <p>
     <label>Content</label>
-    <input id="textarea" class="w3-input" type="text" name="content" required>  
+    <input class="w3-input" type="text" name="content" required>  
 </p>
 
 
