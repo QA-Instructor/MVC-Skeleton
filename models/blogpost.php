@@ -1,8 +1,8 @@
 <?php
 
 
-//This is one of the models
-//Class BlogPost
+//This is one of the models.
+//Class BlogPost where the functionalities are defined & where the DB connection is made & prepared statements.
 //No table in DB has been created yet for blogs
 
   class BlogPost {

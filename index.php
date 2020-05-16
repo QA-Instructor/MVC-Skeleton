@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Pets</title>
+        <title>Adventure Pets</title>
     </head>
     <body>
         <?php

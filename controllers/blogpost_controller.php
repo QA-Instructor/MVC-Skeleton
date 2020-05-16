@@ -1,5 +1,7 @@
 <?php
 
+//Controller does the calls to the functionalities inside the models.
+
 class BlogpostController {
     public function readAll() {
       // we store all the posts in a variable
