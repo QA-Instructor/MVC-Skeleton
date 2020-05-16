@@ -18,7 +18,7 @@
       $req = $db->query('SELECT * FROM product');
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $product) {
-        $list[] = new Product($product['id'], $product['name'], $product['price']);
+        $list[] = new Post($product['id'], $product['name'], $product['price']);
       }
       return $list;
     }
@@ -32,7 +32,7 @@
       $req->execute(array('id' => $id));
       $product = $req->fetch();
 if($product){
-      return new Product($product['id'], $product['name'], $product['price']);
+      return new Post($product['id'], $product['name'], $product['price']);
     }
     else
     {
@@ -61,7 +61,7 @@ $req->execute();
 
 //upload product image if it exists
         if (!empty($_FILES[self::InputKey]['name'])) {
-		Product::uploadFile($name);
+		Post::uploadFile($name);
 	}
 
     }
@@ -84,7 +84,7 @@ $price = $filteredPrice;
 $req->execute();
 
 //upload product image
-Product::uploadFile($name);
+Post::uploadFile($name);
     }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg'];

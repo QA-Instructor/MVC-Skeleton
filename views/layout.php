@@ -14,6 +14,7 @@
       <a href='/MVC_Skeleton'>Home</a>
       <a href='?controller=product&action=readAll'>Products</a>
       <a href='?controller=product&action=create'>Add Product</a>
+      <a href='?controller=post&action=create'>Add Post</a>
     </header>
 <div class="w3-container w3-pink">
     <?php require_once('routes.php'); ?>
@@ -23,5 +24,12 @@
         Copyright &COPY; <?= date('Y'); ?>
     </footer>
 </div>
+    <script src='https://cdn.tiny.cloud/1/tsm4jflxmwzdk9w9ws3pt5kefzwep82nt1bcq1rduh7w70lu/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+  </script>
+  <script>
+    tinymce.init({
+      selector: '#textarea'
+    });
+  </script>
   </body>
 </html>

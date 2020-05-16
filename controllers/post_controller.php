@@ -1,10 +1,10 @@
 <?php
 
-class ProductController {
+class PostController {
     public function readAll() {
       // we store all the posts in a variable
-      $products = Post::all();
-      require_once('views/products/readAll.php');
+      $posts = Post::all();
+      require_once('views/posts/readAll.php');
     }
 
     public function read() {
@@ -15,8 +15,8 @@ class ProductController {
 
       try{
       // we use the given id to get the correct post
-      $product = Post::find($_GET['id']);
-      require_once('views/products/read.php');
+      $post = Post::find($_GET['id']);
+      require_once('views/posts/read.php');
       }
  catch (Exception $ex){
      return call('pages','error');
@@ -27,13 +27,13 @@ class ProductController {
       // if it's a GET request display a blank form for creating a new product
       // else it's a POST so add to the database and redirect to readAll action
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
-          require_once('views/products/create.php');
+          require_once('views/posts/create.php');
       }
       else { 
             Post::add();
              
-            $products = Post::all(); //$products is used within the view
-            require_once('views/products/readAll.php');
+            $posts = Post::all(); //$products is used within the view
+            require_once('views/posts/readAll.php');
       }
       
     }
@@ -44,25 +44,25 @@ class ProductController {
         return call('pages', 'error');
 
         // we use the given id to get the correct product
-        $product = Post::find($_GET['id']);
+        $post = Post::find($_GET['id']);
       
-        require_once('views/products/update.php');
+        require_once('views/posts/update.php');
         }
       else
           { 
             $id = $_GET['id'];
             Post::update($id);
                         
-            $products = Post::all();
-            require_once('views/products/readAll.php');
+            $posts = Post::all();
+            require_once('views/posts/readAll.php');
       }
       
     }
     public function delete() {
             Post::remove($_GET['id']);
             
-            $products = Post::all();
-            require_once('views/products/readAll.php');
+            $posts = Post::all();
+            require_once('views/posts/readAll.php');
       }
       
     }
