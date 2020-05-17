@@ -141,7 +141,7 @@ class Post {
         }
 
         if ($_FILES[self::InputKey]['error'] > 0) {
-            trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
+            trigger_error("Handle the error! " . $_FILES[self::InputKey]['error']);
         }
 
 
