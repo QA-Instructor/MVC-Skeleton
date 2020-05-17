@@ -108,16 +108,16 @@ class Post {
         $category = $filteredCategory;
         $excerpt = $filteredExcerpt;
         $req->execute([$memberID, $title, $category, $excerpt]); //this means there's a new entry
-
+        $post = $db->lastInsertID();
 
         //Make another query to the database to get the postID of the most recent post where the title matches the submitted title.
-        $db = Db::getInstance();
-        $req = $db->prepare("SELECT postID FROM post WHERE title = ? ORDER BY postID DESC LIMIT 1");
-        $req->execute([$_POST['title']]);  
-        $post = $req->fetch();    
+//        $db = Db::getInstance();
+//        $req = $db->prepare("SELECT postID FROM post WHERE title = ? ORDER BY postID DESC LIMIT 1");
+//        $req->execute([$_POST['title']]);  
+//        $post = $req->fetch();    
 
         if (isset($_POST) && isset($post)) { //checks if form is submitted and previous query was successful
-            $file = "C:/xampp/htdocs/MVC/MVC-Skeleton/views/blogs/{$post['postID']}.txt"; //declare file path
+            $file = "C:/xampp/htdocs/MVC/MVC-Skeleton/views/blogs/{$post}.txt"; //declare file path
             $content = $_POST['content']; //set $content to be the value submitted in the content text box from the form
             if (!is_file($file)) { // check if declared file exists
                 file_put_contents($file, $content); //store content from form into declared file
