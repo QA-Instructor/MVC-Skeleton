@@ -12,10 +12,10 @@
   </head>
   <body>
     <header class="w3-container w3-gray">
-      <a href='/MVC_Skeleton'>Home</a>
+      <a href='/MVC-Skeleton'>Home</a>
       <a href='?controller=product&action=readAll'>Products</a>
       <a href='?controller=product&action=create'>Add Product</a>
-      <a href='?controller=product&action=readAll'>Blogs</a>
+      <a href='?controller=blogpost&action=readAll'>Blogs</a>
       <a href='?controller=blogpost&action=create'>Add Blog</a>
     </header>
 <div class="w3-container w3-pink">

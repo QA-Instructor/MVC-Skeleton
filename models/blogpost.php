@@ -3,28 +3,29 @@
 
 //This is one of the models.
 //Class BlogPost where the functionalities are defined & where the DB connection is made & prepared statements.
-//No table in DB has been created yet for blogs
 
   class BlogPost {
 
     // we define 3 attributes
     public $id;
     public $title;
-    public $text;
+    public $posttext;
+    public $photo;
 
-    public function __construct($id, $title, $text) {
+    public function __construct($id, $title, $posttext, $photo) {
       $this->id    = $id;
       $this->title  = $title;
-      $this->text = $text;
+      $this->posttext = $posttext;
+      $this->photo = $photo;
     }
 
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM blog');
-      // we create a list of Product objects from the database results
-      foreach($req->fetchAll() as $blog) {
-        $list[] = new BlogPost($blog['id'], $blog['title'], $blog['text']);
+      $req = $db->query('SELECT * FROM blogpost');
+      // we create a list of blogposts objects from the database results
+      foreach($req->fetchAll() as $blogpost) {
+        $list[] = new BlogPost($blogpost['id'], $blogpost['title'], $blogpost['posttext'], $blogpost['photo']);
       }
       return $list;
     }
@@ -33,12 +34,12 @@
       $db = Db::getInstance();
       //use intval to make sure $id is an integer
       $id = intval($id);
-      $req = $db->prepare('SELECT * FROM product WHERE id = :id');
+      $req = $db->prepare('SELECT * FROM blogpost WHERE id = :id');
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('id' => $id));
-      $product = $req->fetch();
-if($product){
-      return new BlogPost($blog['id'], $blog['title'], $blog['text']);
+      $blogpost = $req->fetch();
+if($blogpost){
+      return new BlogPost($blogpost['id'], $blogpost['title'], $blogpost['posttext'], $blogpost['photo']);
     }
     else
     {
@@ -49,48 +50,51 @@ if($product){
 
 public static function update($id) {
     $db = Db::getInstance();
-    $req = $db->prepare("Update product set title=:title, text=:text where id=:id");
+    $req = $db->prepare("Update blogpost set title=:title, posttext=:posttext where id=:id");
     $req->bindParam(':id', $id);
     $req->bindParam(':title', $title);
-    $req->bindParam(':text', $text);
+    $req->bindParam(':posttext', $posttext);
 
 // set title and text parameters and execute
     if(isset($_POST['title'])&& $_POST['title']!=""){
-        $filteredName = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
+        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['text'])&& $_POST['text']!=""){
-        $filteredPrice = filter_input(INPUT_POST,'text', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['posttext'])&& $_POST['posttext']!=""){
+        $filteredPostText = filter_input(INPUT_POST,'posttext', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-$title = $filteredName;
-$text = $filteredPrice;
+$title = $filteredTitle;
+$posttext = $filteredPostText;
 $req->execute();
 
-//upload product image if it exists
+//upload blog posts image if it exists
         if (!empty($_FILES[self::InputKey]['title'])) {
-		Product::uploadFile($title);
+		BlogPost::uploadFile($title);
 	}
 
     }
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into product(title, text) values (:title, :text)");
+    $req = $db->prepare("Insert into blogpost(title, posttext, photo) values (:title, :posttext, :photo)");
     $req->bindParam(':title', $title);
-    $req->bindParam(':text', $text);
+    $req->bindParam(':posttext', $posttext);
+    $req->bindParam(':photo', $photo);
+
 
 // set parameters and execute
     if(isset($_POST['title'])&& $_POST['title']!=""){
-        $filteredName = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
+        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['text'])&& $_POST['text']!=""){
-        $filteredPrice = filter_input(INPUT_POST,'text', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['posttext'])&& $_POST['posttext']!=""){
+        $filteredPostText = filter_input(INPUT_POST,'posttext', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-$title = $filteredName;
-$text = $filteredPrice;
+$title = $filteredTitle;
+$posttext = $filteredPostText;
+$photo = 'views/images/' . $filteredTitle. '.jpeg';
 $req->execute();
 
-//upload product image
-Product::uploadFile($title);
+//upload blog posts image
+BlogPost::uploadFile($title);
     }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
@@ -114,9 +118,9 @@ public static function uploadFile(string $title) {
 		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
 	}
 
-	$tempFile = $_FILES[self::InputKey]['tmp_title'];
-        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
-	$destinationFile = $path . $title . '.jpeg';
+	$tempFile = $_FILES[self::InputKey]['tmp_name']; //saves them to a temporary directory. You have to ensure the images are saved to a premanent directory.
+        $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder
+	$destinationFile = $path . $title . '.jpeg';  //in the database, we store the reference to that path.
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("Handle Error");
@@ -131,7 +135,7 @@ public static function remove($id) {
       $db = Db::getInstance();
       //make sure $id is an integer
       $id = intval($id);
-      $req = $db->prepare('delete FROM product WHERE id = :id');
+      $req = $db->prepare('delete FROM blogpost WHERE id = :id');
       // the query was prepared, now replace :id with the actual $id value
       $req->execute(array('id' => $id));
   }

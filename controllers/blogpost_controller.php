@@ -2,10 +2,10 @@
 
 //Controller does the calls to the functionalities inside the models.
 
-class BlogpostController {
+class BlogPostController {
     public function readAll() {
       // we store all the posts in a variable
-      $blogpost = BlogPost::all();
+      $blogposts = BlogPost::all(); //ALL blogposts
       require_once('views/blogpost/readAll.php');
     }
 
@@ -25,7 +25,7 @@ class BlogpostController {
  }
     }
     public function create() {
-      // we expect a url of form ?controller=products&action=create
+      // we expect a url of form ?controller=blogpost&action=create
       // if it's a GET request display a blank form for creating a new product
       // else it's a POST so add to the database and redirect to readAll action
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
@@ -34,7 +34,7 @@ class BlogpostController {
       else { 
             BlogPost::add();
              
-            $blogpost = BlogPost::all(); //$products is used within the view
+            $blogposts = BlogPost::all(); //$blogposts is used within the view //ALL blogposts
             require_once('views/blogpost/readAll.php');
       }
       
@@ -46,16 +46,16 @@ class BlogpostController {
         return call('pages', 'error');
 
         // we use the given id to get the correct product
-        $blogpost = BlogPost::find($_GET['id']);
+        $blogpost = BlogPost::find($_GET['id']); //first it looks for the blogpost
       
         require_once('views/blogpost/update.php');
         }
       else
           { 
             $id = $_GET['id'];
-            BlogPost::update($id);
+            BlogPost::update($id); //then it updates it depending on what we update blogpost with
                         
-            $blogpost = BlogPost::all();
+            $blogposts = BlogPost::all(); //ALL blogposts
             require_once('views/blogpost/readAll.php');
       }
       
@@ -63,7 +63,7 @@ class BlogpostController {
     public function delete() {
             BlogPost::remove($_GET['id']);
             
-            $blogpost = BlogPost::all();
+            $blogposts = BlogPost::all(); //ALL blogposts
             require_once('views/blogpost/readAll.php');
       }
       
