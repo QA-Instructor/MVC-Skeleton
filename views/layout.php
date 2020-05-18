@@ -2,12 +2,10 @@
 <?php session_start(); ?>
 <html>
     <head>
-
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
-
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <!--bootstrap stylesheet-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <!--fontawesome stylesheet: for icons-->
@@ -18,50 +16,25 @@
 
         <title>CONCATENATE</title>
     </head>
+    
+    
     <body>
         <!--Navigation Bar Section-->
-        <section class="container-fluid logo">
+        <div class="container-fluid logo">
             <div class="row justify-content-center">
                 <img src="views/images/standard/logo.png" height="80px">
             </div>
-        </section>
+        </div>
         <hr>
-        <section class="container-fluid customnav">
-            <div class="row justify-content-end align-content-middle">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href='index.php'> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href='?controller=post&action=readAll'>Blogs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!--        <nav class="navbar navbar-light">
-                    <div class="row justify-content-end">
-                    <ul class="nav justify-content-end">
-                        <li class="nav-item">
-                            <a class="nav-link active" href='index.php'> Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href='?controller=post&action=readAll'>Blogs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><button type="button" class="btn btn-outline-warning">Login</button> </a>
-                        </li>
-                    </ul>
-                    </div>
-                </nav>-->
+        <?php
+//        $_COOKIE['user'] = 'uncomment to test log in switch';
+        if (isset($_COOKIE['user'])) {
+            require_once 'views/sections/nav-member.php';
+        } else{
+            require_once 'views/sections/nav-default.php';
+        }    
+        ?>
+
 
         <?php require_once('routes.php'); ?>
 
