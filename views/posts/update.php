@@ -14,11 +14,11 @@ if (is_file($filename)) {
     <h2>Update Item</h2>
     <p>
         <label>Title</label>
-        <input class="w3-input" type="text" name="title" value="<?= $post->title; ?>">       
+        <input class="w3-input" type="text" name="title" value="<?= $post->getTitle(); ?>">       
     </p>
     <p>
         <label>Excerpt</label>
-        <input class="w3-input" type="text" name="excerpt" value="<?= $post->excerpt; ?>" >        
+        <input class="w3-input" type="text" name="excerpt" value="<?= $post->getExcerpt(); ?>" >        
     </p>
     <p>
         <label>Content</label>
@@ -27,12 +27,12 @@ if (is_file($filename)) {
     </p>
     <p>
         <label>Category</label>
-        <input class="w3-input" type="text" name="category" value="<?= $post->category; ?>" >        
+        <input class="w3-input" type="text" name="category" value="<?= $post->getCatergoryID(); ?>" >        
     </p>
 
     <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
     <?php
-    $file = 'views/images/' . $post->title . '.jpeg';
+    $file = 'views/images/' . $_GET['id'] . '.jpeg';
     if (file_exists($file)) {
         $img = "<img src='$file' width='150' />";
         echo $img;

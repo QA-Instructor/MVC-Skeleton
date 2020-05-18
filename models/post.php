@@ -2,24 +2,74 @@
 
 class Post {
 
-    // we define 3 attributes
-    public $postID;
-    public $memberID;
-    public $title;
-    public $category;
-    public $datePosted;
-    public $dateUpdated;
-    public $excerpt;
+//    attributes
+    private $postID;
+    private $memberID;
+    private $title;
+    private $category;
+    private $datePosted;
+    private $dateUpdated;
+    private $excerpt;
 
+//    constructor
     public function __construct($postID, $memberID, $title, $category, $datePosted, $dateUpdated, $excerpt) {
         $this->postID = $postID;
         $this->memberID = $memberID;
         $this->title = $title;
-        $this->category = $category;
+        $this->categoryID = $category;
         $this->datePosted = $datePosted;
         $this->dateUpdated = $dateUpdated;
         $this->excerpt = $excerpt;
     }
+    
+    
+//    getters
+    public function getPostID() {
+        return $this->postID;
+    }
+    public function getMemberID() {
+        return $this->memberID;
+    }
+    public function getTitle() {
+        return $this->title;
+    }
+    public function getCategoryID() {
+        return $this->categoryID;
+    }
+    public function getDatePosted() {
+        return $this->datePosted;
+    }
+    public function getDateUpdated() {
+        return $this->dateUpdated;
+    }
+    public function getExcerpt() {
+        return $this->excerpt;
+    }
+    
+    
+ //    setters
+    public function setPostID($postID) {
+        $this->postID = $postID;
+    }
+    public function setMemberID($memberID) {
+        $this->memberID = $memberID;
+    }
+    public function setTitle($title) {
+        $this->title = $title;
+    }
+    public function setCategoryID($categoryID) {
+        $this->category = $categoryID;
+    }
+    public function setExcerpt($excerpt) {
+        $this->excerpt = $excerpt;
+    }   
+    
+    
+    
+    
+    
+    
+    
 
     public static function all() {
         $list = [];
@@ -108,7 +158,7 @@ class Post {
         $category = $filteredCategory;
         $excerpt = $filteredExcerpt;
         $req->execute([$memberID, $title, $category, $excerpt]); //this means there's a new entry
-        $post = $db->lastInsertID();
+        $postID = $db->lastInsertID();
 
         //Make another query to the database to get the postID of the most recent post where the title matches the submitted title.
 //        $db = Db::getInstance();
@@ -116,8 +166,8 @@ class Post {
 //        $req->execute([$_POST['title']]);  
 //        $post = $req->fetch();    
 
-        if (isset($_POST) && isset($post)) { //checks if form is submitted and previous query was successful
-            $file = "C:/xampp/htdocs/MVC/MVC-Skeleton/views/blogs/{$post}.txt"; //declare file path
+        if (isset($_POST) && isset($postID)) { //checks if form is submitted and previous query was successful
+            $file = "C:/xampp/htdocs/MVC/MVC-Skeleton/views/blogs/{$postID}.txt"; //declare file path
             $content = $_POST['content']; //set $content to be the value submitted in the content text box from the form
             if (!is_file($file)) { // check if declared file exists
                 file_put_contents($file, $content); //store content from form into declared file
@@ -133,7 +183,7 @@ class Post {
 
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
-    public static function uploadFile(string $title) {
+    public static function uploadFile(string $postID) {
 
         if (empty($_FILES[self::InputKey])) {
             //die("File Missing!");
@@ -151,7 +201,7 @@ class Post {
 
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
         $path = "C:/xampp/htdocs/MVC/MVC-Skeleton/views/images/";
-        $destinationFile = $path . $title . '.jpeg';
+        $destinationFile = $path . $postID . '.jpeg';
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
             trigger_error("Handle Error");

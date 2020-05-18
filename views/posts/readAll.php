@@ -31,15 +31,15 @@
 
 
             <?php
-            $img = "views/images/{$post->title}.jpeg";
+            $img = "views/images/{$post->getPostID()}.jpeg";
             ?>
 
-            <div class="card customcard" onclick="location.href = '?controller=post&action=read&id=<?php echo $post->postID; ?>';" style="width: 20rem;">
+            <div class="card customcard" onclick="location.href = '?controller=post&action=read&id=<?php echo $post->getPostID(); ?>';" style="width: 20rem;">
                 <img src="<?php echo $img ?>"  class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text"><small class="text-muted"><?php echo $post->datePosted ?></small></p>
-                    <h5 class="card-title"><?php echo $post->title ?></h5>
-                    <p class="card-text"><?php echo $post->excerpt ?></p>
+                    <p class="card-text"><small class="text-muted"><?php echo $post->getDatePosted() ?></small></p>
+                    <h5 class="card-title"><?php echo $post->getTitle() ?></h5>
+                    <p class="card-text"><?php echo $post->getExcerpt() ?></p>
                 <!--    <a href='?controller=post&action=read&id=<?php // echo $post->postID;        ?>'class="btn btn-primary">Go somewhere</a>-->
                 </div>
             </div>
