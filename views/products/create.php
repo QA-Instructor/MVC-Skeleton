@@ -4,11 +4,12 @@
     <h2>Add New Item</h2>
 </div>
     <p>
-        <input class="w3-input" type="text" name="name" required autofocus>
+        <input class="w3-input" type="text" name="name" required autofocus> 
         <label>Name</label>
     </p>
         <p>
         <input class="w3-input" type="text" name="price" required>
+<!--        ^name fields need to be exactly like fields in DB-->
         <label>Price</label>
     </p>
             

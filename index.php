@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Pets</title>
+        <title>PAWSOME - Our Adventurous Pets </title>
     </head>
     <body>
         <?php
@@ -17,6 +18,8 @@
   }
 
     require_once('views/layout.php');
+    
+    //When you see require once and the file path - imagine as if all that code is underneath it.
         ?>
     </body>
 </html>
