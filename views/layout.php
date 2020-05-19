@@ -11,13 +11,13 @@
   </head>
   <body>
     <header class="w3-container w3-gray">
-      <a href='/MVC_Skeleton'>Home</a>
+      <a href='/MVC-Skeleton'>Home</a>
       <a href='?controller=product&action=readAll'>Products</a>
       <a href='?controller=product&action=create'>Add Product</a>
     </header>
 <div class="w3-container w3-pink">
     <?php require_once('routes.php'); ?>
-</<div>
+</div>
 <div class="w3-container w3-gray">
     <footer >
         Copyright &COPY; <?= date('Y'); ?>
