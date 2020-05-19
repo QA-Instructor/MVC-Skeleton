@@ -88,9 +88,12 @@ $req->execute();
     if(isset($_POST['posttext'])&& $_POST['posttext']!=""){
         $filteredPostText = filter_input(INPUT_POST,'posttext', FILTER_SANITIZE_SPECIAL_CHARS);
     }
+    
+ $photo = $_FILE['name'];
+ 
 $title = $filteredTitle;
 $posttext = $filteredPostText;
-$photo = 'views/images/' . $filteredTitle. '.jpeg';
+$photo = 'views/images/' .$photo. '.jpeg';
 $req->execute();
 
 //upload blog posts image
@@ -120,7 +123,7 @@ public static function uploadFile(string $title) {
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name']; //saves them to a temporary directory. You have to ensure the images are saved to a premanent directory.
         $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder
-	$destinationFile = $path . $title . '.jpeg';  //in the database, we store the reference to that path.
+	$destinationFile = $path . $photo. '.jpeg';  //in the database, we store the reference to that path.
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("Handle Error");
