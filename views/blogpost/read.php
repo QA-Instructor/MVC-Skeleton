@@ -5,11 +5,13 @@
 <p>Blogpost content: <?php echo $blogpost->posttext; ?></p>
 <?php 
 $file = $blogpost->photo;//the last step that we did
+//C:/xampp/htdocs/MVC-Skeleton/views/images/Test1.jpeg
 //$file is getting the photo from DB. We
 //$file = 'views/images/' . $blogpost->title . '.jpeg';
 
 if(file_exists($file)){
-    $img = "<img src='$file' width='150' />";
+    $file = explode('/', $file, 5);   
+    $img = "<img src='$file[4]' width='150' />";
     echo $img;
 }
 else

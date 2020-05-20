@@ -50,10 +50,11 @@ if($blogpost){
 
 public static function update($id) {
     $db = Db::getInstance();
-    $req = $db->prepare("Update blogpost set title=:title, posttext=:posttext where id=:id");
+    $req = $db->prepare("Update blogpost set title=:title, posttext=:posttext, photo=:photo where id=:id");
     $req->bindParam(':id', $id);
     $req->bindParam(':title', $title);
     $req->bindParam(':posttext', $posttext);
+    $req->bindParam(':photo', $photo);
 
 // set title and text parameters and execute
     if(isset($_POST['title'])&& $_POST['title']!=""){
@@ -64,11 +65,13 @@ public static function update($id) {
     }
 $title = $filteredTitle;
 $posttext = $filteredPostText;
+//upload blog posts image if it exists
+        if (!empty($_FILES[self::InputKey])) {
+		$photo=BlogPost::uploadFile($title);
+
 $req->execute();
 
-//upload blog posts image if it exists
-        if (!empty($_FILES[self::InputKey]['title'])) {
-		BlogPost::uploadFile($title);
+
 	}
 
     }
@@ -87,17 +90,18 @@ $req->execute();
     }
     if(isset($_POST['posttext'])&& $_POST['posttext']!=""){
         $filteredPostText = filter_input(INPUT_POST,'posttext', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-    
- $photo = $_FILE['name'];
- 
+    }     
+  
 $title = $filteredTitle;
 $posttext = $filteredPostText;
-$photo = 'views/images/' .$photo. '.jpeg';
+$photo=BlogPost::uploadFile($title);
 $req->execute();
 
 //upload blog posts image
-BlogPost::uploadFile($title);
+
+
+ 
+
     }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
@@ -123,7 +127,8 @@ public static function uploadFile(string $title) {
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name']; //saves them to a temporary directory. You have to ensure the images are saved to a premanent directory.
         $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder
-	$destinationFile = $path . $photo. '.jpeg';  //in the database, we store the reference to that path.
+	$destinationFile = $path . $title. '.jpeg';  //in the database, we store the reference to that path.
+        
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("Handle Error");
@@ -133,6 +138,7 @@ public static function uploadFile(string $title) {
 	if (file_exists($tempFile)) {
 		unlink($tempFile); 
 	}
+        return $destinationFile;
 }
 public static function remove($id) {
       $db = Db::getInstance();
