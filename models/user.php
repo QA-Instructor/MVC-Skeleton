@@ -1,7 +1,7 @@
 
 
 <?php
-  class Users {
+  class User {
 
     // we define 3 attributes
     public $firstname;

@@ -6,7 +6,7 @@ class PagesController {
       //example data to use in the home page
       $first_name = 'Lisa';
       $last_name  = 'Simpson';
-      require_once('views/pages/home.php');
+      require_once('views/pages/home.php'); //
     }
 
     public function error() {

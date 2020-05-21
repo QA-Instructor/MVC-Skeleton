@@ -6,17 +6,21 @@
 
   class BlogPost {
 
-    // we define 3 attributes
-    public $id;
-    public $title;
-    public $posttext;
-    public $photo;
+    // we define attributes
+    public $blogpostID;
+    public $blogPostName;
+    public $blogPostSubName;
+    public $blogPostContent;
+    public $blogPostPhoto;
+    public $datePosted;
 
-    public function __construct($id, $title, $posttext, $photo) {
-      $this->id    = $id;
-      $this->title  = $title;
-      $this->posttext = $posttext;
-      $this->photo = $photo;
+    public function __construct($blogpostID, $blogPostName, $blogPostSubName, $blogPostContent, $blogPostPhoto, $datePosted) {
+      $this->blogpostID = $blogpostID;
+      $this->blogPostName = $blogPostName;
+      $this->blogPostSubName = $blogPostSubName;
+      $this->blogPostContent = $blogPostContent;
+      $this->blogPostPhoto = $blogPostPhoto;
+      $this->datePosted = $datePosted;
     }
 
     public static function all() {
@@ -25,49 +29,64 @@
       $req = $db->query('SELECT * FROM blogpost');
       // we create a list of blogposts objects from the database results
       foreach($req->fetchAll() as $blogpost) {
-        $list[] = new BlogPost($blogpost['id'], $blogpost['title'], $blogpost['posttext'], $blogpost['photo']);
+        $list[] = new BlogPost($blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
       }
       return $list;
     }
 
-    public static function find($id) {
+    public static function find($blogpostID) {
       $db = Db::getInstance();
       //use intval to make sure $id is an integer
-      $id = intval($id);
-      $req = $db->prepare('SELECT * FROM blogpost WHERE id = :id');
+      $blogpostID = intval($blogpostID);
+      $req = $db->prepare('SELECT * FROM blogpost WHERE BlogPostID = :BlogPostID');
       //the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id));
+      $req->execute(array('BlogPostID' => $blogpostID));
       $blogpost = $req->fetch();
 if($blogpost){
-      return new BlogPost($blogpost['id'], $blogpost['title'], $blogpost['posttext'], $blogpost['photo']);
+      return new BlogPost($blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
     }
     else
     {
         //replace with a more meaningful exception
-        throw new Exception('A real exception should go here');
+        throw new Exception('Blogposts could not be found.');
     }
     }
 
-public static function update($id) {
+public static function update($blogpostID) {
     $db = Db::getInstance();
-    $req = $db->prepare("Update blogpost set title=:title, posttext=:posttext, photo=:photo where id=:id");
-    $req->bindParam(':id', $id);
-    $req->bindParam(':title', $title);
-    $req->bindParam(':posttext', $posttext);
-    $req->bindParam(':photo', $photo);
+    $req = $db->prepare("Update blogpost set BlogPostName=:BlogPostName, BlogPostSubName=:BlogPostSubName, BlogPostContent=:BlogPostContent, BlogPostPhoto=:BlogPostPhoto, DatePosted=:DatePosted where BlogPostID=:BlogPostID");
+    $req->bindParam(':BlogPostID', $blogpostID);
+    $req->bindParam(':BlogPostName', $blogPostName);
+    $req->bindParam(':BlogSubName', $blogSubName);
+    $req->bindParam(':BlogPostContent', $blogPostContent);
+    $req->bindParam(':BlogPostPhoto', $blogPostPhoto);
+    $req->bindParam(':DatePosted', $datePosted);
 
 // set title and text parameters and execute
-    if(isset($_POST['title'])&& $_POST['title']!=""){
-        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['BlogPostName'])&& $_POST['BlogPostName']!=""){
+        $filteredBlogPostName = filter_input(INPUT_POST,'BlogPostName', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['posttext'])&& $_POST['posttext']!=""){
-        $filteredPostText = filter_input(INPUT_POST,'posttext', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['BlogPostSubName'])&& $_POST['BlogPostSubName']!=""){
+        $filteredBlogPostSubName = filter_input(INPUT_POST,'BlogPostSubName', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-$title = $filteredTitle;
-$posttext = $filteredPostText;
+    
+    if(isset($_POST['BlogPostContent'])&& $_POST['BlogPostContent']!=""){
+        $filteredBlogPostContent = filter_input(INPUT_POST,'BlogPostContent', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    if(isset($_POST['DatePosted'])&& $_POST['DatePosted']!=""){
+        $filteredDatePosted = filter_input(INPUT_POST,'DatePosted', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+  
+$blogPostName = $filteredBlogPostName;
+$blogPostSubName = $filteredBlogPostSubName;
+$blogPostContent = $filteredBlogPostContent;
+$blogPostPhoto = $filteredBlogPostPhoto;
+$datePosted = $filteredDatePosted;
+
+
 //upload blog posts image if it exists
         if (!empty($_FILES[self::InputKey])) {
-		$photo=BlogPost::uploadFile($title);
+		$blogPostPhoto=BlogPost::uploadFile($blogPostName);
 
 $req->execute();
 
@@ -78,30 +97,36 @@ $req->execute();
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into blogpost(title, posttext, photo) values (:title, :posttext, :photo)");
-    $req->bindParam(':title', $title);
-    $req->bindParam(':posttext', $posttext);
-    $req->bindParam(':photo', $photo);
-
+    $req = $db->prepare("Insert into blogpost(BlogPostName, BlogPostSubName, BlogPostContent, BlogPostPhoto, DatePosted) values (:BlogPostName, :BlogPostSubName, :BlogPostContent, :BlogPostPhoto, :DatePosted)");
+    $req->bindParam(':BlogPostName', $blogPostName);
+    $req->bindParam(':BlogPostSubName', $blogPostSubName);
+    $req->bindParam(':BlogPostContent', $blogPostContent);
+    $req->bindParam(':BlogPostPhoto', $blogPostPhoto);
+    $req->bindParam(':DatePosted', $datePosted);
+        
 
 // set parameters and execute
-    if(isset($_POST['title'])&& $_POST['title']!=""){
-        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['BlogPostName'])&& $_POST['BlogPostName']!=""){
+        $filteredBlogPostName = filter_input(INPUT_POST,'BlogPostName', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['posttext'])&& $_POST['posttext']!=""){
-        $filteredPostText = filter_input(INPUT_POST,'posttext', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['BlogPostSubName'])&& $_POST['BlogPostSubName']!=""){
+        $filteredBlogPostSubName = filter_input(INPUT_POST,'BlogPostSubName', FILTER_SANITIZE_SPECIAL_CHARS);
     }     
+      if(isset($_POST['BlogPostContent'])&& $_POST['BlogPostContent']!=""){
+        $filteredBlogPostContent = filter_input(INPUT_POST,'BlogPostContent', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    if(isset($_POST['DatePosted'])&& $_POST['DatePosted']!=""){
+        $filteredDatePosted = filter_input(INPUT_POST,'DatePosted', FILTER_SANITIZE_SPECIAL_CHARS);
+    }  
   
-$title = $filteredTitle;
-$posttext = $filteredPostText;
-$photo=BlogPost::uploadFile($title);
+$blogPostName = $filteredBlogPostName;
+$blogPostSubName = $filteredBlogPostSubName;
+$blogPostContent = $filteredBlogPostContent;
+$datePosted = $filteredDatePosted;
+$blogPostPhoto=BlogPost::uploadFile($blogPostName);
 $req->execute();
 
 //upload blog posts image
-
-
- 
-
     }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
@@ -109,7 +134,7 @@ const InputKey = 'myUploader';
 
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
-public static function uploadFile(string $title) {
+public static function uploadFile(string $blogPostName) {
 
 	if (empty($_FILES[self::InputKey])) {
 		//die("File Missing!");
@@ -127,7 +152,7 @@ public static function uploadFile(string $title) {
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name']; //saves them to a temporary directory. You have to ensure the images are saved to a premanent directory.
         $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder
-	$destinationFile = $path . $title. '.jpeg';  //in the database, we store the reference to that path.
+	$destinationFile = $path . $blogPostName. '.jpeg';  //in the database, we store the reference to that path.
         
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
@@ -140,13 +165,13 @@ public static function uploadFile(string $title) {
 	}
         return $destinationFile;
 }
-public static function remove($id) {
+public static function remove($blogpostID) {
       $db = Db::getInstance();
       //make sure $id is an integer
-      $id = intval($id);
-      $req = $db->prepare('delete FROM blogpost WHERE id = :id');
+      $blogpostID = intval($blogpostID);
+      $req = $db->prepare('delete FROM blogpost WHERE BlogPostID = :BlogPostID');
       // the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id));
+      $req->execute(array('BlogPostID' => $blogpostID));
   }
   
 }
