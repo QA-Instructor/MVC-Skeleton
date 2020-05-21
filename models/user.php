@@ -1,6 +1,25 @@
 
 
 <?php
+
+
+//Read
+//Create -> insert. Test first.
+//Register -> insert
+//Make sure they can sign up.
+
+
+//For logins: just different queries
+//Log in
+//Log out
+
+//user class
+//main generic
+
+//Blogger
+//Add blog
+
+
   class User {
 
     // we define 3 attributes
