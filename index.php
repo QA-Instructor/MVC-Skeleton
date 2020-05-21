@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>MVC Skeleton Jo</title>
+        <title>MVC Skeleton Aman</title>
     </head>
     <body>
         <?php
