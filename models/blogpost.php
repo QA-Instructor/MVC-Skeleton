@@ -49,6 +49,28 @@ if($blogpost){
     }
 
 public static function update($id) {
+    
+    if (($_FILES[self::InputKey]['size'] == 0)){
+        $db = Db::getInstance();
+    $req = $db->prepare("Update blogpost set title=:title, posttext=:posttext where id=:id");
+    $req->bindParam(':id', $id);
+    $req->bindParam(':title', $title);
+    $req->bindParam(':posttext', $posttext);
+
+
+// set title and text parameters and execute
+    if(isset($_POST['title'])&& $_POST['title']!=""){
+        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    if(isset($_POST['posttext'])&& $_POST['posttext']!=""){
+        $filteredPostText = filter_input(INPUT_POST,'posttext', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+$title = $filteredTitle;
+$posttext = $filteredPostText;
+$req->execute();
+
+    }else{
+    
     $db = Db::getInstance();
     $req = $db->prepare("Update blogpost set title=:title, posttext=:posttext, photo=:photo where id=:id");
     $req->bindParam(':id', $id);
@@ -66,16 +88,13 @@ public static function update($id) {
 $title = $filteredTitle;
 $posttext = $filteredPostText;
 //upload blog posts image if it exists
-        if (!empty($_FILES[self::InputKey])) {
+        if (!empty($_FILES[self::InputKey]) && ($_FILES[self::InputKey]['size'] != 0)){
 		$photo=BlogPost::uploadFile($title);
-
-$req->execute();
-
-
 	}
+        $req->execute();
 
     }
-    
+}
     public static function add() {
     $db = Db::getInstance();
     $req = $db->prepare("Insert into blogpost(title, posttext, photo) values (:title, :posttext, :photo)");
