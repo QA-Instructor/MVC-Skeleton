@@ -52,7 +52,43 @@ if($blogpost){
     }
     }
 
+
+//public static function update($blogpostID) {
+
 public static function update($blogpostID) {
+    
+    if (($_FILES[self::InputKey]['size'] == 0)){
+        $db = Db::getInstance();
+    $req = $db->prepare("Update blogpost set BlogPostName=:BlogPostName, BlogPostSubName=:BlogPostSubName, BlogPostContent=:BlogPostContent, DatePosted=:DatePosted where BlogPostID=:BlogPostID");
+    $req->bindParam(':BlogPostID', $blogpostID);
+    $req->bindParam(':BlogPostName', $blogPostName);
+    $req->bindParam(':BlogSubName', $blogSubName);
+    $req->bindParam(':BlogPostContent', $blogPostContent);
+    $req->bindParam(':DatePosted', $datePosted);
+
+
+// set title and text parameters and execute
+     if(isset($_POST['BlogPostName'])&& $_POST['BlogPostName']!=""){
+        $filteredBlogPostName = filter_input(INPUT_POST,'BlogPostName', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    if(isset($_POST['BlogPostSubName'])&& $_POST['BlogPostSubName']!=""){
+        $filteredBlogPostSubName = filter_input(INPUT_POST,'BlogPostSubName', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    
+    if(isset($_POST['BlogPostContent'])&& $_POST['BlogPostContent']!=""){
+        $filteredBlogPostContent = filter_input(INPUT_POST,'BlogPostContent', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    if(isset($_POST['DatePosted'])&& $_POST['DatePosted']!=""){
+        $filteredDatePosted = filter_input(INPUT_POST,'DatePosted', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+$blogPostName = $filteredBlogPostName;
+$blogPostSubName = $filteredBlogPostSubName;
+$blogPostContent = $filteredBlogPostContent;
+$datePosted = $filteredDatePosted;
+$req->execute();
+
+    }else{    
+
     $db = Db::getInstance();
     $req = $db->prepare("Update blogpost set BlogPostName=:BlogPostName, BlogPostSubName=:BlogPostSubName, BlogPostContent=:BlogPostContent, BlogPostPhoto=:BlogPostPhoto, DatePosted=:DatePosted where BlogPostID=:BlogPostID");
     $req->bindParam(':BlogPostID', $blogpostID);
@@ -80,21 +116,18 @@ public static function update($blogpostID) {
 $blogPostName = $filteredBlogPostName;
 $blogPostSubName = $filteredBlogPostSubName;
 $blogPostContent = $filteredBlogPostContent;
-$blogPostPhoto = $filteredBlogPostPhoto;
 $datePosted = $filteredDatePosted;
 
 
 //upload blog posts image if it exists
-        if (!empty($_FILES[self::InputKey])) {
-		$blogPostPhoto=BlogPost::uploadFile($blogPostName);
 
-$req->execute();
-
-
+        if (!empty($_FILES[self::InputKey]) && ($_FILES[self::InputKey]['size'] != 0)){
+		$photo=BlogPost::uploadFile($blogPostName);
 	}
+        $req->execute();
 
     }
-    
+}
     public static function add() {
     $db = Db::getInstance();
     $req = $db->prepare("Insert into blogpost(BlogPostName, BlogPostSubName, BlogPostContent, BlogPostPhoto, DatePosted) values (:BlogPostName, :BlogPostSubName, :BlogPostContent, :BlogPostPhoto, :DatePosted)");
