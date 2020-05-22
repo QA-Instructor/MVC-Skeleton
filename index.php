@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +13,7 @@
         $controller = $_GET['controller'];
         $action     = $_GET['action'];
   } else {
-        $controller = 'pages';
+        $controller = 'pages';//to change to blogpost controller. first signpost
         $action     = 'home';
   }
 
