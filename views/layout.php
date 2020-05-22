@@ -4,14 +4,16 @@
   <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+<!--<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Pangolin" >
-<link rel="stylesheet" href="views/css/styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Pangolin" >-->
+<!--<link rel="stylesheet" href="views/css/styles.css">-->
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-mhpbKVUOPCSocLzx2ElRISIORFRwr1ZbO9bAlowgM5kO7hnpRBe+brVj8NNPUiFs" crossorigin="anonymous">
 <title>Shopping Cart</title>
   </head>
   <body>
-    <header class="w3-container w3-gray">
+    <header class="w3-container w3-white">
       <a href='/MVC-Skeleton'>Home</a>
       <a href='?controller=product&action=readAll'>Products</a> 
       <a href='?controller=product&action=create'>Add Product</a>
@@ -20,10 +22,10 @@
       <a href='?controller=user&action=create'>Register</a>
       
     </header>
-<div class="w3-container w3-pink">
+<div class="w3-container w3-white">
     <?php require_once('routes.php'); ?>
 </<div>
-<div class="w3-container w3-gray">
+<div class="w3-container w3-white">
     <footer >
         Copyright &COPY; <?= date('Y'); ?>
         
