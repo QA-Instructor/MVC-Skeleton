@@ -21,7 +21,8 @@ class newPost {
     
 public static function add() {
         $db = Db::getInstance();
-        $req = $db->prepare("Insert into post_table(title, publishedAt, content) values (:title, :publishedAt, :content)");
+        $req = $db->prepare("Insert into post_table(blogID, title, publishedAt, content) values (:blogID, :title, :publishedAt, :content)");
+        $req->bindParam(':blogID', $blogID);
         $req->bindParam(':title', $title);
         $req->bindParam(':publishedAt', $publishedAt);
         $req->bindParam(':content', $content);
@@ -35,11 +36,17 @@ public static function add() {
             $filteredContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
         }
         $title = $filteredTitle;
+        $blogID = 2;
         $content = $filteredContent;
         $req->execute();
 
+        //to enable a 'published at' date and time
+        $lastid = $db->lastInsertId();
+        $req = $db->query("UPDATE post_table SET publishedAt = now() WHERE postID=$lastid"); 
+
+
 //upload product image
-        newPost::uploadFile($postID);
+//        newPost::uploadFile($postID);
     }
 
     const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
