@@ -17,8 +17,18 @@
     public $blogPostPhoto;
     public $datePosted;
     
+      public function __construct1($blogpostID, $blogPostName, $blogPostSubName, $blogPostContent, $blogPostPhoto, $datePosted) {
+      $this->blogpostID = $blogpostID;      
+      $this->blogPostName = $blogPostName;
+      $this->blogPostSubName = $blogPostSubName;
+      $this->blogPostContent = $blogPostContent;
+      $this->blogPostPhoto = $blogPostPhoto;
+      $this->datePosted = $datePosted;
 
-    public function __construct($blogpostID,$bloggerID, $petTypeID, $categoryID, $blogPostName, $blogPostSubName, $blogPostContent, $blogPostPhoto, $datePosted) {
+    }
+        
+
+    public function __construct2($blogpostID,$bloggerID, $petTypeID, $categoryID, $blogPostName, $blogPostSubName, $blogPostContent, $blogPostPhoto, $datePosted) {
       $this->blogpostID = $blogpostID;
       $this->$bloggerID=$bloggerID;
       $this->$petTypeID=$petTypeID;
@@ -35,11 +45,11 @@
       $list = [];
       $db = Db::getInstance();
 
-      $req = $db->query('SELECT BlogPostName,BlogPostSubName,BlogPostContent,BlogPostPhoto,DatePosted FROM blogpost');
+      $req = $db->query('SELECT blogpostID, BlogPostName,BlogPostSubName,BlogPostContent,BlogPostPhoto,DatePosted FROM blogpost');
       // we create a list of blogposts objects from the database results
       foreach($req->fetchAll() as $blogpost) {
-        $list[] = new BlogPost($blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
-        //$blogpost['BlogPostID'], $petTypeID['PetTypeID'],$categoryID['CategoryID '],
+        $list[] = new BlogPost($blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
+        //$petTypeID['PetTypeID'],$categoryID['CategoryID '],
 
       }
       return $list;
