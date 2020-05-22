@@ -45,7 +45,7 @@
       $list = [];
       $db = Db::getInstance();
 
-      $req = $db->query('SELECT blogpostID, BlogPostName,BlogPostSubName,BlogPostContent,BlogPostPhoto,DatePosted FROM blogpost');
+      $req = $db->query('SELECT * FROM blogpost');
       // we create a list of blogposts objects from the database results
       foreach($req->fetchAll() as $blogpost) {
         $list[] = new BlogPost($blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
@@ -60,12 +60,12 @@
       $db = Db::getInstance();
       //use intval to make sure $id is an integer
       $blogpostID = intval($blogpostID);
-      $req = $db->prepare('SELECT BlogPostName,BlogPostSubName,BlogPostContent,BlogPostPhoto,DatePosted FROM blogpost WHERE BlogPostID = :BlogPostID');
+      $req = $db->prepare('SELECT * FROM blogpost WHERE BlogPostID = :BlogPostID');
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('BlogPostID' => $blogpostID));
       $blogpost = $req->fetch();
 if($blogpost){
-      return new BlogPost($blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
+      return new BlogPost($blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
 
     }
     else
