@@ -1,10 +1,14 @@
 html, body, h1, h2, h3, h4, h5, h6 {
  font-family: 'Pangolin', cursive;
 }
-.w3-tangerine {
+.w3-darkbrown {
   font-family: 'Tangerine', serif;
 }
 .w3-pacifico {
     font-family: 'Pacifico', cursive;
 }
 
+.homepic {
+    width: 100px;
+   
+}
