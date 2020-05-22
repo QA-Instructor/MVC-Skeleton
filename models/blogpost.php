@@ -8,19 +8,20 @@
 
     // we define attributes
     public $blogpostID;
+    public $pettypeID;
+    public $categoryID;
     public $blogPostName;
     public $blogPostSubName;
     public $blogPostContent;
     public $blogPostPhoto;
-    public $datePosted;
 
-    public function __construct($blogpostID, $blogPostName, $blogPostSubName, $blogPostContent, $blogPostPhoto, $datePosted) {
+    public function __construct($blogpostID, $blogPostName, $blogPostSubName, $blogPostContent, $blogPostPhoto) {
       $this->blogpostID = $blogpostID;
       $this->blogPostName = $blogPostName;
       $this->blogPostSubName = $blogPostSubName;
       $this->blogPostContent = $blogPostContent;
       $this->blogPostPhoto = $blogPostPhoto;
-      $this->datePosted = $datePosted;
+    
     }
 
     public static function all() {
@@ -29,7 +30,7 @@
       $req = $db->query('SELECT * FROM blogpost');
       // we create a list of blogposts objects from the database results
       foreach($req->fetchAll() as $blogpost) {
-        $list[] = new BlogPost($blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
+        $list[] = new BlogPost($blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto']);
       }
       return $list;
     }
@@ -43,7 +44,7 @@
       $req->execute(array('BlogPostID' => $blogpostID));
       $blogpost = $req->fetch();
 if($blogpost){
-      return new BlogPost($blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
+      return new BlogPost($blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto']);
     }
     else
     {
@@ -54,13 +55,12 @@ if($blogpost){
 
 public static function update($blogpostID) {
     $db = Db::getInstance();
-    $req = $db->prepare("Update blogpost set BlogPostName=:BlogPostName, BlogPostSubName=:BlogPostSubName, BlogPostContent=:BlogPostContent, BlogPostPhoto=:BlogPostPhoto, DatePosted=:DatePosted where BlogPostID=:BlogPostID");
+    $req = $db->prepare("Update blogpost set BlogPostName=:BlogPostName, BlogPostSubName=:BlogPostSubName, BlogPostContent=:BlogPostContent, BlogPostPhoto=:BlogPostPhoto where BlogPostID=:BlogPostID");
     $req->bindParam(':BlogPostID', $blogpostID);
     $req->bindParam(':BlogPostName', $blogPostName);
     $req->bindParam(':BlogSubName', $blogSubName);
     $req->bindParam(':BlogPostContent', $blogPostContent);
     $req->bindParam(':BlogPostPhoto', $blogPostPhoto);
-    $req->bindParam(':DatePosted', $datePosted);
 
 // set title and text parameters and execute
     if(isset($_POST['BlogPostName'])&& $_POST['BlogPostName']!=""){
@@ -73,16 +73,12 @@ public static function update($blogpostID) {
     if(isset($_POST['BlogPostContent'])&& $_POST['BlogPostContent']!=""){
         $filteredBlogPostContent = filter_input(INPUT_POST,'BlogPostContent', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['DatePosted'])&& $_POST['DatePosted']!=""){
-        $filteredDatePosted = filter_input(INPUT_POST,'DatePosted', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
+   
   
 $blogPostName = $filteredBlogPostName;
 $blogPostSubName = $filteredBlogPostSubName;
 $blogPostContent = $filteredBlogPostContent;
 $blogPostPhoto = $filteredBlogPostPhoto;
-$datePosted = $filteredDatePosted;
-
 
 //upload blog posts image if it exists
         if (!empty($_FILES[self::InputKey])) {
@@ -97,12 +93,14 @@ $req->execute();
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into blogpost(BlogPostName, BlogPostSubName, BlogPostContent, BlogPostPhoto, DatePosted) values (:BlogPostName, :BlogPostSubName, :BlogPostContent, :BlogPostPhoto, :DatePosted)");
+    $req = $db->prepare("Insert into blogpost(BloggerID, PetTypeID, CategoryID, BlogPostName, BlogPostSubName, BlogPostContent, BlogPostPhoto) values (:BloggerID, :PetTypeID, :CategoryID, :BlogPostName, :BlogPostSubName, :BlogPostContent, :BlogPostPhoto)");
     $req->bindParam(':BlogPostName', $blogPostName);
     $req->bindParam(':BlogPostSubName', $blogPostSubName);
     $req->bindParam(':BlogPostContent', $blogPostContent);
     $req->bindParam(':BlogPostPhoto', $blogPostPhoto);
-    $req->bindParam(':DatePosted', $datePosted);
+    $req->bindParam(':BloggerID', $bloggerID);
+    $req->bindParam(':PetTypeID', $pettypeID);
+    $req->bindParam(':CategoryID', $categoryID);
         
 
 // set parameters and execute
@@ -115,14 +113,24 @@ $req->execute();
       if(isset($_POST['BlogPostContent'])&& $_POST['BlogPostContent']!=""){
         $filteredBlogPostContent = filter_input(INPUT_POST,'BlogPostContent', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['DatePosted'])&& $_POST['DatePosted']!=""){
-        $filteredDatePosted = filter_input(INPUT_POST,'DatePosted', FILTER_SANITIZE_SPECIAL_CHARS);
-    }  
+    if(isset($_POST['BloggerID'])&& $_POST['BloggerID']!=""){
+        $filteredBloggerID = filter_input(INPUT_POST,'BloggerID', FILTER_SANITIZE_SPECIAL_CHARS);
+        
+    }if(isset($_POST['PetTypeID'])&& $_POST['PetTypeID']!=""){
+        $filteredPetTypeID = filter_input(INPUT_POST,'PetTypeID', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    if(isset($_POST['CategoryID'])&& $_POST['CategoryID']!=""){
+        $filteredBlogCategoryID = filter_input(INPUT_POST,'CategoryID', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    
+    
   
 $blogPostName = $filteredBlogPostName;
 $blogPostSubName = $filteredBlogPostSubName;
 $blogPostContent = $filteredBlogPostContent;
-$datePosted = $filteredDatePosted;
+$bloggerID = $filteredBloggerID;
+$pettypeID =  $filteredPetTypeID;
+$categoryID = $filteredBlogCategoryID;
 $blogPostPhoto=BlogPost::uploadFile($blogPostName);
 $req->execute();
 

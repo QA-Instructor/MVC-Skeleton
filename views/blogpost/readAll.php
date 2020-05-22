@@ -42,4 +42,5 @@
     <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'>Delete blogpost</a> &nbsp; &nbsp;
     <a href='?controller=blogpost&action=update&id=<?php echo $blogpost->blogpostID; ?>'>Update blogpost</a> &nbsp;
   </p>
+  
 <?php } ?>

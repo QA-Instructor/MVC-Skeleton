@@ -14,8 +14,7 @@
         <label>Blog Post Content</label>
     </p>
     <p>
-        <input class="w3-input" type="text" name="DatePosted" value="<?= $blogpost->datePosted; ?>" >
-        <label>Date Posted</label>
+        
     </p>
             
   <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />

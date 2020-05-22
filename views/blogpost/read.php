@@ -1,10 +1,11 @@
 <p>This is the requested product:</p>
 
 <p>Blogpost ID: <?php echo $blogpost->blogpostID; ?></p>
+<p>Pet: <?php echo $blogpost->pettypeID; ?></p>
+<p>Category: <?php echo $blogpost->categoryID; ?></p>
 <p>Blogpost Name: <?php echo $blogpost->blogPostName; ?></p>
 <p>Blogpost SubName: <?php echo $blogpost->blogPostSubName; ?></p>
 <p>Blogpost Content: <?php echo $blogpost->blogPostContent; ?></p>
-<p>DatePosted: <?php echo $blogpost->datePosted; ?></p>
 
 <?php 
 $file = $blogpost->blogPostPhoto;//the last step that we did

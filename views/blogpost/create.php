@@ -16,10 +16,28 @@
     <input class="w3-input" type="text" name="BlogPostContent" required autofocus>
     <label>Blog Post Content </label>
 </p>
-<p>
-    <input class="w3-input" type="text" name="DatePosted" required autofocus>
-    <label>Date Posted</label>
-</p>
+<div class="form-group">
+    <p> Please select a pet: </p>;
+    <select class="custom-select" name="PetTypeID">
+      <option value="1">Dog</option>
+      <option value="2">Cat</option>
+      <option value="3">Hedgehog</option>
+    </select>
+  </div>
+<div class="form-group">
+    <p> Please select a blog post category: </p>;
+    <select class="custom-select" name="CategoryID">
+      <option value="1">Aww</option>
+      <option value="2">LOL</option>
+      <option value="3">Wow</option>
+    </select>
+  </div><div class="form-group">
+    <p> Please select your name: </p>;
+    <select class="custom-select" name="BloggerID">
+      <option value="1">Aleisha</option>
+    </select>
+  </div>
+    <!--      foreach, getting data from table. Make this dynamic -->
 
 
 <input type="hidden" 
