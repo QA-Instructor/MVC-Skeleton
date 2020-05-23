@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">-->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="views/css/loginStyles.css">
+        <link rel="stylesheet" href="views/css/styles.css">
         <title>ADVNTR</title>
     </head>
     <body>
@@ -14,20 +14,21 @@
             <a href='?controller=product&action=readAll'>Products</a>
             <a href='?controller=product&action=create'>Add Product</a>
             <a href='?controller=newPost&action=create'>Create new post</a>
+            <a href='?controller=readAllPosts&action=readAllPosts'>Posts</a>
         </header>
         <div class="w3-container w3-pink">
             <?php require_once('routes.php'); ?>
             </<div>
-<!--                <div class="w3-container w3-gray">
-                    <div class="topnav">
-                        <a href="#">About Me</a>
-                        <a href="#">Posts</a>
-                        <a href="#">More</a>
-                    </div>-->
-                    <body class="w3-white">
-                        <footer >
-     <!--     Copyright &COPY; <?//= date('Y'); ?>-->
-                        </footer>
-                </div>
-                </body>
-                </html>
+                <!--                <div class="w3-container w3-gray">
+                                    <div class="topnav">
+                                        <a href="#">About Me</a>
+                                        <a href="#">Posts</a>
+                                        <a href="#">More</a>
+                                    </div>-->
+                <body class="w3-white">
+                    <footer >
+ <!--     Copyright &COPY; <?//= date('Y'); ?>-->
+                    </footer>
+            </div>
+    </body>
+</html>
