@@ -2,7 +2,7 @@
 
 class newPost {
 
-    // we define 3 attributes
+    // Define attributes - missing postImage
     public $postID;
     public $blogID;
     public $categoryID;
