@@ -14,6 +14,7 @@
 
     public static function all() {
       $list = [];
+      // this part under is just instansiating the connector to make the connection between the database-DB class in connection.php
       $db = Db::getInstance();
       $req = $db->query('SELECT * FROM product');
       // we create a list of Product objects from the database results
@@ -109,7 +110,7 @@ public static function uploadFile(string $name) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
+        $path = "/Applications/XAMPP/htdocs/MVC_Skeleton/views/images/";
 	$destinationFile = $path . $name . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {

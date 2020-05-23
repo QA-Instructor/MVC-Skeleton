@@ -11,10 +11,26 @@
   </head>
   <body>
     <header class="w3-container w3-gray">
-      <a href='/MVC_Skeleton'>Home</a>
+      <a href='/finalProject'>Home</a>
+<!--      this this is due to the fact it leads with a ? mark it means it appends it-->
+     
+
+<!--this is where victoria wants us to pass the arguments within this line, controller action
+and a third argument being passed in as which country - a selective read. -->
+<!--maybe then we could almost do like a find action keyword in, search string, and then apply a 
+variable to the rest of it, and then process this variable and see where it applies. -->
+<a  href ='http://localhost/finalProject/index.php?controller=product&action=readAll'>TestRun</a>
       <a href='?controller=product&action=readAll'>Products</a>
       <a href='?controller=product&action=create'>Add Product</a>
     </header>
+      
+      
+      
+      
+      
+      
+      
+      
 <div class="w3-container w3-pink">
     <?php require_once('routes.php'); ?>
 </<div>
