@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>MVC Skeleton Aman</title>
+        <title>ADVNTR</title>
     </head>
     <body>
         <?php

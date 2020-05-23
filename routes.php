@@ -27,6 +27,7 @@
 $controllers = array('pages' => ['home', 'error'],
                     'product' => ['readAll','read','create','update','delete'],
                     'newPost' => ['create'],
+                    'registerBlogger' => ['create']
                     );
 
   // check that the requested controller and action are both allowed
