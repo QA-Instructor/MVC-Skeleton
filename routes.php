@@ -16,9 +16,12 @@
         require_once("models/{$controller}.php");
         $controllerClassName = $controller . 'Controller';
         $controller = new $controllerClassName();
+        // the above esen tially instansiates the GET requests name of controller and puts it into $controller
         break;
     }
-    // call the requested action
+    // call the requested action - ur taking the controller which is now an instansiated class of the 
+    // productcontroller and you are calling the $action which was assigned by the getter, in the 
+    // products case READALL- so that method is called within the class. 
     $controller->{ $action }();
   }
 
