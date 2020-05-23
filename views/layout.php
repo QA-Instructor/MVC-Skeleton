@@ -21,11 +21,16 @@
       <a href='?controller=blogpost&action=readAll'>Blogs</a>
       <a href='?controller=blogpost&action=create'>Add Blog</a>
       <a href='?controller=user&action=create'>Register</a>     
+
+      
+
     </header>
 <div class="w3-container w3-white">
     <?php require_once('routes.php'); ?>
+
 </<div>
 <div class="w3-container w3-white">
+
     <footer >
         Copyright &COPY; <?= date('Y'); ?>
         

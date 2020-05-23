@@ -2,7 +2,7 @@
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
 
     <h2>Add New Blog Post</h2>
-</div>
+
 <p>
     <input class="w3-input" type="text" name="BlogPostName" required autofocus>
     <label>Blog Post Name</label>
@@ -40,6 +40,7 @@
     <!--      foreach, getting data from table. Make this dynamic -->
 
 
+
 <input type="hidden" 
        name="MAX_FILE_SIZE" 
        value="10000000"
@@ -52,3 +53,4 @@
 </form>
 
 <!--the name communicates to the DB and model-->
+

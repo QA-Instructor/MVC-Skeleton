@@ -2,6 +2,7 @@
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     <h2>Update Blogpost</h2>
     <p>
+
         <input class="w3-input" type="text" name="BlogPostName" value="<?= $blogpost->blogPostName; ?>">
         <label>Blog Post Name</label>
     </p>
@@ -19,7 +20,9 @@
             
   <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
 <?php 
+
 $file = 'views/images/' . $blogpost->blogPostName . '.jpeg';
+
 if(file_exists($file)){
     $img = "<img src='$file' width='150' />";
     echo $img;

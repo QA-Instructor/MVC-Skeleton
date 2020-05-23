@@ -7,6 +7,8 @@
 <p>Blogpost SubName: <?php echo $blogpost->blogPostSubName; ?></p>
 <p>Blogpost Content: <?php echo $blogpost->blogPostContent; ?></p>
 
+<p>Blogpost Content: <?php echo $blogpost->blogPostPhoto; ?></p>
+
 <?php 
 $file = $blogpost->blogPostPhoto;//the last step that we did
 //C:/xampp/htdocs/MVC-Skeleton/views/images/Test1.jpeg
@@ -16,6 +18,7 @@ $file = $blogpost->blogPostPhoto;//the last step that we did
 if(file_exists($file)){
     $file = explode('/', $file, 5);   
     $img = "<img src='$file[4]' width='150' />";
+
     echo $img;
 }
 else
