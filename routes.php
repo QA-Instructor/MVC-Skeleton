@@ -28,7 +28,7 @@ function call($controller, $action) {
 $controllers = array('pages' => ['home', 'error'],
     'product' => ['readAll', 'read', 'create', 'update', 'delete'],
     'newPost' => ['create'],
-    'readAllPosts' => ['read'],
+    'readAllPosts' => ['readAll'],
 );
 
 // check that the requested controller and action are both allowed
