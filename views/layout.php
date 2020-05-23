@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">-->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="views/css/styles.css">
+        <link rel="stylesheet" href="views/css/loginStyles.css">
         <title>ADVNTR</title>
     </head>
     <body>
