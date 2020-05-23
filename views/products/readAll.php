@@ -8,3 +8,9 @@
     <a href='?controller=product&action=update&id=<?php echo $product->id; ?>'>Update Product</a> &nbsp;
   </p>
 <?php } ?>
+
+<!--  this is the page where simply there is a list of names of products and next to it whether they are 
+  to be deleted etc-->
+
+<!--these buttons here are also super important as they determine which controller is called, here 
+they are all products, and the method decides which method is then called in order to fulfill the tasks-->
