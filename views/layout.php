@@ -15,6 +15,8 @@
             <a href='?controller=product&action=create'>Add Product</a>
             <a href='?controller=newPost&action=create'>Create new post</a>
             <a href='?controller=readAllPosts&action=readAllPosts'>Posts</a>
+            <a href='?controller=registerBlogger&action=create'>Register Blogger</a>
+
         </header>
         <div class="w3-container w3-pink">
             <?php require_once('routes.php'); ?>
