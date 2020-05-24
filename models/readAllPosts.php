@@ -35,7 +35,7 @@ class readAllPosts {
       $req = $db->query('SELECT * FROM post_table');
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $posts) {
-        $list[] = new readAllPosts($posts['title'], $posts['content'], $posts['postImage']);
+        $list[] = new readAllPosts($posts['postID'],$posts['blogID'],$posts['categoryID'],$posts['title'], $posts['publishedAt'],$posts['content'], $posts['postImage']);
       }
       return $list;
     }

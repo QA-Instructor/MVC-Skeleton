@@ -12,7 +12,7 @@ Class newPostController {
             newPost::add();
 
             $posts = newPost::all(); //$products is used within the view
-            require_once('views/DynamicPages/createNewPost.php');
+            require_once('views/DynamicPages/readAllposts.php');//just using this page to test reading back
         }
     }
 
