@@ -4,8 +4,8 @@ class readAllPostsController {
 
     public function readAll() {
         // we store all the posts in a variable
-        $products = Product::all();
-        require_once('views/products/readAllPosts.php');
+        $posts = readAllPosts::all();
+        require_once('views/DynamicPages/readAllPosts.php');
     }
 
     public function read() {
@@ -17,7 +17,7 @@ class readAllPostsController {
         try {
             // we use the given id to get the correct post
             $product = Product::find($_GET['id']);
-            require_once('views/products/readAllPosts.php');
+            require_once('views/DynamicPages/readAllPosts.php');
         } catch (Exception $ex) {
             return call('pages', 'error');
         }

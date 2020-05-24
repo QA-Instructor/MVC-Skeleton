@@ -14,8 +14,9 @@
             <a href='?controller=product&action=readAll'>Products</a>
             <a href='?controller=product&action=create'>Add Product</a>
             <a href='?controller=newPost&action=create'>Create new post</a>
-            <a href='?controller=readAllPosts&action=readAllPosts'>Posts</a>
+            <a href='?controller=readAllPosts&action=readAll'>Posts</a>
             <a href='?controller=registerBlogger&action=create'>Register Blogger</a>
+             <a href='?controller=addComment&action=create'>Add Comment</a>
 
         </header>
         <div class="w3-container w3-pink">
