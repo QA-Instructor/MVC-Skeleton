@@ -18,10 +18,8 @@ class User {
     private $_datejoined;
     private $_profilephoto;
     private $_aboutme;
-    protected $_db; //stores the database handler
-    protected $_user; //stores the user data
-
-    public function __construct($bloggerID, $firstname, $lastname, $username, $email, $hashcode, $datejoined, $profilephoto, $aboutme) {
+   
+    public function __construct($firstname, $lastname, $username, $email, $hashcode, $datejoined, $profilephoto, $aboutme) {
         $this->_firstname = $firstname;
         $this->_lastname = $lastname;
         $this->_username = $username;
@@ -34,14 +32,15 @@ class User {
 
     public static function Register() {
         $db = Db::getInstance();
-        $req = $db->prepare("Insert into Blogger(FirstName, LastName, Username, Email, Hashcode, DateJoined, ProfilePhoto, AboutMe)) values (:FirstName, :LastName, :Username, :Email, :Hashcode, :DateJoined, :ProfilePhoto, :AboutMe)");
+        $req = $db->prepare("Insert into Blogger(BloggerID, FirstName, LastName, Username, Email, Hashcode, DateJoined, ProfilePhoto, AboutMe) values (:BloggerID, :FirstName, :LastName, :Username, :Email, :Hashcode, :DateJoined, :ProfilePhoto, :AboutMe)");
+        $req->bindParam(':BloggerID', $bloggerID);
         $req->bindParam(':FirstName', $firstname);
         $req->bindParam(':LastName', $lastname);
         $req->bindParam(':Username', $username);
         $req->bindParam(':Email', $email);
         $req->bindParam(':Hashcode', $hashcode);
         $req->bindParam(':DateJoined', $datejoined);
-        $req->bindParam(':ProfilePhoto', $profilePhoto);
+        $req->bindParam(':ProfilePhoto', $profilephoto);
         $req->bindParam(':AboutMe', $aboutme);
 
 
@@ -50,17 +49,20 @@ class User {
             $filteredFirstName = filter_input(INPUT_POST, 'FirstName', FILTER_SANITIZE_SPECIAL_CHARS);
         }
         if (isset($_POST['LastName']) && $_POST['LastName'] != "") {
-            $filteredSecondName = filter_input(INPUT_POST, 'LastName', FILTER_SANITIZE_SPECIAL_CHARS);
+            $filteredLastName = filter_input(INPUT_POST, 'LastName', FILTER_SANITIZE_SPECIAL_CHARS);
         }
         if (isset($_POST['Username']) && $_POST['Username'] != "") {
             $filteredUsername = filter_input(INPUT_POST, 'Username', FILTER_SANITIZE_SPECIAL_CHARS);
         }
         if (isset($_POST['Email']) && $_POST['Email'] != "") {
             $filteredEmail = filter_input(INPUT_POST, 'Email', FILTER_SANITIZE_SPECIAL_CHARS);
-        } if (isset($_POST['Hashcode']) && $_POST['Hashcode'] != "") {
+        } 
+        if (isset($_POST['Hashcode']) && $_POST['Hashcode'] != "") {
             $filteredHashcode = filter_input(INPUT_POST, 'Hashcode', FILTER_SANITIZE_SPECIAL_CHARS);
         }
-
+        if (isset($_POST['DateJoined']) && $_POST['DateJoined'] != "") {
+            $filteredDateJoined = filter_input(INPUT_POST, 'DateJoined', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
         if (isset($_POST['AboutMe']) && $_POST['AboutMe'] != "") {
             $filteredAboutMe = filter_input(INPUT_POST, 'AboutMe', FILTER_SANITIZE_SPECIAL_CHARS);
         }
@@ -139,7 +141,7 @@ class User {
         return false;
     }
 
-    protected function _checkCredentials() {
+    /*protected function _checkCredentials() {
         $stmt = $this->_db->prepare('SELECT * FROM blogger WHERE username =?');
         $stmt->execute(array($this->username));
         if ($stmt->rowCount() > 0) {
@@ -150,12 +152,12 @@ class User {
         }
         return false;
     }
+     */
 
     public function getUser() {
         return $this->_user;
     }
     
-
     
     //^log in code from stack overflow
     

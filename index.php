@@ -16,7 +16,6 @@
         $controller = 'pages';//to change to blogpost controller. first signpost
         $action     = 'home';
   }
-
     require_once('views/layout.php');
     
     //When you see require once and the file path - imagine as if all that code is underneath it.

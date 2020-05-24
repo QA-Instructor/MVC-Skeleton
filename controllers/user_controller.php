@@ -12,12 +12,8 @@ class UserController {
           require_once('views/user/create.php');
       }
       else { 
-            User::Register();
-             
-            $user = User::all(); //$users is used within the view //ALL users
-            require_once('views/user/readAll.php');
+            User::Register();  
       }
-      
     }
 }
   
