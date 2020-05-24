@@ -37,7 +37,7 @@
       <option value="1">Aleisha</option>
     </select>
   </div>
-    <!--      foreach, getting data from table. Make this dynamic -->
+    <!--This is hardcoded. A more efficient way of doing the above is creating a foreeach, so that the data is being brought from the DB tables more dynamically-->
 
 
 
@@ -52,5 +52,5 @@
 </p>
 </form>
 
-<!--the name communicates to the DB and model-->
+<!--the name field/HTML tag communicates to the DB and model-->
 

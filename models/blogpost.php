@@ -2,7 +2,7 @@
 
 
 //This is one of the models.
-//Class BlogPost where the functionalities are defined & where the DB connection is made & prepared statements.
+//Class BlogPost where the functionalities are defined & where the DB connection is made & where the prepared statements are declared.
 
   class BlogPost {
 
@@ -36,7 +36,7 @@
       // we create a list of blogposts objects from the database results
       foreach($req->fetchAll() as $blogpost) {
         $list[] = new BlogPost($blogpost['BloggerID'], $blogpost['PetTypeID'], $blogpost['CategoryID'], $blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto']);
-        //$petTypeID['PetTypeID'],$categoryID['CategoryID '],
+        
       }
       return $list;
     }
