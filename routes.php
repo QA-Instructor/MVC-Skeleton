@@ -30,8 +30,9 @@ $controllers = array('pages' => ['home', 'error'],
     'product' => ['readAll', 'read', 'create', 'update', 'delete'],
     'newPost' => ['create'],
     'readAllPosts' => ['readAll'],
-    'registerBlogger' => ['create']
-                    );
+    'registerBlogger' => ['create'],
+    'bloggerLogin' => ['readAll']
+);
 
 
 // check that the requested controller and action are both allowed
