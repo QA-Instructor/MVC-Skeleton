@@ -1,6 +1,6 @@
 <?php
 
-class registerBlogger {
+class bloggerLogin {
 
     // we define 3 attributes
     public $blogID;
@@ -30,7 +30,7 @@ class registerBlogger {
         
     }
     
-public static function add() {
+public static function readLogin() {
         $db = Db::getInstance();
         $req = $db->prepare("Insert into register_table(blogName, firstName, lastName, email, phoneNumber, registeredAt, lastLogin, intro, aboutMe, passwordHASH) values (:blogName, :firstName, :lastName, :email, :phoneNumber, :registeredAt, :lastLogin, :intro, :aboutMe, :passwordHASH)");
         $req->bindParam(':blogName', $blogName);
@@ -48,32 +48,16 @@ public static function add() {
         if (isset($_POST['blogName']) && $_POST['blogName'] != "") {
             $filteredTitle = filter_input(INPUT_POST, 'blogName', FILTER_SANITIZE_SPECIAL_CHARS);
         }
-        if (isset($_POST['firstName']) && $_POST['firstName'] != "") {
-            $filteredContent = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
-        if (isset($_POST['lastName']) && $_POST['lastName'] != "") {
-            $filteredContent = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
         if (isset($_POST['email']) && $_POST['email'] != "") {
-            $filteredContent = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+            $filteredemail = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         }
-        if (isset($_POST['phoneNumber']) && $_POST['phoneNumber'] != "") {
-            $filteredContent = filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
-        if (isset($_POST['intro']) && $_POST['intro'] != "") {
-            $filteredContent = filter_input(INPUT_POST, 'intro', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
-        if (isset($_POST['aboutMe']) && $_POST['aboutMe'] != "") {
-            $filteredContent = filter_input(INPUT_POST, 'aboutMe', FILTER_SANITIZE_SPECIAL_CHARS);
+        if (isset($_POST['passwordHASH']) && $_POST['passwordHASH'] != "") {
+            $filteredpasswordHASH = filter_input(INPUT_POST, 'passwordHASH', FILTER_SANITIZE_SPECIAL_CHARS);
         }
         
         $blogName = $filteredblogName;
-        $firstName = $filteredfirstName;
-        $lastName = $filteredlastName;
         $email = $filteredemail;
-        $phoneNumber = $filteredphoneNumber;
-        $intro = $filteredintro;
-        $aboutMe= $filteredaboutMe;
+        $passwordHASH= $filteredpasswordHASH;
         
         $req->execute();
 }
