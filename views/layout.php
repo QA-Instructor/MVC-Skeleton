@@ -20,10 +20,16 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="views/pages/home.php">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href='/MVC-Skeleton'>Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href='?controller=blogpost&action=readAll'>Blogs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href='?controller=blogpost&action=create'>Add Blog</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="views/pages/Register.php">Register</a>
+        <a class="nav-link" href='?controller=user&action=create'>Register</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Aww</a>
@@ -42,16 +48,17 @@
   </div>
 </nav>
   
-<title>Pawsome</title>
+<!--<title>Pawsome</title>
   </head>
   <body>
     <header class="w3-container w3-white">
       <a href='/MVC-Skeleton'>Home</a>
 <!--      <a href='?controller=product&action=readAll'>Products</a> 
-      <a href='?controller=product&action=create'>Add Product</a>-->
+      <a href='?controller=product&action=create'>Add Product</a>
       <a href='?controller=blogpost&action=readAll'>Blogs</a>
       <a href='?controller=blogpost&action=create'>Add Blog</a>
-      <a href='?controller=user&action=create'>Register</a>     
+      <a href='?controller=user&action=create'>Register</a>  --> 
+   
 
       
 
