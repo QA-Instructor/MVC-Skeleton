@@ -3,7 +3,6 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ADVNTR</title>
-    <head>
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <!--        <link rel="stylesheet" href ="views/css/styles.css">
         -->        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -44,7 +43,7 @@
             /* The image used */
             background-image: url("http://localhost/MVC-Skeleton/views/images/HCH_1772.jpg");
 
-            min-height: 700px;
+            min-height: 900px;
 
             /* Center and scale the image nicely */
             background-position: center;
