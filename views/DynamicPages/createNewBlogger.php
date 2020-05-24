@@ -17,34 +17,34 @@
 
     <h1>Start your Advntr now!</h1>
     <div class="bg-img">
-        <form action="" class="container">
+        <form action="" method="POST" class="container" enctype="multipart/form-data">
             <h2>Login</h2>
 
             <label for="BlogName"><b>Blog Name</b></label>
-            <input type="text" placeholder="Enter Blog Name" name="Blog Name" required>
+            <input type="text" placeholder="Enter Blog Name" name="blogName" required>
 
             <label for="FirstName"><b>First Name</b></label>
-            <input type="text" placeholder="Enter First Name" name="First Name" required>
+            <input type="text" placeholder="Enter First Name" name="firstName" required>
             
             <label for="LastName"><b>Last Name</b></label>
-            <input type="text" placeholder="Enter Last Name" name="Last Name" required>
+            <input type="text" placeholder="Enter Last Name" name="lastName" required>
             
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" required>
 
             <label for="PhoneNumber"><b>Phone Number</b></label>
-            <input type="text" placeholder="Enter Phone Number" name="Phone Number" required>
+            <input type="text" placeholder="Enter Phone Number" name="phoneNumber" required>
             
             <label for="Intro"><b>Intro</b></label>
-            <input type="text" placeholder="Enter Intro" name="Intro" required>
+            <input type="text" placeholder="Enter Intro" name="intro" required>
             
             <label for="AboutMe"><b>About Me</b></label>
-            <input type="text" placeholder="Enter About Me" name="About Me" required>
+            <input type="text" placeholder="Enter About Me" name="aboutMe" required>
             
             <label for="Password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="Password" required>
+            <input type="password" placeholder="Enter Password" name="password" required>
 
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn" value="registerBlogger">Login</button>
         </form>
     </div>
 
