@@ -9,16 +9,19 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <div class="topnav">
+        <a class ="logo">ADVNTR</a>
         <a href="#home">Home</a>
         <a href="#aboutMe">About Me</a>
-        <a href="#post">Posts</a>
-        <a href="#more">More</a>
+        <a href="#readPost">Posts</a>
+        <!--        <a href="#more">More</a>-->
+        <a href="#loginBlogger">Login</a>
+        <a href="#logoutBlogger">Logout</a>
         <!-- Search form -->
         <form class="form-inline">
             <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search..."
                    aria-label="Search">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <span class="fa fa-search"> </span>
         </form>
     </div>
     <div class="header">
@@ -28,8 +31,15 @@
     <div class="row">
         <div class="leftcolumn">
             <div class="card">
-                <h2>TITLE</h2>
-                <h5>Content</h5>
+                <h2>7 Things You’ll Learn on your First Canyon Adventure</h2>
+                <h5>Canyoning is an adventure and exploration sport where participants climb into a wetsuit and get themselves down a river, gorge or – you guessed it – canyon. It involves using a variety of techniques ranging from walking, jumping and scrambling to abseiling and rock climbing. Canyoning in itself is a bit of a multi-sport adventure.
+
+                    If you’ve not done it before, the whole process can be a little daunting. But the good thing about canyoning is that it can often be as relaxing or as intense and adrenaline-fuelled as you want it to be. There are different routes depending on ability and confidence. Even within the same canyon there are often different options and a variety of ways back down.
+
+                    At it’s best, canyoning isn’t just an adrenaline hit, it’s an inimitable and intimate way to explore and enjoy beautiful natural spaces in a manner that’s otherwise simply not possible.
+
+                    Here are a few things that you’ll learn on your first canyoning trip, with the add-ins of a few epic places and ways to try it out. 
+                </h5>
                 <div class="img" style="height:200px;">Image</div>
 
                 <p>Some text..</p>
@@ -38,7 +48,7 @@
                 <h2>TITLE HEADING</h2>
                 <h5>Content, Sep 2, 2017</h5>
                 <div class="img"></div>
-                <img src= "Images/HCH_1772.jpg" alt="example" style="width:100%;">
+                <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1772.jpg" alt="image" style="width:100%;">
                 <p>Some text..</p>
                 <!--                <div class="Comment">-->
                 <div class="readMore">
@@ -53,9 +63,9 @@
                 <div class="card">
                     <h2>About Me</h2>
                     <div class="img">
-                        <img src= "Images/HCH_1925.jpg" alt="example" style="width:100%;">
+                        <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1772.jpg" alt="image" style="width:100%;">
                     </div>
-                    <p>Hi, I'm Victoria and I love gin.</p>
+                    <p>Hi, I'm Victoria and I love canyoning.</p>
                 </div>
                 <div class="card">
                     <h3>Popular Post</h3>
@@ -69,15 +79,15 @@
                 </div>
             </div>
         </div>
-
-        <div class="footer">
-            <h2>Home</h2>
-            <div class="logo" style="height:50px;"></div>
-        </div> 
+        <!--
+                <div class="footer">
+                    <h2>Home</h2>
+                    <div class="logo" style="height:50px;"></div>
+                </div> -->
         <style>
             html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 
-            html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
+            html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:5}
 
             .topnav {
                 overflow: hidden;
@@ -90,7 +100,7 @@
                 display: block;
                 color: black;
                 text-align: center;
-                padding: 12px 16px;
+                padding: 6px 6px;
                 text-decoration: none;
             }
 
@@ -100,26 +110,23 @@
                 color: #00A896;
             } 
             .topnav input[type=text] {
-                padding: 6px;
-                margin-top: 8px;
+                padding: 4px;
+                margin-top: 4xpx;
                 font-size: 17px;
                 border: none;
             }
 
             .topnav .search-container button {
                 float: right;
-                padding: 6px 10px;
-                margin-top: 8px;
-                margin-right: 16px;
-                background: #ddd;
+                padding: 6px 6px;
+                margin-top: 4px;
+                margin-right: 10px;
+                background: lightgrey;
                 font-size: 17px;
                 border: none;
                 cursor: pointer;
             }
 
-            .topnav .search-container button:hover {
-                background: #ccc;
-            }
             /*Bootstrap search*/
             .search input[type=text]:focus:not([readonly]) {
                 border-bottom: 1px solid #f48fb1;
@@ -128,26 +135,29 @@
 
 
             .topnav .search-container button:hover {
-                background: #ccc;
+                background: lightgrey;
+            }
+            .topnav .search-container button:hover {
+                background: lightgrey;
             }
 
-            /*            @media screen and (max-width: 600px) {
-                            .topnav .search-container {
-                                float: none;
-                                .topnav a, .topnav input[type=text], .topnav .search-container button {
-                                    float: none;
-                                    display: block;
-                                    text-align: left;
-                                    width: 100%;
-                                    margin: 0;
-                                    padding: 10px;
-                                }
-                                .topnav input[type=text] {
-                                    border: 1px solid #ccc;  
-                                }
-                            }*/
+            /*                        @media screen and (max-width: 600px) {
+                                        .topnav .search-container {
+                                            float: none;
+                                            .topnav a, .topnav input[type=text], .topnav .search-container button {
+                                                float: none;
+                                                display: block;
+                                                text-align: left;
+                                                width: 100%;
+                                                margin: 0;
+                                                padding: 10px;
+                                            }
+                                            .topnav input[type=text] {
+                                                border: 1px solid #ccc;  
+                                            }
+                                        }*/
             body {
-                font-family: Arial;
+                font-family: 'Montserrat', sans-serif;
                 padding: 10px;
                 background: #f1f1f1;
             }
@@ -169,7 +179,7 @@
 
             /* Right column */
             .rightcolumn {
-                float: left;
+                float: right;
                 width: 20%;
                 padding-left: 10px;
             }

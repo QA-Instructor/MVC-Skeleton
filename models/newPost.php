@@ -23,8 +23,9 @@ class newPost {
 
     public static function add() {
         $db = Db::getInstance();
-        $req = $db->prepare("Insert into post_table(blogID, title, publishedAt, content, postImage) values (:blogID, :title, :publishedAt, :content, :postImage)");
+        $req = $db->prepare("Insert into post_table(blogID, categoryID, title, publishedAt, content, postImage) values (:blogID, :categoryID, :title, :publishedAt, :content, :postImage)");
         $req->bindParam(':blogID', $blogID);
+        $req->bindParam(':categoryID', $categoryID);
         $req->bindParam(':title', $title);
         $req->bindParam(':publishedAt', $publishedAt);
         $req->bindParam(':content', $content);
@@ -37,18 +38,25 @@ class newPost {
         if (isset($_POST['content']) && $_POST['content'] != "") {
             $filteredContent = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
         }
+
+        if (isset($_POST['categoryID']) && $_POST['categoryID'] != "") {
+            $filteredcategoryID = filter_input(INPUT_POST, 'categoryID', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        $blogID = 1;
+        $categoryID = $filteredcategoryID;
         $title = $filteredTitle;
-        $blogID = 2;
+        $publishedAt = date("d-m-y");
         $content = $filteredContent;
         $req->execute();
 
         //to enable a 'published at' date and time
         $lastid = $db->lastInsertId();
+        $postString = 'postNo' . $lastid;
         $req = $db->query("UPDATE post_table SET publishedAt = now() WHERE postID=$lastid");
 
 
-//upload product image
-//        newPost::uploadFile($postID);
+//upload post image
+        newPost::uploadFile($postString);
     }
 
     const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
@@ -56,7 +64,7 @@ class newPost {
 
     //die() function calls replaced with trigger_error() calls
     //replace with structured exception handling
-    public static function uploadFile(string $imageName) {
+    public static function uploadFile(string $postString) {
 
         if (empty($_FILES[self::InputKey])) {
             //die("File Missing!");
@@ -72,8 +80,19 @@ class newPost {
         }
 
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
-        $destinationFile = $path . $imageName . $_FILES[self::InputKey]['type']; //. '.jpeg';
+        //Updated file path option
+        $path = dirname(__DIR__) . "\views\images\\";
+//        $ext = ".php";
+//        $fullpath = $path . $className . $ext;
+//        include_once $fullpath;
+
+        //mac path
+//        $path = "https://Applications/xampp/htdocs/MVC_Skeleton/views/images/";
+        //pc path
+//        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
+//        
+//      $destinationFile = $path . $name . '.jpeg';
+        $destinationFile = $path . $postString . '.jpeg';//$_FILES[self::InputKey]['type'];
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
             trigger_error("Handle Error");
@@ -84,14 +103,16 @@ class newPost {
             unlink($tempFile);
         }
     }
-public static function all() {
-      $list = [];
-      $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM post_table');
-      // we create a list of Product objects from the database results
-      foreach($req->fetchAll() as $posts) {
-        $list[] = new newPost($posts['postID'],$posts['blogID'],$posts['categoryID'],$posts['title'], $posts['publishedAt'],$posts['content'], $posts['postImage']);
-      }
-      return $list;
+
+    public static function all() {
+        $list = [];
+        $db = Db::getInstance();
+        $req = $db->query('SELECT * FROM post_table');
+        // we create a list of Product objects from the database results
+        foreach ($req->fetchAll() as $posts) {
+            $list[] = new newPost($posts['postID'], $posts['blogID'], $posts['categoryID'], $posts['title'], $posts['publishedAt'], $posts['content'], $posts['postImage']);
+        }
+        return $list;
     }
+
 }
