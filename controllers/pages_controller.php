@@ -4,8 +4,8 @@ class PagesController {
    
     public function home() {
       //example data to use in the home page
-      $first_name = 'Lisa';
-      $last_name  = 'Simpson';
+      $first_name = 'Izzy';
+      $last_name  = 'Drabek';
       require_once('views/pages/home.php');
     }
 
