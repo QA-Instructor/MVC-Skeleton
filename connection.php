@@ -7,7 +7,7 @@ class DB {
     //Singleton Design Pattern
     public static function getInstance() {
       if (!isset(self::$instance)) {
-        $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+        $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION; 
         self::$instance = new PDO('mysql:host=localhost;dbname=finalproject', 'root', '', $pdo_options);
       }
       return self::$instance;

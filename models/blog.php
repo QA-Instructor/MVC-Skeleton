@@ -1,46 +1,60 @@
+
 <?php
-  class Product {
+  class blog { 
 
     // we define 3 attributes
-    public $id;
-    public $name;
-    public $price;
+    public $blogID;
+    public $adminID; //finish this
+    public $categoriesID;
+    public $countryID;
+    public $title;
+    public $body;
+    public $blogDate;
+    
 
-    public function __construct($id, $name, $price) {
-      $this->id    = $id;
-      $this->name  = $name;
-      $this->price = $price;
+    public function __construct($blogID, $adminID, $categoriesID, $countryID, $title, $body, $blogDate) { //pass all in
+      $this->blogID    = $blogID; //pass all in
+      $this->adminID  = $adminID;
+      $this->categoriesID = $categoriesID;
+       $this->countryID = $countryID;
+        $this->title = $title;
+         $this->body = $body;
+         $this->blogDate = $blogDate;
     }
 
     public static function all() {
       $list = [];
       // this part under is just instansiating the connector to make the connection between the database-DB class in connection.php
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM product');
+      $req = $db->query('SELECT * FROM blog'); //change
       // we create a list of Product objects from the database results
-      foreach($req->fetchAll() as $product) {
-        $list[] = new Product($product['id'], $product['name'], $product['price']);
+      foreach($req->fetchAll() as $blog) { //change to blog
+        $list[] = new Blog($blog['blogID'], $adminID['adminID'], $categoriesID['categoriesID'], $countryID['countryID'], $title['title'], $body['body'], $blogDate['blogDate']);
       }
-      return $list;
+      return $list; //come back to make it only show body and title and blog date.
     }
 
-    public static function find($id) {
+    public static function find($blogID) { //replace with field name
       $db = Db::getInstance();
       //use intval to make sure $id is an integer
-      $id = intval($id);
-      $req = $db->prepare('SELECT * FROM product WHERE id = :id');
+      $id = intval($blogID);
+      $req = $db->prepare('SELECT * FROM blog WHERE id = :blogID'); //change all id
       //the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id));
-      $product = $req->fetch();
-if($product){
-      return new Product($product['id'], $product['name'], $product['price']);
+      $req->execute(array('blogID' => $blogID)); //change
+      $blog = $req->fetch();
+if($blog){ //change
+      return new Blog($blog['blogID'], $adminID['adminID'], $categoriesID['categoriesID'], $countryID['countryID'], $title['title'], $body['body'], $blogDate['blogDate']);
     }
     else
     {
         //replace with a more meaningful exception
-        throw new Exception('A real exception should go here');
+        throw new Exception('this blog does not exist'); //feel free to change
     }
     }
+    
+    
+    //changed until this point
+    //change the below, still victorias code.
 
 public static function update($id) {
     $db = Db::getInstance();
