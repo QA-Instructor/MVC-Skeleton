@@ -1,12 +1,22 @@
-<p>This is the requested product:</p>
 
-<p>Blogpost ID: <?php echo $blogpost->blogpostID; ?></p>
-<p>Pet: <?php echo $blogpost->pettypeID; ?></p>
-<p>Category: <?php echo $blogpost->categoryID; ?></p>
-<p>Blogpost Name: <?php echo $blogpost->blogPostName; ?></p>
-<p>Blogpost SubName: <?php echo $blogpost->blogPostSubName; ?></p>
-<p>Blogpost Content: <?php echo $blogpost->blogPostContent; ?></p>
+<!--<p>This is the requested product:</p>-->
 
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+
+            <p>Blogpost ID: <?php echo $blogpost->blogpostID; ?></p>
+            <p>Pet: <?php echo $blogpost->pettypeID; ?></p>
+            <p>Category: <?php echo $blogpost->categoryID; ?></p>
+            <p>Blogpost Name: <?php echo $blogpost->blogPostName; ?></p>
+            <p>Blogpost SubName: <?php echo $blogpost->blogPostSubName; ?></p>
+            <p>Blogpost Content: <?php echo $blogpost->blogPostContent; ?></p>
+
+        </div>
+    </div>
+</div>
 <?php 
 $file = $blogpost->blogPostPhoto;//the last step that we did
 //C:/xampp/htdocs/MVC-Skeleton/views/images/Test1.jpeg
