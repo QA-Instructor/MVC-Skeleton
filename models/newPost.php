@@ -84,5 +84,14 @@ class newPost {
             unlink($tempFile);
         }
     }
-
+public static function all() {
+      $list = [];
+      $db = Db::getInstance();
+      $req = $db->query('SELECT * FROM post_table');
+      // we create a list of Product objects from the database results
+      foreach($req->fetchAll() as $posts) {
+        $list[] = new newPost($posts['postID'],$posts['blogID'],$posts['categoryID'],$posts['title'], $posts['publishedAt'],$posts['content'], $posts['postImage']);
+      }
+      return $list;
+    }
 }
