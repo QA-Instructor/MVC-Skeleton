@@ -29,7 +29,7 @@
       $req = $db->query('SELECT * FROM blog'); //change
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $blog) { //change to blog
-        $list[] = new Blog($blog['blogID'], $adminID['adminID'], $categoriesID['categoriesID'], $countryID['countryID'], $title['title'], $body['body'], $blogDate['blogDate']);
+        $list[] = new Blog($blog['blogID'], $blog['adminID'], $blog['categoriesID'], $blog['countryID'], $blog['title'], $blog['body'], $blog['blogDate']);
       }
       return $list; //come back to make it only show body and title and blog date.
     }
