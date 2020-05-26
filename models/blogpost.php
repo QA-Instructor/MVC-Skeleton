@@ -41,6 +41,28 @@
       }
       return $list;
     }
+public static function category($categoryID) {
+      $list = [];  
+      $db = Db::getInstance();
+      //use intval to make sure $id is an integer
+      $categoryID = intval($categoryID);
+      $req = $db->prepare('SELECT * FROM blogpost WHERE CategoryID = :CategoryID');
+      //the query was prepared, now replace :id with the actual $id value
+      $req->execute(array('CategoryID' => $categoryID));
+      $blogposts = $req->fetchAll();
+if($blogposts){
+    foreach($blogposts as $blogpost) {
+        $list[] = new BlogPost($blogpost['BloggerID'], $blogpost['PetTypeID'], $blogpost['CategoryID'], $blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
+    }
+    return $list;
+    }
+    else
+    {
+        //replace with a more meaningful exception
+
+        throw new Exception('Blogposts could not be found.');
+    }
+    }
 
 
     public static function find($blogpostID) {
@@ -60,29 +82,8 @@ if($blogpost){
 
         throw new Exception('Blogposts could not be found.');
     }
-    }
+    }  
     
-    public static function category($categoryID) {
-        
-      $db = Db::getInstance();
-      //use intval to make sure $id is an integer
-      $categoryID = intval($categoryID);
-      $req = $db->prepare('SELECT * FROM blogpost WHERE CategoryID = :$CategoryID');
-      //the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('$CategoryID' => $categoryID));
-      $blogpost = $req->fetch();
-if($blogpost){
-      return new BlogPost($blogpost['BloggerID'], $blogpost['PetTypeID'], $blogpost['CategoryID'], $blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'],$blogpost['DatePosted']);
-    }
-    else
-    {
-        //replace with a more meaningful exception
-
-        throw new Exception('Blogposts could not be found.');
-    }
-    }
-
-
 //public static function update($blogpostID) {
 
 public static function update($blogpostID) {

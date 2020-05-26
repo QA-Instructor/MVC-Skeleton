@@ -52,9 +52,8 @@
             <!-- Blog Post #1 -->
             <div class="card mb-4">
                 
-                 <?php foreach ($blogposts as $blogpost) { ?> 
+                 <?php foreach ($blogposts as $blogpost) {                 
                 
-                <?php 
 $file = $blogpost->blogPostPhoto;
     $file = explode('/', $file, 5);   
     $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap' width='150' />";
@@ -106,14 +105,4 @@ $file = $blogpost->blogPostPhoto;
               </div>
                /.container -->
 
-            <?php foreach ($blogposts as $blogpost) { ?>
-                <p>
-
-                    <?php echo $blogpost->blogPostName; ?> &nbsp; &nbsp;
-                    <a href='?controller=blogpost&action=read&id=<?php echo $blogpost->blogpostID; ?>'>See blogpost information</a> &nbsp; &nbsp;
-                    <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'>Delete blogpost</a> &nbsp; &nbsp;
-                    <a href='?controller=blogpost&action=update&id=<?php echo $blogpost->blogpostID; ?>'>Update blogpost</a> &nbsp;
-
-                </p>
-
-            <?php } ?>
+         

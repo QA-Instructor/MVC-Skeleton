@@ -7,7 +7,22 @@ class BlogPostController {
       // we store all the posts in a variable
       $blogposts = BlogPost::all(); //ALL blogposts
       require_once('views/blogpost/readAll.php');
+    }   
+    
+    public function readCategory() {
+     if (!isset($_GET['categoryID']))
+        return call('pages', 'error');
+
+      try{
+      // we use the given id to get the correct post
+      $blogposts = BlogPost::category($_GET['categoryID']);
+      require_once('views/blogpost/readAll.php');
+      }
+ catch (Exception $ex){
+     return call('pages','error');
+ }
     }
+    
 
     public function read() {
       // we expect a url of form ?controller=posts&action=show&id=x
