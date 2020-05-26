@@ -27,8 +27,7 @@
 
       <!-- ForEach over our blogposts -->
         
-      <?php foreach ($blogposts as $blogpost) {  } ?>
-      
+         
   
 
 <!-- Banner -->
@@ -53,14 +52,15 @@
             <!-- Blog Post #1 -->
             <div class="card mb-4">
                 
+                 <?php foreach ($blogposts as $blogpost) { ?> 
+                
                 <?php 
 $file = $blogpost->blogPostPhoto;
     $file = explode('/', $file, 5);   
-    $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap'/>";
+    $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap' width='150' />";
     echo $img;  
-?>
-                
-<!--                <img class="card-img-top" src=''<?php echo $img; ?> alt="Card image cap">-->
+?>                
+<!--                <img class="card-img-top" src='' alt="Card image cap">-->
                 <div class="card-body">
                     <h2 class="card-title">                    
                                 <?php echo $blogpost->blogPostName; ?> 
@@ -74,7 +74,7 @@ $file = $blogpost->blogPostPhoto;
                     <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'>Delete</a>
                 </div>
             </div>
-            <?php ?>  
+            <?php } ?>
 
 <!--             Blog Post #2 
             <div class="card mb-4">
