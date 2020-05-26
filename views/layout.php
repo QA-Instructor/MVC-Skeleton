@@ -13,11 +13,11 @@
             <a href='?controller=pages&action=home'>Home</a>
             <a href='?controller=product&action=readAll'>Products</a>
             <a href='?controller=product&action=create'>Add Product</a>
-            <a href='?controller=newPost&action=create'>Create new post</a>
-            <a href='?controller=readAllPosts&action=readAll'>Posts</a>
-            <a href='?controller=registerBlogger&action=create'>Register Blogger</a>
-            <a href='?controller=addComment&action=create'>Add Comment</a>
-            <a href='?controller=bloggerLogin&action=readAll'>Blogger Login</a>
+            <a href='?controller=blogPost&action=create'>Create new post</a>
+            <a href='?controller=blogPost&action=readAll'>Posts</a>
+            <a href='?controller=blogger&action=create'>Register Blogger</a>
+            <a href='?controller=blogPostComment&action=create'>Add Comment</a>
+            <a href='?controller=blogger&action=login'>Blogger Login</a>
 
         </header>
         <div class="w3-container w3-pink">

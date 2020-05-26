@@ -28,11 +28,9 @@ function call($controller, $action) {
 $controllers = array('pages' => ['home', 'error'],
 
     'product' => ['readAll', 'read', 'create', 'update', 'delete'],
-    'newPost' => ['create'],
-    'readAllPosts' => ['readAll'],
-    'registerBlogger' => ['create'],
-    'addComment' => ['create'],
-    'bloggerLogin' => ['readAll']);
+    'blogPost' => ['create','readAll'],
+    'blogger' => ['create','readAll', 'login'],
+    'blogPostComment' => ['create']);
 
 
 // check that the requested controller and action are both allowed

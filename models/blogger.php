@@ -1,6 +1,6 @@
 <?php
 
-class registerBlogger {
+class blogger {
 
     // we define 3 attributes
     public $blogID;
@@ -31,15 +31,14 @@ class registerBlogger {
 
     public static function add() {
         $db = Db::getInstance();
-        $req = $db->prepare("Insert into register_table(blogName, firstName, lastName, email, registeredAt, phoneNumber, intro, aboutMe, passwordHASH) values (:blogName, :firstName, :lastName, :email, :registeredAt, :phoneNumber, :intro, :aboutMe, :password)");
+        $req = $db->prepare("Insert into register_table(blogName, firstName, lastName, email, registeredAt, lastLogin, phoneNumber, intro, aboutMe, passwordHASH) values (:blogName, :firstName, :lastName, :email, :registeredAt, :lastLogin, :phoneNumber, :intro, :aboutMe, :password)");
         $req->bindParam(':blogName', $blogName);
         $req->bindParam(':firstName', $firstName);
         $req->bindParam(':lastName', $lastName);
         $req->bindParam(':email', $email);
         $req->bindParam(':phoneNumber', $phoneNumber);
-        //removed the lastLogin in query 34
         $req->bindParam(':registeredAt', $registeredAt);
-//        $req->bindParam(':lastLogin', $lastLogin);
+        $req->bindParam(':lastLogin', $lastLogin);
         $req->bindParam(':intro', $intro);
         $req->bindParam(':aboutMe', $aboutMe);
         $req->bindParam(':password', $passwordHASH);
@@ -66,24 +65,61 @@ class registerBlogger {
         if (isset($_POST['aboutMe']) && $_POST['aboutMe'] != "") {
             $filteredaboutMe = filter_input(INPUT_POST, 'aboutMe', FILTER_SANITIZE_SPECIAL_CHARS);
         }
-       if (isset($_POST['password']) && $_POST['password'] != "") {
+        if (isset($_POST['password']) && $_POST['password'] != "") {
             $filteredpassword = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
         }
-        
+
         $blogName = $filteredblogName;
         $firstName = $filteredfirstName;
         $lastName = $filteredlastName;
         $email = $filteredemail;
-        $registeredAt= date("d-m-y");
+        $registeredAt = date("d-m-y");
+        $lastLogin = date("d-m-y");
         $phoneNumber = $filteredphoneNumber;
         $intro = $filteredintro;
         $aboutMe = $filteredaboutMe;
         $passwordHASH = password_hash($filteredpassword, PASSWORD_DEFAULT);
-//could use password_DEFAULT --used for hashing and salting 
         $req->execute();
-        //adding date and time to registeredAT
-//        $lastid = $db->lastInsertId();
-//        $req = $db->query("UPDATE register_table SET registeredAt = now() WHERE blogID=$lastid");
+        //retrieving last ID (BlogID for use in displaying blogs
+        $blogid = $db->lastInsertId();
+    }
+
+    public static function find() {
+        $db = Db::getInstance();
+      
+        $req->bindParam(':blogName', $blogName);
+        $req->bindParam(':passwordHASH', $passwordHASH);
+
+// set parameters and execute
+        if (isset($_POST['blogName']) && $_POST['blogName'] != "") {
+            $filteredblogName = filter_input(INPUT_POST, 'blogName', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+        
+        if (isset($_POST['password']) && $_POST['password'] != "") {
+            $filteredpassword = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
+        }
+
+        $blogName = $filteredblogName;
+        $passwordHASH = password_hash($filteredpassword, PASSWORD_DEFAULT);
+        $req->execute();
+        $blogger = $req->fetch();
+        if ($blogger) {
+            return new blogger($blogger['blogID'], $blogger['blogName'], $blogger['firstName'], $blogger['lastName'], $blogger['email'], $blogger['phoneNumber'], $blogger['publishedAt'], $blogger['lastLogin'], $blogger['intro'], $blogger['aboutMe'], $blogger['passwordHASH']);
+        } else {
+            //replace with a more meaningful exception
+            throw new Exception('A real exception should go here');
+        }
+        }
+
+    public static function all() {
+        $list = [];
+        $db = Db::getInstance();
+        $req = $db->query('SELECT * FROM register_table');
+        // we create a list of blogger objects from the database results
+        foreach ($req->fetchAll() as $bloggers) {
+            $list[] = new blogger($bloggers['blogID'], $bloggers['blogName'], $bloggers['firstName'], $bloggers['lastName'], $bloggers['email'], $bloggers['registeredAt'], $bloggers['lastLogin'], $bloggers['phoneNumber'], $bloggers['intro'], $bloggers['aboutMe'], $bloggers['passwordHASH']);
+        }
+        return $list;
     }
 
 }

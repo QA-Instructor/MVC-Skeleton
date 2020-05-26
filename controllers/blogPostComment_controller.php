@@ -1,9 +1,9 @@
 <?php
 
-class addCommentController {
+class blogPostCommentController {
     public function readAll() {
       // we store all the posts in a variable
-      $products = Product::all();
+      $postComments = blogPostComment::all();
       require_once('views/products/readAll.php');
     }
 
@@ -15,7 +15,7 @@ class addCommentController {
 
       try{
       // we use the given id to get the correct post
-      $product = Product::find($_GET['id']);
+      $product = blogPostComment::find($_GET['id']);
       require_once('views/products/read.php');
       }
  catch (Exception $ex){
@@ -30,9 +30,9 @@ class addCommentController {
           require_once('views/DynamicPages/readAllPosts.php');
       }
       else { 
-            addComment::add();
+            blogPostComment::add();
              
-            $comments = addComment::all(); //$products is used within the view
+            $postComments = blogPostComment::all(); //$products is used within the view
             require_once('views/DynamicPages/readAllPosts.php');
             
       }
@@ -45,24 +45,24 @@ class addCommentController {
         return call('pages', 'error');
 
         // we use the given id to get the correct product
-        $product = Product::find($_GET['id']);
+        $postComment = blogPostComment::find($_GET['id']);
       
         require_once('views/products/update.php');
         }
       else
           { 
             $id = $_GET['id'];
-            Product::update($id);
+            blogPostComment::update($id);
                         
-            $products = Product::all();
+            $postComments = blogPostComment::all();
             require_once('views/products/readAll.php');
       }
       
     }
     public function delete() {
-            Product::remove($_GET['id']);
+            blogPostComment::remove($_GET['id']);
             
-            $products = Product::all();
+            $postComments = blogPostComment::all();
             require_once('views/products/readAll.php');
       }
       
