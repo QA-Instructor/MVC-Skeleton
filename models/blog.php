@@ -37,13 +37,13 @@
     public static function find($blogID) { //replace with field name
       $db = Db::getInstance();
       //use intval to make sure $id is an integer
-      $id = intval($blogID);
-      $req = $db->prepare('SELECT * FROM blog WHERE id = :blogID'); //change all id
+      $blogID = intval($blogID); //I NEED TO CHECK THIS
+      $req = $db->prepare('SELECT * FROM blog WHERE blogID = :blogID'); //change all id
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('blogID' => $blogID)); //change
       $blog = $req->fetch();
 if($blog){ //change
-      return new Blog($blog['blogID'], $adminID['adminID'], $categoriesID['categoriesID'], $countryID['countryID'], $title['title'], $body['body'], $blogDate['blogDate']);
+      return new Blog($blog['blogID'], $blog['adminID'], $blog['categoriesID'], $blog['countryID'], $$blog['title'], $blog['body'], $blog['blogDate']);
     }
     else
     {
