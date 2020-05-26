@@ -18,6 +18,8 @@
         <link href="views/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="views/css/_variables.scss" rel="stylesheet" type="text/css"/>
         <link href="views/css/styles.css" rel="stylesheet" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
             <!--  Navigation Bar  -->
             
@@ -50,6 +52,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Wow</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" name ="search_text" href='?controller=user&action=search'>Search</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -96,3 +101,34 @@
 <!--</div>-->
 
 </html>
+
+
+<script>
+    $(document).ready(function () {
+
+        load_data();
+
+        function load_data(query)
+        {
+            $.ajax({
+                url: "user.php",
+                method: "POST", //method type
+                data: {query: query},
+                success: function (data)
+                {
+                    $('#result').html(data);
+                }
+            });
+        }
+        $('#search_text').keyup(function () {
+            var search = $(this).val();
+            if (search != '') //even if there is no search, still load the whole books table.
+            {
+                load_data(search);
+            } else
+            {
+                load_data();
+            }
+        });
+    });
+</script>
