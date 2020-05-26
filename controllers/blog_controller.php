@@ -1,22 +1,29 @@
+
+
 <?php
 
-class ProductController {
+//change everything that is product to your controller BLOG
+
+class blogController {
     public function readAll() {
       // we store all the posts in a variable
-      $products = Product::all();
-      require_once('views/products/readAll.php');
+      $blog = blog::all();
+      require_once('views/blog/readAll.php');
     }
 
+    
+    
+    //changed until this point, need to change the below.
     public function read() {
       // we expect a url of form ?controller=posts&action=show&id=x
       // without an id we just redirect to the error page as we need the post id to find it in the database
-      if (!isset($_GET['id']))
+      if (!isset($_GET['blogID'])) 
         return call('pages', 'error');
 
       try{
       // we use the given id to get the correct post
-      $product = Product::find($_GET['id']);
-      require_once('views/products/read.php');
+      $blog = blog::find($_GET['blogID']);
+      require_once('/views/blog/read.php');
       }
  catch (Exception $ex){
      return call('pages','error');

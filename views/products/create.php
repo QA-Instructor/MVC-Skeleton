@@ -1,14 +1,14 @@
-<p>Fill in the following form to create a new product:</p>
+<p>Fill in the following form to create a new product:</p> //this is the html that makes the form pop up to add item
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     
     <h2>Add New Item</h2>
 </div>
     <p>
-        <input class="w3-input" type="text" name="name" required autofocus>
+        <input class="w3-input" type="text" name="name" required autofocus> //this has to be changes to match our database 
         <label>Name</label>
     </p>
         <p>
-        <input class="w3-input" type="text" name="price" required>
+        <input class="w3-input" type="text" name="price" required> 
         <label>Price</label>
     </p>
             

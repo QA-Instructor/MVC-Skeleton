@@ -29,8 +29,10 @@
 // Add an entry for each new controller and its actions
 $controllers = array('pages' => ['home', 'error'],
                     'product' => ['readAll','read','create','update','delete'],
+                     'blog' => ['readAll', 'read'],
                     'controllerXXX' => ['actionYYY', 'actionZZZ'],
                     );
+//after you make it all the last step is go to routes and add new model, new array and same cruds
 
   // check that the requested controller and action are both allowed
   // if someone tries to access something else they will be redirected 
