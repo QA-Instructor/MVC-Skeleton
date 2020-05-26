@@ -28,10 +28,9 @@ function call($controller, $action) {
 $controllers = array('pages' => ['home', 'error'],
 
     'product' => ['readAll', 'read', 'create', 'update', 'delete'],
-    'newPost' => ['create'],
-    'readAllPosts' => ['readAll'],
-    'registerBlogger' => ['create'],
-    'addComment' => ['create'],
+    'blogPost' => ['create','readAll'],
+    'blogger' => ['create','readAll'],
+    'blogPostComment' => ['create'],
     'bloggerLogin' => ['readAll']);
 
 

@@ -1,6 +1,6 @@
 <?php
 
-class newPost {
+class blogPost {
 
     // Define attributes - missing postImage
     public $postID;
@@ -21,6 +21,7 @@ class newPost {
         $this->postImage = $postImage;
     }
 
+    //add a post into the database
     public static function add() {
         $db = Db::getInstance();
         $req = $db->prepare("Insert into post_table(blogID, categoryID, title, publishedAt, content, postImage) values (:blogID, :categoryID, :title, :publishedAt, :content, :postImage)");
@@ -52,11 +53,12 @@ class newPost {
         //to enable a 'published at' date and time
         $lastid = $db->lastInsertId();
         $postString = 'postNo' . $lastid;
+        //need to change date(...) to do date and time so we can get rid of query below
         $req = $db->query("UPDATE post_table SET publishedAt = now() WHERE postID=$lastid");
 
 
-//upload post image
-        newPost::uploadFile($postString);
+//upload post image to images directory and store filename in database
+        blogPost::uploadFile($postString);
     }
 
     const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
@@ -103,14 +105,15 @@ class newPost {
             unlink($tempFile);
         }
     }
-
+    
+//read all the post data from the database
     public static function all() {
         $list = [];
         $db = Db::getInstance();
         $req = $db->query('SELECT * FROM post_table');
         // we create a list of Product objects from the database results
         foreach ($req->fetchAll() as $posts) {
-            $list[] = new newPost($posts['postID'], $posts['blogID'], $posts['categoryID'], $posts['title'], $posts['publishedAt'], $posts['content'], $posts['postImage']);
+            $list[] = new blogPost($posts['postID'], $posts['blogID'], $posts['categoryID'], $posts['title'], $posts['publishedAt'], $posts['content'], $posts['postImage']);
         }
         return $list;
     }

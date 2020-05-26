@@ -1,6 +1,6 @@
 <?php
 
-class registerBlogger {
+class blogger {
 
     // we define 3 attributes
     public $blogID;
@@ -31,15 +31,14 @@ class registerBlogger {
 
     public static function add() {
         $db = Db::getInstance();
-        $req = $db->prepare("Insert into register_table(blogName, firstName, lastName, email, registeredAt, phoneNumber, intro, aboutMe, passwordHASH) values (:blogName, :firstName, :lastName, :email, :registeredAt, :phoneNumber, :intro, :aboutMe, :password)");
+        $req = $db->prepare("Insert into register_table(blogName, firstName, lastName, email, registeredAt, lastLogin, phoneNumber, intro, aboutMe, passwordHASH) values (:blogName, :firstName, :lastName, :email, :registeredAt, :lastLogin, :phoneNumber, :intro, :aboutMe, :password)");
         $req->bindParam(':blogName', $blogName);
         $req->bindParam(':firstName', $firstName);
         $req->bindParam(':lastName', $lastName);
         $req->bindParam(':email', $email);
         $req->bindParam(':phoneNumber', $phoneNumber);
-        //removed the lastLogin in query 34
         $req->bindParam(':registeredAt', $registeredAt);
-//        $req->bindParam(':lastLogin', $lastLogin);
+        $req->bindParam(':lastLogin', $lastLogin);
         $req->bindParam(':intro', $intro);
         $req->bindParam(':aboutMe', $aboutMe);
         $req->bindParam(':password', $passwordHASH);
@@ -75,15 +74,24 @@ class registerBlogger {
         $lastName = $filteredlastName;
         $email = $filteredemail;
         $registeredAt= date("d-m-y");
+        $lastLogin= date("d-m-y");
         $phoneNumber = $filteredphoneNumber;
         $intro = $filteredintro;
         $aboutMe = $filteredaboutMe;
         $passwordHASH = password_hash($filteredpassword, PASSWORD_DEFAULT);
-//could use password_DEFAULT --used for hashing and salting 
         $req->execute();
-        //adding date and time to registeredAT
-//        $lastid = $db->lastInsertId();
-//        $req = $db->query("UPDATE register_table SET registeredAt = now() WHERE blogID=$lastid");
+    //retrieving last ID (BlogID for use in displaying blogs
+        $blogid = $db->lastInsertId();
     }
-
+    
+    public static function all() {
+      $list = [];
+      $db = Db::getInstance();
+      $req = $db->query('SELECT * FROM register_table');
+      // we create a list of blogger objects from the database results
+      foreach($req->fetchAll() as $bloggers) {
+      $list[] = new blogger($bloggers['blogID'], $bloggers['blogName'], $bloggers['firstName'], $bloggers['lastName'], $bloggers['email'], $bloggers['registeredAt'], $bloggers['lastLogin'], $bloggers['phoneNumber'],$bloggers['intro'], $bloggers['aboutMe'], $bloggers['passwordHASH']);
+      }
+      return $list;
+    }
 }
