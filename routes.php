@@ -16,9 +16,12 @@
         require_once("models/{$controller}.php");
         $controllerClassName = $controller . 'Controller';
         $controller = new $controllerClassName();
+        // the above esen tially instansiates the GET requests name of controller and puts it into $controller
         break;
     }
-    // call the requested action
+    // call the requested action - ur taking the controller which is now an instansiated class of the 
+    // productcontroller and you are calling the $action which was assigned by the getter, in the 
+    // products case READALL- so that method is called within the class. 
     $controller->{ $action }();
   }
 
@@ -26,8 +29,10 @@
 // Add an entry for each new controller and its actions
 $controllers = array('pages' => ['home', 'error'],
                     'product' => ['readAll','read','create','update','delete'],
+                     'blog' => ['readAll', 'read'],
                     'controllerXXX' => ['actionYYY', 'actionZZZ'],
                     );
+//after you make it all the last step is go to routes and add new model, new array and same cruds
 
   // check that the requested controller and action are both allowed
   // if someone tries to access something else they will be redirected 
