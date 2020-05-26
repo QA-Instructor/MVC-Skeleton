@@ -53,11 +53,17 @@
             <div class="card mb-4">
                 
                  <?php foreach ($blogposts as $blogpost) {                 
-                
-$file = $blogpost->blogPostPhoto;
+     try{    
+         if(empty($blogpost->blogPostPhoto)){
+             throw new Exception("Picture is not available");
+         }else{    
+             $file = $blogpost->blogPostPhoto;
     $file = explode('/', $file, 5);   
     $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap' width='150' />";
-    echo $img;  
+         echo $img;      }
+     } catch (Exception $e){
+         echo 'Message: ' .$e->getMessage();
+     }
 ?>                
 <!--                <img class="card-img-top" src='' alt="Card image cap">-->
                 <div class="card-body">

@@ -29,7 +29,7 @@
       $this->datePosted = $datePosted;
     }
 
-    public static function all() {
+    public static function all(){
       $list = [];
       $db = Db::getInstance();
 
