@@ -13,18 +13,18 @@
   <body>
     <header>
         
-         <a href="index.html" class="header-brand">Our Travel Blog</a>
+         <a href="index.php" class="header-brand">Our Travel Blog</a>
         
               <nav>
         <ul>
-            <li><a href='/MVC_Skeleton'>Home</a></li>
+            <li><a href="index.php">Home</a></li>
           <li><a href='?controller=product&action=readAll'>About us</a></li>
           <li><a href='?controller=blog&action=readAll'>Blogs</a></li>
           <li><a href='?controller=product&action=update'>Contact us</a></li>
          
         </ul>
-        <a href="login.html" class="header-cases">Register/Login</a>
-         <a href="login.html" class="header-cases">Subscribe</a>
+        <a  href="?controller=authentication&action=loginAdmin" class="header-cases">Register/Login</a>
+         <a href="?controller=authentication&action=create" class="header-cases">Subscribe</a>
          
                  
      
