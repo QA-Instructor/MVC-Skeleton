@@ -27,8 +27,7 @@
 
       <!-- ForEach over our blogposts -->
         
-      <?php foreach ($blogposts as $blogpost) {  } ?>
-      
+         
   
 
 <!-- Banner -->
@@ -52,7 +51,15 @@
     
             <!-- Blog Post #1 -->
             <div class="card mb-4">
-                <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                
+                 <?php foreach ($blogposts as $blogpost) {                 
+                
+$file = $blogpost->blogPostPhoto;
+    $file = explode('/', $file, 5);   
+    $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap' width='150' />";
+    echo $img;  
+?>                
+<!--                <img class="card-img-top" src='' alt="Card image cap">-->
                 <div class="card-body">
                     <h2 class="card-title">                    
                                 <?php echo $blogpost->blogPostName; ?> 
@@ -66,7 +73,7 @@
                     <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'>Delete</a>
                 </div>
             </div>
-            <?php ?>  
+            <?php } ?>
 
 <!--             Blog Post #2 
             <div class="card mb-4">
@@ -98,14 +105,4 @@
               </div>
                /.container -->
 
-            <?php foreach ($blogposts as $blogpost) { ?>
-                <p>
-
-                    <?php echo $blogpost->blogPostName; ?> &nbsp; &nbsp;
-                    <a href='?controller=blogpost&action=read&id=<?php echo $blogpost->blogpostID; ?>'>See blogpost information</a> &nbsp; &nbsp;
-                    <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'>Delete blogpost</a> &nbsp; &nbsp;
-                    <a href='?controller=blogpost&action=update&id=<?php echo $blogpost->blogpostID; ?>'>Update blogpost</a> &nbsp;
-
-                </p>
-
-            <?php } ?>
+         

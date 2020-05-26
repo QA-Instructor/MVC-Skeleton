@@ -26,7 +26,7 @@
 // Add an entry for each new controller and its actions
 $controllers = array('pages' => ['home', 'error'],
                     'product' => ['readAll','read','create','update','delete'],//add the functions into this array each time you make a new model
-                    'blogpost' => ['readAll','read','create','update','delete'],
+                    'blogpost' => ['readAll','readCategory', 'read','create','update','delete'],
                     'user'=> ['create'],
                     'controllerXXX' => ['actionYYY', 'actionZZZ'],//this is an example 
                     );

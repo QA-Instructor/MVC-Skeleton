@@ -41,6 +41,28 @@
       }
       return $list;
     }
+public static function category($categoryID) {
+      $list = [];  
+      $db = Db::getInstance();
+      //use intval to make sure $id is an integer
+      $categoryID = intval($categoryID);
+      $req = $db->prepare('SELECT * FROM blogpost WHERE CategoryID = :CategoryID');
+      //the query was prepared, now replace :id with the actual $id value
+      $req->execute(array('CategoryID' => $categoryID));
+      $blogposts = $req->fetchAll();
+if($blogposts){
+    foreach($blogposts as $blogpost) {
+        $list[] = new BlogPost($blogpost['BloggerID'], $blogpost['PetTypeID'], $blogpost['CategoryID'], $blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
+    }
+    return $list;
+    }
+    else
+    {
+        //replace with a more meaningful exception
+
+        throw new Exception('Blogposts could not be found.');
+    }
+    }
 
 
     public static function find($blogpostID) {
@@ -60,29 +82,8 @@ if($blogpost){
 
         throw new Exception('Blogposts could not be found.');
     }
-    }
+    }  
     
-    public static function category($categoryID) {
-        
-      $db = Db::getInstance();
-      //use intval to make sure $id is an integer
-      $categoryID = intval($categoryID);
-      $req = $db->prepare('SELECT * FROM blogpost WHERE CategoryID = :$CategoryID');
-      //the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('$CategoryID' => $categoryID));
-      $blogpost = $req->fetch();
-if($blogpost){
-      return new BlogPost($blogpost['BloggerID'], $blogpost['PetTypeID'], $blogpost['CategoryID'], $blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'],$blogpost['DatePosted']);
-    }
-    else
-    {
-        //replace with a more meaningful exception
-
-        throw new Exception('Blogposts could not be found.');
-    }
-    }
-
-
 //public static function update($blogpostID) {
 
 public static function update($blogpostID) {
@@ -196,7 +197,7 @@ public static function uploadFile(string $blogPostName) {
 
 	if (empty($_FILES[self::InputKey])) {
 		//die("File Missing!");
-                trigger_error("File Missing!");
+                trigger_error("File Missing!", E_USER_WARNING);
 	}
 
 	if ($_FILES[self::InputKey]['error'] > 0) {
@@ -210,6 +211,7 @@ public static function uploadFile(string $blogPostName) {
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name']; //saves them to a temporary directory. You have to ensure the images are saved to a premanent directory.
         $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder
+        $blogPostName= trim($blogPostName);
 	$destinationFile = $path . $blogPostName. '.jpeg';  //in the database, we store the reference to that path.
         
 

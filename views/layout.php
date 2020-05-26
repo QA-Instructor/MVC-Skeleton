@@ -43,13 +43,13 @@
                     <a class="nav-link" href='?controller=user&action=create'>Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Aww</a>
+                    <a class="nav-link" href='?controller=blogpost&action=readCategory&categoryID=1'>Aww</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Lol</a>
+                    <a class="nav-link" href='?controller=blogpost&action=readCategory&categoryID=2'>Lol</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Wow</a>
+                    <a class="nav-link" href='?controller=blogpost&action=readCategory&categoryID=3'>Wow</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
