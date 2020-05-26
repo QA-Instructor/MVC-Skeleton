@@ -20,7 +20,7 @@ and open the template in the editor.
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">Search</span>
-                    <input type="text" name="search_text" id="search_text" placeholder="Search for your blogpost by name, sub name or content" class="form-control" />
+                    <input type="text" name="search_text" id="search_text" placeholder="Search for your blog post by name, title or content" class="form-control" />
                 </div>
             </div>
             <br />
