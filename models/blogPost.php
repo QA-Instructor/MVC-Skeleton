@@ -58,7 +58,8 @@ class blogPost {
 
 
 //upload post image to images directory and store filename in database
-        blogPost::uploadFile($postString);
+        $postImage = blogPost::uploadFile($postString);
+        $req = $db->query("UPDATE post_table SET postImage = postImage WHERE postID=$lastid"); 
     }
 
     const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
@@ -67,7 +68,8 @@ class blogPost {
     //die() function calls replaced with trigger_error() calls
     //replace with structured exception handling
     public static function uploadFile(string $postString) {
-
+        
+        $success = NULL;
         if (empty($_FILES[self::InputKey])) {
             //die("File Missing!");
             trigger_error("File Missing!");
@@ -83,7 +85,7 @@ class blogPost {
 
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
         //Updated file path option
-        $path = dirname(__DIR__) . "\views\images\\";
+        $path = dirname(__DIR__) . "\\views\images\\";
 //        $ext = ".php";
 //        $fullpath = $path . $className . $ext;
 //        include_once $fullpath;
@@ -99,11 +101,15 @@ class blogPost {
         if (!move_uploaded_file($tempFile, $destinationFile)) {
             trigger_error("Handle Error");
         }
+        else{
+            $success = $destinationFile;
+        }
 
         //Clean up the temp file
         if (file_exists($tempFile)) {
             unlink($tempFile);
         }
+        return $success;
     }
     
 //read all the post data from the database
