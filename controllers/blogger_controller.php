@@ -22,4 +22,11 @@ Class BloggerController {
       require_once('views/DynamicPages/readAllBloggers.php');
     }
 
+    public function login() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+           $blogger = blogger::login();
+//pass the data back to the 'start here' page to display the blogger user name and also last login
+        }
+    }
+    
 }

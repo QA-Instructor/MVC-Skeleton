@@ -17,7 +17,7 @@
             <a href='?controller=blogPost&action=readAll'>Posts</a>
             <a href='?controller=blogger&action=create'>Register Blogger</a>
             <a href='?controller=blogPostComment&action=create'>Add Comment</a>
-            <a href='?controller=bloggerLogin&action=readAll'>Blogger Login</a>
+            <a href='?controller=blogger&action=login'>Blogger Login</a>
 
         </header>
         <div class="w3-container w3-pink">
