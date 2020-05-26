@@ -1,17 +1,27 @@
 <p>Fill in the following form to create a new product:</p> //this is the html that makes the form pop up to add item
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     
-    <h2>Add New Item</h2>
+    <h2>ADD NEW BLOG</h2>
 </div>
     <p>
-        <input class="w3-input" type="text" name="name" required autofocus> //this has to be changes to match our database 
-        <label>Name</label>
+         <label>Blog Title</label>
+        <input class="w3-input" type="text" name="title" required autofocus>  
+       
     </p>
         <p>
-        <input class="w3-input" type="text" name="price" required> 
-        <label>Price</label>
+               <label>Main Body</label>
+        <textarea rows="2" cols="25" type='text' name='body'></textarea>
+     
     </p>
-            
+         <p>
+                   <label>Select Country</label>
+        <input class="w3-input" type="text" name="Country" required autofocus>  
+  
+    </p> 
+    
+   
+    
+    
   <input type="hidden" 
 	   name="MAX_FILE_SIZE" 
          value="10000000"

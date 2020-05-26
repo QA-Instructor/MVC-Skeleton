@@ -64,7 +64,8 @@ Class Authentication {
         
        foreach($rows as $row){
            if ($password = $row['hashpassword']){
-               header('index.php');
+               header('index.php?controller=hjadhbasdjb');
+               // we could put our controller and action here!!!
            }
        }
         
