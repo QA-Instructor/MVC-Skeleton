@@ -1,4 +1,6 @@
-
+ 
+    
+                <div id="realTimeContents">         
 
 <div class="container">
     <div class="row">
@@ -80,7 +82,7 @@
                 </div>
             </div>
             <?php } ?>
-
+</div>
 <!--             Blog Post #2 
             <div class="card mb-4">
                 <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
