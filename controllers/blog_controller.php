@@ -35,11 +35,20 @@ class blogController {
       // else it's a POST so add to the database and redirect to readAll action
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
           require_once('views/products/create.php');
+         
       }
       else { 
-            Product::add(); //calling the add function that sends query into the database 
+          
+          if (!empty($_POST)){
+             $title = ($_POST["title"]);
+             $body =($_POST["body"]);
+             $date = date("y-m-d");
+             $description = ($_POST["description"]);
+          } 
+          
+            blog::add(); //calling the add function that sends query into the database 
              
-            $products = Product::all(); //$products is used within the view
+            $products = blog::all(); //$products is used within the view
             require_once('views/products/readAll.php'); 
       }//takes you back to all products 
       

@@ -18,13 +18,14 @@
               <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-          <li><a href='?controller=product&action=readAll'>About us</a></li>
+          <li><a href='views/pages/aboutus.php'>About us</a></li>
           <li><a href='?controller=blog&action=readAll'>Blogs</a></li>
           <li><a href='?controller=product&action=update'>Contact us</a></li>
          
         </ul>
         <a  href="?controller=authentication&action=loginAdmin" class="header-cases">Register/Login</a>
          <a href="?controller=authentication&action=create" class="header-cases">Subscribe</a>
+           <a href="?controller=blog&action=create" class="header-cases">Upload</a>
          
                  
      

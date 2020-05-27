@@ -84,16 +84,18 @@ $req->execute();
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into product(name, price) values (:name, :price)");
-    $req->bindParam(':name', $name);
-    $req->bindParam(':price', $price);
-
+    $req = $db->prepare("Insert into blog(title, body, blogDate, description) values (:title, :body, :blogDate, :description)");
+    $req->bindParam(':title', $title);
+    $req->bindParam(':body', $body);
+    $req->bindParam(':descrption', $description);
+    $req->bindParam(':date', $date);
+       
 // set parameters and execute
     
     //model communicates wtith the database
     
-    if(isset($_POST['name'])&& $_POST['name']!=""){
-        $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['title'])&& $_POST['title']!=""){
+        $filteredName = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }
     if(isset($_POST['price'])&& $_POST['price']!=""){
         $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
