@@ -6,7 +6,7 @@
       <?php echo $blog->title; ?> &nbsp; &nbsp; 
    
     <a href='?controller=blog&action=read&id=<?php echo $blog->blogID; ?>'>read more</a> &nbsp; &nbsp;
-    <a href='?controller=blog&action=delete&id=<?php echo $blog->blogID; ?>'>Delete</a> &nbsp; &nbsp;
+    <a href='?controller=blog&action=create&id=<?php echo $blog->blogID; ?>'>Post a Blog</a> &nbsp; &nbsp;
     <a href='?controller=blog&action=update&id=<?php echo $blog->blogID; ?>'>Update Product</a> &nbsp;
   </p> 
 <?php } ?>

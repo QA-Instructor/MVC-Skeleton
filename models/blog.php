@@ -34,23 +34,24 @@
       return $list; //come back to make it only show body and title and blog date.
     }
 
-    public static function find($blogID) { //replace with field name
+        public static function find($blogID) {
       $db = Db::getInstance();
       //use intval to make sure $id is an integer
-      $blogID = intval($blogID); //I NEED TO CHECK THIS
-      $req = $db->prepare('SELECT * FROM blog WHERE blogID = :blogID'); //change all id
+      $blogID = intval($blogID);
+      $req = $db->prepare('SELECT * FROM blog WHERE blogID = :blogID');
       //the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('blogID' => $blogID)); //change
+      $req->execute(array('blogID' => $blogID));
       $blog = $req->fetch();
-if($blog){ //change
-      return new Blog($blog['blogID'], $blog['adminID'], $blog['categoriesID'], $blog['countryID'], $$blog['title'], $blog['body'], $blog['blogDate']);
+if($blog){
+      return new Blog($blog['blogID'], $blog['adminID'], $blog['categoriesID'], $blog['countryID'], $blog['title'], $blog['body'], $blog['blogDate']);
     }
     else
     {
         //replace with a more meaningful exception
-        throw new Exception('this blog does not exist'); //feel free to change
+        throw new Exception('Could not find blog');
     }
     }
+
     
     
     //changed until this point
@@ -82,30 +83,30 @@ $req->execute();
     }
     //add product when you run blog and you see ad product its this 
     
-    public static function add() {
+    public static function add() { //create
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into product(name, price) values (:name, :price)");
-    $req->bindParam(':name', $name);
-    $req->bindParam(':price', $price);
+    $req = $db->prepare("Insert into blog(title, body) values (:title, :body)");
+    $req->bindParam(':title', $title);
+    $req->bindParam(':body', $body);
 
 // set parameters and execute
     
     //model communicates wtith the database
     
-    if(isset($_POST['name'])&& $_POST['name']!=""){
-        $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['title'])&& $_POST['title']!=""){
+        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['price'])&& $_POST['price']!=""){
-        $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['body'])&& $_POST['body']!=""){
+        $filteredBody = filter_input(INPUT_POST,'body', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-$name = $filteredName;
-$price = $filteredPrice;
+$title = $filteredTitle;
+$body = $filteredBody;
 $req->execute();
 //executes the query
 //all this is making sure that if someone writes a name and it isn't empty then post to database
 //everytime someone created a new prodicut its assigning name variable to filtered name
 //upload product image
-Product::uploadFile($name); //link to add as the code is enabling them to upload pics and error handlers are here look below
+Blog::uploadFile($title); //link to add as the code is enabling them to upload pics and error handlers are here look below
     }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
@@ -113,7 +114,7 @@ const InputKey = 'myUploader';
 
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
-public static function uploadFile(string $name) {
+public static function uploadFile(string $title) {
 
 	if (empty($_FILES[self::InputKey])) {
 		//die("File Missing!");
@@ -130,8 +131,8 @@ public static function uploadFile(string $name) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "/Applications/XAMPP/htdocs/MVC_Skeleton/views/images/";
-	$destinationFile = $path . $name . '.jpeg';
+        $path = "/views/images/";
+	$destinationFile = $path . $title . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("Handle Error");
