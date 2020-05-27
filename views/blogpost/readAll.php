@@ -76,7 +76,8 @@
                      <a class="btn btn-primary" href='?controller=blogpost&action=read&id=<?php echo $blogpost->blogpostID; ?>'>Read More &rarr;</a>    
                 </div>
                 <div class="card-footer text-muted">
-                    Posted on January 1, 2017 
+                    <?php echo $blogpost->datePosted; ?> 
+<!--                    Posted on January 1, 2017 -->
                     <a href='?controller=blogpost&action=update&id=<?php echo $blogpost->blogpostID; ?>'>Edit</a>
                     <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'>Delete</a>
                 </div>

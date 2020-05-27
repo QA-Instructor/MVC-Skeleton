@@ -144,7 +144,7 @@ $blogPostContent = $filteredBlogPostContent;
 }
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into blogpost(BloggerID, PetTypeID, CategoryID, BlogPostName, BlogPostSubName, BlogPostContent, BlogPostPhoto) values (:BloggerID, :PetTypeID, :CategoryID, :BlogPostName, :BlogPostSubName, :BlogPostContent, :BlogPostPhoto)");
+    $req = $db->prepare("Insert into blogpost(BloggerID, PetTypeID, CategoryID, BlogPostName, BlogPostSubName, BlogPostContent, BlogPostPhoto, DatePosted) values (:BloggerID, :PetTypeID, :CategoryID, :BlogPostName, :BlogPostSubName, :BlogPostContent, :BlogPostPhoto, :DatePosted)");
     $req->bindParam(':BlogPostName', $blogPostName);
     $req->bindParam(':BlogPostSubName', $blogPostSubName);
     $req->bindParam(':BlogPostContent', $blogPostContent);
@@ -152,6 +152,7 @@ $blogPostContent = $filteredBlogPostContent;
     $req->bindParam(':BloggerID', $bloggerID);
     $req->bindParam(':PetTypeID', $pettypeID);
     $req->bindParam(':CategoryID', $categoryID);
+    $req->bindParam(':DatePosted', $datePosted);
         
 
 // set parameters and execute2
@@ -181,6 +182,7 @@ $blogPostContent = $filteredBlogPostContent;
 $bloggerID = $filteredBloggerID;
 $pettypeID =  $filteredPetTypeID;
 $categoryID = $filteredBlogCategoryID;
+$datePosted=date("Y-m-d");
 $blogPostPhoto=BlogPost::uploadFile($blogPostName);
 $req->execute();
 
