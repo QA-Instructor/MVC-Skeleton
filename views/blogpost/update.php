@@ -1,3 +1,4 @@
+<div id="realTimeContents">
 <p>Fill in the following form to update an existing blogpost:</p>
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     <h2>Update Blogpost</h2>
@@ -39,3 +40,4 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
     <input class="w3-btn w3-gray" type="submit" value="Update Blogpost">
     </p>
 </form>
+</div>
