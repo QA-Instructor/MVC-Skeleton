@@ -13,7 +13,7 @@ foreach ($posts as $p) {
         echo$p->postImage . PHP_EOL;
         if ($p->postImage !== NULL){
           $path = dirname(__DIR__) . "\\images\\";
-          $file = $path. $p->postImage.".jpeg";
+          $file = $path. $p->postImage;
           if(file_exists($file)){
                  $img = "<img src='$file' width='800' />";
                  echo $img;

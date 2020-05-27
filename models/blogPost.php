@@ -97,15 +97,13 @@ class blogPost {
 //        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
 //        
 //      $destinationFile = $path . $name . '.jpeg';
- //       $destinationFile = $path . $postString . '.jpeg';//$_FILES[self::InputKey]['type'];
-          $destinationFile = $path . $postString . $_FILES[self::InputKey]['type'];
-
+        $destinationFile = $path . $postString . '.jpeg';//$_FILES[self::InputKey]['type'];
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
             trigger_error("Handle Error");
         }
         else{
-            $success = $postString.$_FILES[self::InputKey]['type'];
+            $success = $postString.'.jpeg';
         }
 
         //Clean up the temp file
