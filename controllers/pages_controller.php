@@ -9,6 +9,10 @@ class PagesController {
       require_once('views/pages/home.php');
     }
 
+    public function aboutus() {
+        require_once('views/pages/aboutus.php');
+    }
+            
     public function error() {
       require_once('views/pages/error.php');
     }
