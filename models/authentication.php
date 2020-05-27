@@ -63,8 +63,9 @@ Class Authentication {
         $rows = $stmt->fetchall();
         
        foreach($rows as $row){
-           if ($password = $row['hashpassword']){
-               header('index.php?controller=hjadhbasdjb');
+           if ($password == $row['hashpassword']){
+               $_SESSION(true);
+               header('aboutus.php');
                // we could put our controller and action here!!!
            }
        }
@@ -75,7 +76,7 @@ Class Authentication {
         foreach ($rows as $row) {
             if (password_verify($password, $row["hashpassword"])) {
                 $_Session['email'] = $this->email;// Hi Izzy, I am not sure what this session is going 
-                header('uploadblog.php');
+                header('aboutus.php');
             } else {
                 throw new Exception();
             }

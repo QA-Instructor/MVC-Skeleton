@@ -38,18 +38,18 @@ class blogController {
          
       }
       else { 
-          
+//          
           if (!empty($_POST)){
              $title = ($_POST["title"]);
              $body =($_POST["body"]);
-             $date = date("y-m-d");
+//             $date = date("y-m-d");
              $description = ($_POST["description"]);
           } 
           
             blog::add(); //calling the add function that sends query into the database 
              
-            $products = blog::all(); //$products is used within the view
-            require_once('views/products/readAll.php'); 
+//            $products = blog::all(); //$products is used within the view
+//            require_once('views/products/readAll.php'); 
       }//takes you back to all products 
       
     }

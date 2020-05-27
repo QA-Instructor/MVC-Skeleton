@@ -84,11 +84,17 @@ $req->execute();
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into blog(title, body, blogDate, description) values (:title, :body, :blogDate, :description)");
-    $req->bindParam(':title', $title);
-    $req->bindParam(':body', $body);
-    $req->bindParam(':descrption', $description);
-    $req->bindParam(':date', $date);
+    
+       $title = ($_POST["title"]);
+             $body =($_POST["body"]);
+             $description = ($_POST["description"]);
+             
+             
+    $req = $db->prepare("Insert into blog(title, body, description) values (:a, :b,  :c)");
+    $req->bindParam(':a', $title);
+    $req->bindParam(':b', $body);
+    $req->bindParam(':c', $description);
+//    $req->bindParam(':blogDate', $date);
        
 // set parameters and execute
     
@@ -97,61 +103,61 @@ $req->execute();
     if(isset($_POST['title'])&& $_POST['title']!=""){
         $filteredName = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['price'])&& $_POST['price']!=""){
-        $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
+//    if(isset($_POST['price'])&& $_POST['price']!=""){
+//        $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
+//    }
 $name = $filteredName;
-$price = $filteredPrice;
+//$price = $filteredPrice;
 $req->execute();
 //executes the query
 //all this is making sure that if someone writes a name and it isn't empty then post to database
 //everytime someone created a new prodicut its assigning name variable to filtered name
 //upload product image
-Product::uploadFile($name); //link to add as the code is enabling them to upload pics and error handlers are here look below
-    }
+//Product::uploadFile($name); //link to add as the code is enabling them to upload pics and error handlers are here look below
+//    }
 
-const AllowedTypes = ['image/jpeg', 'image/jpg'];
-const InputKey = 'myUploader';
+//const AllowedTypes = ['image/jpeg', 'image/jpg'];
+//const InputKey = 'myUploader';
 
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
-public static function uploadFile(string $name) {
-
-	if (empty($_FILES[self::InputKey])) {
-		//die("File Missing!");
-                trigger_error("File Missing!");
-	}
-
-	if ($_FILES[self::InputKey]['error'] > 0) {
-		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
-	}
-
-
-	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
-		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
-	}
-
-	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "/Applications/XAMPP/htdocs/MVC_Skeleton/views/images/";
-	$destinationFile = $path . $name . '.jpeg';
-
-	if (!move_uploaded_file($tempFile, $destinationFile)) {
-		trigger_error("Handle Error");
-	}
-		
-	//Clean up the temp file
-	if (file_exists($tempFile)) {
-		unlink($tempFile); 
-	}
-}
-public static function remove($id) {
-      $db = Db::getInstance();
-      //make sure $id is an integer
-      $id = intval($id);
-      $req = $db->prepare('delete FROM product WHERE id = :id');
-      // the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id));
-  }
+//public static function uploadFile(string $name) {
+//
+//	if (empty($_FILES[self::InputKey])) {
+//		//die("File Missing!");
+//                trigger_error("File Missing!");
+//	}
+//
+//	if ($_FILES[self::InputKey]['error'] > 0) {
+//		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
+//	}
+//
+//
+//	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
+//		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
+//	}
+//
+//	$tempFile = $_FILES[self::InputKey]['tmp_name'];
+//        $path = "/Applications/XAMPP/htdocs/finalproject/views/images/";
+//	$destinationFile = $path . $name . '.jpeg';
+//
+//	if (!move_uploaded_file($tempFile, $destinationFile)) {
+//		trigger_error("Handle Error");
+//	}
+//		
+//	//Clean up the temp file
+//	if (file_exists($tempFile)) {
+//		unlink($tempFile); 
+//	}
+//}
+//public static function remove($id) {
+//      $db = Db::getInstance();
+//      //make sure $id is an integer
+//      $id = intval($id);
+//      $req = $db->prepare('delete FROM product WHERE id = :id');
+//      // the query was prepared, now replace :id with the actual $id value
+//      $req->execute(array('id' => $id));
+//  }
   
-}
-?>
+    }
+  }
