@@ -46,7 +46,7 @@ public static function category($categoryID) {
       $db = Db::getInstance();
       //use intval to make sure $id is an integer
       $categoryID = intval($categoryID);
-      $req = $db->prepare('SELECT * FROM blogpost WHERE CategoryID = :CategoryID');
+      $req = $db->prepare('SELECT * FROM blogpost WHERE CategoryID = :CategoryID ORDER BY DatePosted ASC');
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('CategoryID' => $categoryID));
       $blogposts = $req->fetchAll();
