@@ -31,9 +31,21 @@ class BlogPostController {
         return call('pages', 'error');
 
       try{
-      // we use the given id to get the correct post
-      $blogpost = BlogPost::find($_GET['id']);
-      require_once('views/blogpost/read.php');
+          $checker=$_GET['categoryID'];    
+      
+      if ($checker=="1"){
+          $blogposts = BlogPost::category($checker);
+      require_once('views/blogpost/readAww.php');}
+      elseif ($checker=="2") {
+          $blogposts = BlogPost::category($checker);
+      require_once('views/blogpost/readLol.php');}
+      else{
+          $blogposts = BlogPost::category($checker);
+      require_once('views/blogpost/readWow.php');}
+      
+       //we use the given id to get the correct post          
+//      $blogpost = BlogPost::find($_GET['id']);
+//      require_once('views/blogpost/read.php');
       }
  catch (Exception $ex){
      return call('pages','error');
