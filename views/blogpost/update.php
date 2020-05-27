@@ -10,15 +10,15 @@
                 <fieldset>
                     <legend>Update Post</legend>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" name="BlogPostName" placeholder="Update title" required autofocus value="<?= $blogpost->blogPostName; ?>">
+                        <input class="form-control form-control-lg" type="text" name="BlogPostName" placeholder="Update title" autofocus value="<?= $blogpost->blogPostName; ?>">
                         <!--                        <label>Blog Post Name</label>-->
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" name="BlogPostSubName" placeholder="Update description" required autofocus value="<?= $blogpost->blogPostSubName; ?>">     
+                        <input class="form-control form-control-lg" type="text" name="BlogPostSubName" placeholder="Update description" autofocus value="<?= $blogpost->blogPostSubName; ?>">     
                         <!--                        <label>Blog Post Sub Name</label>-->
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" name="BlogPostContent" placeholder="Update Content" required autofocus value="<?= $blogpost->blogPostContent; ?>">
+                        <input class="form-control form-control-lg" type="text" name="BlogPostContent" placeholder="Update Content" autofocus value="<?= $blogpost->blogPostContent; ?>">
                         <!--                        <label>Blog Post Content </label>-->
                     </div>
                     <div>
@@ -37,7 +37,7 @@
             echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
         }
         ?>
-                            <input type="file" name="myUploader" class="" required/>
+                            <input type="file" name="myUploader" class="" />
                         </div>
                         <div  class="form-group">
                             <button href="" class="btn btn-primary" type="submit" value ="Update Blogpost">Update</button>
