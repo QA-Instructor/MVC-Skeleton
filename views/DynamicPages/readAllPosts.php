@@ -11,6 +11,18 @@ foreach ($posts as $p) {
         echo$p->publishedAt . PHP_EOL;
         echo$p->content . PHP_EOL;
         echo$p->postImage . PHP_EOL;
+        if ($p->postImage !== NULL){
+          $path = dirname(__DIR__) . "\\images\\";
+          $file = $path. $p->postImage.".jpeg";
+          if(file_exists($file)){
+                 $img = "<img src='$file' width='800' />";
+                 echo $img;
+          }
+          else
+          {
+            echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
+          }
+        }
     }
     ?> &nbsp; &nbsp;
 

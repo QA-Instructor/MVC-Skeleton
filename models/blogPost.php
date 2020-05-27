@@ -56,11 +56,12 @@ class blogPost {
         //need to change date(...) to do date and time so we can get rid of query below
         $req = $db->query("UPDATE post_table SET publishedAt = now() WHERE postID=$lastid");
 
-
 //upload post image to images directory and store filename in database
         $postImage = blogPost::uploadFile($postString);
-        $req = $db->query("UPDATE post_table SET postImage = postImage WHERE postID=$lastid"); 
-    }
+        $req = $db->prepare("UPDATE post_table SET postImage = :postImage WHERE postID=$lastid"); 
+        $req->bindParam(':postImage', $postImage);
+        $req->execute();
+}
 
     const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
     const InputKey = 'myUploader';
@@ -96,13 +97,15 @@ class blogPost {
 //        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
 //        
 //      $destinationFile = $path . $name . '.jpeg';
-        $destinationFile = $path . $postString . '.jpeg';//$_FILES[self::InputKey]['type'];
+ //       $destinationFile = $path . $postString . '.jpeg';//$_FILES[self::InputKey]['type'];
+          $destinationFile = $path . $postString . $_FILES[self::InputKey]['type'];
+
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
             trigger_error("Handle Error");
         }
         else{
-            $success = $destinationFile;
+            $success = $postString.$_FILES[self::InputKey]['type'];
         }
 
         //Clean up the temp file
