@@ -1,6 +1,6 @@
 
 <!--<p>This is the requested product:</p>-->
-
+<div id="realTimeContents">
 <!-- Page Content -->
 <div class="container">
     <div class="row">
@@ -41,4 +41,5 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
 
 
 ?>
+</div>
 	
