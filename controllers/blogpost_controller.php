@@ -13,10 +13,21 @@ class BlogPostController {
      if (!isset($_GET['categoryID']))
         return call('pages', 'error');
 
-      try{
-      // we use the given id to get the correct post
-      $blogposts = BlogPost::category($_GET['categoryID']);
-      require_once('views/blogpost/readAll.php');
+      try{          
+              $checker=$_GET['categoryID'];   
+      
+      if ($checker=="1"){
+          $blogposts = BlogPost::category($checker);
+      require_once('views/blogpost/readAww.php');}
+      elseif ($checker=="2") {
+          $blogposts = BlogPost::category($checker);
+      require_once('views/blogpost/readLol.php');}
+      else{
+          $blogposts = BlogPost::category($checker);
+      require_once('views/blogpost/readWow.php');}
+//      // we use the given id to get the correct post
+//      $blogposts = BlogPost::category($_GET['categoryID']);
+//      require_once('views/blogpost/readAll.php');
       }
  catch (Exception $ex){
      return call('pages','error');
@@ -30,22 +41,10 @@ class BlogPostController {
       if (!isset($_GET['id']))
         return call('pages', 'error');
 
-      try{
-          $checker=$_GET['categoryID'];    
-      
-      if ($checker=="1"){
-          $blogposts = BlogPost::category($checker);
-      require_once('views/blogpost/readAww.php');}
-      elseif ($checker=="2") {
-          $blogposts = BlogPost::category($checker);
-      require_once('views/blogpost/readLol.php');}
-      else{
-          $blogposts = BlogPost::category($checker);
-      require_once('views/blogpost/readWow.php');}
-      
+      try{           
        //we use the given id to get the correct post          
-//      $blogpost = BlogPost::find($_GET['id']);
-//      require_once('views/blogpost/read.php');
+      $blogpost = BlogPost::find($_GET['id']);
+      require_once('views/blogpost/read.php');
       }
  catch (Exception $ex){
      return call('pages','error');
