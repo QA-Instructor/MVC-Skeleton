@@ -193,7 +193,7 @@
     <div class="container-fluid mx-auto">
         <div class="row">
             <div>
-                <footer class="my-4 text-center fixed-bottom">
+                <footer class="my-4 text-center">
                     Copyright &COPY; <?= date('Y'); ?>
                     <!--The other way that we can do this is not just typing the URL in the browser, but embedded in the HTML are what are called anchor tags which are clickable links that have an href, 
                     a Hyper Text Reference, inside that.

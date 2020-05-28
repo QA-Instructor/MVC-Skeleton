@@ -60,8 +60,11 @@
              throw new Exception("Picture is not available");
          }else{    
              $file = $blogpost->blogPostPhoto;
-    $file = explode('/', $file, 5);   
-    $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap' width='150' />";
+
+    $file = explode('/', $file, 5);      
+   echo "<div>";
+    $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap' style='height: 380px; width: 100%; display: block;' />";
+
          echo $img;      }
      } catch (Exception $e){
          echo 'Message: ' .$e->getMessage();
@@ -83,7 +86,7 @@
                 </div>
             </div>
             <?php } ?>
-</div>
+
 <!--             Blog Post #2 
             <div class="card mb-4">
                 <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
