@@ -63,7 +63,7 @@
 
     $file = explode('/', $file, 5);      
    echo "<div>";
-    $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap' style='height: 380px; width: 100%; display: block;' />";
+    $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap' style='height: 700px; width: 100%; display: block;' />";
 
          echo $img;      }
      } catch (Exception $e){
