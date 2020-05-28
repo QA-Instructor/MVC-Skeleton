@@ -16,7 +16,7 @@
       $list = [];
       // this part under is just instansiating the connector to make the connection between the database-DB class in connection.php
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM product');
+      $req = $db->query('SELECT * FROM blog');
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $product) {
         $list[] = new Product($product['id'], $product['name'], $product['price']);
