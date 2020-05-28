@@ -128,18 +128,18 @@ class User {
         $this->_username = $username;
     }
 
-    public function login($username, $password) {
+    public static function login() { 
         $db = Db::getInstance();
-        $req = $db->prepare("SELECT * BloggerID FROM blogger WHERE Username = :Username AND Hashcode = :Hashcode LIMIT 1");
-        $req->bindParam();
-        $req->store_result();
+        $req = $db->prepare("SELECT * FROM blogger WHERE Username = :Username AND Hashcode = :Hashcode LIMIT 1");
+        $login = htmlentities(addslashes($_POST['Username']));
+	$hashcode = htmlentities(addslashes($_POST['Hashcode']));
+        $req->bindValue(":Username", $login);
+        $req->bindValue(":Hashcode", $hashcode);
         $req->execute();
-
-        if (isset($_SESSION['loggedin'])) {
-            return true;
-        } else {
-            return false;
-        }
+        
+        $register_number=$req->rowCount();
+        return $register_number;
+        
     }
 //
 ////check for num rows
