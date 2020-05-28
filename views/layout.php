@@ -13,21 +13,23 @@
   <body>
     <header>
         
-   
-       
+
+         <a href="index.php" class="header-brand">Our Travel Blog</a>
+
         
     <nav>
         <ul>
-
-            <li><a href="index.php" >Home</a></li>
-<li><a href='aboutus.php'>About us</a></li>
+            <li><a href="index.php">Home</a></li>
+          <li><a href='views/pages/aboutus.php'>About us</a></li>
 
           <li><a href='?controller=blog&action=readAll'>Blogs</a></li>
           <li><a href='?controller=product&action=update'>Contact us</a></li>
          
         </ul>
+
         <a href="?controller=authentication&action=login" class="header-cases">Login</a>
          <a href="?controller=authentication&action=create" class="header-cases">Signup</a>
+
          
                  
      

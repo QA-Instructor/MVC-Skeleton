@@ -1,11 +1,15 @@
 <?php
 
-
 Class Authentication {
 
 private $email;
 private $password;
 
+//should this be in the controller -- line 12!!
+//  
+// assign the variables, 
+// if statement in the controller - P - if statements validating and then calling the model
+// go through the queries and change them to the DB names
 public function __construct($email, $password) {
 
 $this->email = $email;
@@ -26,7 +30,6 @@ throw new Exception('Email already exist, please login');
 }
 
 public function insertAdmin() {
-
 $errors = array();
 
 $db = Db::getInstance();
@@ -47,20 +50,16 @@ $errors["password"] = "Password Required";
 die();
 }
 
-$passwordhash = password_hash($password, PASSWORD_DEFAULT);
-
 $sql = $db->prepare("INSERT INTO admin_login (email, password) VALUES (:email,  :password)");
 $sql->bindParam(':email', $email);
-$sql->bindParam(':password', $passwordhash);
-
+$sql->bindParam(':password', $password);
+$password = password_hash($password, PASSWORD_DEFAULT);
 
 if (isset($_POST['email']) && $_POST['email'] != "") {
 $filteredEmail = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
 }
 if (isset($_POST['password']) && $_POST['password'] != "") {
-
 $filteredPassword = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
-
 }
 $email = $filteredEmail;
 $password = $filteredPassword;
@@ -81,36 +80,41 @@ $password = trim($_POST['password']);
 if($email != "" && $password != "") {
     
 
-
 try {
-$query = $db->prepare("SELECT adminID, email, password FROM admin_login WHERE email = :email");
+$query = $db->prepare("SELECT count(*) FROM admin_login WHERE :email='$email' AND :password='$password' AND email<>'' AND password <> '' LIMIT 1");
 $query->bindParam(':email', $email);
+$query->bindParam(':password', $password);
 $query->execute();
-//$count = $query->rowCount();
+$count = $query->rowCount();
 $row = $query->fetch(PDO::FETCH_ASSOC);
 
 
-//if($count == 1 &&!empty($row)) {
-if($row ===FALSE){
-   die('Incorrect email / password combination!');
-    } else {
- $validpassword = (password_verify($password, $row['password']));
-
-if ($validpassword) {
+if($count == 1 &&!empty($row)) {
 $_SESSION['email'] = $_POST['email'];
+$session['password'] = $_POST['password'];
+//redirect
 header("location:index.php");
 
 
  } else {
-        echo "Invalid email and password!";
+        echo "Invalid username and password!";
       }
-} }
-catch (PDOException $e) {
+    } catch (PDOException $e) {
       echo "Error : ".$e->getMessage();
-   
+    }
+  } else {
+      echo "Both fields are required!";
+  }
+}
+//if ($row >=1) {
+// echo "Username already exist in the database";  
+//  header("location:views/pages/blogpost.php"); 
+//} else {
+//throw new Exception('Wrong email and password, please login'); 
 
 }
 }
-}
-}
-}
+
+
+
+

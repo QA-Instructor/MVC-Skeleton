@@ -85,15 +85,69 @@ $req->execute();
     
     public static function add() { //create
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into blog(title, body) values (:title, :body)");
-    $req->bindParam(':title', $title);
-    $req->bindParam(':body', $body);
+
+ 
+    
+    if(isset($_POST['submit'])){
+        
+       $title = ($_POST["title"]);
+             $body =($_POST["body"]);
+             $description = ($_POST["description"]);
+             
+          if($_POST['country'] == 'Vietnam'){
+     $country = 2;
+         }
+ if($_POST['country'] == 'Poland'){
+     $country = 1;
+         }
+         if($_POST['country'] == 'US'){
+    $country = 4;
+         }
+         if($_POST['country'] == 'Morocco'){
+    $country = 3;
+         }
+         if($_POST['country'] == 'Turkey'){
+     $country = 5;
+         }
+         
+             if($_POST['categories'] == 'Restaurants'){
+     $categories = 1;
+         }
+ if($_POST['categories'] == 'Trips'){
+     $categories = 2;
+         }
+         if($_POST['categories'] == 'Kids'){
+    $categories = 3;
+         }
+         if($_POST['categories'] == 'Nightlife'){
+    $categories = 3;
+         }
+         if($_POST['categories'] == 'Tips'){
+     $categories = 2;
+         }
+         
+         
+         date_default_timezone_set('UTC');
+$date = date("Y-m-d");
+     
+    }
+             
+    $req = $db->prepare("Insert into blog(categoriesID, countryID, title, body, description, blogDate) values (:ab , :aa, :a, :b,  :c, :d)");
+    $req->bindParam(':a', $title);
+    $req->bindParam(':b', $body);
+    $req->bindParam(':c', $description);
+    $req->bindParam(':aa', $country);
+    $req->bindParam(':ab', $categories);
+    $req->bindParam(':d', $date);
+//    $req->bindParam(':blogDate', $date);
+       
 
 // set parameters and execute
     
     //model communicates wtith the database
     
     if(isset($_POST['title'])&& $_POST['title']!=""){
+
         $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }
     if(isset($_POST['body'])&& $_POST['body']!=""){
@@ -101,19 +155,23 @@ $req->execute();
     }
 $title = $filteredTitle;
 $body = $filteredBody;
+
 $req->execute();
 //executes the query
 //all this is making sure that if someone writes a name and it isn't empty then post to database
 //everytime someone created a new prodicut its assigning name variable to filtered name
 //upload product image
+
 Blog::uploadFile($title); //link to add as the code is enabling them to upload pics and error handlers are here look below
     }
 
-const AllowedTypes = ['image/jpeg', 'image/jpg'];
-const InputKey = 'myUploader';
+
+//const AllowedTypes = ['image/jpeg', 'image/jpg'];
+//const InputKey = 'myUploader';
 
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
+
 public static function uploadFile(string $title) {
 
 	if (empty($_FILES[self::InputKey])) {
@@ -151,6 +209,7 @@ public static function remove($id) {
       // the query was prepared, now replace :id with the actual $id value
       $req->execute(array('id' => $id));
   }
+
   
-}
-?>
+    }
+  }

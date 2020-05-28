@@ -3,7 +3,9 @@
     <type>org.netbeans.modules.php.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
-            <name>Blog_Proj</name>
+
+            <name>finalProject</name>
+
         </data>
     </configuration>
 </project>

@@ -70,7 +70,7 @@ $req->execute();
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into product(name, price) values (:name, :price)");
+    $req = $db->prepare("Insert into product() values (:name, :price)");
     $req->bindParam(':name', $name);
     $req->bindParam(':price', $price);
 
