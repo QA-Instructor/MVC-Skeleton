@@ -29,7 +29,7 @@ $controllers = array('pages' => ['home', 'error'],
 
     'product' => ['readAll', 'read', 'create', 'update', 'delete'],
     'blogPost' => ['create','readAll'],
-    'blogger' => ['create','readAll', 'login'],
+    'blogger' => ['create','readAll','login'],
     'blogPostComment' => ['create']);
 
 
