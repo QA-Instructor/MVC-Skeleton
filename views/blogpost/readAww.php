@@ -61,6 +61,7 @@
          }else{    
              $file = $blogpost->blogPostPhoto;
     $file = explode('/', $file, 5);   
+     echo "<div>";
     $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap' width='150' />";
          echo $img;      }
      } catch (Exception $e){

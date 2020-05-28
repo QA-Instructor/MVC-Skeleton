@@ -33,7 +33,7 @@
       $list = [];
       $db = Db::getInstance();
 
-      $req = $db->query('SELECT * FROM blogpost ORDER BY DatePosted DESC');
+      $req = $db->query('SELECT * FROM blogpost ORDER BY BlogPostID DESC');
       // we create a list of blogposts objects from the database results
       foreach($req->fetchAll() as $blogpost) {
         $list[] = new BlogPost($blogpost['BloggerID'], $blogpost['PetTypeID'], $blogpost['CategoryID'], $blogpost['BlogPostID'], $blogpost['BlogPostName'], $blogpost['BlogPostSubName'], $blogpost['BlogPostContent'], $blogpost['BlogPostPhoto'], $blogpost['DatePosted']);
