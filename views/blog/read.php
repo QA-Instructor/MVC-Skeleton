@@ -1,10 +1,17 @@
-<p>This is the requested blog:</p>
-
-<p>Blog ID: <?php echo $blog->blogID; ?></p>
-<p>Blog title: <?php echo $blog->title; ?></p>
-<p>Blog body: £<?php echo $blog->body; ?></p>
 
 
+
+
+<div class="card" style="width: 50rem;">
+  <img src="views/images/img/newyork" class="card-img-top" alt="world map">
+  
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $blog->title; ?></h5>
+    <p class="card-text"><?php echo $blog->body; ?></p>
+    <a href="index.php" class="btn btn-primary">Homepage</a>
+  </div>
+ 
+</div>
 <?php 
 
 /*$file = 'views/images/' . $product->name . '.jpeg';
