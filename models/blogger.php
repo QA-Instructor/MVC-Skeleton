@@ -84,7 +84,7 @@ class blogger {
         $blogid = $db->lastInsertId();
     }
 
-    public static function findBlogger() {
+    public static function findBlogger($bloggers) {
         $db = Db::getInstance();
                   
 
@@ -98,16 +98,32 @@ class blogger {
         }
 
         $blogName = $filteredblogName;
-        $passwordHASH = password_hash($filteredpassword, PASSWORD_DEFAULT);
-        //AND (passwordHASH = :passwordHASH)")
+       // $passwordHASH = password_verify($filteredpassword, PASSWORD_DEFAULT);
+       $loggedin = false;
+        foreach ($bloggers as $blogger) {
+            if (($blogger->blogName == $blogName) && (password_verify($filteredpassword, $blogger->passwordHASH)))
+            {
+                $loggedin = true;
+                break;                         
+                }
+            }
+            
+
+
+
+//AND (passwordHASH = :passwordHASH)")
         //can also try a prepare
-        $req = $db->query("SELECT * FROM register_table WHERE (blogName = :blogName)");
-         $req->bindParam(':blogName', $blogName);
-        $req->bindParam(':passwordHASH', $passwordHASH);
-        $req->execute();
-        $blogger = $req->fetch();
-        if ($blogger) {
-            return new blogger($blogger['blogID'], $blogger['blogName'], $blogger['firstName'], $blogger['lastName'], $blogger['email'], $blogger['phoneNumber'], $blogger['publishedAt'], $blogger['lastLogin'], $blogger['intro'], $blogger['aboutMe'], $blogger['passwordHASH']);
+      //  $req = $db->query("SELECT * FROM register_table WHERE (blogName = :blogName)");
+        // $req->bindParam(':blogName', $blogName);
+       // $req->bindParam(':passwordHASH', $passwordHASH);
+       // $req->execute();
+       // $blogger = $req->fetch();
+       
+        
+
+        if ($loggedin) {
+          return $blogger;
+            //($blogger['blogID'], $blogger['blogName'], $blogger['firstName'], $blogger['lastName'], $blogger['email'], $blogger['phoneNumber'], $blogger['publishedAt'], $blogger['lastLogin'], $blogger['intro'], $blogger['aboutMe'], $blogger['passwordHASH']);
         } else {
             //replace with a more meaningful exception
             throw new Exception('A real exception should go here');

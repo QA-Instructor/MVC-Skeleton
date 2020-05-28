@@ -27,8 +27,10 @@ Class BloggerController {
             require_once('views/DynamicPages/bloggerLogin.php');
         } else {
             //try{
-           $blogger = blogger::findBlogger();
-           require_once('views/DynamicPages/readAllBloggers.php');
+                  $bloggers = blogger::all();
+                  $loggedin = blogger::findBlogger($bloggers);
+                  echo $loggedin->blogName . ' you are logged in';
+                  require_once('views/DynamicPages/readAllBloggers.php');
            //pass the data back to the 'start here' page to display the blogger user name and also last login
            //also can display the last post and image created
            
