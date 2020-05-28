@@ -85,15 +85,58 @@ $req->execute();
     public static function add() {
     $db = Db::getInstance();
     
+    
+    if(isset($_POST['submit'])){
+        
        $title = ($_POST["title"]);
              $body =($_POST["body"]);
              $description = ($_POST["description"]);
              
+          if($_POST['country'] == 'Vietnam'){
+     $country = 2;
+         }
+ if($_POST['country'] == 'Poland'){
+     $country = 1;
+         }
+         if($_POST['country'] == 'US'){
+    $country = 4;
+         }
+         if($_POST['country'] == 'Morocco'){
+    $country = 3;
+         }
+         if($_POST['country'] == 'Turkey'){
+     $country = 5;
+         }
+         
+             if($_POST['categories'] == 'Restaurants'){
+     $categories = 1;
+         }
+ if($_POST['categories'] == 'Trips'){
+     $categories = 2;
+         }
+         if($_POST['categories'] == 'Kids'){
+    $categories = 3;
+         }
+         if($_POST['categories'] == 'Nightlife'){
+    $categories = 3;
+         }
+         if($_POST['categories'] == 'Tips'){
+     $categories = 2;
+         }
+         
+         
+         date_default_timezone_set('UTC');
+$date = date("Y-m-d");
+     
+    }
              
-    $req = $db->prepare("Insert into blog(title, body, description) values (:a, :b,  :c)");
+    $req = $db->prepare("Insert into blog(categoriesID, countryID, title, body, description, blogDate) values (:ab , :aa, :a, :b,  :c, :d)");
     $req->bindParam(':a', $title);
     $req->bindParam(':b', $body);
     $req->bindParam(':c', $description);
+    $req->bindParam(':aa', $country);
+    $req->bindParam(':ab', $categories);
+    $req->bindParam(':d', $date);
 //    $req->bindParam(':blogDate', $date);
        
 // set parameters and execute
