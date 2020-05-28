@@ -57,27 +57,27 @@ if($blog){
     //changed until this point
     //change the below, still victorias code.
 
-public static function update($id) {
+public static function update($blogID) {
     $db = Db::getInstance();
-    $req = $db->prepare("Update product set name=:name, price=:price where id=:id");
-    $req->bindParam(':id', $id);
-    $req->bindParam(':name', $name);
-    $req->bindParam(':price', $price);
+    $req = $db->prepare("Update blog set title=:title, body=:body where blogID=:blogID");
+    $req->bindParam(':blogID', $blogID);
+    $req->bindParam(':title', $title);
+    $req->bindParam(':body', $body);
 
 // set name and price parameters and execute
-    if(isset($_POST['name'])&& $_POST['name']!=""){
-        $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['title'])&& $_POST['title']!=""){
+        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['price'])&& $_POST['price']!=""){
-        $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['body'])&& $_POST['body']!=""){
+        $filteredBody = filter_input(INPUT_POST,'body', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-$name = $filteredName;
-$price = $filteredPrice;
+$title = $filteredTitle;
+$body = $filteredBody;
 $req->execute();
 
 //upload product image if it exists
-        if (!empty($_FILES[self::InputKey]['name'])) {
-		Product::uploadFile($name);
+        if (!empty($_FILES[self::InputKey]['title'])) {
+		Blog::uploadFile($title);
 	}
 
     }
@@ -131,7 +131,7 @@ public static function uploadFile(string $title) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "/views/images/";
+        $path = "views/images/";
 	$destinationFile = $path . $title . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {

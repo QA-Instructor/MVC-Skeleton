@@ -2,7 +2,7 @@
 <html>
    <head>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" >
-    <meta charset="utf-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Our Blog</title>
     <!--We need the meta tag to properly scale the responsive CSS code-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

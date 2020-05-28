@@ -29,7 +29,7 @@
 // Add an entry for each new controller and its actions
 $controllers = array('pages' => ['home', 'error'],
                     'product' => ['readAll','read','create','update','delete'],
-                     'blog' => ['readAll', 'read', 'create'],
+                     'blog' => ['readAll', 'read', 'create', 'update'],
                     'controllerXXX' => ['actionYYY', 'actionZZZ'],
                     );
 //after you make it all the last step is go to routes and add new model, new array and same cruds
