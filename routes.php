@@ -27,10 +27,13 @@
 
 // for validation we list the allowed controllers and their actions
 // Add an entry for each new controller and its actions
-$controllers = array('pages' => ['home', 'error'],
+$controllers = array('pages' => ['home', 'aboutus', 'error'],
                     'product' => ['readAll','read','create','update','delete'],
+ createblog
                      'blog' => ['readAll', 'read', 'create', 'update'],
                     'controllerXXX' => ['actionYYY', 'actionZZZ'],
+       
+master
                     );
 //after you make it all the last step is go to routes and add new model, new array and same cruds
 

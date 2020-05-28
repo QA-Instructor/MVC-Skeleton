@@ -18,8 +18,10 @@
         
     <nav>
         <ul>
+
             <li><a href="index.php" >Home</a></li>
-          <li><a href='?controller=product&action=readAll'>About us</a></li>
+<li><a href='aboutus.php'>About us</a></li>
+
           <li><a href='?controller=blog&action=readAll'>Blogs</a></li>
           <li><a href='?controller=product&action=update'>Contact us</a></li>
          

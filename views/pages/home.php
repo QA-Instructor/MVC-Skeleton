@@ -74,7 +74,20 @@
     </main>
 
     <!--Second wrapper START-->
-   
+
+
+    <div class="wrapper">
+      <!--The footer START-->
+      <footer>
+        <!--The main footer menu-->
+        <ul class="footer-links-main">
+          <li><a href="home.php">Home</a></li> 
+          <li><a href="aboutus.php">About us</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Subscribe and Login</a></li>
+        </ul>
+        <!--The latest cases footer menu-->
+    
 
     
   </body>
