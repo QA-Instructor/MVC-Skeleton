@@ -37,10 +37,14 @@
             echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
         }
         ?>
+<!--<<<<<<< HEAD-->
                             <input type="file" name="myUploader" class=""/>
+<!--=======
+                            <input type="file" name="myUploader" class="" />
+>>>>>>> c3481f5570a3fb7c9f1dd5172c168a1e29740ee4-->
                         </div>
                         <div  class="form-group">
-                            <button href="" class="btn btn-primary" type="submit" value ="Update Blogpost">Update</button>
+                            <button class="btn btn-primary" type="submit" value ="Update Blogpost">Update</button>
                         </div>
                     </div>
                 </fieldset>
