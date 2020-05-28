@@ -79,8 +79,8 @@
       <footer>
         <!--The main footer menu-->
         <ul class="footer-links-main">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
+          <li><a href="home.php">Home</a></li> 
+          <li><a href="aboutus.php">About us</a></li>
           <li><a href="#">Contact us</a></li>
           <li><a href="#">Subscribe and Login</a></li>
         </ul>
