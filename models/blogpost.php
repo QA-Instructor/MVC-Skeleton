@@ -182,7 +182,7 @@ $blogPostContent = $filteredBlogPostContent;
 $bloggerID = $filteredBloggerID;
 $pettypeID =  $filteredPetTypeID;
 $categoryID = $filteredBlogCategoryID;
-$datePosted=date("Y-m-d");
+$datePosted=date("Y-m-d H:i:s");
 $blogPostPhoto=BlogPost::uploadFile($blogPostName);
 $req->execute();
 
