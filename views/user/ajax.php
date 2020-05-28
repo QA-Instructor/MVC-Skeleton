@@ -38,7 +38,7 @@ and open the template in the editor.
         function load_data(query)
         {
             $.ajax({
-                url: "fetch.php",
+                url: "user.php",
                 method: "POST", //method type
                 data: {query: query},
                 success: function (data)

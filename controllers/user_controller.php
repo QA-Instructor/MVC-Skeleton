@@ -16,6 +16,19 @@ class UserController {
       }
     }
     
+        public function login() {
+      // we expect a url of form ?controller=user&action=read   /check?
+      // if it's a GET request display a blank form for..
+      // else it's a POST so add to the database and redirect to..
+      if($_SERVER['REQUEST_METHOD'] == 'GET'){
+          require_once('views/user/login.php');
+      }
+      else { 
+            User::login();  
+      }
+    }
+
+    
     public function search() {
         //we expect a url of form ?controller=user&action=create
         //This will be a GET request first as the user has to click on search in the nav bar.
