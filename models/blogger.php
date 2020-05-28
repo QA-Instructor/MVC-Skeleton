@@ -86,10 +86,7 @@ class blogger {
 
     public static function findBlogger() {
         $db = Db::getInstance();
-      //need req statement otherwise $req undefined
-        //$req = $db->prepare("Insert into register_table(blogName, firstName, lastName, email, registeredAt, lastLogin, phoneNumber, intro, aboutMe, passwordHASH) values (:blogName, :firstName, :lastName, :email, :registeredAt, :lastLogin, :phoneNumber, :intro, :aboutMe, :password)");
-        $req->bindParam(':blogName', $blogName);
-        $req->bindParam(':passwordHASH', $passwordHASH);
+                  
 
 // set parameters and execute
         if (isset($_POST['blogName']) && $_POST['blogName'] != "") {
@@ -102,9 +99,11 @@ class blogger {
 
         $blogName = $filteredblogName;
         $passwordHASH = password_hash($filteredpassword, PASSWORD_DEFAULT);
-        //if we do it this way we have to use place holders in query and then pass in an associative array type with the vals $blogName and $passwordHash into execute
-        // better to use bind param - neater!
-        $req = $db->query('SELECT * FROM register_table WHERE ((blogName = $blogName) && (passwordHASH = $passwordHASH))');
+        //AND (passwordHASH = :passwordHASH)")
+        //can also try a prepare
+        $req = $db->query("SELECT * FROM register_table WHERE (blogName = :blogName)");
+         $req->bindParam(':blogName', $blogName);
+        $req->bindParam(':passwordHASH', $passwordHASH);
         $req->execute();
         $blogger = $req->fetch();
         if ($blogger) {
