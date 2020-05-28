@@ -4,30 +4,38 @@
 //Register function defined in the User class.
 //This will be a 'create' function as it will be inserting a user's details into the Blogger table in the database.
 //This function & insert query has been connected to the HTML registeration form and tested to see if a user can register successfully.
+
 //For logins/logouts: will require a different query & sessions
+//*If Blogger is logged in, set to True
+//*If not, set to False
+//if $_SESSION is true, make sure they see this on the navbar
+////i.e. if (ISSET($_SESSION['blogger']))
+//if $_SESSION is false, make sure they see this on the navbar
+//Layout.php?
+//You can choose what to show in that session
 
 class User {
 
     // we define attributes 
-    private $_bloggerID;
-    private $_firstname;
-    private $_lastname;
-    private $_username;
-    private $_email;
-    private $_hashcode;
-    private $_datejoined;
-    private $_profilephoto;
-    private $_aboutme;
+    private $bloggerID;
+    private $firstname;
+    private $lastname;
+    private $username;
+    private $email;
+    private $hashcode;
+    private $datejoined;
+    private $profilephoto;
+    private $aboutme;
 
     public function __construct($firstname, $lastname, $username, $email, $hashcode, $datejoined, $profilephoto, $aboutme) {
-        $this->_firstname = $firstname;
-        $this->_lastname = $lastname;
-        $this->_username = $username;
-        $this->_email = $email;
-        $this->_hashcode = $hashcode;
-        $this->_datejoined = $datejoined;
-        $this->_profilephoto = $profilephoto;
-        $this->_aboutme = $aboutme;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->username = $username;
+        $this->email = $email;
+        $this->hashcode = $hashcode;
+        $this->datejoined = $datejoined;
+        $this->profilephoto = $profilephoto;
+        $this->aboutme = $aboutme;
     }
 
     public static function Register() {
@@ -73,12 +81,12 @@ class User {
         $email = $filteredEmail;
         $hashcode = $filteredHashcode;
         $datejoined = $filteredDateJoined;
+        $profilephoto=User::uploadFile($firstname);
         $aboutme = $filteredAboutMe;
-
         $req->execute();
-
-//upload product image
-        User::uploadFile($bloggerID); //? what to change to?
+//
+////upload product image
+//        User::uploadFile($firstname); //? what to change to?
     }
 
     const AllowedTypes = ['image/jpeg', 'image/jpg'];
@@ -86,7 +94,7 @@ class User {
 
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
-    public static function uploadProfilePhoto(string $bloggerID) {
+    public static function uploadFile(string $firstname) {
 
         if (empty($_FILES[self::InputKey])) {
             //die("File Missing!");
@@ -104,7 +112,7 @@ class User {
 
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
         $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
-        $destinationFile = $path . $title . '.jpeg';
+        $destinationFile = $path . $firstname . '.jpeg';
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
             trigger_error("Handle Error");
@@ -116,32 +124,53 @@ class User {
         }
     }
 
-    public function getBloggerID() {
-        $this->_bloggerID = $bloggerID;
-    }
-
     public function getUsername() {
         $this->_username = $username;
     }
 
-    public function login() {
-        
-    }
+    public function login($username, $password) {
+        $db = Db::getInstance();
+        $req = $db->prepare("SELECT * BloggerID FROM blogger WHERE Username = :Username AND Hashcode = :Hashcode LIMIT 1");
+        $req->bindParam();
+        $req->store_result();
+        $req->execute();
 
-    public function logout() {
-        
+        if (isset($_SESSION['loggedin'])) {
+            return true;
+        } else {
+            return false;
+        }
     }
+//
+////check for num rows
+//        if ($req->num_rows > 0) {
+//            //success
+//            $req->close();
+//            return true;
+//        } else {
+//            //failure
+//            $req->close();
+//            return false;
+//        } else {
+//            die("Error! Could not log in");
+//        }
+//    }
+//
+//    public function logout() {
+//        session_destroy();
+//        session_start();
+//    }
 
     public function search() {
 
-        $db = Db::getInstance();
-        if (isset($_POST["query"])) {
+    $db = Db::getInstance();
+    if (isset($_POST["query"])) {
 
 
-            $search = mysqli_real_escape_string($db, $_POST["query"]); //This function is used to create a legal SQL string that you can use in an SQL statement. 
-            //The given string is encoded to an escaped SQL string, taking into account the current character set of the connection.
-            //This is good to use and avoids sql injection
-            $query = "
+    $search = mysqli_real_escape_string($db, $_POST["query"]); //This function is used to create a legal SQL string that you can use in an SQL statement. 
+    //The given string is encoded to an escaped SQL string, taking into account the current character set of the connection.
+    //This is good to use and avoids sql injection
+    $query = "
   SELECT * FROM blogpost
   WHERE BlogPostName LIKE '%" . $search . "%'
   OR BlogPostSubName LIKE '%" . $search . "%' 
@@ -181,7 +210,6 @@ class User {
     }
 
 }
-   
 
 //Functions we may need if we create an admin user, or if we decide to make our current blogger a normal blogger user as well as an admin with a range of powers over the blog:
 //*All users

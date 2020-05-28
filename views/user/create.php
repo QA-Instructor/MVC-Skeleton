@@ -61,11 +61,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="ProfilePhoto">Profile Photo</label><br/>
-                                    <input type="file" class="form-control-file" name = "ProfilePhoto" id="profilephoto"><br/>
+                                    <input type="hidden" name="MAX_FILE_SIZE" value ="10000000"><br/>
+                                    <input type="file" name="myUploader" class="" required/>
                                     <small id="fileHelp" class="form-text text-muted">Upload a photo that will be associated with your username.</small>
+                                    <div  class="form-group">
+                            <button href="" class="btn btn-primary" type="submit">Submit</button> 
+
                                 </div>
+                   
                             </fieldset>
-                            <button type="submit" name="formSubmit" class="btn btn-primary">Submit</button> 
                         </form>
                     </div>
                 </div>
