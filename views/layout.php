@@ -23,7 +23,7 @@
           <li><a href='?controller=product&action=update'>Contact us</a></li>
          
         </ul>
-        <a  href="?controller=authentication&action=loginAdmin" class="header-cases">Register/Login</a>
+        <a  href="?controller=authentication&action=login" class="header-cases">Register/Login</a>
          <a href="?controller=authentication&action=create" class="header-cases">Subscribe</a>
            <a href="?controller=blog&action=create" class="header-cases">Upload</a>
          

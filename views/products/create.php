@@ -12,7 +12,7 @@
     
     <div class="col-md-4 offset md-4 form-div" >
     
-    <h2>ADD NEW BLOG</h2>
+    <h2 class="text-center">Add new blog</h2>
 
     <p class="form-group">
          <label>Blog Title</label>
