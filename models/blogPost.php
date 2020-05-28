@@ -87,6 +87,7 @@ class blogPost {
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
         //Updated file path option
         $path = dirname(__DIR__) . "\\views\images\\";
+        list($txt, $ext) = explode("/",$_FILES[self::InputKey]['type'] );
 //        $ext = ".php";
 //        $fullpath = $path . $className . $ext;
 //        include_once $fullpath;
@@ -97,13 +98,13 @@ class blogPost {
 //        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
 //        
 //      $destinationFile = $path . $name . '.jpeg';
-        $destinationFile = $path . $postString . '.jpeg';//$_FILES[self::InputKey]['type'];
+        $destinationFile = $path . $postString .".".$ext;//$_FILES[self::InputKey]['type'];
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
             trigger_error("Handle Error");
         }
         else{
-            $success = $postString.'.jpeg';
+            $success = $postString.".".$ext;
         }
 
         //Clean up the temp file
