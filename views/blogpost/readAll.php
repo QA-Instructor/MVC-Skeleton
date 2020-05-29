@@ -43,14 +43,12 @@
     align: center;
 }
 </style>-->
-           <p>Translate this page:</p>
+           <p></p>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="form-group">
-            <input class="form-group">
-    <div class="col-lg-8"></div>
-    <div class="col-lg-4">
+    <div class="col-lg-10"></div>
+        <div class="col-lg-2" align="right">
 <div id="google_translate_element"> 
 <script type="text/javascript">
 function googleTranslateElementInit() {
@@ -59,7 +57,6 @@ function googleTranslateElementInit() {
 </script>
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>      
- </div>
 </div>
 </div>
     </div>
