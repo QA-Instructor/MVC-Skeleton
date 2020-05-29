@@ -126,4 +126,20 @@ class blogPost {
         return $list;
     }
 
+     public static function search($category) {
+        $list = [];
+        $db = Db::getInstance();
+        
+        $req = $db->prepare("SELECT * FROM post_table WHERE categoryID = :categoryID");
+               $req->bindParam(':categoryID', $category);
+      $req->execute();
+                   
+        // we create a list of Product objects from the database results
+        foreach ($req->fetchAll() as $posts) {
+            $list[] = new blogPost($posts['postID'], $posts['blogID'], $posts['categoryID'], $posts['title'], $posts['publishedAt'], $posts['content'], $posts['postImage']);
+        }
+        return $list;
+    }
+      
+    
 }

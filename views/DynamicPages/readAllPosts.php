@@ -28,7 +28,7 @@ foreach ($posts as $p) {
           $file = $path. $p->postImage;
           if(file_exists($file)){
               //need to use local path name to display images full name doesnt work
-                 $img = "<img src='views/images/$p->postImage' width='1920' height = '1080' />";
+                 $img = "<img src='views/images/$p->postImage' width='800' height = '600' />";
                  echo $img;
           }
           else

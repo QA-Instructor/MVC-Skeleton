@@ -21,15 +21,15 @@ Class blogPostController {
         require_once('views/DynamicPages/readAllPosts.php');
     }
 
-    public function read() {
+    public function search() {
         // we expect a url of form ?controller=posts&action=show&id=x
         // without an id we just redirect to the error page as we need the post id to find it in the database
-        if (!isset($_GET['id']))
+        if (!isset($_GET['category']))
             return call('pages', 'error');
 
         try {
             // we use the given id to get the correct post
-            $product = Product::find($_GET['id']);
+            $posts = blogPost::search($_GET['category']);
             require_once('views/DynamicPages/readAllPosts.php');
         } catch (Exception $ex) {
             return call('pages', 'error');
