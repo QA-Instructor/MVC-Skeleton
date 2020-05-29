@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/flatly/bootstrap.min.css">
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/flatly/bootstrap.min.css">-->
 
 <div class=" container fluid my-4">
 
@@ -12,7 +12,7 @@
                 <p class="display-5">Hike back to the <a href='/MVC-Skeleton'>Home</a> Page?   </p>
             </div>
             <div class="col-sm">
-                <img src="errorrelax.jpg" class="responsive rounded" style="display:inline" width="100%"/>
+                <img src="../MVC-Skeleton/views/pages/errorrelax.jpg" class="responsive rounded" style="display:inline" width="100%"/>
             </div>
         </div>
     </div>
