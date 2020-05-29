@@ -1,7 +1,14 @@
 <!DOCTYPE html>
+<?php if(isset($_POST["Username"])){
+    session_start();
+    $_SESSION["Username"] = $_POST["Username"];
+    echo "Wellcome " . $_SESSION["Username"];
+}
+    else{?>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pawsome</title>
         <style type="text/css">
             .highlighted
             {
@@ -177,7 +184,7 @@
 
     </nav>
 
-    <title>Pawsome</title>
+    
 </head>
 <body>
 
@@ -245,3 +252,4 @@
             });
         });
 </script>
+ <?php }?>

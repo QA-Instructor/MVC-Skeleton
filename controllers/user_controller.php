@@ -24,9 +24,7 @@ class UserController {
         } else {
             $register_number = User::login();
             if ($register_number != 0) {
-                session_start();
-                $_SESSION["Username"] = $_POST["Username"];
-                header("Location:'views/blogpost/readAll.php'");
+                 require_once('../view/layout.php');                
             } else {
                 require_once('views/user/login.php');
                 echo '<script language="javascript">';
