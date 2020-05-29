@@ -30,6 +30,20 @@
       <!-- ForEach over our blogposts -->
         
    <p>Translate this page:</p>
+<!--   //Attempts to move the translate API to the right hand side:-->
+<!--<div dir="rtl" lang="">-->
+<!--<style>
+.google_translate_element {
+  border: 5px outset red;
+  background-color: lightblue;    
+  text-align: center;
+}
+</style>-->
+<!--<style>
+    .google_translate_element {
+    align: center;
+}
+</style>-->
 
 <div id="google_translate_element"></div>
 
