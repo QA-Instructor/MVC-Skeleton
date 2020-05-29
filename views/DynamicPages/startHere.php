@@ -33,7 +33,7 @@
         <div class="leftcolumn">
             <div class="card">
                 <h2>7 Things You’ll Learn on your First Canyon Adventure</h2>
-                <h5>Canyoning is an adventure and exploration sport where participants climb into a wetsuit and get themselves down a river, gorge or – you guessed it – canyon. It involves using a variety of techniques ranging from walking, jumping and scrambling to abseiling and rock climbing. Canyoning in itself is a bit of a multi-sport adventure.
+                <h5>Canyoning is an adventure and exploration sport where participants climb into a wetsuit and get themselves down a river, gorge or – you guessed it – canyon. It involves using a variety of techniques ranging from walking, jumping and scrambling to abseiling and rock climbing. Canyoning in itself is a bit of a multi-sport adventure.<br>
 
                     If you’ve not done it before, the whole process can be a little daunting. But the good thing about canyoning is that it can often be as relaxing or as intense and adrenaline-fuelled as you want it to be. There are different routes depending on ability and confidence. Even within the same canyon there are often different options and a variety of ways back down.
 
@@ -41,15 +41,14 @@
 
                     Here are a few things that you’ll learn on your first canyoning trip, with the add-ins of a few epic places and ways to try it out. 
                 </h5>
-                <div class="img" style="height:200px;">Image</div>
-
+                <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1727.jpg" alt="imagePost" style="width:100%;">
                 <p>Some text..</p>
             </div>
             <div class="card">
                 <h2>TITLE HEADING</h2>
                 <h5>Content, Sep 2, 2017</h5>
                 <div class="img"></div>
-                <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1772.jpg" alt="image" style="width:100%;">
+                <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1772.jpg" alt="imagePost" style="width:100%;">
                 <p>Some text..</p>
                 <!--                <div class="Comment">-->
                 <div class="readMore">
@@ -64,7 +63,7 @@
                 <div class="card">
                     <h2>About Me</h2>
                     <div class="img">
-                        <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1772.jpg" alt="image" style="width:100%;">
+                        <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1772.jpg" alt="imageAboutMe" style="width:100%;">
                     </div>
                     <p>Hi, I'm Victoria and I love canyoning.</p>
                 </div>
@@ -185,6 +184,7 @@
                 float: right;
                 width: 20%;
                 padding-left: 10px;
+                position: fixed;
             }
 
             /* image */
@@ -193,6 +193,7 @@
                             width: 96%;
                             background-color: #aaa;*/
                 padding: 20px;
+                
             }
 
             /* Add a card effect for articles */
