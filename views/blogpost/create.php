@@ -1,6 +1,7 @@
 <!-- Page Content -->
 <div class="container">
     <div class="row">
+        <div class="col-lg-2"></div>
         <!-- Post Content Column -->
         <div class="col-lg-8">
             <div class="card-body">
@@ -17,8 +18,8 @@
                         <!--                        <label>Blog Post Sub Name</label>-->
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" name="BlogPostContent" placeholder="Write away..." required autofocus>
-                        <!--                        <label>Blog Post Content </label>-->
+                    <textarea class="form-control" name= "BlogPostContent" id="BlogPostContent" rows="3" placeholder="Write away..." required></textarea>
+                    <!--                        <label>Blog Post Content </label>-->
                     </div>
                     <div class="form-group">
                         <p> Select pet </p>
@@ -57,6 +58,7 @@
                             <button href="" class="btn btn-primary" type="submit">Publish</button>
                         </div>
                     </div>
+                    <div class="col-lg-2"></div>
                 </fieldset>
             </form>
 
