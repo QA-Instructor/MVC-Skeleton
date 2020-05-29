@@ -139,3 +139,15 @@
     color: #777;
   }
 }
+
+/*masthead*/
+.masthead {
+  height: 100vh;
+  min-height: 100px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+    margin-bottom: 2rem;
+
+  
+}

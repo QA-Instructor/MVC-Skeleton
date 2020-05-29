@@ -106,7 +106,7 @@
 
         <!--        Links to our styling files        -->
         <link href="views/css/_bootswatch.scss" rel="stylesheet" type="text/css"/>
-        <link href="views/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<!--        <link href="views/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
         <link href="views/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="views/css/_variables.scss" rel="stylesheet" type="text/css"/>
         <link href="views/css/styles.css" rel="stylesheet" type="text/css"/>

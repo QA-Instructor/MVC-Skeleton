@@ -1,31 +1,31 @@
  
     
-                <div id="realTimeContents">         
+<!--                <div id="realTimeContents">         
 
 <div class="container">
     <div class="row">
         <div class="col">
-            <!--      1 of 3-->
+                  1 of 3
         </div>
         <div class="col-6">
-            <!--      2 of 3 (wider)-->
+                  2 of 3 (wider)
         </div>
         <div class="col">
-            <!--      3 of 3-->
+                  3 of 3
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <!--      1 of 3-->
+                  1 of 3
         </div>
         <div class="col-5">
-            <!--      2 of 3 (wider)-->
+                  2 of 3 (wider)
         </div>
         <div class="col">
-            <!--      3 of 3-->
+                  3 of 3
         </div>
     </div>
-</div>
+</div>-->
 
       <!-- ForEach over our blogposts -->
         
@@ -34,15 +34,21 @@
 
 <!-- Banner -->
 
-<div class="jumbotron">
+<div class="fluid">
+      <div class="container py-5">
+    <h1 class="display-4">AWW</h1>
+    <p class="lead">Get read to gush over these cuties!</p>
+</div>
+    
+<!--<div class="jumbotron">
     <h1 class="display-3">Welcome to Pawsome</h1>
     <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
     <hr class="my-4">
     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
     <p class="lead">
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
-</div>
+    </p>-->
+<!--</div>-->
 
 <!-- Page Content -->
 <div class="container">
