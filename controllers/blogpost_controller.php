@@ -44,6 +44,8 @@ class BlogPostController {
       try{           
        //we use the given id to get the correct post          
       $blogpost = BlogPost::find($_GET['id']);
+      require_once('models/comment.php');
+      $comments = Comment::find($_GET['id']);
       require_once('views/blogpost/read.php');
       }
  catch (Exception $ex){

@@ -13,10 +13,7 @@
             <p>Blogpost Name: <?php echo $blogpost->blogPostName; ?></p>
             <p>Blogpost SubName: <?php echo $blogpost->blogPostSubName; ?></p>
             <p>Blogpost Content: <?php echo $blogpost->blogPostContent; ?></p>
-
-        </div>
-    </div>
-</div>
+ 
 <?php 
 $file = $blogpost->blogPostPhoto;//the last step that we did
 //C:/xampp/htdocs/MVC-Skeleton/views/images/Test1.jpeg
@@ -42,4 +39,34 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
 
 ?>
 </div>
+
+        <div>
+            <div>
+                <div>             
+                    <?php
+                    try {
+                        if ($comments) {
+                            foreach ($comments as $comment1) {
+                                ?>  
+                                <p>Username: <?php echo $comment1->username; ?></p>
+                                <p>Comments: <?php echo $comment1->comment; ?></p>
+                                <p>Date: <?php echo $comment1->commentTime; ?></p>
+
+
+                            <?php
+                            }
+                        } else {
+                            throw new Exception('No comments');
+                        }
+                    } catch (Exception $e) {
+                        ?>
+
+                        <p>Comments: <?php echo 'Message: ' . $e->getMessage(); ?></p>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>  
+
 	
