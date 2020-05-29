@@ -29,7 +29,6 @@
 
       <!-- ForEach over our blogposts -->
         
-   <p>Translate this page:</p>
 <!--   //Attempts to move the translate API to the right hand side:-->
 <!--<div dir="rtl" lang="">-->
 <!--<style>
@@ -44,9 +43,15 @@
     align: center;
 }
 </style>-->
+           <p>Translate this page:</p>
 
-<div id="google_translate_element"></div>
-
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+            <input class="form-group">
+    <div class="col-lg-8"></div>
+    <div class="col-lg-4">
+<div id="google_translate_element"> 
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
@@ -54,8 +59,11 @@ function googleTranslateElementInit() {
 </script>
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>      
-  
-
+ </div>
+</div>
+</div>
+    </div>
+    </div>
 <!-- Banner -->
 
 <div class="jumbotron">
