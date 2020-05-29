@@ -1,3 +1,48 @@
+<?php
+//login
+//connect to database
+//zinclude("connection.php");
+
+//set cookie and validate 
+if (isset($_COOKIE["type"])) {
+    header("location: bloggerLogin.php");
+}
+$message = '';
+//check if the variable has been set, if not, echo warning message
+if (isset($_POST["login"])) {
+    if (empty($_POST["blogName"] || $_POST["email"]) || empty($_POST["password"])) {
+        $message = "<div class='alert alert-danger'>Both Fields are required</div>";
+    } else {
+        $query = "
+  SELECT * FROM register_table 
+  WHERE email = :email
+  ";
+        $statement = $connect->prepare($query);
+        $statement->execute(
+                array(
+                    'email' => $_POST["email"]
+                )
+        );
+        $count = $statement->rowCount();
+        if ($count > 0) {
+            $result = $statement->fetchAll();
+            foreach ($result as $row) {
+                if (password_verify($_POST["password"], $row["password"])) {
+                    setcookie("type", $row["username"], time() + 3600);
+                    header("location:index.php");
+                } else {
+                    $message = '<div class="alert alert-danger">Wrong Password</div>';
+                }
+            }
+        } else {
+            $message = "<div class='alert alert-danger'>Wrong Email Address</div>";
+        }
+    }
+}
+
+//setcookie("$firstName", "$lastName", time() - 86400);
+//session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,20 +76,19 @@
         * {
             box-sizing: border-box;
         }
-        .img{
+/*        .img{
             image: url("http://localhost/MVC-Skeleton/views/images/logo1.png");
             min-height: 100px;
             position: center;
             repeat: no-repeat;
             position: absolute;
-        }
+        }*/
 
         .bg-img {
             /* The image used */
             background-image: url("http://localhost/MVC-Skeleton/views/images/HCH_1772.jpg");
 
             min-height: 900px;
-
             /* Center and scale the image nicely */
             background-position: center;
             background-repeat: no-repeat;
@@ -117,9 +161,6 @@
             <button type="submit" class="btn">Login</button>
         </form>
     </div>
-
-    <p></p>
-
 </body>
 </html>
 
