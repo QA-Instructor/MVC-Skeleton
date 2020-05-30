@@ -69,10 +69,9 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
  
   } 
  ?>
-<form action="" method="POST" class="" enctype="multipart/form-data">
-    
+<form action="" method="POST" class="" enctype="multipart/form-data">    
     <p>New Comment</p>
-</div>
+
     <p>
        <span style="color:red">*</span>
         <input class="" type="text" name="Username" placeholder="Name" required>
@@ -84,9 +83,10 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
        
     </p>          
   
-  <p>
-    <input class="" type="submit" value="Comment">
-  </p>
+  <div  class="form-group">
+      <button class="btn btn-primary" type="submit">Comment</button>
+    </div>                     
+                   
 </form>
       
 
