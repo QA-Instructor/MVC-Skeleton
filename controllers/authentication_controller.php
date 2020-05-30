@@ -2,22 +2,7 @@
 
 class AuthenticationController {
 
-    
-
-
-    public function validate() {
-        if (!isset($_GET['email']))
-            return call('pages', 'error');
-
-        try {
-            $row = Auth::duplicate_check($_GET['email']);
-
-            require_once('../views/auth/signup.php');
-
-        } catch (Exception $e) {
-            $e->getMessage();
-        }
-    }
+ 
 
     public function create() {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -26,7 +11,6 @@ class AuthenticationController {
             require_once('C:\xampp\htdocs\FinProject\views\pages\signup.php'); // takes it to the form that they need to sign up
         } else {
             Authentication::insertAdmin();
-            $stmt = Authentication::all();
         }
     }
 
@@ -38,7 +22,7 @@ class AuthenticationController {
 
             Authentication::login();
 
-            // $row=Authentication::all();
+            
         }
     }
 

@@ -18,8 +18,7 @@
                 <div class="col-md-4 offset md-4 form-div">
                     <form action="index.php" method="POST">
                         <h3 class="text-center">Register</h3>
-                   
-                      
+                          
                         <div class="form-group">
                             <label for="=email">Email</label>
                             <input type="text" name="email" value="<?php ?>" class="form-control form-control-lg">

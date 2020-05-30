@@ -1,78 +1,85 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" >
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
     <title>Our Blog</title>
-    <!--We need the meta tag to properly scale the responsive CSS code-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Here I went ahead and imported two fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link rel="stylesheet" href="views/css/style.css" rel="stylesheet" type="text/css"/> 
+    
+       <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <!--External bootstrap Stylesheet -->
+<link href="views/css/styles1.css" rel="stylesheet" type="text/css"/> 
+
+    <!--We need the meta tag to properly scale the responsive CSS code
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <!--Here I went ahead and imported two fonts
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">-->
+    <!--<link href="views/css/style.css" rel="stylesheet" type="text/css"/> -->
+    
   </head>
   <body>
     <header>
-        
 
-         <a href="index.php" class="header-brand">Our Travel Blog</a>
+ 
+           <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">Our Travel Blog</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href='/FinProject'>Home
+                                 <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?controller=product&action=readAll">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href='?controller=blog&action=readAll'>Blogs</a>
+                           
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?controller=contactus&action=create">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href='?controller=authentication&action=login'>Sign In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href='?controller=authentication&action=create'>Sign Up</a>
+                            
+                        </li>
+                
+                    </ul>
+                </div>
+            </div>
+        </nav>       
 
-        
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-          <li><a href="?controller=pages&action=aboutus">About us</a></li>
-          <li><a href='?controller=blog&action=readAll'>Blogs</a></li>
-          <li><a href='?controller=contactus&action=create'>Contact us</a></li>
-         
-        </ul>
-
-        <a href="?controller=authentication&action=login" class="header-cases">Login</a>
-         <a href="?controller=authentication&action=create" class="header-cases">Signup</a>
-
-         
-                 
      
-      </nav> 
+      
     
     
     </header>
 <div class="w3-container w3-pink">
     <?php require_once('routes.php'); ?>
 </div>
-<div class="wrapper">
-    <footer >
-        
-             <!--The main footer menu-->
-        <ul class="footer-links-main">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Contact us</a></li>
-          <li><a href="#">Subscribe and Login</a></li>
-        </ul>
-        <!--The latest cases footer menu-->
-     
-        <!--The social media footer menu-->
-        <div class="footer-sm">
-          <a href="#">
-            <img src="views/images/img/youtube-symbol.png" alt="youtube icon">
-          </a>
-          <a href="#">
-            <img src="views/images/img/twitter-logo-button.png" alt="youtube icon">
-          </a>
-          <a href="#">
-            <img src="views/images/img/facebook-logo-button.png" alt="youtube icon">
-          </a>
-        </div>
-        Copyright &COPY; <?= date('Y'); ?>
-    </footer>
-</div>
- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
-  
+    
+         
 
-</body>
+  <!--<footer class="py-5 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white"> Our Travel Blog  &copy <?= date('Y');?></p>
+            </div></footer> -->
+    
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+  </body>
 </html>
-
-
- 
