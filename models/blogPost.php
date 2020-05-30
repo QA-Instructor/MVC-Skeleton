@@ -119,7 +119,7 @@ class blogPost {
     public static function all() {
         $list = [];
         $db = Db::getInstance();
-        $req = $db->query('SELECT * FROM post_table');
+        $req = $db->query('SELECT * FROM post_table ORDER BY publishedAt DESC');
         // we create a list of Product objects from the database results
         foreach ($req->fetchAll() as $posts) {
             $list[] = new blogPost($posts['postID'], $posts['blogID'], $posts['categoryID'], $posts['title'], $posts['publishedAt'], $posts['content'], $posts['postImage']);
