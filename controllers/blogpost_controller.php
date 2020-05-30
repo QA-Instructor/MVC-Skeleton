@@ -60,7 +60,7 @@ class BlogPostController {
      
  }if(isset($_GET['CommentID'])){
  Comment::remove($_GET['id'], $_GET['CommentID']);
-  echo "<meta http-equiv='refresh' content='0'>";
+ // echo "<meta http-equiv='refresh' content='0'>";
  }
     }
     public function create() {
