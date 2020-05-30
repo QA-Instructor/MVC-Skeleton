@@ -1,5 +1,14 @@
 <?php
 
+class TooManyLoginAttempts extends Exception{
+          private $maxAttempts = 3; //$TooManyLoginAttempts is the object and private is the access modifier
+          protected $message = "You have Exceeded Maximum Login Attempts";
+         
+          public function getMaxAttempts(){
+              return $this->maxAttempts;
+          }
+      }
+
 Class BloggerController {
 
     public function create() {
@@ -26,15 +35,22 @@ Class BloggerController {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             require_once('views/DynamicPages/bloggerLogin.php');
         } else {
-            //try{
+                try{
                   $bloggers = blogger::all();
                   $loggedin = blogger::findBlogger($bloggers);
                   echo $loggedin->blogName . ' you are logged in';
                   require_once('views/DynamicPages/readAllBloggers.php');
-           //pass the data back to the 'start here' page to display the blogger user name and also last login
-           //also can display the last post and image created
-           
-        //}
+                }
+                catch(TooManyLoginAttempts $e){
+                  $currentAttempts = $_SESSION['attempts'] + 1;
+                  if($currentAttempts < $e->getMaxAttempts() ){
+                    $_SESSION['attempts'] = $currentAttempts;
+                    require_once('views/DynamicPages/bloggerLogin.php');
+                  }else{
+                    echo $e->getMessage(). PHP_EOL;
+                    echo "Have you registered ?";
+                  }
+                }
     }
 }
 }
