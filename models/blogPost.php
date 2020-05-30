@@ -142,5 +142,18 @@ class blogPost {
         return $list;
     }
       
-    
+     public static function category($category) {
+        $list = [];
+        $db = Db::getInstance();
+        
+        $req = $db->prepare("SELECT DISTINCT 1 FROM categoryID WHERE categoryID = :categoryID"); //
+               $req->bindParam(':categoryID', $category);
+      $req->execute();
+                   
+        // we create a list of Product objects from the database results
+        foreach ($req->fetchAll() as $posts) {
+            $list[] = new blogPost($posts['postID'], $posts['blogID'], $posts['categoryID'], $posts['title'], $posts['publishedAt'], $posts['content'], $posts['postImage']);
+        }
+        return $list;
+    }
 }
