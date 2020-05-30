@@ -33,19 +33,28 @@
             ?>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="leftcolumn">
+                    <!--<div class="leftcolumn">-->
                         <div class="card">
                             <h3>   <?php echo$p->title . PHP_EOL; ?> </h3>
 
                             <?php echo$p->content . PHP_EOL; ?> 
                             <?php
                             if ($p->postImage !== NULL) {
-                                $path = dirname(__DIR__) . "\\images\\";
+                                //$path = dirname(__DIR__) . "\\images\\"; 
+                                $path = __DIR__. "/../../views/images/";
+                                //$path = __DIR__;
+                                //$pathArray = explode ('/', $path);
+                                //$length = count($pathArray);
+                                        
+                                
                                 $file = $path . $p->postImage;
+                                //echo $file;
                                 if (file_exists($file)) {
                                     //need to use local path name to display images full name doesnt work
-                                    $img = "<img src='views/images/$p->postImage' width='800' height = '600' />";
+                                    $img = "<img src='views/images/$p->postImage' width='800' height = '600' />";   //added /../
                                     echo $img;
+                                    echo "i am getting to this point $path";
+                                    
                                 } else {
                                     echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
                                 }
