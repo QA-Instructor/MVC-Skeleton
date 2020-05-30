@@ -34,11 +34,11 @@
 
 <!-- Banner -->
 
-<div class="fluid">
+<!--<div class="fluid">
       <div class="container py-5">
     <h1 class="display-4">AWW</h1>
     <p class="lead">Get ready to gush over these cuties!</p>
-</div>
+</div>-->
     
 <!--<div class="jumbotron">
     <h1 class="display-3">Welcome to Pawsome</h1>
