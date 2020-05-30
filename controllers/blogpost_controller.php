@@ -53,11 +53,15 @@ class BlogPostController {
  }
  if(isset($_POST['Username'])){
      Comment::add($_GET['id']);
+     echo "<meta http-equiv='refresh' content='0'>";
      Comment::all();
      require_once('views/blogpost/read.php');
      
+     
  }if(isset($_GET['CommentID'])){
- Comment::remove($_GET['id'], $_GET['CommentID']);}
+ Comment::remove($_GET['id'], $_GET['CommentID']);
+  echo "<meta http-equiv='refresh' content='0'>";
+ }
     }
     public function create() {
       // we expect a url of form ?controller=blogpost&action=create
