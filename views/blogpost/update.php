@@ -2,6 +2,7 @@
 <!-- Page Content -->
 <div class="container">
     <div class="row">
+        <div class="col-lg-2"></div>
         <!-- Post Content Column -->
         <div class="col-lg-8">
             <div class="card-body">
