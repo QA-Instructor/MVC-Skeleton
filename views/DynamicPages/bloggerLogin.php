@@ -98,13 +98,13 @@ if (!isset($_SESSION['attempts']))
             background-size: cover;
             position: relative;
         }
-
+        
         /* Add styles to the form container */
         .container {
             position: absolute;
             right: 0;
             margin: 20px;
-            max-width: 300px;
+            max-width: 200px;
             padding: 12px;
             background-color: white;
             opacity: 0.9;
@@ -149,17 +149,15 @@ if (!isset($_SESSION['attempts']))
 <body>
     <div class="bg-img">
         <h2>Start your Advntr now...</h2>
+        
         <form action="" method = "POST" class="container" enctype="multipart/form-data">
             <h2 class="login">Login</h2>
 
             <label for="Blog Name"><b>Blog Name</b></label>
-            <input type="text" placeholder="Enter Your Blog Name" name="blogName" required>
-
-            <label for="email"><b>Email</b></label>
-            <input type="email" placeholder="Enter Your Email Address" name="email" required>
+            <input type="text" placeholder="Enter Blog Name" name="blogName" required>
 
             <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Your Password" name="password" required>
+            <input type="password" placeholder="Enter Password" name="password" required>
 
             <button type="submit" class="btn">Login</button>
         </form>

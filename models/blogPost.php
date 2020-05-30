@@ -86,8 +86,10 @@ class blogPost {
 
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
         //Updated file path option
+      
         //$path = dirname(__DIR__) . "\\views\images\\";
         $path = __DIR__. "/../views/images/";
+
         list($txt, $ext) = explode("/",$_FILES[self::InputKey]['type'] );
 //        $ext = ".php";
 //        $fullpath = $path . $className . $ext;
@@ -119,7 +121,7 @@ class blogPost {
     public static function all() {
         $list = [];
         $db = Db::getInstance();
-        $req = $db->query('SELECT * FROM post_table');
+        $req = $db->query('SELECT * FROM post_table ORDER BY publishedAt DESC');
         // we create a list of Product objects from the database results
         foreach ($req->fetchAll() as $posts) {
             $list[] = new blogPost($posts['postID'], $posts['blogID'], $posts['categoryID'], $posts['title'], $posts['publishedAt'], $posts['content'], $posts['postImage']);
@@ -142,5 +144,18 @@ class blogPost {
         return $list;
     }
       
-    
+     public static function category($category) {
+        $list = [];
+        $db = Db::getInstance();
+        
+        $req = $db->prepare("SELECT DISTINCT 1 FROM categoryID WHERE categoryID = :categoryID"); //
+               $req->bindParam(':categoryID', $category);
+      $req->execute();
+                   
+        // we create a list of Product objects from the database results
+        foreach ($req->fetchAll() as $posts) {
+            $list[] = new blogPost($posts['postID'], $posts['blogID'], $posts['categoryID'], $posts['title'], $posts['publishedAt'], $posts['content'], $posts['postImage']);
+        }
+        return $list;
+    }
 }
