@@ -46,10 +46,13 @@ class BlogPostController {
       $blogpost = BlogPost::find($_GET['id']);
       require_once('models/comment.php');
       $comments = Comment::find($_GET['id']);
-      require_once('views/blogpost/read.php');
+      require_once('views/blogpost/read.php');      
       }
  catch (Exception $ex){
      return call('pages','error');
+ }
+ if(isset($_POST['Username'])){
+     Comment::add($_GET['id']);
  }
     }
     public function create() {

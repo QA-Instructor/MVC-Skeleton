@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php if(isset($_POST["Username"])){
+<?php if(isset($_POST["Hashcode"])){
     session_start();
     $_SESSION["Username"] = $_POST["Username"];
     echo "Wellcome " . $_SESSION["Username"];

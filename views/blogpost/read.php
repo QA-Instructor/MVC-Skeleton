@@ -50,7 +50,7 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
     
 ?>  
             <p>Username: <?php echo $comment1->username; ?></p>
-            <p>Comments: <?php echo $comment1->comment; ?></p>
+            <p>Comments: <?php echo $comment1->commentContent; ?></p>
             <p>Date: <?php echo $comment1->commentTime; ?></p>
 
         </div>
@@ -68,5 +68,24 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
  
   } 
  ?>
+<form action="" method="POST" class="" enctype="multipart/form-data">
+    
+    <p>New Comment</p>
+</div>
+    <p>
+       <span style="color:red">*</span>
+        <input class="" type="text" name="Username" placeholder="Name" required>
+        
+    </p>
+        <p>
+        <span style="color:red">*</span>
+        <input class="" type="text" name="CommentContent" placeholder="Comment" required>
+       
+    </p>          
+  
+  <p>
+    <input class="" type="submit" value="Comment">
+  </p>
+</form>
 
 	

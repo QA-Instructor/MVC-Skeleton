@@ -5,15 +5,15 @@
     public $commentID;
     public $blogpostID;
     public $username;
-    public $comment;
+    public $commentContent;
     public $commentTime;
     
 
-    public function __construct($commentID, $blogpostID, $username, $comment, $commentTime) {
+    public function __construct($commentID, $blogpostID, $username, $commentContent, $commentTime) {
       $this->commentID = $commentID;
       $this->blogpostID = $blogpostID;
-      $this->comment  = $username;
-      $this->username = $comment;
+      $this->username= $username;
+      $this->commentContent = $commentContent;
       $this->commentTime = $commentTime;
     }
 
@@ -39,39 +39,41 @@
       $comments = $req->fetchAll();  
 
     foreach($comments as $comment) {
-        $list[] = new Comment($comment['CommentID'], $comment['BlogPostID'], $comment['Username'], $comment['Comment'], $comment['CommentTime']);
+        $list[] = new Comment($comment['CommentID'], $comment['BlogPostID'], $comment['Username'], $comment['CommentContent'], $comment['CommentTime']);
     }
     return $list;
     }
            
-    public static function add() {
+    public static function add($blogpostID) {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into product(name, price) values (:name, :price)");
-    $req->bindParam(':name', $name);
-    $req->bindParam(':price', $price);
+    $req = $db->prepare("Insert into commentpost(BlogPostID, Username, CommentContent, CommentTime) values (:BlogPostID, :Username,:CommentContent, :CommentTime)");
+    $req->bindParam(':BlogPostID', $blogpostID);
+    $req->bindParam(':Username', $username);
+    $req->bindParam(':CommentContent', $commentContent);
+    $req->bindParam(':CommentTime', $commentTime);
 
 // set parameters and execute
-    if(isset($_POST['name'])&& $_POST['name']!=""){
-        $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['Username'])&& $_POST['Username']!=""){
+        $filteredUserame = filter_input(INPUT_POST,'Username', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-    if(isset($_POST['price'])&& $_POST['price']!=""){
-        $filteredPrice = filter_input(INPUT_POST,'price', FILTER_SANITIZE_SPECIAL_CHARS);
+    if(isset($_POST['CommentContent'])&& $_POST['CommentContent']!=""){
+        $filteredCommentContent = filter_input(INPUT_POST,'CommentContent', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-$name = $filteredName;
-$price = $filteredPrice;
+//$blogpostID = $_GET['id'];
+$username = $filteredUserame;
+$commentContent = $filteredCommentContent;
+$commentTime=date("Y-m-d H:i:s");
 $req->execute();
 
-//upload product image
-Product::uploadFile($name);
     }
 
-public static function remove($id) {
+public static function remove($blogpostID,$commentID) {
       $db = Db::getInstance();
       //make sure $id is an integer
-      $id = intval($id);
-      $req = $db->prepare('delete FROM product WHERE id = :id');
+      $commentID = intval($commentID);
+      $req = $db->prepare('DELETE FROM commentpost WHERE CommentID = :CommentID');
       // the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('id' => $id));
+      $req->execute(array('CommentID' => $commentID));
   }
   
 }

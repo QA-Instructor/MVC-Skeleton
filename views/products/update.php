@@ -2,7 +2,7 @@
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     <h2>Update Item</h2>
     <p>
-        <input class="w3-input" type="text" name="name" value="<?= $product->comment; ?>">
+        <input class="w3-input" type="text" name="name" value="<?= $product->commentContent; ?>">
         <label>Name</label>
     </p>
     <p>
@@ -12,7 +12,7 @@
             
   <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
 <?php 
-$file = 'views/images/' . $product->comment . '.jpeg';
+$file = 'views/images/' . $product->commentContent . '.jpeg';
 if(file_exists($file)){
     $img = "<img src='$file' width='150' />";
     echo $img;
