@@ -1,13 +1,17 @@
 <div class="container">
-
-    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0"></h1>
-
-    <div class="row text-center text-lg-left pb-4 imagecontainer">
-        <div class="col-12">
-            <img class="img-fluid" src="../MVC-Skeleton/views/images/home.png" alt="">
-            <a href='?controller=blogpost&action=readAll'> <button class="btn">View blogs</button> </a>
-        </div>
-    </div>
+    
+       <!--SPACING-->
+       <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0"></h1>
+    
+    <!--     BANNER WITH BUTTON LINKING TO ALL BLOGS -->
+    <!--    <div class="row text-center text-lg-left pb-4 imagecontainer">
+            <div class="col-12">
+                <img class="img-fluid img-thumbnail" src="../MVC-Skeleton/views/images/pawsomebannersuki.jpg" alt="">
+                <a href='?controller=blogpost&action=readAll'> <button class="btn">View blogs</button> </a>
+            </div>
+        </div>-->
+    
+    <!--GALLERY-->
     <div class="row text-center text-lg-left">
         <div class="col-lg-3 col-md-4 col-6">
             <a href="#" class="d-block mb-4 h-100">
@@ -51,16 +55,6 @@
         </div>
         <div class="col-lg-3 col-md-4 col-6">
             <a href="#" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../MVC-Skeleton/views/images/pawsome7.jpg" alt="">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="../MVC-Skeleton/views/images/pawsome8.jpg" alt="">
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6">
-            <a href="#" class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="../MVC-Skeleton/views/images/pawsome9.jpg" alt="">
             </a>
         </div>
@@ -69,8 +63,17 @@
                 <img class="img-fluid img-thumbnail" src="../MVC-Skeleton/views/images/pawsome10.jpg" alt="">
             </a>
         </div>
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="#" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../MVC-Skeleton/views/images/pawsome11.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-6">
+            <a href="#" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../MVC-Skeleton/views/images/pawsome12.jpg" alt="">
+            </a>
+        </div>
     </div>
-
 </div>
 
 <!--<body class="homepic">  

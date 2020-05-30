@@ -155,7 +155,7 @@ https://www.w3schools.com/howto/howto_css_button_on_image.asp*/
 }
 
 .imagecontainer img {
-    background:url("home.png") no-repeat center center fixed;
+    background:url("pawsomebannersuki.jpg") no-repeat center center fixed;
 /*    background-size: cover;
     background-color: #fff;*/
 /*    height: 100%;*/
@@ -171,10 +171,10 @@ https://www.w3schools.com/howto/howto_css_button_on_image.asp*/
 /* Style the button and place it in the middle of the container/image */
 .imagecontainer .btn {
   position: absolute;
-  top: 90%;
-  left: 67%;
-  transform: translate(-90%, -67%);
-  -ms-transform: translate(-90%, -67%);
+  top: 50%;
+  left: 57%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -57%);
   background-color: #2C3E50;
   color: white;
   font-size: 16px;
@@ -188,4 +188,23 @@ https://www.w3schools.com/howto/howto_css_button_on_image.asp*/
 
 .imagecontainer .btn:hover {
   background-color: teal;
+}
+
+/* claudia trying to make overlayed text here */
+
+.overlayedtext {
+  position: absolute;
+  top: 80%;
+  left: 67%;
+/*  transform: translate(-80%, -67%);
+  -ms-transform: translate(-80%, -67%);*/
+  background-color: #2C3E50;
+  color: white;
+  font-size: 1em;
+/*  padding: 12px 24px;*/
+  border: none;
+  cursor: pointer;
+/*  width: auto;
+  height: auto;*/
+/*  border-radius: 5px;*/
 }
