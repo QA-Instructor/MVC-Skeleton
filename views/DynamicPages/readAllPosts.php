@@ -31,35 +31,37 @@
         <?php
         foreach ($posts as $p) {
             ?>
-            <div class="row">
-                <div class="leftcolumn">
-                    <div class="card">
-                        <h3>   <?php echo$p->title . PHP_EOL; ?> </h3>
-                        <?php
-                        echo$p->content . PHP_EOL;
-                        // echo$p->postImage . PHP_EOL;
-                        if ($p->postImage !== NULL) {
-                            $path = dirname(__DIR__) . "\\images\\";
-                            $file = $path . $p->postImage;
-                            if (file_exists($file)) {
-                                //need to use local path name to display images full name doesnt work
-                                $img = "<img src='views/images/$p->postImage' width='800' height = '600' />";
-                                echo $img;
-                            } else {
-                                echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="leftcolumn">
+                        <div class="card">
+                            <h3>   <?php echo$p->title . PHP_EOL; ?> </h3>
+
+                            <?php echo$p->content . PHP_EOL; ?> 
+                            <?php
+                            if ($p->postImage !== NULL) {
+                                $path = dirname(__DIR__) . "\\images\\";
+                                $file = $path . $p->postImage;
+                                if (file_exists($file)) {
+                                    //need to use local path name to display images full name doesnt work
+                                    $img = "<img src='views/images/$p->postImage' width='800' height = '600' />";
+                                    echo $img;
+                                } else {
+                                    echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
+                                }
                             }
+                            echo$p->publishedAt . PHP_EOL;
                         }
-                        echo$p->publishedAt . PHP_EOL;
-                    }
-                    ?> &nbsp; &nbsp;
-                    <div class="img" style="height:200px;">Image</div>
+                        ?> </td>
+                        <!--&nbsp;-->
+                        <div class="img" style="height:200px;">Image</div>
+                    </div>
                 </div>
             </div>
         </div>
-
-  <!--<a href='?controller=product&action=read&id=<?php // echo $product->id;     ?>'>See product information</a> &nbsp; &nbsp;
-  <a href='?controller=product&action=delete&id=<?php // echo $product->id;     ?>'>Delete Product</a> &nbsp; &nbsp;
-  <a href='?controller=product&action=update&id=<?php // echo $product->id;     ?>'>Update Product</a> &nbsp;-->
+  <!--<a href='?controller=product&action=read&id=<?php // echo $product->id;      ?>'>See product information</a> &nbsp; &nbsp;
+  <a href='?controller=product&action=delete&id=<?php // echo $product->id;      ?>'>Delete Product</a> &nbsp; &nbsp;
+  <a href='?controller=product&action=update&id=<?php // echo $product->id;      ?>'>Update Product</a> &nbsp;-->
     </p>
 </body>
 </html>
