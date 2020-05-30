@@ -52,7 +52,7 @@ echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
             <p>Username: <?php echo $comment1->username; ?></p>
             <p>Comments: <?php echo $comment1->commentContent; ?></p>
             <p>Date: <?php echo $comment1->commentTime; ?></p>            
-            <a href='?controller=blogpost&action=delete&id=<?php echo $_GET['id']; ?>&CommentID=<?php echo $comment1->commentID; ?>'>Delete</a> &nbsp; &nbsp;
+            <a href='?controller=blogpost&action=read&id=<?php echo $_GET['id']; ?>&CommentID=<?php echo $comment1->commentID; ?>'>Delete</a> &nbsp; &nbsp;
 
         </div>
     </div>
