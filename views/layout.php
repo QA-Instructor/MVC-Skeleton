@@ -20,7 +20,7 @@
                 <a href='?controller=blogPost&action=create'>Create new post</a>
                 <a href='?controller=blogPost&action=readAll'>Posts</a>
                 <a href='?controller=blogger&action=create'>Register Blogger</a>
-                <a href='?controller=blogPostComment&action=create'>Add Comment</a>
+<!--                <a href='?controller=blogPostComment&action=create'>Add Comment</a>-->
                 <a href='?controller=blogger&action=login'>Blogger Login</a>
                 <a href='?controller=blogPost&action=search&category=1'>Search</a>
                 <input class="search" type="text" placeholder="Search... aria-label="Search">
