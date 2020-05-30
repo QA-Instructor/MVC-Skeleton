@@ -4,24 +4,24 @@
         <meta charset="UTF-8">
         <title>ADVNTR</title>
     </head>
-  
-        <?php
+
+    <?php
     require_once('connection.php');
-        
+
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = $_GET['controller'];
-        $action     = $_GET['action'];
-  } else {
+        $action = $_GET['action'];
+    } else {
         $controller = 'pages';
-        $action     = 'home';
-  }
+        $action = 'home';
+    }
 
     require_once('views/layout.php');
-        ?>
+    ?>
 
     <head>
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-        
+
         <!--Link to the search button-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -30,20 +30,20 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <div class="topnav">
-        <a class ="logo"><b>ADVNTR</b></a>
-        <a href="#home">Home</a>
-        <a href="#aboutMe">About Me</a>
-        <a href="#readPost">Posts</a>
-        <!--        <a href="#more">More</a>-->
-        <a href="#loginBlogger">Login</a>
-        <a href="#logoutBlogger">Logout</a>
+        <!--        <a class ="logo"><b>ADVNTR</b></a>
+                <a href="#home">Home</a>
+                <a href="#aboutMe">About Me</a>
+                <a href="#readPost">Posts</a>
+                        <a href="#more">More</a>
+                <a href="#loginBlogger">Login</a>
+                <a href="#logoutBlogger">Logout</a>-->
         <!-- Search form -->
-        <form class="form-inline">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search..."
-                   aria-label="Search">
-            <span class="fa fa-search"> </span>
-        </form>
+        <!--        <form class="form-inline">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input class="search" type="text" placeholder="Search..."
+                           aria-label="Search">
+                    <span class="fa fa-search"> </span>
+                </form>-->
     </div>
     <div class="header">
         <h1>THE GREAT ESCAPE</h1>
@@ -115,7 +115,7 @@
                 background-color: lightgrey;
             }
             .logo{
-                
+
             }
             /* Navbar links */
             .topnav a {
@@ -217,7 +217,9 @@
 
             /* Add a card effect for articles */
             .card {
+                float: right;
                 background-color: white;
+                /*                width:20%;*/
                 padding: 20px;
                 margin-top: 20px;
             }
@@ -247,18 +249,46 @@
             .logo{
 
             }
+            .categoryID a:hover{
+                background-color: #ddd;
+                color: #00A896;  
+            }
         </style>
         <!-- Labels / tags -->
         <div class="card">
-            <div class="container">
-                <h4>Tags</h4>
-            </div>
-            <div class="container">
-                <p><span><a href="#1">Canyoning</a></span>  <span><a href="#2">Climbing</a></span>  <span><a href="#3">Hikes</a></span>
-                    <span><a href="#4">Wild Swimming</a></span>  <span><a href="#5">Fell Running</a></span>   <span><a href="#6">Kayaking</a></span>
-                    <span><a href="#7">Cycling</a></span>   <span><a href="#8">Fishing</a></span>  <span><a href="#9">Coasteering</a></span>
-                    <span><a href="#10">Camping</a></span>  <span><a href="#11">Family Trips</a></span>
+            <!--            <div class="container">
+                            <h4>Tags</h4>
+                        </div>-->
+            <!--            <div class="container-fluid">-->
+            <div class ="container-fluid" name="categoryID" id="category">
+                <h3>Choose a Category</h3>
+                <!--                <label for="categoryID">Choose a category:</label>
+                -->                
+                <p>
+                    <!--                        <a value="10">Camping</a>
+                                            <a value="1">Canyoning</a>
+                                            <a value="2">Climbing</a>
+                                            <a value="9">Coasteering</a>
+                                            <a value="7">Cycling</a>
+                                            <a value="11">Family</a>
+                                            <a value="8">Fishing</a> 
+                                            <a value="5">Fell Running</a>
+                                            <a value="3">Hikes</a>
+                                            <a value="6">Kayaking</a>
+                                            <a value="4">Wild Swimming</a> -->
+                    <span><a href="#1"value="1">Canyoning</a></span>
+                    <span><a href="#2"value="2">Climbing</a></span>  
+                    <span><a href="#3" value="3">Hikes</a></span>
+                    <span><a href="#4" value="4">Wild Swimming</a></span>  
+                    <span><a href="#5"value="5">Fell Running</a></span>   
+                    <span><a href="#6"value="6">Kayaking</a></span>
+                    <span><a href="#7"value="7">Cycling</a></span>   
+                    <span><a href="#8"value="8">Fishing</a></span>  
+                    <span><a href="#9"value="9">Coasteering</a></span>
+                    <span><a href="#10" value="10">Camping</a></span> 
+                    <span><a href="#11" value="11">Family Trips</a></span>
                 </p>
             </div>
         </div>
+        <!--        </div>-->
 </html>

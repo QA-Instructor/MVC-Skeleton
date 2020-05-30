@@ -101,7 +101,7 @@ if (isset($_POST["login"])) {
             position: absolute;
             right: 0;
             margin: 20px;
-            max-width: 300px;
+            max-width: 200px;
             padding: 12px;
             background-color: white;
             opacity: 0.9;
