@@ -82,61 +82,6 @@
     </div>
 
 
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <!-- Blog Entries Column -->
-
-                <!-- Blog Post #1 -->
-                <div class="card mb-4">
-                    <?php
-                    foreach ($blogposts as $blogpost) {
-                        try {
-                            if (empty($blogpost->blogPostPhoto)) {
-                                throw new Exception("Picture is not available");
-                            } else {
-                                $file = $blogpost->blogPostPhoto;
-
-                                $file = explode('/', $file, 5);
-                                //echo "<div>";
-                                $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap';/>";
-
-                                echo $img;
-                            }
-                        } catch (Exception $e) {
-                            echo 'Message: ' . $e->getMessage();
-                        }
-                        ?>  
-
-
-        <!--                <img class="card-img-top" src='' alt="Card image cap">-->
-
-                        <div class="card-body">
-                            <h2 class="card-title">                    
-                                <?php echo $blogpost->blogPostName; ?> 
-                            </h2>
-                            <p class="card-text">   <?php echo $blogpost->blogPostSubName; ?>  </p>
-                            <a class="btn btn-primary" href='?controller=blogpost&action=read&id=<?php echo $blogpost->blogpostID; ?>'>Read More &rarr;</a>    
-                        </div>
-                        <div class="card-footer text-muted">
-                            <?php echo $blogpost->datePosted; ?> 
-                            <!--                    Posted on January 1, 2017 -->
-                            <a href='?controller=blogpost&action=update&id=<?php echo $blogpost->blogpostID; ?>'>Edit</a>
-                            <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'>Delete</a> 
-                        </div>
-                    <?php } ?> 
-                    
-                </div> 
-                <div><br></div>
-            </div> 
-            <div class="col-md-2"></div>
-        </div>
-
-    </div>
-</div>
-
 <!--             Blog Post #2 
             <div class="card mb-4">
                 <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
@@ -167,3 +112,44 @@
   </div>
    /.container -->
 
+      <div class="card mb-4">
+        <div class =" container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+          <img class="card-img-top">
+           <?php
+                    foreach ($blogposts as $blogpost) {
+                        try {
+                            if (empty($blogpost->blogPostPhoto)) {
+                                throw new Exception("Picture is not available");
+                            } else {
+                                $file = $blogpost->blogPostPhoto;
+
+                                $file = explode('/', $file, 5);
+                                //echo "<div>";
+                                $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap';/>";
+
+                                echo $img;
+                            }
+                        } catch (Exception $e) {
+                            echo 'Message: ' . $e->getMessage();
+                        }
+                        ?>  
+
+          <div class="card-body">
+            <h2 class="card-title">  <?php echo $blogpost->blogPostName; ?></h2>
+            <p class="card-text">   <?php echo $blogpost->blogPostSubName; ?>  </p>
+             <a class="btn btn-primary" href='?controller=blogpost&action=read&id=<?php echo $blogpost->blogpostID; ?>'>Read More &rarr;</a>
+          </div>
+           <div class="card-footer text-muted">
+                            <?php echo $blogpost->datePosted; ?> 
+                            <!--                    Posted on January 1, 2017 -->
+                            <a href='?controller=blogpost&action=update&id=<?php echo $blogpost->blogpostID; ?>'>Edit</a>
+                            <a href='?controller=blogpost&action=delete&id=<?php echo $blogpost->blogpostID; ?>'>Delete</a> 
+                        </div>
+                    <?php } ?> 
+        <div class="col-md-2"></div>
+        </div>
+          
+ 
