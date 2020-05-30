@@ -13,6 +13,17 @@ and open the template in the editor.
         <!--external stylesheet -->
         <link rel="stylesheet" href="css/styles1.css">
         <title>Login</title>
+        <style>
+          
+body{
+  height: 100%;
+  background-image:url("views/images/img/beach1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+                
+        </style>
     </head>
     <body>
         <div class="container">
@@ -24,12 +35,12 @@ and open the template in the editor.
 
                             <div class="form-group">
                             <label for="=email">Email</label>
-                            <input type="text" name="email" value="" required="" class="form-control form-control-lg">
+                            <input type="text" name="email" class="form-control form-control-lg" required>
                         </div>
 
                         <div class="form-group">
                             <label for="=username">Password</label>
-                            <input type="password" name="password" required="" class="form-control form-control-lg">
+                            <input type="password" name="password"  class="form-control form-control-lg" required>
                         </div>
 
                         <div class="form-group">
