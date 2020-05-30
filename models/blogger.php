@@ -126,7 +126,9 @@ class blogger {
             //($blogger['blogID'], $blogger['blogName'], $blogger['firstName'], $blogger['lastName'], $blogger['email'], $blogger['phoneNumber'], $blogger['publishedAt'], $blogger['lastLogin'], $blogger['intro'], $blogger['aboutMe'], $blogger['passwordHASH']);
         } else {
             //replace with a more meaningful exception
-            throw new Exception('A real exception should go here');
+            //throw new Exception('A real exception should go here');
+
+            throw new TooManyLoginAttempts();
         }
         }
 
