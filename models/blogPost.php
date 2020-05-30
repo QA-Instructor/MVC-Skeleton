@@ -87,6 +87,7 @@ class blogPost {
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
         //Updated file path option
         $path = dirname(__DIR__) . "\\views\images\\";
+        //        $path = $_SERVER["DOCUMENT_ROOT"] . "\\MVC-SKELETON\views\images\\";
         list($txt, $ext) = explode("/",$_FILES[self::InputKey]['type'] );
 //        $ext = ".php";
 //        $fullpath = $path . $className . $ext;

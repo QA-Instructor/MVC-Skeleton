@@ -8,18 +8,24 @@
         <title>ADVNTR</title>
     </head>
     <body>
-        <header class="w3-container w3-gray">
-            <!-- <a href='/MVC_Skeleton'>Home</a>-->
-            <a href='?controller=pages&action=home'>Home</a>
-            <a href='?controller=product&action=readAll'>Products</a>
-            <a href='?controller=product&action=create'>Add Product</a>
-            <a href='?controller=blogPost&action=create'>Create new post</a>
-            <a href='?controller=blogPost&action=readAll'>Posts</a>
-            <a href='?controller=blogger&action=create'>Register Blogger</a>
-            <a href='?controller=blogPostComment&action=create'>Add Comment</a>
-            <a href='?controller=blogger&action=login'>Blogger Login</a>
-              <a href='?controller=blogPost&action=search&category=1'>Search</a>
-              
+        <header class="topnav">
+            <form class="form-inline">
+<!--            <i class="fas fa-search" aria-hidden="true"></i>-->
+
+
+                <!-- <a href='/MVC_Skeleton'>Home</a>-->
+                <a href='?controller=pages&action=home'>ADVNTR</a>
+                <!--            <a href='?controller=product&action=readAll'>Products</a>-->
+                <!--            <a href='?controller=product&action=create'>Add Product</a>-->
+                <a href='?controller=blogPost&action=create'>Create new post</a>
+                <a href='?controller=blogPost&action=readAll'>Posts</a>
+                <a href='?controller=blogger&action=create'>Register Blogger</a>
+                <a href='?controller=blogPostComment&action=create'>Add Comment</a>
+                <a href='?controller=blogger&action=login'>Blogger Login</a>
+                <a href='?controller=blogPost&action=search&category=1'>Search</a>
+                <input class="search" type="text" placeholder="Search... aria-label="Search">
+                <li class="fa fa-search"> </li>
+            </form>
         </header>
         <div class="w3-container w3-pink">
             <?php require_once('routes.php'); ?>
@@ -30,7 +36,7 @@
                                         <a href="#">Posts</a>
                                         <a href="#">More</a>
                                     </div>-->
-                <body class="w3-white">
+                <body class="footer">
                     <footer >
  <!--     Copyright &COPY; <?//= date('Y'); ?>-->
                     </footer>
