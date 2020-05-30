@@ -70,10 +70,11 @@ $req->execute();
 public static function remove($blogpostID,$commentID) {
       $db = Db::getInstance();
       //make sure $id is an integer
+      $blogpostID = intval($blogpostID);
       $commentID = intval($commentID);
-      $req = $db->prepare('DELETE FROM commentpost WHERE CommentID = :CommentID');
+      $req = $db->prepare('DELETE FROM commentpost WHERE BlogPostID=:BlogPostID AND CommentID = :CommentID');
       // the query was prepared, now replace :id with the actual $id value
-      $req->execute(array('CommentID' => $commentID));
+      $req->execute(array('BlogPostID' => $blogpostID, 'CommentID' => $commentID));
   }
   
 }

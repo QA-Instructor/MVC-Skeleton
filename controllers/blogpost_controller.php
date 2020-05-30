@@ -53,7 +53,9 @@ class BlogPostController {
  }
  if(isset($_POST['Username'])){
      Comment::add($_GET['id']);
- }
+     
+ }if(isset($_GET['CommentID'])){
+ Comment::remove($_GET['id'], $_GET['CommentID']);}
     }
     public function create() {
       // we expect a url of form ?controller=blogpost&action=create
