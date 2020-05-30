@@ -212,7 +212,7 @@ public static function uploadFile(string $blogPostName) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name']; //saves them to a temporary directory. You have to ensure the images are saved to a premanent directory.
-        $path = "C:/xampp/htdocs/MVC-Skeleton/views/images/"; //We store the photo in this folder
+        $path = __DIR__. "/../views/images/"; //We store the photo in this folder
         $blogPostName= trim($blogPostName);
 	$destinationFile = $path . $blogPostName. '.jpeg';  //in the database, we store the reference to that path.
         

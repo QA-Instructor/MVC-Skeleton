@@ -124,11 +124,11 @@
                             if (empty($blogpost->blogPostPhoto)) {
                                 throw new Exception("Picture is not available");
                             } else {
-                                $file = $blogpost->blogPostPhoto;
-
-                                $file = explode('/', $file, 5);
+                                $filePath = $blogpost->blogPostPhoto;
+                                $splitFilePath = explode('/', $filePath);
+                                $imageName = end($splitFilePath);
                                 //echo "<div>";
-                                $img = "<img class='card-img-top' src='$file[4]' alt='Card image cap';/>";
+                                $img = "<img class='card-img-top' src='views/images/$imageName' alt='Card image cap';/>";
 
                                 echo $img;
                             }
