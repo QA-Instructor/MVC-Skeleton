@@ -5153,6 +5153,7 @@ input[type="button"].btn-block {
     padding: 0.75rem 1.25rem;
     background-color: rgba(0, 0, 0, 0.03);
     border-top: 1px solid rgba(0, 0, 0, 0.125);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .card-footer:last-child {
@@ -7140,7 +7141,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-    background-color: #65B3B4 !important;
+    background-color: #2C3E50 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -10813,7 +10814,7 @@ a.text-dark:hover, a.text-dark:focus {
 .bg-dark.navbar-dark .navbar-nav .nav-link:focus,
 .bg-dark.navbar-dark .navbar-nav .nav-link:hover,
 .bg-dark.navbar-dark .navbar-nav .active > .nav-link {
-    color: #65B3B4 !important;
+    color: #2C3E50 !important;
 }
 
 .btn-secondary, .btn-secondary:hover, .btn-warning, .btn-warning:hover {
@@ -10920,7 +10921,7 @@ a.text-dark:hover, a.text-dark:focus {
 .nav-tabs .nav-item.open .nav-link,
 .nav-tabs .nav-item.open .nav-link:focus,
 .nav-tabs .nav-item.open .nav-link:hover {
-    color: #65B3B4;
+    color: #2C3E50;
 }
 
 .pagination a:hover {
