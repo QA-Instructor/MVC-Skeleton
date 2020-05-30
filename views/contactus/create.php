@@ -12,19 +12,24 @@
 
         <div class='col-sm-12'></div>
 <!--for items that belong together place into form groups-->
-            <form  method="post" action="addpost.php">
+            <form  method="POST" action="">
                 <div class="form-group">
                     <label><b>Contact Us</b></label>
-                    <input name="first name" type="text" class="form-control" placeholder="Your first name" autofocus="">
+                    <br>
+                    <label>First Name</label>
+                    <input name="firstName" type="text" class="form-control" placeholder="Your first name" autofocus="">
                 </div>
                 <div class="form-group">
-                    <input name="last name" type="text" class="form-control" placeholder="Your second name">
+                     <label>Last Name</label>
+                    <input name="lastname" type="text" class="form-control" placeholder="Your second name">
                 </div>
                 <div class="form-group">
+                     <label>Email</label>
                     <input name="email" type="email" class="form-control" placeholder="Your email address">
                 </div>
                 <div class="form-group">
-                    <textarea name="message" class="form-control" placeholder="Enter your message"></textarea>
+                     <label>Comments</label>
+                    <textarea name="body" class="form-control" placeholder="Enter your message"></textarea>
                 </div>
 
                 <?php
@@ -35,7 +40,7 @@
         </div>
 
         <input name="submit" type="submit" class="btn btn-success" value="Submit" />
-        <a href="index.php" name="cancel" type="submit" class="btn btn-outline-success">Go back</a>
+        <a href="#" name="cancel" type="submit" class="btn btn-outline-success">Go back</a>
     </form>
     <br>
 

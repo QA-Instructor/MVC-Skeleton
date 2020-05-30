@@ -20,7 +20,6 @@ function call($controller, $action) {
             $controller = new $controllerClassName();
             // the above esen tially instansiates the GET requests name of controller and puts it into $controller
             break;
-
     }
 //  
     // call the requested action - ur taking the controller which is now an instansiated class of the 
@@ -32,10 +31,11 @@ function call($controller, $action) {
 // for validation we list the allowed controllers and their actions
 // Add an entry for each new controller and its actions
 
-$controllers = array('pages' => ['home', 'aboutus', 'contactus', 'error'],
+$controllers = array('pages' => ['home', 'aboutus', 'error'],
     'product' => ['readAll', 'read', 'create', 'update', 'delete'],
     'blog' => ['readAll', 'read', 'create', 'update'],
     'authentication' => ['create', 'login'],
+    'contactus' => ['create'],
     'controllerXXX' => ['actionYYY', 'actionZZZ'],
 );
 

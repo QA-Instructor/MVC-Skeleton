@@ -22,7 +22,7 @@
             <li><a href="index.php">Home</a></li>
           <li><a href="?controller=pages&action=aboutus">About us</a></li>
           <li><a href='?controller=blog&action=readAll'>Blogs</a></li>
-          <li><a href='?controller=pages&action=contactus'>Contact us</a></li>
+          <li><a href='?controller=contactus&action=create'>Contact us</a></li>
          
         </ul>
 
