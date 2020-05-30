@@ -53,6 +53,8 @@ class BlogPostController {
  }
  if(isset($_POST['Username'])){
      Comment::add($_GET['id']);
+     Comment::all();
+     require_once('views/blogpost/read.php');
      
  }if(isset($_GET['CommentID'])){
  Comment::remove($_GET['id'], $_GET['CommentID']);}

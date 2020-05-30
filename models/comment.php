@@ -20,10 +20,10 @@
 //    public static function all() {
 //      $list = [];
 //      $db = Db::getInstance();
-//      $req = $db->query('SELECT * FROM product');
+//      $req = $db->query('SELECT * FROM commentpost');
 //      // we create a list of Product objects from the database results
-//      foreach($req->fetchAll() as $product) {
-//        $list[] = new Product($product['id'], $product['name'], $product['price']);
+//      foreach($req->fetchAll() as $comment) {
+//        $list[] = new Comment($comment['CommentID'], $comment['BlogPostID'], $comment['Username'], $comment['CommentContent'], $comment['CommentTime']);
 //      }
 //      return $list;
 //    }
