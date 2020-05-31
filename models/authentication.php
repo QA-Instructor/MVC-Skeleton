@@ -97,7 +97,7 @@ Class Authentication {
 //                        if ($validpassword) {
 //                            $_SESSION['email'] = $_POST['email'];
 //                            header("location:index.php?controller=blog&action=create");
-                            header("location:index.php?controller=blog&action=readAll");
+                            header("location:index.php?controller=blog&action=readAllAdminUser");
 //                        } else {
 //                            echo "Invalid email and password!";
 //                        }
