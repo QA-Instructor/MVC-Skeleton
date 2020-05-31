@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?controller=product&action=readAll">About Us</a>
+                            <a class="nav-link" href="?controller=pages&action=aboutus">About Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href='?controller=blog&action=readAll'>Blogs</a>
@@ -56,7 +56,8 @@
                             <a class="nav-link" href='?controller=authentication&action=create'>Sign Up</a>
                             
                         </li>
-                
+
+
                     </ul>
                 </div>
             </div>
