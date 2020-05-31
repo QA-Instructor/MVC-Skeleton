@@ -17,9 +17,11 @@ class contactusController {
         } else {
             contactus::add(); //calling the add function that sends query into the database
 
-            $contactus = contactus::all();
+ /*          $contactus = contactus::all();
             require_once('views/contactus/create.php');
         }//takes you back to all products
     }
-
+*/
 }
+    
+}}

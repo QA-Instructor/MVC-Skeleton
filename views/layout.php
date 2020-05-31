@@ -24,8 +24,6 @@
   </head>
   <body>
     <header>
-
- 
            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">Our Travel Blog</a>
@@ -35,16 +33,15 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href='/FinProject'>Home
+                            <a class="nav-link active" href='/finalProject'>Home
                                  <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?controller=product&action=readAll">About Us</a>
+                            <a class="nav-link" href="?controller=pages&action=aboutus">About Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href='?controller=blog&action=readAll'>Blogs</a>
-                           
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="?controller=contactus&action=create">Contact Us</a>
