@@ -154,7 +154,7 @@ class blog {
 //everytime someone created a new prodicut its assigning name variable to filtered name
 //upload product image
 
-        Blog::uploadFile($title); //link to add as the code is enabling them to upload pics and error handlers are here look below
+        Blog::uploadFile($blogID); //link to add as the code is enabling them to upload pics and error handlers are here look below
     }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
@@ -162,7 +162,7 @@ const InputKey = 'myUploader';
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
 
-    public static function uploadFile(string $title) {
+    public static function uploadFile($blogID) {
 
         if (empty($_FILES[self::InputKey])) {
             //die("File Missing!");
@@ -179,8 +179,9 @@ const InputKey = 'myUploader';
         }
 
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/finalProject/views/images/img";
-        $destinationFile = $path . $title . '.jpeg';
+       $path = "C:/xampp/htdocs/finalProject/views/images/img";
+        //$path = "/Applications/XAMPP/xamppfiles/htdocs/finalProject/views/images/img";
+        $destinationFile = $path . $blogID . '.jpeg';
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
             trigger_error("Handle Error");
