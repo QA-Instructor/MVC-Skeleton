@@ -20,8 +20,8 @@
                     <input name="firstName" type="text" class="form-control" placeholder="Your first name" autofocus="">
                 </div>
                 <div class="form-group">
-                     <label>Last Name</label>
-                    <input name="lastname" type="text" class="form-control" placeholder="Your second name">
+                     <label>Surname</label>
+                    <input name="surname" type="text" class="form-control" placeholder="Your second name">
                 </div>
                 <div class="form-group">
                      <label>Email</label>

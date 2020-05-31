@@ -14,15 +14,15 @@ class contactus {
     public $body;
 
     public function __construct($contactID,$blogID,$subscriptionsID,$responseID,$firstName,$surname,$email,$dates,$body) { 
-    $this-> $contactID;
-    $this-> $blogID; 
-    $this-> $subscriptionsID;
-    $this-> $responseID;
-    $this-> $firstName;
-    $this-> $surname;
-    $this-> $email;
-    $this-> $dates;
-    $this-> $body;
+    $this-> contactID = $contactID;
+    $this-> blogID = $blogID; 
+    $this-> subscriptionsID = $subscriptionsID;
+    $this-> responseID = $responseID;
+    $this-> firstName = $firstName;
+    $this-> surname = $surname;
+    $this-> email = $email ;
+    $this-> dates = $dates;
+    $this-> body = $body;
     }
 
     /*public static function all() {
@@ -80,6 +80,7 @@ $surname = $filteredSurname;
 $email = $filteredEmail;
 $body = $filteredBody;
 $req->execute();
+header("location:index.php");            ;
     }
 }
 
