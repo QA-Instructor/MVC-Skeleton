@@ -86,10 +86,11 @@
                 <div class="rightcolumn">
                     <div class="card">
                         <h2>About Me</h2>
-                        <div class="img">
-                            <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1772.jpg" alt="image" style="width:100%;">
-                        </div>
-                        <p>Hi, I'm Victoria and I love canyoning.</p>
+                        <!--<div class="img">
+                           <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1772.jpg" alt="image" style="width:100%;"> 
+                        </div>-->
+                        <h4><p><?php echo $_SESSION ['aboutMe'] ?></p></h4>
+                        <h5><p><?php echo $_SESSION ['intro'] ?></p></h5>
                     </div>
                     <div class="card">
                         <h3>Popular Post</h3>
