@@ -113,8 +113,7 @@ class blogger {
                 break;                         
                 }
             }
-            
-
+           
 
 
 //AND (passwordHASH = :passwordHASH)")
@@ -144,7 +143,7 @@ class blogger {
         $req = $db->query('SELECT * FROM register_table');
         // we create a list of blogger objects from the database results
         foreach ($req->fetchAll() as $bloggers) {
-            $list[] = new blogger($bloggers['blogID'], $bloggers['blogName'], $bloggers['firstName'], $bloggers['lastName'], $bloggers['email'], $bloggers['registeredAt'], $bloggers['lastLogin'], $bloggers['phoneNumber'], $bloggers['intro'], $bloggers['aboutMe'], $bloggers['passwordHASH']);
+            $list[] = new blogger($bloggers['blogID'], $bloggers['blogName'], $bloggers['firstName'], $bloggers['lastName'], $bloggers['email'], $bloggers['phoneNumber'], $bloggers['registeredAt'], $bloggers['lastLogin'],  $bloggers['intro'], $bloggers['aboutMe'], $bloggers['passwordHASH']);
         }
         return $list;
     }
