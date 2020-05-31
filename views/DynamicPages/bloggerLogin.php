@@ -2,7 +2,6 @@
 //login
 //connect to database
 //zinclude("connection.php");
-
 //set cookie and validate 
 if (isset($_COOKIE["type"])) {
     header("location: bloggerLogin.php");
@@ -42,7 +41,7 @@ if (isset($_POST["login"])) {
 
 //setcookie("$firstName", "$lastName", time() - 86400);
 if (!isset($_SESSION['attempts']))
-   $_SESSION['attempts']=0;
+    $_SESSION['attempts'] = 0;
 ?>
 
 <!DOCTYPE html>
@@ -63,10 +62,17 @@ if (!isset($_SESSION['attempts']))
         .logo{
             width: 20%;
         }
-        h2{
-            text-align: right; 
+        h1{
+            text-align: centre; 
+            color: black;
         }
         .login{
+            text-align: left; 
+        }
+                .blogName{
+            text-align: left; 
+        }
+                .password{
             text-align: left; 
         }
 
@@ -75,38 +81,30 @@ if (!isset($_SESSION['attempts']))
             text-align: centre;
         }
 
-        * {
+        body {
             box-sizing: border-box;
         }
-/*        .img{
-            image: url("http://localhost/MVC-Skeleton/views/images/logo1.png");
-            min-height: 100px;
-            position: center;
-            repeat: no-repeat;
-            position: absolute;
-        }*/
 
         .bg-img {
             /* The image used */
             background-image: url("http://localhost/MVC-Skeleton/views/images/HCH_1772.jpg");
-
-            min-height: 900px;
+            min-height: 700px;
             /* Center and scale the image nicely */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
         }
-        
         /* Add styles to the form container */
         .container {
             position: absolute;
             right: 0;
             margin: 20px;
-            max-width: 200px;
+            max-width: 300px;
             padding: 12px;
             background-color: white;
             opacity: 0.9;
+            text-align: left;
         }
 
         /* Full-width input fields */
@@ -125,7 +123,7 @@ if (!isset($_SESSION['attempts']))
 
         /* Set a style for the submit button */
         .btn {
-            background-color: #00A896;
+            background-color: #F0F3BD;
             color: white;
             padding: 15px 12px;
             border: none;
@@ -136,19 +134,15 @@ if (!isset($_SESSION['attempts']))
 
         .btn:hover {
             opacity: 5;
+            background-color: #F0F3BD; 
         }
     </style>
 </head>
-<header>
-    <!--<header class="col-6sm" style="max-width:10px;">-->
-    <!--  <img class="logo" src="Logo1.jpg" alt="logo" style="min-width:10px" width="10" height="10">-->
-    <div class="img">
-    </div>    
-</header>
 <body>
+    <div class="navbar"></div>
     <div class="bg-img">
-        <h2>Start your Advntr now...</h2>
-        
+        <h1>Start your Advntr now...</h1>
+<div class="container">
         <form action="" method = "POST" class="container" enctype="multipart/form-data">
             <h2 class="login">Login</h2>
 
@@ -162,6 +156,7 @@ if (!isset($_SESSION['attempts']))
         </form>
     </div>
 </body>
+</div>
 </html>
 
 

@@ -1,12 +1,6 @@
 body,h1,h2,h3,h4,h5 {
     font-family: 'Montserrat', sans-serif;
 }
-.w3-tangerine {
-    font-family: 'Montserrat', sans-serif;
-}
-.w3-pacifico {
-    font-family: 'Montserrat', sans-serif;
-}
 
 .header{
     text-align: center;
@@ -45,7 +39,7 @@ body, html {
 }
 
 .bg-img {
-  /* The image used */
+  /* The back-ground image used */
   background-image: url("views/images/HCH_1772.jpg");
 
   min-height: 700px;
