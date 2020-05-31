@@ -56,7 +56,8 @@
                             <a class="nav-link" href='?controller=authentication&action=create'>Sign Up</a>
                             
                         </li>
-                
+
+
                     </ul>
                 </div>
             </div>
