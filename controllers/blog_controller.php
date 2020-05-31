@@ -44,7 +44,7 @@ class blogController {
              $title = ($_POST["title"]);
              $body =($_POST["body"]);
 //             $date = date("y-m-d");
-             $description = ($_POST["description"]);
+             $blogDescription = ($_POST["blogDescription"]);
           } 
           
             blog::add(); //calling the add function that sends query into the database 
