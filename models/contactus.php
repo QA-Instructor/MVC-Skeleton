@@ -10,6 +10,7 @@ class contactus {
     public $dates;
     public $body;
 
+
     public function __construct($contactID,$firstName,$surname,$email,$dates,$body) { 
     $this-> contactID=$contactID;
     $this-> firstName=$firstName; //All the below is items for
@@ -17,6 +18,8 @@ class contactus {
     $this-> email=$email;
     $this-> dates=$dates;
     $this-> body=$body;
+
+  
     }
 
     /*public static function all() {
@@ -76,6 +79,7 @@ $surname = $filteredSurname;
 $email = $filteredEmail;
 $body = $filteredBody;
 $req->execute();
+header("location:index.php");            ;
     }
 }
 

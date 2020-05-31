@@ -53,29 +53,29 @@ class blog {
     //changed until this point
     //change the below, still victorias code.
 
-    public static function update($blogID) {
-        $db = Db::getInstance();
-        $req = $db->prepare("Update blog set title=:title, body=:body where blogID=:blogID");
-        $req->bindParam(':blogID', $blogID);
-        $req->bindParam(':title', $title);
-        $req->bindParam(':body', $body);
-
-// set name and price parameters and execute
-        if (isset($_POST['title']) && $_POST['title'] != "") {
-            $filteredTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
-        if (isset($_POST['body']) && $_POST['body'] != "") {
-            $filteredBody = filter_input(INPUT_POST, 'body', FILTER_SANITIZE_SPECIAL_CHARS);
-        }
-        $title = $filteredTitle;
-        $body = $filteredBody;
-        $req->execute();
-
-//upload product image if it exists
-        if (!empty($_FILES[self::InputKey]['title'])) {
-            Blog::uploadFile($title);
-        }
-    }
+//    public static function update($blogID) {
+//        $db = Db::getInstance();
+//        $req = $db->prepare("Update blog set title=:title, body=:body where blogID=:blogID");
+//        $req->bindParam(':blogID', $blogID);
+//        $req->bindParam(':title', $title);
+//        $req->bindParam(':body', $body);
+//
+//// set name and price parameters and execute
+//        if (isset($_POST['title']) && $_POST['title'] != "") {
+//            $filteredTitle = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
+//        }
+//        if (isset($_POST['body']) && $_POST['body'] != "") {
+//            $filteredBody = filter_input(INPUT_POST, 'body', FILTER_SANITIZE_SPECIAL_CHARS);
+//        }
+//        $title = $filteredTitle;
+//        $body = $filteredBody;
+//        $req->execute();
+//
+////upload product image if it exists
+//        if (!empty($_FILES[self::InputKey]['title'])) {
+//            Blog::uploadFile($title);
+//        }
+//    }
 
     //add product when you run blog and you see ad product its this 
 
@@ -88,7 +88,7 @@ class blog {
 
             $title = ($_POST["title"]);
             $body = ($_POST["body"]);
-            $description = ($_POST["description"]);
+            $blogDescription = ($_POST["blogDescription"]);
 
             if ($_POST['country'] == 'Vietnam') {
                 $country = 2;
@@ -127,10 +127,10 @@ class blog {
             $date = date("Y-m-d");
         }
 
-        $req = $db->prepare("Insert into blog(categoriesID, countryID, title, body, description, blogDate) values (:ab , :aa, :a, :b,  :c, :d)");
+        $req = $db->prepare("Insert into blog(categoriesID, countryID, title, body, blogDate, blogDescription) values (:ab , :aa, :a, :b, :d, :c)");
         $req->bindParam(':a', $title);
         $req->bindParam(':b', $body);
-        $req->bindParam(':c', $description);
+        $req->bindParam(':c', $blogDescription);
         $req->bindParam(':aa', $country);
         $req->bindParam(':ab', $categories);
         $req->bindParam(':d', $date);
@@ -157,8 +157,8 @@ class blog {
         Blog::uploadFile($title); //link to add as the code is enabling them to upload pics and error handlers are here look below
     }
 
-//const AllowedTypes = ['image/jpeg', 'image/jpg'];
-//const InputKey = 'myUploader';
+const AllowedTypes = ['image/jpeg', 'image/jpg'];
+const InputKey = 'myUploader';
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
 
@@ -179,7 +179,7 @@ class blog {
         }
 
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "views/images/";
+        $path = "C:/xampp/htdocs/Blog_Proj/views/images/";
         $destinationFile = $path . $title . '.jpeg';
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
@@ -192,15 +192,45 @@ class blog {
         }
     }
 
-    public static function remove($id) {
+    public static function remove($blogID) {
         $db = Db::getInstance();
         //make sure $id is an integer
-        $id = intval($id);
-        $req = $db->prepare('delete FROM product WHERE id = :id');
+        $blogID = intval($blogID);
+        $req = $db->prepare('delete FROM blog WHERE blogID = :blogID');
         // the query was prepared, now replace :id with the actual $id value
-        $req->execute(array('id' => $id));
+        $req->execute(array(':blogID' => $blogID));
     }
 
+    
+  public static function update($blogID) {
+    $db = Db::getInstance();
+    $req = $db->prepare("Update blog set title=:title, body=:body where blogID=:blogID");
+    $req->bindParam(':blogID', $blogID);
+    $req->bindParam(':title', $title);
+    $req->bindParam(':body', $body);
+
+// set name and price parameters and execute
+    if(isset($_POST['title'])&& $_POST['title']!=""){
+        $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    if(isset($_POST['body'])&& $_POST['body']!=""){
+        $filteredBody = filter_input(INPUT_POST,'body', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+$title = $filteredTitle;
+$body = $filteredBody;
+
+$req->execute();
+
+//upload product image if it exists
+        if (!empty($_FILES[self::InputKey]['title'])) {
+		Blog::uploadFile($title);
+	}
+
+    }
+    
+
+    
+    
 
 }
 

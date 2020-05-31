@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <!--external stylesheet -->
         <link rel="stylesheet" href="css/style.css">
+    <?php    session_start(); ?>
 </head>
 
 
@@ -20,7 +21,7 @@
   </p>
      <p class="form-group">
          <label>Description</label>
-        <input class="w3-input" type="text" name="description" required autofocus>  
+        <input class="w3-input" type="text" name="blogDescription" required autofocus>  
   </p>
         <p class="form-group">
                <label>Main Body</label>
@@ -39,11 +40,7 @@
 </select>
  </p>
  
- <?php
- // this isnt going to stay im just playing around with how we could 
- // assign the post a specific country etc
 
- ?>
  
  
  
@@ -68,6 +65,16 @@
   <p>
     <input class="form-group"  type="submit" name='submit'>
   </p>
+       
 </form>
 
+
 </div>
+    
+    
+    <p>
+    <form method="get" action="index.php">
+    <button type="submit">Logout</button>
+</form>  
+</p>
+

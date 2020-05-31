@@ -19,6 +19,7 @@ class contactusController {
 
  /*          $contactus = contactus::all();
             require_once('views/contactus/create.php');
+
         }//takes you back to all products
     }
 */

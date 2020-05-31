@@ -11,6 +11,7 @@
 
 
         <div class='col-sm-12'></div>
+
         <!--for items that belong together place into form groups-->
         <form  method="POST" action="">
             <div class="form-group">

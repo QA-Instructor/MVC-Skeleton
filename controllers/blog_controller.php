@@ -5,12 +5,21 @@
 //change everything that is product to your controller BLOG
 
 class blogController {
+    
     public function readAll() {
       // we store all the posts in a variable
       $blog = blog::all();
       require_once('views/blog/readAll.php');
     }
 
+    
+   public function readAllAdminUser(){
+       
+       
+       $blog = blog::all();
+       require_once('views/blog/readAllUser.php');
+   }
+    
     
     
     //changed until this point, need to change the below.
@@ -35,7 +44,7 @@ class blogController {
       // else it's a POST so add to the database and redirect to readAll action
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-          require_once('views/products/create.php');
+          require_once('views/blog/create.php');
          
       }
       else { 
@@ -44,7 +53,7 @@ class blogController {
              $title = ($_POST["title"]);
              $body =($_POST["body"]);
 //             $date = date("y-m-d");
-             $description = ($_POST["description"]);
+             $blogDescription = ($_POST["blogDescription"]);
           } 
           
             blog::add(); //calling the add function that sends query into the database 
@@ -52,36 +61,36 @@ class blogController {
 //            $products = blog::all(); //$products is used within the view
 //            require_once('views/products/readAll.php'); 
 
-            require_once('views/blog/readAll.php'); 
+            //require_once('views/blog/readAll.php'); 
       }
       
     }
     public function update() {
         
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
-          if (!isset($_GET['blogID']))
+          if (!isset($_GET['id']))
         return call('pages', 'error');
 
         // we use the given id to get the correct product
-        $blog = Blog::find($_GET['blogID']);
+        $blog = Blog::find($_GET['id']);
       
         require_once('views/blog/update.php');
         }
       else
           { 
-            $blogID = $_GET['blogID'];
+            $blogID = $_GET['id'];
             Blog::update($blogID);
                         
             $blog = blog::all();
-            require_once('views/blog/readAll.php');
+            require_once('views/blog/readAllUser.php');
       }
       
     }
     public function delete() {
-            Product::remove($_GET['id']);
+        blog::remove($_GET['id']);
             
-            $products = Product::all();
-            require_once('views/products/readAll.php');
+            $blog = blog::all();
+            require_once('views/blog/readAllUser.php');
       }
       
     }
