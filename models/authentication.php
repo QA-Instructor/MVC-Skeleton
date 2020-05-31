@@ -94,13 +94,13 @@ Class Authentication {
                     } else {
                         $validpassword = (password_verify($password, $row['password']));
                      
-//                        if ($validpassword) {
-//                            $_SESSION['email'] = $_POST['email'];
-//                            header("location:index.php?controller=blog&action=create");
-                            header("location:index.php?controller=blog&action=readAll");
-//                        } else {
-//                            echo "Invalid email and password!";
-//                        }
+                       if ($validpassword) {
+                           $_SESSION['email'] = $_POST['email'];
+                 
+                            header("location:?controller=blog&action=readAll");
+                      } else {
+                           echo "Invalid email and password!";
+                      }
                     }
                 } catch (PDOException $e) {
                     echo "Error : " . $e->getMessage();
