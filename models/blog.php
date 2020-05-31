@@ -157,8 +157,8 @@ class blog {
         Blog::uploadFile($title); //link to add as the code is enabling them to upload pics and error handlers are here look below
     }
 
-//const AllowedTypes = ['image/jpeg', 'image/jpg'];
-//const InputKey = 'myUploader';
+const AllowedTypes = ['image/jpeg', 'image/jpg'];
+const InputKey = 'myUploader';
 //die() function calls replaced with trigger_error() calls
 //replace with structured exception handling
 
@@ -179,7 +179,7 @@ class blog {
         }
 
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "views/images/";
+        $path = "C:/xampp/htdocs/Blog_Proj/views/images/";
         $destinationFile = $path . $title . '.jpeg';
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
@@ -192,13 +192,13 @@ class blog {
         }
     }
 
-    public static function remove($id) {
+    public static function remove($blogID) {
         $db = Db::getInstance();
         //make sure $id is an integer
-        $id = intval($id);
-        $req = $db->prepare('delete FROM product WHERE id = :id');
+        $blogID = intval($blogID);
+        $req = $db->prepare('delete FROM blog WHERE blogID = :blogID');
         // the query was prepared, now replace :id with the actual $id value
-        $req->execute(array(':id' => $id));
+        $req->execute(array(':blogID' => $blogID));
     }
 
     

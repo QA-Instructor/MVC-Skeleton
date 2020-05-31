@@ -6,7 +6,7 @@
         <label>Title</label>
     </p>
     <p>
-        <input class="w3-input" type="text" name="Body" value="<?= $blog->body; ?>" >
+        <input class="w3-input" type="text" name="body" value="<?= $blog->body; ?>" >
         <label>Body</label>
     </p>
             
