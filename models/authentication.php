@@ -94,6 +94,7 @@ Class Authentication {
                     } else {
                         $validpassword = (password_verify($password, $row['password']));
                      
+
                        if ($validpassword) {
                            $_SESSION['email'] = $_POST['email'];
                  

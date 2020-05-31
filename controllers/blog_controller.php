@@ -5,12 +5,21 @@
 //change everything that is product to your controller BLOG
 
 class blogController {
+    
     public function readAll() {
       // we store all the posts in a variable
       $blog = blog::all();
       require_once('views/blog/readAll.php');
     }
 
+    
+   public function readAllAdminUser(){
+       
+       
+       $blog = blog::all();
+       require_once('views/blog/readAllUser.php');
+   }
+    
     
     
     //changed until this point, need to change the below.
@@ -73,7 +82,7 @@ class blogController {
             Blog::update($blogID);
                         
             $blog = blog::all();
-            require_once('views/blog/readAll.php');
+            require_once('views/blog/readAllUser.php');
       }
       
     }
@@ -81,7 +90,7 @@ class blogController {
         blog::remove($_GET['id']);
             
             $blog = blog::all();
-            require_once('views/blog/readAll.php');
+            require_once('views/blog/readAllUser.php');
       }
       
     }

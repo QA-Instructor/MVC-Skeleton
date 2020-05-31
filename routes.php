@@ -33,7 +33,7 @@ function call($controller, $action) {
 
 $controllers = array('pages' => ['home', 'aboutus', 'error'],
     'product' => ['readAll', 'read', 'create', 'update', 'delete'],
-    'blog' => ['readAll', 'read', 'create', 'update', 'delete'],
+    'blog' => ['readAll', 'read', 'create', 'update', 'delete', 'readAllAdminUser'],
     'authentication' => ['create', 'login'],
     'contactus' => ['create'],
     'controllerXXX' => ['actionYYY', 'actionZZZ'],
