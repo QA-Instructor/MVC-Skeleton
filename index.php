@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php session_start();?>
+<?php session_start(); ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -31,28 +31,20 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="topnav">
-            <!--        <a class ="logo"><b>ADVNTR</b></a>
-                    <a href="#home">Home</a>
-                    <a href="#aboutMe">About Me</a>
-                    <a href="#readPost">Posts</a>
-                            <a href="#more">More</a>
-                    <a href="#loginBlogger">Login</a>
-                    <a href="#logoutBlogger">Logout</a>-->
-            <!-- Search form -->
-            <!--        <form class="form-inline">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                        <input class="search" type="text" placeholder="Search..."
-                               aria-label="Search">
-                        <span class="fa fa-search"> </span>
-                    </form>-->
-        </div>
         <div class="header">
-            <h1>THE GREAT ESCAPE</h1>
+            <h1>Start your Advntr here!</h1>
         </div>
 
         <div class="row">
             <div class="leftcolumn">
+                <div class="card">
+                    <h2>Outdoor and Adventure Blog</h2>
+                    <h5>'Sharing stories of outdoor adventures, articles and memories'</h5>
+                    <div class="img"></div>
+                    <img src= "HCH_1772.jpg" alt="image" style="width:100%;">
+                    <div class="readMore">
+                        <p><button class="button padding white border"><b>READ MORE »</b></button></p>
+                </div>
                 <div class="card">
                     <h2>7 Things You’ll Learn on your First Canyon Adventure</h2>
                     <h5>Canyoning is an adventure and exploration sport where participants climb into a wetsuit and get themselves down a river, gorge or – you guessed it – canyon. It involves using a variety of techniques ranging from walking, jumping and scrambling to abseiling and rock climbing. Canyoning in itself is a bit of a multi-sport adventure.
@@ -61,18 +53,10 @@
 
                         At it’s best, canyoning isn’t just an adrenaline hit, it’s an inimitable and intimate way to explore and enjoy beautiful natural spaces in a manner that’s otherwise simply not possible.
 
-                        Here are a few things that you’ll learn on your first canyoning trip, with the add-ins of a few epic places and ways to try it out. 
-                    </h5>
-                    <div class="img" style="height:200px;">Image</div>
-
-                    <p>Some text..</p>
-                </div>
-                <div class="card">
-                    <h2>TITLE HEADING</h2>
-                    <h5>Content, Sep 2, 2017</h5>
+                        Here are a few things that you’ll learn on your first canyoning trip, with the add-ins of a few epic places and ways to try it out. Sep 2, 2017</h5>
                     <div class="img"></div>
-                    <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1772.jpg" alt="image" style="width:100%;">
-                    <p>Some text..</p>
+                    <img src= "canyoning.png" alt="image" style="width:100%;">
+                   
                     <!--                <div class="Comment">-->
                     <div class="readMore">
                         <p><button class="button padding white border"><b>READ MORE »</b></button></p>
@@ -85,11 +69,11 @@
 
                 <div class="rightcolumn">
                     <div class="card">
-                        <h2>About Me</h2>
+                        <h2>About Advntr</h2>
                         <div class="img">
-                            <img src= "https://localhost/MVC-Skeleton/views/images/HCH_1772.jpg" alt="image" style="width:100%;">
+                            <img src= "Image1.png" alt="image" style="width:100%;">
                         </div>
-                        <p>Hi, I'm Victoria and I love canyoning.</p>
+                        <p>Tell us about you and your adventures!</p>
                     </div>
                     <div class="card">
                         <h3>Popular Post</h3>
@@ -98,8 +82,9 @@
                         <div class="img">Image</div>
                     </div>
                     <div class="card">
-                        <h3>Follow Me</h3>
-                        <p>Social Media</p>
+                        <h3>Follow Us</h3>
+                        <p><a>Social Media</a></p>
+                        <a href="https://www.instagram.com/advntr.cc/">Instagram</a>
                     </div>
                 </div>
             </div>
@@ -117,30 +102,30 @@
                 body {
                     font-family: 'Montserrat', sans-serif;
                     padding: 10px;
-                    background: #f1f1f1;
+                    background: #FAFAFA;
                 }
 
                 /* Header/Blog Title */
                 .header {
                     padding: 50px;
-                    font-size: 80px;
+                    font-size: 100px;
                     text-align: center;
-                    background: white;
+/*                    background: white;*/
                 }
 
                 /* Create two unequal columns that floats next to each other */
                 /* Left column */
-                .leftcolumn {
-                    float: left;
-                    width: 75%;
-                }
+                /*                .leftcolumn {
+                                    float: left;
+                                    width: 75%;
+                                }*/
 
                 /* Right column */
-                .rightcolumn {
-                    float: right;
-                    width: 20%;
-                    padding-left: 10px;
-                }
+                /*                .rightcolumn {
+                                    float: right;
+                                    width: 20%;
+                                    padding-left: 10px;
+                                }*/
 
                 /* image */
                 .img {
@@ -154,7 +139,7 @@
                 .card {
                     float: right;
                     background-color: white;
-                    /*                width:20%;*/
+                    width:100%;
                     padding: 20px;
                     margin-top: 20px;
                 }

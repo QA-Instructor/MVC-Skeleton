@@ -33,14 +33,14 @@
             ?>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="leftcolumn">
+<!--                    <div class="leftcolumn">-->
                         <div class="card">
                             <h3>   <?php echo$p->title . PHP_EOL; ?> </h3>
 
                             <?php echo$p->content . PHP_EOL; ?> 
                             <?php
                             if ($p->postImage !== NULL) {
-                                $path = dirname(__DIR__) . "\\images\\";
+                                $path = __DIR__ . "/../../views/images/";
                                 $file = $path . $p->postImage;
                                 if (file_exists($file)) {
                                     //need to use local path name to display images full name doesnt work
@@ -55,7 +55,7 @@
                         ?> </td>
                         <!--&nbsp;-->
                         <div class="img" style="height:200px;">Image</div>
-                    </div>
+<!--                    </div>-->
                 </div>
             </div>
         </div>
