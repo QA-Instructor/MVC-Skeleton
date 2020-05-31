@@ -53,7 +53,9 @@
                             <a class="nav-link" href='?controller=authentication&action=create'>Sign Up</a>
                             
                         </li>
-
+                        <li class="nav-item">
+                               <a class="nav-link" href='?controller=subscribe&action=create'>Subscribe here</a> 
+                        </li>
 
                     </ul>
                 </div>

@@ -36,6 +36,7 @@ $controllers = array('pages' => ['home', 'aboutus', 'error'],
     'blog' => ['readAll', 'read', 'create', 'update', 'delete', 'readAllAdminUser'],
     'authentication' => ['create', 'login'],
     'contactus' => ['create'],
+    'subscribe' => ['create'],
     'controllerXXX' => ['actionYYY', 'actionZZZ'],
 );
 
