@@ -3,7 +3,7 @@
 
 
 <?php 
-$file = 'views/images/' . $blog->title . '.jpeg';
+$file = 'views/images/img' . $blog->title . '.jpeg';
 if(file_exists($file)){
     $img = "<img src='$file' width='500' height: '500' />";
     echo $img;

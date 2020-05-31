@@ -179,7 +179,7 @@ const InputKey = 'myUploader';
         }
 
         $tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/Blog_Proj/views/images/";
+        $path = "C:/xampp/htdocs/finalProject/views/images/img";
         $destinationFile = $path . $title . '.jpeg';
 
         if (!move_uploaded_file($tempFile, $destinationFile)) {
