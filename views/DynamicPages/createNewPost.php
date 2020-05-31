@@ -63,7 +63,7 @@
 
     /* Full-width input fields */
     input[type=text], input[type=password] {
-        width: 100%;
+        width: 20%;
         padding: 15px;
         margin: 5px 0 22px 0;
         border: none;
@@ -139,7 +139,7 @@
         padding: 15px 12px;
         border: none;
         cursor: pointer;
-        width: 100%;
+        width: 30%;
         opacity: 0.8;
     }
 
@@ -154,7 +154,7 @@
         padding: 15px 12px;
         border: none;
         cursor: pointer;
-        width: 100%;
+        width: 30%;
         opacity: 0.9;
     }
 
@@ -172,9 +172,9 @@
         <div class="container">
 
             <label>Title</label>
-            <input class="input" type="text" name="title" required autofocus>
-            <label>Content</label>
-            <input class="input" type="text" name="content" required>
+            <input class="input" type="text" name="title" required autofocus><br>
+            <label for="content">Content</label><br>
+            <textarea id="content" rows="10" cols="40" required></textarea><br><br>
             <label for="categoryID">Choose a category:</label>
             <select name="categoryID" id="category">
                 <option value="1">Canyoning</option>
@@ -190,7 +190,7 @@
                 <option value="11">Family</option>
             </select><br>
             <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
-            <input type="file" name="myUploader" class="button" required>
+            <input type="file" name="myUploader" class="button" required><br>
             <input class="postButton" type="submit" value="Add Post">
         </div>
 </form>
