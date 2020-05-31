@@ -18,10 +18,12 @@ Class BloggerController {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             require_once('views/DynamicPages/createNewBlogger.php');
         } else {
-            blogger::add();
-
-            $bloggers = blogger::all(); //$blogger is used within the view
-            require_once('views/DynamicPages/readAllBloggers.php');
+            
+            $registerBlogger = blogger::add();
+            createSessionData($registerBlogger);
+            
+            //$bloggers = blogger::all(); //$blogger is used within the view
+            //require_once('views/DynamicPages/readAllBloggers.php');
         }
     }
     
@@ -38,8 +40,10 @@ Class BloggerController {
                 try{
                   $bloggers = blogger::all();
                   $loggedin = blogger::findBlogger($bloggers);
+                  createSessionData($loggedin);
                   echo $loggedin->blogName . ' you are logged in';
-                  require_once('views/DynamicPages/readAllBloggers.php');
+                  
+                //  require_once('views/DynamicPages/readAllBloggers.php');
                 }
                 catch(TooManyLoginAttempts $e){
                   $currentAttempts = $_SESSION['attempts'] + 1;
@@ -53,4 +57,15 @@ Class BloggerController {
                 }
     }
 }
+}
+
+function createSessionData($blogger) {
+    if (isset($_SESSION['attempts'])) {
+        $_SESSION ['blogID'] = $blogger->blogID;
+        $_SESSION ['blogName'] = $blogger->blogName;
+        $_SESSION ['lastLogin'] = $blogger->lastLogin; 
+        $_SESSION ['intro'] = $blogger->intro; 
+        $_SESSION ['aboutMe'] = $blogger->aboutMe; 
+        //$_SESSION ['aboutMe'] = 'This is where my aboutMe sentence should show';
+    }
 }

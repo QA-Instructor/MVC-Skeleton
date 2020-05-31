@@ -82,6 +82,12 @@ class blogger {
         $req->execute();
         //retrieving last ID (BlogID for use in displaying blogs
         $blogid = $db->lastInsertId();
+        $req = $db->prepare('SELECT * FROM register_table WHERE blogID = :blogID');
+        $req->bindParam(':blogID', $blogid);
+        $req->execute();
+        $blogger = $req->fetch();
+        $bloggerObject = new blogger($blogger['blogID'], $blogger['blogName'], $blogger['firstName'], $blogger['lastName'], $blogger['email'], $blogger['registeredAt'], $blogger['lastLogin'], $blogger['phoneNumber'], $blogger['intro'], $blogger['aboutMe'], $blogger['passwordHASH']);
+        return $bloggerObject;
     }
 
     public static function findBlogger($bloggers) {

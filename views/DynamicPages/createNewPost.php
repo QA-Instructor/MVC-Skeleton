@@ -174,7 +174,7 @@
             <label>Title</label>
             <input class="input" type="text" name="title" required autofocus><br>
             <label for="content">Content</label><br>
-            <textarea id="content" rows="10" cols="40" required></textarea><br><br>
+            <textarea id="content" name="content" rows="10" cols="40" required></textarea><br><br>
             <label for="categoryID">Choose a category:</label>
             <select name="categoryID" id="category">
                 <option value="1">Canyoning</option>
