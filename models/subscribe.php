@@ -20,36 +20,41 @@ class subscribe {
 
         public static function add() { //create
    $db = Db::getInstance();
-   $req = $db->prepare("Insert into subscriptions(subscriptionsID, firstName, surname, email) values (:subscriptionsID, :firstName, :surname, :email)");
-    $req->bindParam(':subscriptionsID', $subscriptionsID);
-   $req->bindParam(':firstName', $firstName);
-   $req->bindParam(':surname', $surname);
+   $req = $db->prepare("Insert into subscriptions(email) values (:email)");
+   //$req->bindParam(':subscriptionsID', $subscriptionsID);
+   //$req->bindParam(':firstName', $firstName);
+   //$req->bindParam(':surname', $surname);
    $req->bindParam(':email', $email);
 
 // set parameters and execute
    
    //model communicates with the database
    
-    if(isset($_POST['subscriptionsID'])&& $_POST['subscriptionsID']!=""){
-       $filteredSubscriptionsID = filter_input(INPUT_POST,'subscriptionsID', FILTER_SANITIZE_SPECIAL_CHARS);
+  /*  if(isset($_POST['subscriptionsID'])&& $_POST['subscriptionsID']!=""){
+       $filteredsubscriptionsID = filter_input(INPUT_POST,'subscriptionsID', FILTER_SANITIZE_SPECIAL_CHARS);
   /*  }
    if(isset($_POST['firstName'])&& $_POST['firstName']!=""){
        $filteredFirstName = filter_input(INPUT_POST,'firstName', FILTER_SANITIZE_SPECIAL_CHARS);
   /* }
    if(isset($_POST['surname'])&& $_POST['surname']!=""){
        $filteredSurname = filter_input(INPUT_POST,'surname', FILTER_SANITIZE_SPECIAL_CHARS); */
-   }
+   //}
    if(isset($_POST['email'])&& $_POST['email']!=""){
        $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);
  
    }
-$subscriptionsID = $filteredSubscriptionsID;
+
+//$subscriptionsID = $filteredsubscriptionsID;
 //$firstName = $filteredFirstName;
 //$surname = $filteredSurname;
 $email = $filteredEmail;
 
 $req->execute();
+
+if ($req->execute()) {
+    header("location:index.php");
     }
+}
 }
 
 
