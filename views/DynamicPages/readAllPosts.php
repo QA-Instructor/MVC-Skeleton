@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<head><h1>Create New ADVNTR post</h1>
+<head>
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -8,34 +8,26 @@
 </head>
 <html>
     <body>
-        <style>  .leftcolumn {
-                float: left;
-                width: 75%;
-            }
-            .img {
-                /*            display: block;  
-                            width: 96%;
-                            background-color: #aaa;*/
-                padding: 20px;
-            }
+        <style> 
 
             /* Add a card effect for articles */
-            .card {
-                float: left;
+            .posts {
+                float: centre;
                 background-color: white;
                 /*                width:20%;*/
                 padding: 20px;
                 margin-top: 20px;
+                image-orientation: centre;
             }
         </style>
         <?php
         foreach ($posts as $p) {
             ?>
             <div class="container-fluid">
-                <div class="row">
+                <div class="leftcolumn">
 <!--                    <div class="leftcolumn">-->
-                        <div class="card">
-                            <h3>   <?php echo$p->title . PHP_EOL; ?> </h3>
+                        <div class="posts">
+                            <h3><?php echo$p->title . PHP_EOL; ?></h3>
 
                             <?php echo$p->content . PHP_EOL; ?> 
                             <?php
@@ -52,16 +44,13 @@
                             }
                             echo$p->publishedAt . PHP_EOL;
                         }
-                        ?> </td>
+                        ?>
                         <!--&nbsp;-->
                         <div class="img" style="height:200px;">Image</div>
 <!--                    </div>-->
                 </div>
             </div>
         </div>
-  <!--<a href='?controller=product&action=read&id=<?php // echo $product->id;      ?>'>See product information</a> &nbsp; &nbsp;
-  <a href='?controller=product&action=delete&id=<?php // echo $product->id;      ?>'>Delete Product</a> &nbsp; &nbsp;
-  <a href='?controller=product&action=update&id=<?php // echo $product->id;      ?>'>Update Product</a> &nbsp;-->
-    </p>
+ </p>
 </body>
 </html>
