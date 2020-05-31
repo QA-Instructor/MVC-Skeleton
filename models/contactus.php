@@ -4,25 +4,22 @@ class contactus {
 
     // we define 3 attributes
     public $contactID;
-    public $blogID; 
-    public $subscriptionsID;
-    public $responseID;
     public $firstName;
     public $surname;
     public $email;
     public $dates;
     public $body;
 
-    public function __construct($contactID,$blogID,$subscriptionsID,$responseID,$firstName,$surname,$email,$dates,$body) { 
-    $this-> contactID = $contactID;
-    $this-> blogID = $blogID; 
-    $this-> subscriptionsID = $subscriptionsID;
-    $this-> responseID = $responseID;
-    $this-> firstName = $firstName;
-    $this-> surname = $surname;
-    $this-> email = $email ;
-    $this-> dates = $dates;
-    $this-> body = $body;
+
+    public function __construct($contactID,$firstName,$surname,$email,$dates,$body) { 
+    $this-> contactID=$contactID;
+    $this-> firstName=$firstName; //All the below is items for
+    $this-> surname=$surname;
+    $this-> email=$email;
+    $this-> dates=$dates;
+    $this-> body=$body;
+
+  
     }
 
     /*public static function all() {
@@ -54,15 +51,17 @@ class contactus {
     }} */
         public static function add() { //create
    $db = Db::getInstance();
-   $req = $db->prepare("Insert into contact_us(firstName, surname, email, body) values (:firstName, :surname, :email, :body)");
+   $req = $db->prepare("Insert into contact_us(contactID, firstName, surname, email,dates, body) values (:contactID,:firstName,:surname, :email, :dates, :body)");
+   $req->bindParam(':contactID', $contactID);
    $req->bindParam(':firstName', $firstName);
    $req->bindParam(':surname', $surname);
    $req->bindParam(':email', $email);
+   $req->bindParam(':dates',$dates);
    $req->bindParam(':body', $body);
 // set parameters and execute
    
    //model communicates with the database
-   
+
    if(isset($_POST['firstName'])&& $_POST['firstName']!=""){
        $filteredFirstName = filter_input(INPUT_POST,'firstName', FILTER_SANITIZE_SPECIAL_CHARS);
    }
@@ -71,7 +70,7 @@ class contactus {
    }
    if(isset($_POST['email'])&& $_POST['email']!=""){
        $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);
-   }
+          }
    if(isset($_POST['body'])&& $_POST['body']!=""){
        $filteredBody = filter_input(INPUT_POST,'body', FILTER_SANITIZE_SPECIAL_CHARS);
    }
