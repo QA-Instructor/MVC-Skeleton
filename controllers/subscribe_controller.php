@@ -1,6 +1,7 @@
 <?php
 
-class contactusController {
+
+class subscribeController {
 
   /*  public function readAll() {
         // we store all the posts in a variable
@@ -13,16 +14,13 @@ class contactusController {
         // if it's a GET request display a blank form for creating a new product
         // else it's a POST so add to the database and redirect to readAll action
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            require_once('views/contactus/create.php');
+            require_once('views/subscribe/create.php');
         } else {
-            contactus::add(); //calling the add function that sends query into the database
+            subscribe::add(); //calling the add function that sends query into the database
 
- /*          $contactus = contactus::all();
-            require_once('views/contactus/create.php');
+        //    $subscribe = subscribe::all();
+           // require_once('views/subscribe/create.php');
+       // }//takes you back to all products
+ }
 
-        }//takes you back to all products
-    }
-*/
-}
-    
-}}
+    }}
