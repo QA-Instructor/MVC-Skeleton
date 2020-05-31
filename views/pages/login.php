@@ -28,7 +28,7 @@ body{
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 offset md-4 form-div login">
+                <div class="col-md-4 offset md-4 form-div login"  style="top: -70px">
                     <form action="" method="POST">
                         <h3 class="text-center">Login</h3>
 

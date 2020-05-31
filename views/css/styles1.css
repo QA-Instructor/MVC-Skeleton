@@ -13,6 +13,9 @@
 
 
 .form-div {
+    opacity: 0.8;
+    float: left;
+    top: -80px;
   margin: 0px;
 padding: 25px 15px 10px 15px;
 border: 1px solid #000000;
@@ -22,6 +25,7 @@ font-family: "Lora", serif;
  background: linear-gradient(to top, #000000 0%, #000111 100%);
  color: white;
  float: left;
+ border-radius: 30px;
  
 
 }
