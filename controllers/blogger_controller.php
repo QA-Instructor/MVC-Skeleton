@@ -42,8 +42,8 @@ Class BloggerController {
                   $loggedin = blogger::findBlogger($bloggers);
                   createSessionData($loggedin);
                   echo $loggedin->blogName . ' you are logged in';
-                  
-                //  require_once('views/DynamicPages/readAllBloggers.php');
+            //need to display readAllPosts but we need to figure out the database first      
+          //       require_once('views/DynamicPages/readAllPosts.php');
                 }
                 catch(TooManyLoginAttempts $e){
                   $currentAttempts = $_SESSION['attempts'] + 1;
@@ -57,7 +57,20 @@ Class BloggerController {
                 }
     }
 }
-}
+public function logout() {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            if (isset($_SESSION['blogID'])) {
+                unset($_SESSION['attempts']);
+                unset($_SESSION['intro']);
+                unset($_SESSION['blogName']);
+                unset($_SESSION['lastLogin']);
+            unset($_SESSION['aboutMe']);
+            }
+        }
+        }
+                  }
+
+
 
 function createSessionData($blogger) {
     if (isset($_SESSION['attempts'])) {

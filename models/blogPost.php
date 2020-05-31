@@ -43,7 +43,8 @@ class blogPost {
         if (isset($_POST['categoryID']) && $_POST['categoryID'] != "") {
             $filteredcategoryID = filter_input(INPUT_POST, 'categoryID', FILTER_SANITIZE_SPECIAL_CHARS);
         }
-        $blogID = 1;
+        if (isset($_SESSION['blogID'])) {
+        $blogID = $_SESSION['blogID'];}
         $categoryID = $filteredcategoryID;
         $title = $filteredTitle;
         $publishedAt = date("d-m-y");
@@ -138,7 +139,7 @@ class blogPost {
         $req->execute();
                    
         // we create a list of Product objects from the database results
-        foreach ($req->fetchAll() as $posts) {
+        foreach ($req->fetch() as $posts) {
             $list[] = new blogPost($posts['postID'], $posts['blogID'], $posts['categoryID'], $posts['title'], $posts['publishedAt'], $posts['content'], $posts['postImage']);
         }
         return $list;
