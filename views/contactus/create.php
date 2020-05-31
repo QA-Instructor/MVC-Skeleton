@@ -27,7 +27,7 @@ body{
         
         <div class="container" >
             <div class="row">
-                <div class="col-md-4 offset md-4 form-div login">
+                <div class="col-md-4 offset md-4 form-div login"   style="top: -110px">
                     <form action="" method="POST">
                         <h3 class="text-center">Contact Us</h3>
                        
@@ -50,9 +50,9 @@ body{
                             <input type="date" name="date" class="form-control form-control-lg required " required>
                         </div>
                          <div class="form-group">   
-                            <label for="=body">Body</label>
-                            <input type="text" name="body" placeholder="Please Write Your Message Here" class="form-control form-control-lg required " required>
-                        </div>
+                             <label for="=body">Body</label>
+                             <textarea id="body" name="body" rows="4" cols="50" class="form-control form-control-lg required " required="">
+                      </textarea>  </div> 
                         
                         <div class="form-group">
                             <button type="submit" name="contactus-btn" class="btn btn-primary btn-block btn-lg">Submit</button>
