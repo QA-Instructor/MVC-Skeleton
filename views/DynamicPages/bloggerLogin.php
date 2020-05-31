@@ -41,7 +41,6 @@ if (isset($_POST["login"])) {
 }
 
 //setcookie("$firstName", "$lastName", time() - 86400);
-session_start();
 if (!isset($_SESSION['attempts']))
    $_SESSION['attempts']=0;
 ?>

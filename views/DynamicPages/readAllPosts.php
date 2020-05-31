@@ -23,7 +23,7 @@
             .card {
                 float: left;
                 background-color: white;
-                /*                width:20%;*/
+           /*     width:70%; */
                 padding: 20px;
                 margin-top: 20px;
             }
@@ -37,7 +37,7 @@
                         <div class="card">
                             <h3>   <?php echo$p->title . PHP_EOL; ?> </h3>
 
-                            <?php echo$p->content . PHP_EOL; ?> 
+                               <?php echo$p->content . PHP_EOL; ?> 
                             <?php
                             if ($p->postImage !== NULL) {
                                 //$path = dirname(__DIR__) . "\\images\\"; 
@@ -53,8 +53,7 @@
                                     //need to use local path name to display images full name doesnt work
                                     $img = "<img src='views/images/$p->postImage' width='800' height = '600' />";   //added /../
                                     echo $img;
-                                    echo "i am getting to this point $path";
-                                    
+                                                             
                                 } else {
                                     echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
                                 }

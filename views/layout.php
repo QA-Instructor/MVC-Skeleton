@@ -200,6 +200,8 @@
                             <!--<a href='?controller=blogPostComment&action=create'>Add Comment</a>-->
                             <a href='?controller=blogger&action=login'>Blogger Login</a>
                             <a href='?controller=blogPost&action=search&category=1'>Most Popular</a>
+                            <p><?php echo $_SESSION['blogName']." ".$_SESSION['lastLogin']; ?></p>
+                             <a href='?controller=blogger&action=logout'>Logout</a>
                         </div>
                         <input class="search" type="text" placeholder="Search..." aria-label=Search">
                         <li class="fa fa-search"> </li>

@@ -11,7 +11,7 @@ Class blogPostController {
         } else {
             blogPost::add();
 
-            $posts = blogPost::all(); //$products is used within the view
+            $posts = blogPost::search(); //$products is used within the view
             require_once('views/DynamicPages/readAllposts.php');//just using this page to test reading back
         }
     }
