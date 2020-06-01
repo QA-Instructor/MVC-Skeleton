@@ -1,34 +1,53 @@
 
-<head>    <meta charset="UTF-8">
+<html>
+    <head>
+        <meta charset="UTF-8">
         <!-- Bootstrap link -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <!--external stylesheet -->
-        <link rel="stylesheet" href="css/style.css">
-    <?php    session_start(); ?>
-</head>
+        <link rel="stylesheet" href="css/styles1.css">
+        <title>Login</title>
+        <style>
+          
+body{
+  height: 100%;
+  background-image:url("views/images/img/this.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+                
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset md-4 form-div login"  style="top: -70px; left: -10px">
+                    <form action="" method="POST">
+                        <h3 class="text-center">POST A BLOG</h3>
 
 
+                            <div class="form-group">
+                            <label for="=email">Title</label>
+                            <input type="text" name="title" class="form-control form-control-lg" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="=email">Description</label>
+                            <input type="text" name="blogDescription" class="form-control form-control-lg" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="=email">Blog Body</label>
+                    
+ <textarea class="form-control form-control-lg" rows="2" cols="25" type='text' name='body' required autofocus></textarea>
+                        </div>
 
-<form action="" method="POST" class="w3-container" enctype="multipart/form-data">
-    
-    <div class="col-md-4 offset md-4 form-div" >
-    
-    <h2 class="text-center">Add new blog</h2>
+                    
+                  
 
-    <p class="form-group">
-         <label>Blog Title</label>
-        <input class="w3-input" type="text" name="title" required autofocus>  
-  </p>
-     <p class="form-group">
-         <label>Description</label>
-        <input class="w3-input" type="text" name="blogDescription" required autofocus>  
-  </p>
-        <p class="form-group">
-               <label>Main Body</label>
-        <textarea rows="2" cols="25" type='text' name='body' required autofocus></textarea>
- </p>
- 
- <p class="form-group">  <label for="cars">Choose a country</label>
+
+                        
+                        <p class="form-group">  <label for="cars">Choose a country</label>
 
 <select name='country' id="cars" required autofocus>
     <option disabled selected value> -- select an option -- </option>
@@ -55,26 +74,25 @@
 </select>
  </p>
  
- 
-  <input type="hidden" 
-	   name="MAX_FILE_SIZE" 
-         value="10000000"
-         />
+ <div class="form-group">
+                            <button href="" type="submit" name="submit" class="btn btn-primary btn-block btn-lg">Read Examples</button>
+                        </div>
+                        <p class="text-center"> Not sure what to write? Hit the button for inspo <a href="?controller=blog&action=readAll">Sign Up</a></p>
+                </div>   
+                    </form>
 
-  <input type="file" name="myUploader" class="w3-btn w3-pink" required />
-  <p>
-    <input class="form-group"  type="submit" name='submit'>
-  </p>
-       
-</form>
+     
 
 
-</div>
-    
-    
-    <p>
-    <form method="get" action="index.php">
-    <button type="submit">Logout</button>
-</form>  
-</p>
+            </div>
+
+
+
+        </div>
+
+        <?php
+        // put your code here
+        ?>
+    </body>
+</html>
 
