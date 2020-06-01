@@ -58,8 +58,8 @@
     Contribute To Our Website
   </button>
   <div class="dropdown-menu  bg-dark" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item bg-dark" href="?controller=authentication&action=create">Register</a>
-    <a class="dropdown-item bg-dark" href="?controller=authentication&action=login">Sign In</a>
+        <a class="dropdown-item" href="?controller=authentication&action=create">Register</a>
+    <a class="dropdown-item" href="?controller=authentication&action=login">Sign In</a>
   
 
   </div>
