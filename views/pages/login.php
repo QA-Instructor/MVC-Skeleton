@@ -17,7 +17,7 @@ and open the template in the editor.
           
 body{
   height: 100%;
-  background-image:url("views/images/img/beach1.jpg");
+  background-image:url("views/images/img/capri2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,7 +28,7 @@ body{
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 offset md-4 form-div login"  style="top: -70px">
+                <div class="col-md-4 offset md-4 form-div login"  style="top: -70px; left: -10px">
                     <form action="" method="POST">
                         <h3 class="text-center">Login</h3>
 
