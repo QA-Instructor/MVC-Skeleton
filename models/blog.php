@@ -96,11 +96,11 @@ class blog {
             if ($_POST['country'] == 'Poland') {
                 $country = 1;
             }
-            if ($_POST['country'] == 'US') {
-                $country = 4;
-            }
-            if ($_POST['country'] == 'Morocco') {
+            if ($_POST['country'] == 'USA') {
                 $country = 3;
+            }
+            if ($_POST['country'] == 'Italy') {
+                $country = 4;
             }
             if ($_POST['country'] == 'Turkey') {
                 $country = 5;
