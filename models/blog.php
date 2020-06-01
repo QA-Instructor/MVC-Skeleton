@@ -154,9 +154,9 @@ class blog {
 //everytime someone created a new prodicut its assigning name variable to filtered name
 //upload product image
 
-        Blog::uploadFile($blogID); //link to add as the code is enabling them to upload pics and error handlers are here look below
+//        Blog::uploadFile($blogID); //link to add as the code is enabling them to upload pics and error handlers are here look below
+//    }
     }
-
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
 const InputKey = 'myUploader';
 //die() function calls replaced with trigger_error() calls
