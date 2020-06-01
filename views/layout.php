@@ -48,7 +48,7 @@
                             <a class="nav-link" href="?controller=contactus&action=create">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                               <a class="nav-link" href='?controller=subscribe&action=create'>Subscribe here</a> 
+                               <a class="nav-link" href='?controller=subscribe&action=create'>Subscribe Here</a> 
                       
                         </li>
                     </ul>
