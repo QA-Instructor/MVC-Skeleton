@@ -25,7 +25,7 @@
   </p>
         <p class="form-group">
                <label>Main Body</label>
-        <textarea rows="2" cols="25" type='text' name='body' required autofocus></textarea>
+        <textarea rows="2" cols="25"  name='body' required autofocus></textarea>
  </p>
  
  <p class="form-group">  <label for="cars">Choose a country</label>
@@ -44,8 +44,8 @@
  
  
  
- <p class="form-group">  <label for="cars" required autofocus>Choose a category</label>
- <select name="categories" id="cars">
+ <p class="form-group">  <label for="cars" >Choose a category</label>
+ <select name="categories" id="cars" required autofocus>
      <option disabled selected value> -- select an option -- </option>
   <option value="Restaurants">Restaurants</option>
     <option value="Trips">Trips</option>

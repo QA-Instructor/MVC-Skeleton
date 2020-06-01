@@ -5,11 +5,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+<!--We need the meta tag to properly scale the responsive CSS code-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <title>Our Blog</title>
-        <!--We need the meta tag to properly scale the responsive CSS code-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <!--Here I went ahead and imported two fonts-->
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
         <!--<link href="views/css/style.css" rel="stylesheet" type="text/css"/> -->
@@ -48,7 +48,7 @@
            
             <div class="card-deck">
 
-                <div class="card">
+                <div class="card  mb-4 border-0">
                     <img class="card-img-top" src="views/images/img/italy.jpg" alt="Card image">
                     <div class="card-body">
                         <h5 class="card-title">Italy</h5>
@@ -57,7 +57,7 @@
                         <a href="#" >Read more...</a>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card mb-4 border-0">
                     <img class="card-img-top" src="views/images/img/vietnam2.jpg" alt="Card image">
                     <div class="card-body">
                         <h5 class="card-title">Vietnam</h5>
@@ -66,7 +66,7 @@
                         <a href="#" >Read more...</a>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card mb-4 border-0">
                     <img class="card-img-top" src="views/images/img/turkey3.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Turkey</h5>
@@ -75,7 +75,7 @@
                         <a href="#" >Read more...</a>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card mb-4 border-0">
                     <img class="card-img-top" src="views/images/img/poland.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Poland</h5>
@@ -84,10 +84,10 @@
                         <a href="#" >Read more...</a>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card mb-4 border-0">
                     <img class="card-img-top" src="views/images/img/newyork1.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">New York</h5>
+                        <h5 class="card-title">U.S.A</h5>
                         <p class="card-text"> Epicenter of the arts. Architectural darling. Dining and shopping capital. Trendsetter. New York City wears many crowns, and spreads an irresistible feast for all.
 
 </p>

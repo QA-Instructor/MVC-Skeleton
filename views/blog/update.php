@@ -37,7 +37,9 @@ body{
 
                         <div class="form-group">
                             <label for="=username">Update Body</label>
-                            <textarea type="text" name="body" class="form-control form-control-lg" rows="2" cols="25" type='text' name='body' value="<?= $blog->body; ?>"> "<?php echo $blog->body; ?></textarea>
+
+                            <textarea name="body" class="form-control form-control-lg" rows="2" cols="25" type='text' name='body' value="<?= $blog->body; ?>"> "<?php echo $blog->body; ?></textarea>
+
 
                     
                         </div>
@@ -65,3 +67,6 @@ body{
         // put your code here
         ?>
     </body>
+
+</html>
+

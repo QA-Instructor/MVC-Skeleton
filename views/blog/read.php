@@ -40,7 +40,7 @@
         <!-- Author -->
         <p class="lead">
           by
-          <a href="?controller=pages&action=aboutus"">The Gits </a>
+          <a href="?controller=pages&action=aboutus">The Gits </a>
         </p>
 
         <hr>
@@ -51,7 +51,7 @@
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="views/images/img/<?php echo $blog->blogID; ?>.jpg" alt="">
+        <img class="img-fluid rounded" src="views/images/img/<?php echo $blog->blogID; ?>.jpg" alt="" style="height: 500px; width: 500px;">
 
         <hr>
 
@@ -118,7 +118,7 @@
     </div>
     <!-- /.row -->
 
-  </div>
+  
   <!-- /.container -->
 
   <!-- Bootstrap core JavaScript -->
