@@ -34,7 +34,7 @@
     <option disabled selected value> -- select an option -- </option>
   <option value="Vietnam">Vietnam</option>
     <option value="Poland">Poland</option>
-  <option value="Morocco">Morocco</option>
+  <option value="Morocco">Italy</option>
   <option value="Turkey">Turkey</option>
   <option value="US">US</option>
 </select>
