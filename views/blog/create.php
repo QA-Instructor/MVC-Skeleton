@@ -75,9 +75,9 @@ body{
  </p>
  
  <div class="form-group">
-                            <button href="" type="submit" name="submit" class="btn btn-primary btn-block btn-lg">Read Examples</button>
+                            <button href="" type="submit" name="submit" class="btn btn-primary btn-block btn-lg">Submit</button>
                         </div>
-                        <p class="text-center"> Not sure what to write? Hit the button for inspo <a href="?controller=blog&action=readAll">Sign Up</a></p>
+                        <p class="text-center"> Not sure what to write? Hit the button for inspo <a href="?controller=blog&action=readAll">Read Examples</a></p>
                 </div>   
                     </form>
 
