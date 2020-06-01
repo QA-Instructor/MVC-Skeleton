@@ -8,7 +8,7 @@ Last Updated: 2010-09-17
 Author: Richard Clark - http://richclarkdesign.com
 Twitter: @rich_clark
 */
-
+/*
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -104,12 +104,13 @@ input, select {
 
 /*OUR CODE STARTS HERE!!! - MY CODE*/
 
-/*ALL HTML elements gets this styling*/
+
+/*ALL HTML elements gets this styling
 * {
   text-decoration: none;
 }
 
-/*Here we style the header for the mobile version*/
+/*Here we style the header for the mobile version
 header {
   background-color: #fff;
   width: 100%;
@@ -169,7 +170,7 @@ button {
     
     
 }
-/*Here we style the header for the desktop version*/
+/*Here we style the header for the desktop version
 @media only screen and (min-width: 1000px) {
   header .header-brand {
     margin: 31px 0;
@@ -205,7 +206,7 @@ button {
 }
 
 /*INDEX*/
-/*Here we style the main content for the mobile version*/
+/*Here we style the main content for the mobile version
 .index-banner {
   width: 100%;
   height: calc(100vh - 100px);
@@ -259,7 +260,7 @@ button {
   text-transform: uppercase;
 }
 
-/*Here we style the main content for the desktop version*/
+/*Here we style the main content for the desktop ve
 @media only screen and (min-width: 1000px) {
   .wrapper {
       width: 1000px;
@@ -301,7 +302,7 @@ button {
 }
 
 /*FOOTER*/
-/*Here we style the footer for the mobile version*/
+/*Here we style the footer for the mobile ve
 footer {
   width: calc(100% - 80px);
   padding: 20px 20px;
@@ -343,6 +344,7 @@ footer ul li a {
 }
 
 /*Here we style the footer for the desktop version*/
+/*
 @media only screen and (min-width: 1000px) {
   .footer-links-cases {
     display: block;
@@ -382,3 +384,4 @@ html {
 	  background: #1c1c1c;
 	  color: #fff;
 	}
+*/

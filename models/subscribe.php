@@ -52,7 +52,10 @@ $email = $filteredEmail;
 $req->execute();
 
 if ($req->execute()) {
-    header("location:index.php");
+ include("views/subscribe/thank_you.php");
+   
+   echo "<script>setTimeout(\"location.href = 'index.php';\",1500);</script>";
+   // header("location:index.php");
     }
 }
 }
