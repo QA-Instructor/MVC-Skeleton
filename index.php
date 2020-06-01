@@ -2,9 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link rel="icon" type="image/png" href="views/images/img/favicon2.png" sizes="32x32">
         <title>Our Travel Blog</title>
+      
     </head>
     <body>
         <?php
