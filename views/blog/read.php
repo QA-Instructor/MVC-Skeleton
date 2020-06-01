@@ -40,7 +40,7 @@
         <!-- Author -->
         <p class="lead">
           by
-          <a href="?controller=pages&action=aboutus"">The Gits </a>
+          <a href="?controller=pages&action=aboutus">The Gits </a>
         </p>
 
         <hr>
@@ -118,7 +118,7 @@
     </div>
     <!-- /.row -->
 
-  </div>
+  
   <!-- /.container -->
 
   <!-- Bootstrap core JavaScript -->

@@ -39,7 +39,7 @@ body{
                          <div class="form-group">
                             <label for="=email">Blog Body</label>
                     
- <textarea class="form-control form-control-lg" rows="2" cols="25" type='text' name='body' required autofocus></textarea>
+ <textarea class="form-control form-control-lg" rows="2" cols="25" name='body' required autofocus></textarea>
                         </div>
 
                     
@@ -63,8 +63,8 @@ body{
  
  
  
- <p class="form-group">  <label for="cars" required autofocus>Choose a category</label>
- <select name="categories" id="cars">
+ <p class="form-group">  <label for="cars" >Choose a category</label>
+ <select name="categories" id="cars" required autofocus>
      <option disabled selected value> -- select an option -- </option>
   <option value="Restaurants">Restaurants</option>
     <option value="Trips">Trips</option>
@@ -75,11 +75,11 @@ body{
  </p>
  
  <div class="form-group">
-                            <button href="" type="submit" name="submit" class="btn btn-primary btn-block btn-lg">Submit</button>
+                            <button type="submit" name="submit" class="btn btn-primary btn-block btn-lg">Submit</button>
                         </div>
                         <p class="text-center"> Not sure what to write? Hit the button for inspo <a href="?controller=blog&action=readAll">Read Examples</a></p>
                 </div>   
-                    </form>
+                    
 
      
 
