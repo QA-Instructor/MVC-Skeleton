@@ -14,7 +14,7 @@
           
 body{
   height: 100%;
-  background-image:url("views/images/img/beach1.jpg");
+  background-image:url("views/images/img/vietnam4.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

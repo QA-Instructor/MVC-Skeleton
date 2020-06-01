@@ -9,10 +9,11 @@
     <title>Our Blog</title>
     
        <!-- Bootstrap core CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
-    <!--External bootstrap Stylesheet -->
+    <!--External Stylesheet -->
 <link href="views/css/styles1.css" rel="stylesheet" type="text/css"/> 
 
     <!--We need the meta tag to properly scale the responsive CSS code
@@ -26,7 +27,7 @@
     <header>
            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">GITS ABROAD</a>
+                <a class="navbar-brand" href="index.php">GITS ABROAD</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -47,21 +48,29 @@
                             <a class="nav-link" href="?controller=contactus&action=create">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href='?controller=authentication&action=login'>Sign In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href='?controller=authentication&action=create'>Sign Up</a>
-                            
-                        </li>
-                        <li class="nav-item">
                                <a class="nav-link" href='?controller=subscribe&action=create'>Subscribe here</a> 
+                      
                         </li>
-
                     </ul>
-                </div>
-            </div>
-        </nav>       
+                   
+                    <div class="dropdown bg-dark" style="left: 50px">
+  <button class="btn btn-secondary dropdown-toggle bg-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Contribute To Our Website
+  </button>
+  <div class="dropdown-menu  bg-dark" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item bg-dark" href="?controller=authentication&action=create">Register</a>
+    <a class="dropdown-item bg-dark" href="?controller=authentication&action=login">Sign In</a>
+  
 
+  </div>
+                 
+               </div>
+                    
+         
+</div>
+            </div>
+               
+</nav> 
      
       
     
