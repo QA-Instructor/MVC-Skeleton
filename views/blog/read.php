@@ -51,7 +51,7 @@
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="views/images/img/<?php echo $blog->blogID; ?>.jpg" alt="">
+        <img class="img-fluid rounded" src="views/images/img/<?php echo $blog->blogID; ?>.jpg" alt="" style="height: 500px; width: 500px;">
 
         <hr>
 
