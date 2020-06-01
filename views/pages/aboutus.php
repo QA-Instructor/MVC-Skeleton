@@ -10,6 +10,17 @@
          <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
         <link href="views/css/styles.css" rel="stylesheet" type="text/css"/>
     </head>
+                <style>
+          
+body{
+  height: 100%;
+  background-image:url("views/images/img/aboutusback.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+                
+        </style>
     <body>
 
         <div class="container" style="margin-top:10px;">
@@ -23,7 +34,9 @@
 
                     </div>
                     <div class="ptext" id="pt1">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                        <h3>Maeve</h3>
+                        Will be finishing my degree this year, will be cause for a parrrtay
+                       <h6><b>Fave phrase during project: </b>"You know what I mean?"</h6>
                     </div>
                 </div>
                 <div class="profile" id="p2" >
@@ -34,7 +47,9 @@
 
                     </div>
                     <div class="ptext" id="pt2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                        <h3>Bushra</h3>
+                        Cannot wait to take my daughter and husband on a trip away
+                       <h6><b>Fave phrase during project: </b>"Sorry Guys"</h6>
                     </div>
                 </div>
                 <div class="profile" id="p3" >
@@ -45,7 +60,9 @@
 
                     </div>
                     <div class="ptext" id="pt3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                       <h3>Jenny</h3>
+                        I love to travel and I cannot wait until these 'unprecedented times' are over
+                        <h6><b>Fave phrase during project: </b>"Guys, Let's branch"</h6>
                     </div>
                 </div>
 
@@ -60,7 +77,9 @@
 
                     </div>
                     <div class="ptext" id="pt4">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                       <h3>Preceuise</h3>
+                         I will tell my kids in the year 2020 I stayed in my room the whole time coding
+                       <h6><b>Fave phrase during project: </b>"Please God"</h6>
                     </div>
                 </div>
                 <div class="profile" id="p5" style="float:right; margin-right:15%;">
@@ -71,7 +90,9 @@
 
                     </div>
                     <div class="ptext" id="pt5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                         <h3>Izzy</h3>
+                         I always try to go for the Dora Explora Vibes!
+                       <h6><b>Fave phrase during project: </b>"LOL"</h6>
                     </div>
                 </div>
             </div>
