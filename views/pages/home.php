@@ -49,28 +49,28 @@
             <div class="card-deck">
 
                 <div class="card">
-                    <img class="card-img-top" src="views/images/img/italy.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="views/images/img/italy.jpg" alt="Card image">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">Italy</h5>
+                        <p class="card-text">Italy comprises some of the most varied and scenic landscapes on Earth and is often described as a country shaped like a boot. Home to many of the world's greatest works of art, architecture and gastronomy, Italy elates, inspires and moves like no other.</p>
                         <br>
                         <a href="#" >Read more...</a>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="views/images/img/morroco.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="views/images/img/vietnam2.jpg" alt="Card image">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title">Vietnam</h5>
+                        <p class="card-text">A land of staggering natural beauty and cultural complexities, of dynamic megacities and hill-tribe villages, Vietnam is both exotic and compelling.</p>
                         <br>
                         <a href="#" >Read more...</a>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="views/images/img/vietnam2.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="views/images/img/turkey3.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        <h5 class="card-title">Turkey</h5>
+                        <p class="card-text">A richly historical land with some of the best cuisine you will ever taste, scenery from beaches to mountains and the great city of İstanbul.</p>
                         <br>
                         <a href="#" >Read more...</a>
                     </div>
@@ -78,17 +78,19 @@
                 <div class="card">
                     <img class="card-img-top" src="views/images/img/poland.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer .</p>
+                        <h5 class="card-title">Poland</h5>
+                        <p class="card-text">Picturesque cities such as Kraków and Gdańsk vie with energetic Warsaw for your urban attention. Elsewhere, woods, rivers, lakes and hills beckon for some fresh-air fun.</p>
                         <br>
                         <a href="#" >Read more...</a>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="views/images/img/newyork.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="views/images/img/newyork1.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title">New York</h5>
+                        <p class="card-text"> Epicenter of the arts. Architectural darling. Dining and shopping capital. Trendsetter. New York City wears many crowns, and spreads an irresistible feast for all.
+
+</p>
                         <a href="#" >Read more...</a>
                         <br>
 
