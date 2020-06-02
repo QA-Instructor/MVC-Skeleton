@@ -34,23 +34,25 @@ body{
                        
                         <div class="form-group">
                             <label for="=firstName">First Name</label>
-                            <input type="text" name="firstName"   placeholder="Please Enter Your Firstname" class="form-control form-control-lg " required autofocus="" >
+                            <input type="text" name="firstName"   class="form-control form-control-lg " required autofocus="" >
                         </div>
                         <div class="form-group">
                             <label for="=surname">Surname</label>
-                            <input type="text" name="surname" placeholder="Please Enter Your Surname" class="form-control form-control-lg" required>
+                            <input type="text" name="surname"  class="form-control form-control-lg" required>
                         </div>
                         
                          <div class="form-group">   
                             <label for="=email">Email</label>
-                            <input type="email" name="email" placeholder="Please Confirm Your Email" class="form-control form-control-lg required " required>
+                            <input type="email" name="email"  class="form-control form-control-lg required " required>
                         </div>
                         <div class="form-group">   
                             <label for="=date">Date</label>
-                            <input type="date" name="date" class="form-control form-control-lg required " required>
+                            <input type="date" name="date" placeholder="DD/MM/YYYY" class="form-control form-control-lg required " required>
                         </div>
                          <div class="form-group">   
-                             <label for="=body">Body</label>
+
+                             <label for="=body">Message</label>
+
                              <textarea id="body" name="body" rows="4" cols="50" class="form-control form-control-lg required " required="">
                       </textarea>  </div> 
                         

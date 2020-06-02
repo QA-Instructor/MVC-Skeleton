@@ -77,7 +77,7 @@ body{
 
                     </div>
                     <div class="ptext" id="pt4">
-                       <h3>Preceuise</h3>
+                       <h3>Precieuse</h3>
                          I will tell my kids in the year 2020 I stayed in my room the whole time coding
                        <h6><b>Fave phrase during project: </b>"Please God"</h6>
                     </div>

@@ -33,7 +33,9 @@ body{
               <div class="container ">
                   <div class="col-md-6 offset md-6 form-div login"  style="top: 20px; left: 160px" >
                                   
+
       <h1 class="font-weight-light">Subscribe Now</h1>
+
             <div class="card-body">
                     <form action="" method="POST">
 
