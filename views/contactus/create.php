@@ -50,7 +50,9 @@ body{
                             <input type="date" name="date" placeholder="DD/MM/YYYY" class="form-control form-control-lg required " required>
                         </div>
                          <div class="form-group">   
+
                              <label for="=body">Message</label>
+
                              <textarea id="body" name="body" rows="4" cols="50" class="form-control form-control-lg required " required="">
                       </textarea>  </div> 
                         

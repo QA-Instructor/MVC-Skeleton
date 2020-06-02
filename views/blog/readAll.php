@@ -25,6 +25,7 @@
 <body>
    <div class="col-lg-8" style="margin-left: 20%; padding: 10%;">
    
+
 <?php foreach($blog as $blog) { ?>
  <!-- Page Content -->
  <div class="container">
@@ -57,6 +58,7 @@
        </div>
         <a href='?controller=blog&action=read&id=<?php echo $blog->blogID; ?>'>read more</a> &nbsp; &nbsp;      
  
+
 <?php } ?>
      </div>
 <!--side bar widget stuff-->

@@ -36,7 +36,7 @@ body{
                         
 
                         <div class="form-group">
-                            <label for="=username">Update Body</label>
+                            <label for="=username">Update Content</label>
 
                             <textarea name="body" class="form-control form-control-lg" rows="2" cols="25" type='text' name='body' value="<?= $blog->body; ?>"> "<?php echo $blog->body; ?></textarea>
 
