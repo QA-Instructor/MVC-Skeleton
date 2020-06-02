@@ -37,7 +37,7 @@ body{
                             <input type="text" name="blogDescription" class="form-control form-control-lg" required>
                         </div>
                          <div class="form-group">
-                            <label for="=email">Blog Body</label>
+                            <label for="=email">Blog Content</label>
                     
  <textarea class="form-control form-control-lg" rows="2" cols="25" name='body' required autofocus></textarea>
                         </div>
