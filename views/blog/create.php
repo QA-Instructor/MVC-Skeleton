@@ -55,7 +55,7 @@ body{
     <option value="Poland">Poland</option>
   <option value="Morocco">Italy</option>
   <option value="Turkey">Turkey</option>
-  <option value="US">US</option>
+  <option value="USA">U.S.A</option>
 </select>
  </p>
  
@@ -75,13 +75,15 @@ body{
  </p>
  
  <div class="form-group">
-                            <button type="submit" name="submit" class="btn btn-primary btn-block btn-lg">Submit</button>
+      
+ 
+     <button  action='index.php'type="submit" name="submit" class="btn btn-primary btn-block btn-lg">Submit</button>
                         </div>
                         <p class="text-center"> Not sure what to write? Hit the button for inspo <a href="?controller=blog&action=readAll">Read Examples</a></p>
                 </div>   
                     
 
-     
+<!--     //<a href="?controller=blog&action=readAllAdminUser" style="font-color: black;">Submit</a>-->
 
 
             </div>
