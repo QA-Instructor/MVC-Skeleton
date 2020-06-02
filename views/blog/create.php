@@ -77,7 +77,7 @@ body{
  <div class="form-group">
       
  
-     <button  action='index.php'type="submit" name="submit" class="btn btn-primary btn-block btn-lg">Submit</button>
+     <button type="submit" name="submit" class="btn btn-primary btn-block btn-lg">Submit</button>
                         </div>
                         <p class="text-center"> Not sure what to write? Hit the button for inspo <a href="?controller=blog&action=readAll">Read Examples</a></p>
                 </div>   
