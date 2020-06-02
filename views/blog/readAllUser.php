@@ -1,5 +1,5 @@
 
-<p>Welcome Admin User! Here is a list of your capabilities </p>
+<p>Welcome Blogger!! Here is a list of your capabilities </p>
 
 
 <button>
