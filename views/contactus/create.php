@@ -45,6 +45,10 @@ body{
                             <label for="=email">Email</label>
                             <input type="email" name="email"  class="form-control form-control-lg required " required>
                         </div>
+                          <div class="form-group">   
+                            <label for="=email">Date</label>
+                          <input type="text" name="date" class="form-control form-control-lg required" placeholder="<?php echo date("Y/m/d") ?>" readonly required>
+                          </div>
                          <div class="form-group">   
 
                              <label for="=body">Message</label>
