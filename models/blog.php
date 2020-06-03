@@ -152,6 +152,7 @@ class blog {
         
         
         //header("location:index.php?controller=blog&action=readAllAdminUser");
+
 //executes the query
 //all this is making sure that if someone writes a name and it isn't empty then post to database
 //everytime someone created a new prodicut its assigning name variable to filtered name
@@ -226,7 +227,7 @@ $body = $filteredBody;
 $req->execute();
 
 
- header("http://localhost/finalProject/index.php?controller=blog&action=readAllAdminUser");
+ //header("location:finalProject/index.php?controller=blog&action=readAllAdminUser");
 
 
 //upload product image if it exists

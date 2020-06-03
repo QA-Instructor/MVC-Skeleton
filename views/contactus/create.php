@@ -45,16 +45,15 @@ body{
                             <label for="=email">Email</label>
                             <input type="email" name="email"  class="form-control form-control-lg required " required>
                         </div>
-                        <div class="form-group">   
-                            <label for="=date">Date</label>
-                            <input type="date" name="date" placeholder="DD/MM/YYYY" class="form-control form-control-lg required " required>
-                        </div>
+                          <div class="form-group">   
+                            <label for="=email">Date</label>
+                          <input type="text" name="date" class="form-control form-control-lg required" placeholder="<?php echo date("Y/m/d") ?>" readonly required>
+                          </div>
                          <div class="form-group">   
 
                              <label for="=body">Message</label>
 
-                             <textarea id="body" name="body" rows="4" cols="50" class="form-control form-control-lg required " required="">
-                      </textarea>  </div> 
+                             <textarea id="body" name="body" rows="4" cols="50" class="form-control form-control-lg required " required=""></textarea></div> 
                         
                         <div class="form-group">
                             <button type="submit" name="contactus-btn" class="btn btn-primary btn-block btn-lg">Submit</button>

@@ -35,8 +35,8 @@ body{
                     </div>
                     <div class="ptext" id="pt1">
                         <h3>Maeve</h3>
-                        Will be finishing my degree this year, will be cause for a parrrtay
-                       <h6><b>Fave phrase during project: </b>"You know what I mean?"</h6>
+                        Will be finishing my degree this year, which calls for a parrrtay
+                       <h6><b>Fave phrase during project: </b>"You get what I mean?"</h6>
                     </div>
                 </div>
                 <div class="profile" id="p2" >
@@ -48,7 +48,7 @@ body{
                     </div>
                     <div class="ptext" id="pt2">
                         <h3>Bushra</h3>
-                        Cannot wait to take my daughter and husband on a trip away
+                        Cannot wait to take myself on a trip away
                        <h6><b>Fave phrase during project: </b>"Sorry Guys"</h6>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ body{
                     </div>
                     <div class="ptext" id="pt5">
                          <h3>Izzy</h3>
-                         I always try to go for the Dora Explora Vibes!
+                         I always try to go for the Dora Explorer Vibes!
                        <h6><b>Fave phrase during project: </b>"LOL"</h6>
                     </div>
                 </div>
