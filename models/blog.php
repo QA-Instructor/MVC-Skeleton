@@ -151,7 +151,7 @@ class blog {
         $req->execute();
         
         
-        header("location:index.php?controller=blog&action=readAllAdminUser");
+        //header("location:index.php?controller=blog&action=readAllAdminUser");
 //executes the query
 //all this is making sure that if someone writes a name and it isn't empty then post to database
 //everytime someone created a new prodicut its assigning name variable to filtered name

@@ -78,7 +78,7 @@ body{
                     </div>
                     <div class="ptext" id="pt4">
                        <h3>Precieuse</h3>
-                         I will tell my kids in the year 2020 I stayed in my room the whole time coding
+                        Travelling is one of my favourites pastimes and I look forward to sharing with you the tips and tricks that I have picked up over the years.
                        <h6><b>Fave phrase during project: </b>"Please God"</h6>
                     </div>
                 </div>
