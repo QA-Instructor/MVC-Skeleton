@@ -91,7 +91,7 @@ body{
                     </div>
                     <div class="ptext" id="pt5">
                          <h3>Izzy</h3>
-                         I always try to go for the Dora Explora Vibes!
+                         I always try to go for the Dora Explorer Vibes!
                        <h6><b>Fave phrase during project: </b>"LOL"</h6>
                     </div>
                 </div>
