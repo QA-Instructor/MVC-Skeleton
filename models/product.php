@@ -14,8 +14,9 @@
 
     public static function all() {
       $list = [];
+      // this part under is just instansiating the connector to make the connection between the database-DB class in connection.php
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM product');
+      $req = $db->query('SELECT * FROM blog');
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $product) {
         $list[] = new Product($product['id'], $product['name'], $product['price']);
@@ -65,14 +66,18 @@ $req->execute();
 	}
 
     }
+    //add product when you run blog and you see ad product its this 
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into product(name, price) values (:name, :price)");
+    $req = $db->prepare("Insert into product() values (:name, :price)");
     $req->bindParam(':name', $name);
     $req->bindParam(':price', $price);
 
 // set parameters and execute
+    
+    //model communicates wtith the database
+    
     if(isset($_POST['name'])&& $_POST['name']!=""){
         $filteredName = filter_input(INPUT_POST,'name', FILTER_SANITIZE_SPECIAL_CHARS);
     }
@@ -82,9 +87,11 @@ $req->execute();
 $name = $filteredName;
 $price = $filteredPrice;
 $req->execute();
-
+//executes the query
+//all this is making sure that if someone writes a name and it isn't empty then post to database
+//everytime someone created a new prodicut its assigning name variable to filtered name
 //upload product image
-Product::uploadFile($name);
+Product::uploadFile($name); //link to add as the code is enabling them to upload pics and error handlers are here look below
     }
 
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
@@ -109,7 +116,7 @@ public static function uploadFile(string $name) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/MVC_Skeleton/views/images/";
+        $path = "/Applications/XAMPP/htdocs/MVC_Skeleton/views/images/";
 	$destinationFile = $path . $name . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
