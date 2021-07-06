@@ -3,11 +3,14 @@
 class ProductController {
     public function readAll() {
       // we store all the posts in a variable
+        
+      
       $products = Product::all();
       require_once('views/products/readAll.php');
     }
 
     public function read() {
+ 
       // we expect a url of form ?controller=posts&action=show&id=x
       // without an id we just redirect to the error page as we need the post id to find it in the database
       if (!isset($_GET['id']))
@@ -22,7 +25,7 @@ class ProductController {
      return call('pages','error');
  }
     }
-    public function create() {
+    public function create() { //when you click it shows you the blank form
       // we expect a url of form ?controller=products&action=create
       // if it's a GET request display a blank form for creating a new product
       // else it's a POST so add to the database and redirect to readAll action
@@ -30,11 +33,11 @@ class ProductController {
           require_once('views/products/create.php');
       }
       else { 
-            Product::add();
+            Product::add(); //calling the add function that sends query into the database 
              
             $products = Product::all(); //$products is used within the view
-            require_once('views/products/readAll.php');
-      }
+            require_once('views/products/readAll.php'); 
+      }//takes you back to all products 
       
     }
     public function update() {

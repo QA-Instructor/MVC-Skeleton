@@ -1,0 +1,62 @@
+  @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+  body {
+    padding-top: 70px;
+  }
+
+ .card { 
+     border: none;
+     display:inline-block;
+     width: 80px;
+     height: 1000px;
+       padding-top: 20px;
+  padding-right: 20px;
+
+  padding-left: 20px;
+ 
+    
+}
+.index-banner {
+    padding-right: 5px;
+
+  padding-left: 5px; 
+}
+     
+
+
+
+.form-div {
+    opacity: 0.8;
+    float: left;
+    top: -80px;
+  margin: 0px;
+padding: 25px 15px 10px 15px;
+border: 1px solid #000000;
+border-radius: 5px;
+font-size: 1.1em;
+font-family: "Lora", serif;
+ background: linear-gradient(to top, #000000 0%, #000111 100%);
+ color: white;
+ float: left;
+ border-radius: 30px;
+ 
+
+}
+
+/* remove the shadow from input fields */
+.form-control:focus {
+    box-shadow: none;
+}
+/* font sizes for all the form element with a paragraph */
+form p {
+   font-size: .89em; 
+}
+.form-div.login {
+    margin-top: 100px;
+}
+
+.navbar a {
+ 
+  color: white;
+  
+}
